@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bnlrpljqllbxc"
+path="res://.godot/imported/Custom_MAR_M4A1.obj-93deaa0ad368e60816954deffde0996a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Custom_MAR_M4A1.obj-93deaa0ad368e60816954deffde0996a.mesh"]
+
+source_file="res://assets/weapons/m4a1/Custom_MAR_M4A1.obj"
+dest_files=["res://.godot/imported/Custom_MAR_M4A1.obj-93deaa0ad368e60816954deffde0996a.mesh", "res://.godot/imported/Custom_MAR_M4A1.obj-93deaa0ad368e60816954deffde0996a.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

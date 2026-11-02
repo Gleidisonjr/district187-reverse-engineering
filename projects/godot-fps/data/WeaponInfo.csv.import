@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b1y3s5afsilub"
+
+[deps]
+
+files=["res://data/WeaponInfo.Name.translation", "res://data/WeaponInfo.Damage.translation", "res://data/WeaponInfo.Pitch.translation", "res://data/WeaponInfo.Delay.translation", "res://data/WeaponInfo.Accuracy.translation", "res://data/WeaponInfo.Range.translation", "res://data/WeaponInfo.LoadMin.translation", "res://data/WeaponInfo.LoadMax.translation"]
+
+source_file="res://data/WeaponInfo.csv"
+dest_files=["res://data/WeaponInfo.Name.translation", "res://data/WeaponInfo.Damage.translation", "res://data/WeaponInfo.Pitch.translation", "res://data/WeaponInfo.Delay.translation", "res://data/WeaponInfo.Accuracy.translation", "res://data/WeaponInfo.Range.translation", "res://data/WeaponInfo.LoadMin.translation", "res://data/WeaponInfo.LoadMax.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,360 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/bot.tscn" id="2_bot"]
+[ext_resource type="Script" path="res://scripts/target_dummy.gd" id="3_dummy_script"]
+[ext_resource type="Script" path="res://scripts/hud_manager.gd" id="4_hud_script"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sky"]
+sky_top_color = Color(0.35, 0.45, 0.6, 1)
+sky_horizon_color = Color(0.65, 0.7, 0.75, 1)
+ground_bottom_color = Color(0.2, 0.22, 0.25, 1)
+ground_horizon_color = Color(0.55, 0.6, 0.65, 1)
+
+[sub_resource type="Sky" id="Sky_env"]
+sky_material = SubResource("ProceduralSkyMaterial_sky")
+
+[sub_resource type="Environment" id="Environment_main"]
+background_mode = 2
+sky = SubResource("Sky_env")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_main"]
+vertices = PackedVector3Array(-28, 0.05, -28, -28, 0.05, 28, 28, 0.05, 28, 28, 0.05, -28)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+agent_height = 1.8
+agent_radius = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(60, 1, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_color = Color(0.22, 0.25, 0.28, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+material = SubResource("StandardMaterial3D_floor")
+size = Vector3(60, 1, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crate"]
+albedo_color = Color(0.48, 0.38, 0.25, 1)
+roughness = 0.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_crate_big"]
+material = SubResource("StandardMaterial3D_crate")
+size = Vector3(3, 2, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_crate_big"]
+size = Vector3(3, 2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
+albedo_color = Color(0.32, 0.35, 0.38, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall"]
+material = SubResource("StandardMaterial3D_wall")
+size = Vector3(12, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall"]
+size = Vector3(12, 3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_target"]
+size = Vector3(0.6, 1.8, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_target"]
+size = Vector3(0.6, 1.8, 0.4)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_main")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 20, 0)
+shadow_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_main")
+
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_layer = 1
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor"]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
+mesh = SubResource("BoxMesh_floor")
+
+[node name="TacticalCovers" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="CrateA" type="StaticBody3D" parent="NavigationRegion3D/TacticalCovers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -8)
+collision_layer = 1
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/TacticalCovers/CrateA"]
+mesh = SubResource("BoxMesh_crate_big")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TacticalCovers/CrateA"]
+shape = SubResource("BoxShape3D_crate_big")
+
+[node name="CrateB" type="StaticBody3D" parent="NavigationRegion3D/TacticalCovers"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 6, 1, -12)
+collision_layer = 1
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/TacticalCovers/CrateB"]
+mesh = SubResource("BoxMesh_crate_big")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TacticalCovers/CrateB"]
+shape = SubResource("BoxShape3D_crate_big")
+
+[node name="CrateC" type="StaticBody3D" parent="NavigationRegion3D/TacticalCovers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20)
+collision_layer = 1
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/TacticalCovers/CrateC"]
+mesh = SubResource("BoxMesh_crate_big")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TacticalCovers/CrateC"]
+shape = SubResource("BoxShape3D_crate_big")
+
+[node name="WallLeft" type="StaticBody3D" parent="NavigationRegion3D/TacticalCovers"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -12, 1.5, -10)
+collision_layer = 1
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/TacticalCovers/WallLeft"]
+mesh = SubResource("BoxMesh_wall")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TacticalCovers/WallLeft"]
+shape = SubResource("BoxShape3D_wall")
+
+[node name="WallRight" type="StaticBody3D" parent="NavigationRegion3D/TacticalCovers"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 12, 1.5, -10)
+collision_layer = 1
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/TacticalCovers/WallRight"]
+mesh = SubResource("BoxMesh_wall")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/TacticalCovers/WallRight"]
+shape = SubResource("BoxShape3D_wall")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 8)
+
+[node name="Bots" type="Node3D" parent="."]
+
+[node name="Bot_Alpha" parent="Bots" instance=ExtResource("2_bot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.1, -14)
+bot_name = "Bot Alpha"
+
+[node name="Bot_Bravo" parent="Bots" instance=ExtResource("2_bot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.1, -18)
+bot_name = "Bot Bravo"
+
+[node name="Bot_Charlie" parent="Bots" instance=ExtResource("2_bot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -24)
+bot_name = "Bot Charlie"
+
+[node name="ShootingRangeDummies" type="Node3D" parent="."]
+
+[node name="TargetDummy_15m" type="StaticBody3D" parent="ShootingRangeDummies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0.9, -15)
+collision_layer = 1
+collision_mask = 3
+script = ExtResource("3_dummy_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShootingRangeDummies/TargetDummy_15m"]
+shape = SubResource("BoxShape3D_target")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ShootingRangeDummies/TargetDummy_15m"]
+mesh = SubResource("BoxMesh_target")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_hud_script")
+
+[node name="DamageOverlay" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.85, 0.1, 0.1, 0)
+
+[node name="Crosshair" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="ColorRect" parent="CanvasLayer/Crosshair"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -12.0
+offset_right = 1.0
+offset_bottom = -4.0
+color = Color(0.2, 1, 0.3, 0.9)
+
+[node name="Bottom" type="ColorRect" parent="CanvasLayer/Crosshair"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 1.0
+offset_bottom = 12.0
+color = Color(0.2, 1, 0.3, 0.9)
+
+[node name="Left" type="ColorRect" parent="CanvasLayer/Crosshair"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -1.0
+offset_right = -4.0
+offset_bottom = 1.0
+color = Color(0.2, 1, 0.3, 0.9)
+
+[node name="Right" type="ColorRect" parent="CanvasLayer/Crosshair"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 12.0
+offset_bottom = 1.0
+color = Color(0.2, 1, 0.3, 0.9)
+
+[node name="CenterDot" type="ColorRect" parent="CanvasLayer/Crosshair"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+color = Color(0.2, 1, 0.3, 0.8)
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BottomLeft" type="VBoxContainer" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -80.0
+offset_right = 240.0
+offset_bottom = -24.0
+grow_vertical = 0
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer/HUD/BottomLeft"]
+layout_mode = 2
+text = "HP: 100 / 100"
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD/BottomLeft"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="BottomRight" type="VBoxContainer" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -80.0
+offset_right = -32.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="WeaponLabel" type="Label" parent="CanvasLayer/HUD/BottomRight"]
+layout_mode = 2
+text = "AK-47"
+horizontal_alignment = 2
+
+[node name="AmmoLabel" type="Label" parent="CanvasLayer/HUD/BottomRight"]
+layout_mode = 2
+text = "30 / 90"
+horizontal_alignment = 2
+
+[node name="TopRight" type="VBoxContainer" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 24.0
+offset_right = -32.0
+offset_bottom = 100.0
+grow_horizontal = 0
+
+[node name="KillFeedLabel" type="Label" parent="CanvasLayer/HUD/TopRight"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+horizontal_alignment = 2
+
+[node name="ControlsHint" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 16.0
+offset_right = 300.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.75, 0.8)
+text = "[WASD] Mover | [Shift] Correr | [R] Recarregar | [Botão Direito] Mira ADS | [1,2,3] Trocar Arma"
+horizontal_alignment = 1
+
+[node name="DeathOverlay" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="ColorRect" parent="CanvasLayer/DeathOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0, 0, 0.7)
+
+[node name="Label" type="Label" parent="CanvasLayer/DeathOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -40.0
+offset_right = 200.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.15, 0.15, 1)
+text = "VOCÊ FOI ELIMINADO!
+Pressione [ESPAÇO] para Renascer"
+horizontal_alignment = 1
+vertical_alignment = 1

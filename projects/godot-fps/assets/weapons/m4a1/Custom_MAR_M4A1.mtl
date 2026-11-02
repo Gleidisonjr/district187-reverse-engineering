@@ -1,0 +1,8 @@
+# Material for Custom_MAR_M4A1
+newmtl Custom_MAR_M4A1_Material
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ns 30.000000
+illum 2
+map_Kd Custom_MAR_M4A1_D.png
