@@ -33,6 +33,15 @@
 - **Ghidra 12.1.4**: `C:\Users\dopamine\AppData\Local\ghidra\ghidra_12.1.4_PUBLIC`
 - **Java 21 (Temurin)**: `C:\Program Files\Eclipse Adoptium\jdk-21.0.13.9-hotspot`
 
+## Roteamento Autônomo de Skills (Execução Proativa)
+O usuário NUNCA precisa digitar comandos manuais ou acionar skills via slash command. O agente DEVE identificar o momento e contexto da tarefa e aplicar as skills e metodologias correspondentes automaticamente:
+- **Investigação de alvo / binário / API**: Acione autonomamente `re-investigation` e `data-extraction` para mapear rotas, binários e estruturas de dados.
+- **Bugs, falhas e comportamentos inesperados**: Acione `evidence-driven-debugging` (colete logs e evidências empíricas antes de propor ou alterar código).
+- **Decisões de design, arquitetura ou requisitos ambíguos**: Aplique o padrão `grill-me` (faça perguntas numeradas com opções recomendadas para destravar a decisão).
+- **Implementação e refatoração de código**: Aplique `karpathy-guidelines` (simplicidade, cirúrgico, sem suposições silenciosas) e execute o loop `validated-coding-loop` (validando antes e após a mudança).
+- **Conclusão de tarefas de código / pré-merge**: Dispare autonomamente `code-review` com subagentes em paralelo (Standards vs Spec).
+- **Consolidação de discussões e novos fluxos**: Acione `to-spec` para sintetizar acordos em documentação formal.
+
 ## Skills disponíveis (`.agents/skills/`)
 - `/evidence-driven-debugging` — análise com evidências antes de conclusões
 - `/source-backed-research` — pesquisa citando fontes

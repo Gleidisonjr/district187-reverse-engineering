@@ -2,17 +2,16 @@
 
 ## Estado atual
 - **Agente:** Antigravity (Gemini 3.8 Flash)
-- **Alvo ativo:** `targets/district-187/` (District 187 / S2 Rebirth / S2 Online)
-- **Timestamp:** 2026-11-02 19:10
+- **Alvo ativo:** `targets/district-187/` (District 187 / S2 Rebirth)
+- **Timestamp:** 2026-11-02 19:36
 - **Status:**
-  1. **Opção C (Híbrida) Totalmente Configurada:**
-     - **Ambiente Online:** Cliente limpo S2 Rebirth montado em `targets/district-187/client-rebirth/` com integridade SHA-256 via CDN oficial e pacote de idioma inglês aplicado.
-     - **Ambiente Offline:** Cliente mock / testbed em `targets/district-187/client/S2/` com `scripts/d187-mock-server.py` ativo na porta 12000.
-  2. **Scripts de Disparo Prontos na Raiz:**
-     - `launch_s2rebirth_online.bat` (abre o launcher oficial da comunidade com ApexGuard e validação de arquivos)
-     - `launch_s2rebirth_direct.bat` (inicialização direta em `179.61.147.154:12000`)
-     - `launch_offline_emulator.bat` (inicialização do ambiente mock local em `127.0.0.1:12000`)
-  3. **Pacote de Idioma Inglês:** Totalmente instalado e ativado via `.launcher/paket.json`, substituindo as texturas da interface Flash, áudio de voz e banco de strings.
+  1. **Fase 1 (Ultra HD, 144+ FPS e Inglês) Totalmente Concluída:**
+     - 1.72 GB de texturas HD instaladas em `targets/district-187/client-rebirth/Game/` (`HD1.ResDt` a `HD6.ResDt`).
+     - `Default.archcfg` montando os 6 volumes HD.
+     - `settings.cfg` e `autoexec.cfg` configurados com `GraphicQualityLevel 3`, `BindTexturesMipOffset 0`, `MaxFPS 0` (144+ FPS) e `ShowFrameRate 1`.
+     - Idioma 100% em inglês com 3.923 strings validadas.
+     - Script [`launch_game_ultra_hd.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_game_ultra_hd.bat) pronto para execução imediata.
+  2. **Próximo Objetivo:** Iniciar Fase 2 (Motor de Bots Inteligentes & Sessão Solo/PvE com seleção de dificuldade).
 
 ## O que foi feito nesta sessão
 1. **Engenharia Reversa da Infraestrutura S2 Rebirth (`s2rebirth.com`):**
