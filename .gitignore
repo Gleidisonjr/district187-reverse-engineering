@@ -23,7 +23,10 @@ projects/godot-fps/.godot/
 # Large Game Binaries & Archives (> 100MB / non-redistributable)
 targets/*/downloads/
 targets/*/client/
+targets/*/client-rebirth/
 targets/*/traffic/
+targets/*/*.exe
+targets/*/*.dll
 *.rar
 *.zip
 *.7z

@@ -41,6 +41,18 @@
 - `/agent-worktree-orchestration` — orquestração de worktrees
 - `/re-investigation` — investigação RE estruturada
 - `/data-extraction` — extração de dados de binários/APKs
+- `/karpathy-guidelines` — cautela, simplicidade e mudanças cirúrgicas (anti-overengineering)
+- `/grill-me` — entrevista implacável em árvore de decisão para estressar ideias/planos
+- `/code-review` — revisão paralela em 2 eixos (Standards vs Spec) com subagentes
+- `/to-spec` — sintetização de conversas e contexto em especificações técnicas
+- `/improve-codebase-architecture` — análise visual de fricção e aprofundamento arquitetural
+- `/codebase-design` — princípios e vocabulário estruturado de design de código
+
+## Diretrizes de Engenharia e Execução (Karpathy Principles)
+1. **Pense antes de codar**: Não assuma premissas em silêncio. Explicite incertezas, apresente alternativas e clarifique dúvidas antes de implementar.
+2. **Simplicidade primeiro**: Menor volume de código que resolve o problema. Sem camadas especulativas, abstrações de uso único ou flexibilidade desnecessária.
+3. **Mudanças cirúrgicas**: Modifique apenas o necessário. Não refatore nem altere estilo/formatação de código adjacente que funciona.
+4. **Execução orientada a metas**: Toda alteração deve ter critério claro de sucesso e verificação (testar antes e depois).
 
 ## Handoff com Claude Code
 - Estado de sessão em `sessions/current.md`

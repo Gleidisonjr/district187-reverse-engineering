@@ -2,18 +2,25 @@
 
 ## Em andamento
 
-### [TARGET] District 187: Sin Streets (S2 Online) — Preservação do Cliente Original (Caminho B)
+### [TARGET] District 187: Sin Streets (S2 Online) — Abordagem Híbrida (Opção C)
 - **Status:** em andamento (2026-11-02)
 - **Fase atual:**
-  - **Foco Primário (Caminho B):** Execução do executável original autêntico `TheRaw.exe` (LithTech Jupiter EX Engine).
-  - **Diagnóstico do Carregamento Infinito de Login:** Identificado que a rotina `0x100d7964` em `GameClient.dll` falhava ao ler `gs_ip` da linha de comando, abortando em `CGameServerConnectMgr::Connecting()` com `"empty szIP!!"`.
-  - **Patch de Rede Local:** Aplicado patch atômico no offset `0x100d7964` forçando IP fixo `127.0.0.1` e porta `12000.0f`, garantindo que todo clique de login conecte ao servidor mock local.
-  - **Mock Server Hermit Aprimorado:** `scripts/d187-mock-server.py` responde a `CQ_JoyGameLogin` com `SA_JoyGameLogin` (`ResultCode=0`, `AccountID=1001`), destravando o spinner e liberando a transição do lobby.
-  - **Portfólio GitHub:** Sincronizado em [`https://github.com/Gleidisonjr/district187-reverse-engineering`](https://github.com/Gleidisonjr/district187-reverse-engineering).
+  - **Opção C Adotada:** Configuração dual completa permitindo jogo online em servidores ativos da comunidade e preservação offline em mock server local.
+  - **Cliente S2 Rebirth Online (`targets/district-187/client-rebirth/`):**
+    - Montado com 100% de integridade SHA-256 via CDN `https://gamefiles.mdcreative.tr`.
+    - Pacote de idioma Inglês instalado (texturas Flash, áudio FSB e banco de textos).
+    - Launcher oficial C# (`S2Launcher.exe`) e scripts de inicialização configurados:
+      - `launch_s2rebirth_online.bat` (abre o launcher oficial da comunidade)
+      - `launch_s2rebirth_direct.bat` (conecta diretamente a `179.61.147.154:12000`)
+  - **Ambiente Local Mock / Emulador Offline (`targets/district-187/client/S2/`):**
+    - Mock server Hermit em Python (`scripts/d187-mock-server.py`) ouvindo na porta 12000.
+    - Cliente com patch atômico de IP/Porta local e idioma inglês preservado para portfólio e testes de RE.
+    - `launch_offline_emulator.bat` configurado para disparo automático.
 - **Alvo:** `targets/district-187/`
 - **Próximos Passos:**
-  - Usuário executar `launch_original_game.bat` e logar com qualquer credencial.
-  - Validar recebimento de pacotes no mock server e transição de tela para o lobby/servidores.
+  - Usuário criar conta em `https://s2rebirth.com/kayit` para jogar online no servidor da comunidade.
+  - Testar login e jogabilidade com `launch_s2rebirth_online.bat` ou `launch_s2rebirth_direct.bat`.
+  - Continuar documentação e commits atômicos no repositório GitHub.
 
 ### [SETUP] Configuração do ambiente RE
 - **Status:** concluído
