@@ -2,16 +2,19 @@
 
 ## Em andamento
 
-### [TARGET] District 187: Sin Streets (S2 Online) — Remake Tático & Preservação
+### [TARGET] District 187: Sin Streets (S2 Online) — Preservação do Cliente Original (Caminho B)
 - **Status:** em andamento (2026-11-02)
 - **Fase atual:**
-  - **Caminho A (Concluído & Jogável):** Arena de combate tática jogável offline no Godot 4.7 (`projects/godot-fps/`) com IA de bots autônomos (`TacticalBot`), máquinas de estado (`PATROL`, `CHASE`, `ENGAGE`, `DEAD`), detecção LoS raycast, disparos em rajada, multiplicador de headshot (2.5x), respawn automático, armas autênticas (AK-47, M4A1, AWM-300), recuo procedural, mira ADS, HUD tático completo e inicializador em 1 clique (`launch_game.bat`).
-  - **Portfólio GitHub (Publicado & Sincronizado):** Repositório público ativo em [`https://github.com/Gleidisonjr/district187-reverse-engineering`](https://github.com/Gleidisonjr/district187-reverse-engineering) com 5 commits atômicos estruturados e README arquitetural detalhado.
-  - **Caminho B (Paralelo / Preservação):** Servidor mock Python (`scripts/d187-mock-server.py`) ativo na porta 12000; proxy DLL maliciosa desarmada; executável original pronto para avançar no handshake de login Joygame.
+  - **Foco Primário (Caminho B):** Execução do executável original autêntico `TheRaw.exe` (LithTech Jupiter EX Engine).
+  - **Descoberta do Protocolo Hermit:** Mapeada a tabela de despacho de pacotes (offset `0x10058498` em `GameClient.dll`), identificando `tPacket_NAccount_NIdentity_CQ_JoyGameLogin` (`0x110111`, opcode `0x0062`) e sua resposta `SA_JoyGameLogin` (`0x110112`).
+  - **Bypass de UAC:** Aplicado `__COMPAT_LAYER=RunAsInvoker`, eliminando o erro de permissão administrativa.
+  - **Mock Server Hermit Atualizado:** `scripts/d187-mock-server.py` ativo na porta 12000 com decodificador de cabeçalhos e emulador de resposta de login.
+  - **Launcher Original:** Criado `launch_original_game.bat` para inicialização direta do jogo original com rede local.
+  - **Portfólio GitHub:** Sincronizado em [`https://github.com/Gleidisonjr/district187-reverse-engineering`](https://github.com/Gleidisonjr/district187-reverse-engineering).
 - **Alvo:** `targets/district-187/`
 - **Próximos Passos:**
-  - Testar gameplay presencial no Godot com bot skirmish.
-  - Implementar resposta ao opcode de login `0x0062` no mock server Hermit para avançar a tela preta no executável original `TheRaw.exe`.
+  - Testar inicialização do `TheRaw.exe` via `launch_original_game.bat` com conexão ao mock server.
+  - Inspecionar a transição da janela Direct3D e carregamento da UI Flash do lobby.
 
 ### [SETUP] Configuração do ambiente RE
 - **Status:** concluído

@@ -3,11 +3,13 @@
 ## Estado atual
 - **Agente:** Antigravity (Gemini 3.8 Flash)
 - **Alvo ativo:** `targets/district-187/` (District 187 / S2 Online)
-- **Timestamp:** 2026-11-02 14:45
-- **Status:** 
-  1. **Caminho A (Concluído & Jogável Offline):** Arena 3D tática no Godot 4.7 (`projects/godot-fps/`) totalmente funcional com IA de bots táticos autônomos (`TacticalBot`), máquinas de estado (`PATROL`, `CHASE`, `ENGAGE`, `DEAD`), Line-of-Sight raycast, recuo procedural, headshots críticos, respawn automático, HUD com vida/munição/killfeed e atalho de inicialização `launch_game.bat`.
-  2. **Portfólio GitHub:** Repositório público criado e sincronizado em [`https://github.com/Gleidisonjr/district187-reverse-engineering`](https://github.com/Gleidisonjr/district187-reverse-engineering) com 5 commits atômicos profissionais e documentação arquitetural completa.
-  3. **Caminho B (Paralelo / Preservação):** Proxy DLL desarmada, mock server Hermit na porta 12000 pronto para receber o handshake de login do executável original `TheRaw.exe`.
+- **Timestamp:** 2026-11-02 16:00
+- **Status:**
+  1. **Foco Primário Definido (Caminho B - Preservação Original):** Conforme decisão do usuário, foco total na execução e jogabilidade do cliente oficial original `TheRaw.exe` (LithTech Jupiter EX Engine).
+  2. **Engenharia Reversa da Rede Hermit:** Mapeada a tabela de despacho em `0x10058498` de `GameClient.dll`, identificando a relação entre `CQ_JoyGameLogin` (`0x110111`, opcode `0x0062`) e `SA_JoyGameLogin` (`0x110112`).
+  3. **Mock Server Hermit Atualizado:** `scripts/d187-mock-server.py` ativo em background com decodificação de pacotes e gerador de resposta `SA_JoyGameLogin`.
+  4. **Launcher do Jogo Original:** Criado `launch_original_game.bat` com bypass UAC `__COMPAT_LAYER=RunAsInvoker`.
+  5. **Telemetria de Tokens:** Levantamento detalhado do contexto da sessão apurado em ~4% de consumo (40.257 tokens de 1.000.000 da janela do modelo).
 
 ## O que foi feito nesta sessão
 1. **Desenvolvimento da IA Tática de Bots no Godot 4.7:**

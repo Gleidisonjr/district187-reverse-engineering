@@ -19,3 +19,6 @@
 | 2026-11-02 | Estruturar projeto base Godot 4 em `projects/godot-fps/` | Integra os modelos 3D convertidos, texturas e parâmetros balísticos calibrados diretamente em um FPS jogável |
 | 2026-11-02 | Construir arena de combate tática com IA de Bots (TacticalBot) no Godot 4.7 | Fornece experiência jogável offline imediata (Caminho A) com máquinas de estado, LoS raycast, headshots críticos e respawn |
 | 2026-11-02 | Publicar repositório público no GitHub com 5 commits atômicos estruturados | Documentação e apresentação profissional do portfólio de Engenharia Reversa, Data Analytics e Gamedev (@Gleidisonjr) |
+| 2026-11-02 | Priorizar Caminho B (execução e preservação do cliente original TheRaw.exe) | O usuário validou que recriações genéricas não possuem a fidelidade autêntica do District 187; foco total em fazer o cliente original rodar |
+| 2026-11-02 | Aplicar bypass `__COMPAT_LAYER=RunAsInvoker` para inicialização do TheRaw.exe | Contorna o manifesto embutido com `requireAdministrator` sem necessitar de privilégios elevados |
+| 2026-11-02 | Reverter a tabela de despacho do protocolo Hermit (offset 0x10058498 em GameClient.dll) | Identificou o mapeamento dos opcodes CQ_JoyGameLogin (0x110111 / 0x0062) e SA_JoyGameLogin (0x110112) para emulação do mock server |
