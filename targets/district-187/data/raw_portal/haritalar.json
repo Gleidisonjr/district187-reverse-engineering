@@ -1,0 +1,4729 @@
+{
+ "uretim": "2026-10-13T20:18:27.622Z",
+ "kaynakIstemci": "S2SonSilah",
+ "uretenArac": "WEBSITE/arac/varlik-cikar.js",
+ "not": "ELLE DUZENLEME. Bu dosyalar uretiliyor; degisiklik icin araci calistir.",
+ "sayi": 155,
+ "haritalar": [
+  {
+   "id": 10000,
+   "ad": "Çifte Yol",
+   "gelistiriciAd": "Two Way",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\twoway.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/twoway_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/twoway_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10001,
+   "ad": "Ölüm Limanı",
+   "gelistiriciAd": "Kill Port",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\Kill_Port.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/killport_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/killport_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10002,
+   "ad": "Kayıp Topraklar",
+   "gelistiriciAd": "Lost Land",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\lostland.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/lostland_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/lostland_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10003,
+   "ad": "Issız Tepe",
+   "gelistiriciAd": "Hunting Hill",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\huntinghill.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/huntinghill_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/huntinghill_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10004,
+   "ad": "Eski Şehir",
+   "gelistiriciAd": "Old Town",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\oldtown.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/oldtown_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/oldtown_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10005,
+   "ad": "Banka",
+   "gelistiriciAd": "The Bank",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\thebank.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/thebank_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/thebank_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10006,
+   "ad": "Plaza",
+   "gelistiriciAd": "HeadHunting",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10006_HeadHunting_Event.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10006_HeadHunting_Event_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10006_HeadHunting_Event_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10007,
+   "ad": "Savaş Lordu",
+   "gelistiriciAd": "WarLoad",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\10007_warload.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10007_warload_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10007_warload_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10008,
+   "ad": "Hayalet Gemi",
+   "gelistiriciAd": "Ghost Ship",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\Ghost_Ship.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10008_Ghost_Ship_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10008_Ghost_Ship_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10009,
+   "ad": "Köpek Yuvası",
+   "gelistiriciAd": "Dog House",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\DogHouse.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10010,
+   "ad": "Eski Şehir(G)",
+   "gelistiriciAd": "Old Town(Night)",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\oldtown_night.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/oldtownnight_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/oldtownnight_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10011,
+   "ad": "Hayalet Şehir",
+   "gelistiriciAd": "Ghost City",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\ghostcity.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/ghostcity_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/ghostcity_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10012,
+   "ad": "Stüdyo",
+   "gelistiriciAd": "Officetel",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\officetel.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10013,
+   "ad": "Çifte Yol(G)",
+   "gelistiriciAd": "Two Way(Night)",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\twoway_night.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/TwoWayNight_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/TwoWayNight_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10014,
+   "ad": "İskele",
+   "gelistiriciAd": "Wharf",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\wharf.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10015,
+   "ad": "Altınkum",
+   "gelistiriciAd": "Paradise",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10015_Paradise.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10015_Paradise_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10015_Paradise_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10016,
+   "ad": "Su Altı",
+   "gelistiriciAd": "UnderWorld",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10016_underworld.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10016_underworld_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10016_underworld_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10017,
+   "ad": "Üçlü Hücre",
+   "gelistiriciAd": "Triplecore",
+   "modlar": [
+    "Conquest"
+   ],
+   "dunyaDosyasi": "Worlds\\10017_triplecore.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10017_triplecore_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10017_triplecoret_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10018,
+   "ad": "Şanzelize",
+   "gelistiriciAd": "MoonNight",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10018_moonnight.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10018_moonnight_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10018_moonnight_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10019,
+   "ad": "Kurt ve Pik",
+   "gelistiriciAd": "WolfAndPig",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\10019_wolfandpig.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10019_wolfandpig_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10019_wolfandpig_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10020,
+   "ad": "Patron Savaşı",
+   "gelistiriciAd": "Kill Boss",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10020.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10021,
+   "ad": "Patronu Koru 1",
+   "gelistiriciAd": "Defend Boss",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10021.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10022,
+   "ad": "Patronu Koru 2",
+   "gelistiriciAd": "Heaven",
+   "modlar": [
+    "Rescue"
+   ],
+   "dunyaDosyasi": "Worlds\\10022.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10023,
+   "ad": "Kapalı Çarşı",
+   "gelistiriciAd": "GrandBazar",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10023_GrandBazar.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10023_GrandBazar_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10023_GrandBazar_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10024,
+   "ad": "KumFırtınası",
+   "gelistiriciAd": "SandStorm",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10024_SandStorm.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10024_SandStorm_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10024_SandStorm_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10025,
+   "ad": "Malikane",
+   "gelistiriciAd": "Heaven",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\10025_Heaven.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10025_Heaven_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10025_Heaven_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10026,
+   "ad": "Yer Altı",
+   "gelistiriciAd": "UnderGround",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10026_UnderGround.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10026_UnderGround_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10026_UnderGround_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10027,
+   "ad": "Beyaz Gece",
+   "gelistiriciAd": "WhiteNight",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10027_WhiteNight_Event.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10027_WhiteNight_Event_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10027_WhiteNight_Event_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10028,
+   "ad": "Ölüm Merkezi",
+   "gelistiriciAd": "DeadCenter",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\10028_DeadCenter.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10028_DeadCenter_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10028_DeadCenter_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10029,
+   "ad": "İnşaat",
+   "gelistiriciAd": "DummyHouse",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\10029_DummyHouse.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10029_DummyHouse_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10029_DummyHouse_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10030,
+   "ad": "Wolf ve Duck",
+   "gelistiriciAd": "WolfAndDuck",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\10030_wolfandduck.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10030_wolfandduck_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10030_wolfandduck_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10031,
+   "ad": "Hastane",
+   "gelistiriciAd": "Hospital",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10031_Hospital.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10031_Hospital_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10031_Hospital_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10032,
+   "ad": "Hücre",
+   "gelistiriciAd": "PrisonCage",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10032_PrisonCage.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10033,
+   "ad": "İnci Tüneli",
+   "gelistiriciAd": "BlackOut",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10033_BlackOut.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10033_BlackOut_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10033_BlackOut_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10034,
+   "ad": "Merkez",
+   "gelistiriciAd": "TheMetro",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10034_TheMetro.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10034_TheMetro_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10034_TheMetro_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10035,
+   "ad": "Plaza",
+   "gelistiriciAd": "HeadHunting_Event",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10035_HeadHunting.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10035_HeadHunting_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10035_HeadHunting_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10036,
+   "ad": "Beyaz Gece",
+   "gelistiriciAd": "WhiteNight_Event",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\10036_WhiteNight.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10036_WhiteNight_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10036_WhiteNight_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10037,
+   "ad": "Arka Mahalle",
+   "gelistiriciAd": "BackAlley",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\10037_BackAlley.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10038,
+   "ad": "Çarşı",
+   "gelistiriciAd": "Downtown",
+   "modlar": [
+    "Extortion"
+   ],
+   "dunyaDosyasi": "Worlds\\10038_Downtown.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10039,
+   "ad": "Kuşatma",
+   "gelistiriciAd": "UnderSiege",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\10039_UnderSiege.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10039_UnderSiege_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10039_UnderSiege_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10040,
+   "ad": "Secret Village",
+   "gelistiriciAd": "SecretVillage",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\10040_SecretVillage.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10041,
+   "ad": "BlackClub",
+   "gelistiriciAd": "BlackClub",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\10041_BlackClub.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10042,
+   "ad": "Signal Tower",
+   "gelistiriciAd": "SignalTower",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\10042_SignalTower.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10043,
+   "ad": "Hayalet Gemi",
+   "gelistiriciAd": "Ghost Ship_Event",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\Ghost_Ship_Event.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10044,
+   "ad": "투웨이(라)",
+   "gelistiriciAd": "Two Way_Round",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\10044_TwoWay_Round.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/twoway_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/twoway_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10045,
+   "ad": "언더그라운드(대)",
+   "gelistiriciAd": "UnderGround_Captain",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\10045_UnderGround_Captain.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10026_UnderGround_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10026_UnderGround_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10046,
+   "ad": "병원(쟁)",
+   "gelistiriciAd": "Hospital_Capture",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\10046_Hospital_Capture.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10031_Hospital_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10031_Hospital_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10047,
+   "ad": "화이트나이트(대)",
+   "gelistiriciAd": "WhiteNight_Captain",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\10047_WhiteNight_Captain.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10036_WhiteNight_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10036_WhiteNight_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10048,
+   "ad": "올드타운(라)",
+   "gelistiriciAd": "Old Town_Round",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\10048_OldTown_Round.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/oldtown_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/oldtown_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10049,
+   "ad": "로스트랜드(라)",
+   "gelistiriciAd": "Lost Land_Round",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\10049_LostLand_Round.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/lostland_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/lostland_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10051,
+   "ad": "더미하우스(폭)",
+   "gelistiriciAd": "DummyHouse_Bomb",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\10051_DummyHouse_Bomb.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10029_DummyHouse_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10029_DummyHouse_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10052,
+   "ad": "AWP Lego",
+   "gelistiriciAd": "Awp_Lego",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\awm_lego_2.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/awp_lego_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/awp_lego_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10053,
+   "ad": "Aim RedLine",
+   "gelistiriciAd": "Aim_Redline",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\aim_redline.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10054,
+   "ad": "AWP Lego (R)",
+   "gelistiriciAd": "Awp_Lego",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\awm_lego_2.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/awp_lego_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/awp_lego_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 10056,
+   "ad": "Dust 2",
+   "gelistiriciAd": "De_dust2",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\De_dust2.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20002,
+   "ad": "개발용5_D(구)",
+   "gelistiriciAd": "Test02",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST5.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20003,
+   "ad": "개발용1_D(구)",
+   "gelistiriciAd": "Test03",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST1.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20004,
+   "ad": "개발용2_D(구)",
+   "gelistiriciAd": "Test04",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST2.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20005,
+   "ad": "개발용3_D(구)",
+   "gelistiriciAd": "Test05",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST3.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20006,
+   "ad": "개발용4_D(구)",
+   "gelistiriciAd": "Test06",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST4.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20007,
+   "ad": "개발용6_D(구)",
+   "gelistiriciAd": "Test07",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST6.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20008,
+   "ad": "개발용7_D(구)",
+   "gelistiriciAd": "Test08",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST7.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20010,
+   "ad": "개발용8_D(구)",
+   "gelistiriciAd": "Test10",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST8.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20011,
+   "ad": "개발용9_D(구)",
+   "gelistiriciAd": "Test11",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST9.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20012,
+   "ad": "개발용10_D(구)",
+   "gelistiriciAd": "Test12",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST10.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20013,
+   "ad": "개발용11_B(구)",
+   "gelistiriciAd": "Test13",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST11.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20014,
+   "ad": "개발용12_B(구)",
+   "gelistiriciAd": "Test14",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST12.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20015,
+   "ad": "개발용13_R(구)",
+   "gelistiriciAd": "Test15",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST13.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20016,
+   "ad": "개발용14_R(구)",
+   "gelistiriciAd": "Test16",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\TEST14.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20017,
+   "ad": "쟁탈전01(구)",
+   "gelistiriciAd": "FlexibleCapture01",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20017_FlexibleCapture_01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20018,
+   "ad": "쟁탈전02(구)",
+   "gelistiriciAd": "FlexibleCapture02",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20018_FlexibleCapture_02.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20019,
+   "ad": "쟁탈전03(구)",
+   "gelistiriciAd": "FlexibleCapture03",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20019_FlexibleCapture_03.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20021,
+   "ad": "대장전01(구)",
+   "gelistiriciAd": "Captin01",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20021_Captin_01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20022,
+   "ad": "대장전02(구)",
+   "gelistiriciAd": "Captin02",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20022_Captin_02.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20023,
+   "ad": "대장전03(구)",
+   "gelistiriciAd": "Captin03",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20023_Captin_03.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20024,
+   "ad": "TDM01(구)",
+   "gelistiriciAd": "TDM01",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20024_TDM_01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20025,
+   "ad": "TDM02(구)",
+   "gelistiriciAd": "TDM02",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20025_TDM_02.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20026,
+   "ad": "TDM03(구)",
+   "gelistiriciAd": "TDM03",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20026_TDM_03.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20027,
+   "ad": "탈취미션(구)",
+   "gelistiriciAd": "Extortion01",
+   "modlar": [
+    "Extortion"
+   ],
+   "dunyaDosyasi": "Worlds\\20027_Extortion_01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20028,
+   "ad": "탈출미션(구)",
+   "gelistiriciAd": "Escape01",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\20028_Escape_01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20029,
+   "ad": "호위미션(구)",
+   "gelistiriciAd": "Convoy01",
+   "modlar": [
+    "Convoy"
+   ],
+   "dunyaDosyasi": "Worlds\\20029_Convoy_01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20030,
+   "ad": "개인전TEST01(구)",
+   "gelistiriciAd": "FFA01",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20030_FFA_01.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20031,
+   "ad": "개인전TEST02(구)",
+   "gelistiriciAd": "FFA02",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20031_FFA_02.World00p",
+   "onizleme": null,
+   "kucukOnizleme": null,
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20032,
+   "ad": "Ölü Orman",
+   "gelistiriciAd": "DeadWood",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\DeadWood1.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20101,
+   "ad": "Round01",
+   "gelistiriciAd": "Round01",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\20101_Round01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20102,
+   "ad": "Round02",
+   "gelistiriciAd": "Round02",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\20102_Round02.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20103,
+   "ad": "Round03",
+   "gelistiriciAd": "Round03",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\20103_Round03.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20104,
+   "ad": "Round04",
+   "gelistiriciAd": "Round04",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\20104_Round04.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20105,
+   "ad": "Round05",
+   "gelistiriciAd": "Round05",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\20105_Round05.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20106,
+   "ad": "Round06",
+   "gelistiriciAd": "Round06",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\20106_Round06.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20107,
+   "ad": "Round07",
+   "gelistiriciAd": "Round07",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\20107_Round07.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20108,
+   "ad": "Round08",
+   "gelistiriciAd": "Round08",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\20108_Round08.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20109,
+   "ad": "Round09",
+   "gelistiriciAd": "Round09",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\20109_Round09.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20110,
+   "ad": "Round10",
+   "gelistiriciAd": "Round10",
+   "modlar": [
+    "SuddenDeath"
+   ],
+   "dunyaDosyasi": "Worlds\\20110_Round10.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20201,
+   "ad": "Escape01",
+   "gelistiriciAd": "Escape01",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\20201_Escape01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20202,
+   "ad": "Escape02",
+   "gelistiriciAd": "Escape02",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\20202_Escape02.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20203,
+   "ad": "Escape03",
+   "gelistiriciAd": "Escape03",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\20203_Escape03.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20204,
+   "ad": "Escape04",
+   "gelistiriciAd": "Escape04",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\20204_Escape04.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20205,
+   "ad": "Escape05",
+   "gelistiriciAd": "Escape05",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\20205_Escape05.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20206,
+   "ad": "Escape06",
+   "gelistiriciAd": "Escape06",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\20206_Escape06.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20207,
+   "ad": "Escape07",
+   "gelistiriciAd": "Escape07",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\20207_Escape07.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20208,
+   "ad": "Escape08",
+   "gelistiriciAd": "Escape08",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\20208_Escape08.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20209,
+   "ad": "Escape09",
+   "gelistiriciAd": "Escape09",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\20209_Escape09.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20210,
+   "ad": "Escape10",
+   "gelistiriciAd": "Escape10",
+   "modlar": [
+    "Escape"
+   ],
+   "dunyaDosyasi": "Worlds\\20210_Escape10.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20301,
+   "ad": "Captin01",
+   "gelistiriciAd": "Captin01",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20301_Captin01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20302,
+   "ad": "Captin02",
+   "gelistiriciAd": "Captin02",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20302_Captin02.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20303,
+   "ad": "Captin03",
+   "gelistiriciAd": "Captin03",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20303_Captin03.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20304,
+   "ad": "Captin04",
+   "gelistiriciAd": "Captin04",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20304_Captin04.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20305,
+   "ad": "Captin05",
+   "gelistiriciAd": "Captin05",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20305_Captin05.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20306,
+   "ad": "Captin06",
+   "gelistiriciAd": "Captin06",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20306_Captin06.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20307,
+   "ad": "Captin07",
+   "gelistiriciAd": "Captin07",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20307_Captin07.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20308,
+   "ad": "Captin08",
+   "gelistiriciAd": "Captin08",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20308_Captin08.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20309,
+   "ad": "Captin09",
+   "gelistiriciAd": "Captin09",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20309_Captin09.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20310,
+   "ad": "Captin10",
+   "gelistiriciAd": "Captin10",
+   "modlar": [
+    "Captin"
+   ],
+   "dunyaDosyasi": "Worlds\\20310_Captin10.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20401,
+   "ad": "Capture01",
+   "gelistiriciAd": "Capture01",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20401_Capture01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20402,
+   "ad": "Capture02",
+   "gelistiriciAd": "Capture02",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20402_Capture02.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20403,
+   "ad": "Capture03",
+   "gelistiriciAd": "Capture03",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20403_Capture03.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20404,
+   "ad": "Capture04",
+   "gelistiriciAd": "Capture04",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20404_Capture04.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20405,
+   "ad": "Capture05",
+   "gelistiriciAd": "Capture05",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20405_Capture05.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20406,
+   "ad": "Capture06",
+   "gelistiriciAd": "Capture06",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20406_Capture06.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20407,
+   "ad": "Capture07",
+   "gelistiriciAd": "Capture07",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20407_Capture07.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20408,
+   "ad": "Capture08",
+   "gelistiriciAd": "Capture08",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20408_Capture08.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20409,
+   "ad": "Capture09",
+   "gelistiriciAd": "Capture09",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20409_Capture09.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20410,
+   "ad": "Capture10",
+   "gelistiriciAd": "Capture10",
+   "modlar": [
+    "FlexibleCapture"
+   ],
+   "dunyaDosyasi": "Worlds\\20410_Capture10.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20501,
+   "ad": "Bomb01",
+   "gelistiriciAd": "Bomb01",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\20501_Bomb01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20502,
+   "ad": "Bomb02",
+   "gelistiriciAd": "Bomb02",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\20502_Bomb02.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20503,
+   "ad": "Bomb03",
+   "gelistiriciAd": "Bomb03",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\20503_Bomb03.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20504,
+   "ad": "Bomb04",
+   "gelistiriciAd": "Bomb04",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\20504_Bomb04.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20505,
+   "ad": "Bomb05",
+   "gelistiriciAd": "Bomb05",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\20505_Bomb05.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20506,
+   "ad": "Bomb06",
+   "gelistiriciAd": "Bomb06",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\20506_Bomb06.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20507,
+   "ad": "Bomb07",
+   "gelistiriciAd": "Bomb07",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\20507_Bomb07.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20508,
+   "ad": "Bomb08",
+   "gelistiriciAd": "Bomb08",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\20508_Bomb08.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20509,
+   "ad": "Bomb09",
+   "gelistiriciAd": "Bomb09",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\20509_Bomb09.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20510,
+   "ad": "Bomb10",
+   "gelistiriciAd": "Bomb10",
+   "modlar": [
+    "Bomb"
+   ],
+   "dunyaDosyasi": "Worlds\\20510_Bomb10.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20601,
+   "ad": "TDM01",
+   "gelistiriciAd": "TDM01",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20601_TDM01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20601,
+   "ad": "TDM04",
+   "gelistiriciAd": "TDM01",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20604_TDM04.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20602,
+   "ad": "TDM02",
+   "gelistiriciAd": "TDM02",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20602_TDM02.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20603,
+   "ad": "TDM03",
+   "gelistiriciAd": "TDM03",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20603_TDM03.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20605,
+   "ad": "TDM05",
+   "gelistiriciAd": "TDM05",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20605_TDM05.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20606,
+   "ad": "TDM06",
+   "gelistiriciAd": "TDM06",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20606_TDM06.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20607,
+   "ad": "TDM07",
+   "gelistiriciAd": "TDM07",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20607_TDM07.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20608,
+   "ad": "TDM08",
+   "gelistiriciAd": "TDM08",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20608_TDM08.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20609,
+   "ad": "TDM09",
+   "gelistiriciAd": "TDM09",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20609_TDM09.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20610,
+   "ad": "TDM10",
+   "gelistiriciAd": "TDM10",
+   "modlar": [
+    "DeathMatch"
+   ],
+   "dunyaDosyasi": "Worlds\\20610_TDM10.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20701,
+   "ad": "FFA01",
+   "gelistiriciAd": "FFA01",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20701_FFA01.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20702,
+   "ad": "FFA02",
+   "gelistiriciAd": "FFA02",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20702_FFA02.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20703,
+   "ad": "FFA03",
+   "gelistiriciAd": "FFA03",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20703_FFA03.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20704,
+   "ad": "FFA04",
+   "gelistiriciAd": "FFA04",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20704_FFA04.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20705,
+   "ad": "FFA05",
+   "gelistiriciAd": "FFA05",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20705_FFA05.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20706,
+   "ad": "FFA06",
+   "gelistiriciAd": "FFA06",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20706_FFA06.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20707,
+   "ad": "FFA07",
+   "gelistiriciAd": "FFA07",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20707_FFA07.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20708,
+   "ad": "FFA08",
+   "gelistiriciAd": "FFA08",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20708_FFA08.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20709,
+   "ad": "FFA09",
+   "gelistiriciAd": "FFA09",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20709_FFA09.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 20710,
+   "ad": "FFA10",
+   "gelistiriciAd": "FFA10",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20710_FFA10.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/default_map_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/default_map_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  },
+  {
+   "id": 200399,
+   "ad": "Aqua_TEST",
+   "gelistiriciAd": "DeadWood",
+   "modlar": [
+    "FFA"
+   ],
+   "dunyaDosyasi": "Worlds\\20032_Aqua_TEST.World00p",
+   "onizleme": {
+    "yol": "harita/onizleme/10015_Paradise_thumb_gameroom.png",
+    "genislik": 256,
+    "yukseklik": 256,
+    "kirpma": [
+     0,
+     0,
+     226,
+     151
+    ]
+   },
+   "kucukOnizleme": {
+    "yol": "harita/kucuk/10015_Paradise_thumb_popup.png",
+    "genislik": 256,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     4,
+     171,
+     106
+    ]
+   },
+   "yuklemeEkrani": null
+  }
+ ]
+}

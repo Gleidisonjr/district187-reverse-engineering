@@ -1,0 +1,1691 @@
+{
+ "uretim": "2026-10-13T20:18:27.622Z",
+ "kaynakIstemci": "S2SonSilah",
+ "uretenArac": "WEBSITE/arac/varlik-cikar.js",
+ "not": "ELLE DUZENLEME. Bu dosyalar uretiliyor; degisiklik icin araci calistir.",
+ "sayi": 58,
+ "rutbeler": [
+  {
+   "seviye": 1,
+   "ad": "Temiz Yüz",
+   "metinAnahtari": "UI_Class_Lv01",
+   "altSinir": 0,
+   "ustSinir": 800,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/1.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     2,
+     2,
+     18,
+     19
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/1.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     2,
+     2,
+     18,
+     19
+    ]
+   }
+  },
+  {
+   "seviye": 2,
+   "ad": "Dünkü Çocuk",
+   "metinAnahtari": "UI_Class_Lv02",
+   "altSinir": 801,
+   "ustSinir": 2500,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/2.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     1,
+     7,
+     20,
+     8
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/2.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     15,
+     53,
+     98,
+     22
+    ]
+   }
+  },
+  {
+   "seviye": 3,
+   "ad": "Çaylak",
+   "metinAnahtari": "UI_Class_Lv03",
+   "altSinir": 2501,
+   "ustSinir": 6000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/3.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     1,
+     5,
+     20,
+     12
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/3.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     15,
+     42,
+     98,
+     44
+    ]
+   }
+  },
+  {
+   "seviye": 4,
+   "ad": "Bitirim",
+   "metinAnahtari": "UI_Class_Lv04",
+   "altSinir": 6001,
+   "ustSinir": 10000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/4.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     1,
+     4,
+     20,
+     14
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/4.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     15,
+     34,
+     98,
+     60
+    ]
+   }
+  },
+  {
+   "seviye": 5,
+   "ad": "Çavuş",
+   "metinAnahtari": "UI_Class_Lv05",
+   "altSinir": 10001,
+   "ustSinir": 15000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/5.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     1,
+     2,
+     20,
+     18
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/5.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     15,
+     24,
+     98,
+     80
+    ]
+   }
+  },
+  {
+   "seviye": 6,
+   "ad": "Bıçkın 1",
+   "metinAnahtari": "UI_Class_Lv06",
+   "altSinir": 15001,
+   "ustSinir": 22000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/6.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     4,
+     23,
+     12
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/6.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     44,
+     124,
+     40
+    ]
+   }
+  },
+  {
+   "seviye": 7,
+   "ad": "Bıçkın 2",
+   "metinAnahtari": "UI_Class_Lv07",
+   "altSinir": 22001,
+   "ustSinir": 31000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/7.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     4,
+     23,
+     12
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/7.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     44,
+     124,
+     40
+    ]
+   }
+  },
+  {
+   "seviye": 8,
+   "ad": "Bıçkın 3",
+   "metinAnahtari": "UI_Class_Lv08",
+   "altSinir": 31001,
+   "ustSinir": 43000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/8.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     4,
+     23,
+     12
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/8.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     44,
+     124,
+     40
+    ]
+   }
+  },
+  {
+   "seviye": 9,
+   "ad": "Tayfa 1",
+   "metinAnahtari": "UI_Class_Lv09",
+   "altSinir": 43001,
+   "ustSinir": 56000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/9.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     5,
+     23,
+     13
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/9.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     40,
+     124,
+     52
+    ]
+   }
+  },
+  {
+   "seviye": 10,
+   "ad": "Tayfa 2",
+   "metinAnahtari": "UI_Class_Lv10",
+   "altSinir": 56001,
+   "ustSinir": 70000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/10.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     5,
+     23,
+     13
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/10.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     40,
+     124,
+     52
+    ]
+   }
+  },
+  {
+   "seviye": 11,
+   "ad": "Tayfa 3",
+   "metinAnahtari": "UI_Class_Lv11",
+   "altSinir": 70001,
+   "ustSinir": 85000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/11.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     5,
+     23,
+     13
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/11.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     40,
+     124,
+     52
+    ]
+   }
+  },
+  {
+   "seviye": 12,
+   "ad": "Tayfa 4",
+   "metinAnahtari": "UI_Class_Lv12",
+   "altSinir": 85001,
+   "ustSinir": 103000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/12.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     5,
+     23,
+     13
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/12.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     39,
+     124,
+     53
+    ]
+   }
+  },
+  {
+   "seviye": 13,
+   "ad": "Gedikli",
+   "metinAnahtari": "UI_Class_Lv13",
+   "altSinir": 103001,
+   "ustSinir": 125000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/13.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     3,
+     23,
+     17
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/13.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     30,
+     124,
+     68
+    ]
+   }
+  },
+  {
+   "seviye": 14,
+   "ad": "Gedikli 1",
+   "metinAnahtari": "UI_Class_Lv14",
+   "altSinir": 125001,
+   "ustSinir": 149500,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/14.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     3,
+     23,
+     17
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/14.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     30,
+     124,
+     68
+    ]
+   }
+  },
+  {
+   "seviye": 15,
+   "ad": "Gedikli 2",
+   "metinAnahtari": "UI_Class_Lv15",
+   "altSinir": 149501,
+   "ustSinir": 177500,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/15.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     3,
+     23,
+     17
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/15.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     30,
+     124,
+     68
+    ]
+   }
+  },
+  {
+   "seviye": 16,
+   "ad": "Gedikli 3",
+   "metinAnahtari": "UI_Class_Lv16",
+   "altSinir": 177501,
+   "ustSinir": 210500,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/16.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     3,
+     23,
+     17
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/16.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     30,
+     124,
+     68
+    ]
+   }
+  },
+  {
+   "seviye": 17,
+   "ad": "Gedikli 4",
+   "metinAnahtari": "UI_Class_Lv17",
+   "altSinir": 210501,
+   "ustSinir": 248500,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/17.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     3,
+     23,
+     17
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/17.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     2,
+     30,
+     124,
+     68
+    ]
+   }
+  },
+  {
+   "seviye": 18,
+   "ad": "Kulağı Kesik 1",
+   "metinAnahtari": "UI_Class_Lv18",
+   "altSinir": 248501,
+   "ustSinir": 291000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/18.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     20
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/18.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     18,
+     12,
+     108,
+     102
+    ]
+   }
+  },
+  {
+   "seviye": 19,
+   "ad": "Kulağı Kesik 2",
+   "metinAnahtari": "UI_Class_Lv19",
+   "altSinir": 291001,
+   "ustSinir": 339000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/19.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     20
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/19.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     18,
+     12,
+     108,
+     102
+    ]
+   }
+  },
+  {
+   "seviye": 20,
+   "ad": "Kulağı Kesik 3",
+   "metinAnahtari": "UI_Class_Lv20",
+   "altSinir": 339001,
+   "ustSinir": 393500,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/20.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     20
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/20.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     18,
+     12,
+     108,
+     102
+    ]
+   }
+  },
+  {
+   "seviye": 21,
+   "ad": "Kulağı Kesik 4",
+   "metinAnahtari": "UI_Class_Lv21",
+   "altSinir": 393501,
+   "ustSinir": 458000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/21.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     20
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/21.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     18,
+     12,
+     108,
+     102
+    ]
+   }
+  },
+  {
+   "seviye": 22,
+   "ad": "Kulağı Kesik 5",
+   "metinAnahtari": "UI_Class_Lv22",
+   "altSinir": 458001,
+   "ustSinir": 530000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/22.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     20
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/22.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     18,
+     12,
+     108,
+     102
+    ]
+   }
+  },
+  {
+   "seviye": 23,
+   "ad": "Kulağı Kesik 6",
+   "metinAnahtari": "UI_Class_Lv23",
+   "altSinir": 530001,
+   "ustSinir": 610000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/23.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     20
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/23.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     18,
+     12,
+     108,
+     102
+    ]
+   }
+  },
+  {
+   "seviye": 24,
+   "ad": "Fedai 1",
+   "metinAnahtari": "UI_Class_Lv24",
+   "altSinir": 610001,
+   "ustSinir": 699000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/24.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     4,
+     23,
+     17
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/24.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     25,
+     122,
+     78
+    ]
+   }
+  },
+  {
+   "seviye": 25,
+   "ad": "Fedai 2",
+   "metinAnahtari": "UI_Class_Lv25",
+   "altSinir": 699001,
+   "ustSinir": 798000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/25.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     4,
+     23,
+     17
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/25.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     25,
+     122,
+     78
+    ]
+   }
+  },
+  {
+   "seviye": 26,
+   "ad": "Fedai 3",
+   "metinAnahtari": "UI_Class_Lv26",
+   "altSinir": 798001,
+   "ustSinir": 908000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/26.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     4,
+     23,
+     17
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/26.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     25,
+     122,
+     78
+    ]
+   }
+  },
+  {
+   "seviye": 27,
+   "ad": "Fedai 4",
+   "metinAnahtari": "UI_Class_Lv27",
+   "altSinir": 908001,
+   "ustSinir": 1030000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/27.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     4,
+     23,
+     17
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/27.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     25,
+     122,
+     78
+    ]
+   }
+  },
+  {
+   "seviye": 28,
+   "ad": "Fedai 5",
+   "metinAnahtari": "UI_Class_Lv28",
+   "altSinir": 1030001,
+   "ustSinir": 1165000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/28.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     4,
+     23,
+     17
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/28.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     25,
+     122,
+     78
+    ]
+   }
+  },
+  {
+   "seviye": 29,
+   "ad": "Fedai 6",
+   "metinAnahtari": "UI_Class_Lv29",
+   "altSinir": 1165001,
+   "ustSinir": 1309000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/29.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     20
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/29.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     24,
+     122,
+     79
+    ]
+   }
+  },
+  {
+   "seviye": 30,
+   "ad": "Tetikçi 1",
+   "metinAnahtari": "UI_Class_Lv30",
+   "altSinir": 1309001,
+   "ustSinir": 1461000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/30.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     21
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/30.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     5,
+     122,
+     118
+    ]
+   }
+  },
+  {
+   "seviye": 31,
+   "ad": "Tetikçi 2",
+   "metinAnahtari": "UI_Class_Lv31",
+   "altSinir": 1461001,
+   "ustSinir": 1621500,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/31.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     21
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/31.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     5,
+     122,
+     118
+    ]
+   }
+  },
+  {
+   "seviye": 32,
+   "ad": "Tetikçi 3",
+   "metinAnahtari": "UI_Class_Lv32",
+   "altSinir": 1621501,
+   "ustSinir": 1791000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/32.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     21
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/32.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     5,
+     122,
+     118
+    ]
+   }
+  },
+  {
+   "seviye": 33,
+   "ad": "Tetikçi 4",
+   "metinAnahtari": "UI_Class_Lv33",
+   "altSinir": 1791001,
+   "ustSinir": 1970000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/33.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     21
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/33.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     5,
+     122,
+     118
+    ]
+   }
+  },
+  {
+   "seviye": 34,
+   "ad": "Tetikçi 5",
+   "metinAnahtari": "UI_Class_Lv34",
+   "altSinir": 1970001,
+   "ustSinir": 2159000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/34.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     21
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/34.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     5,
+     122,
+     118
+    ]
+   }
+  },
+  {
+   "seviye": 35,
+   "ad": "Tetikçi 6",
+   "metinAnahtari": "UI_Class_Lv35",
+   "altSinir": 2159001,
+   "ustSinir": 2358000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/35.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     21
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/35.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     5,
+     122,
+     118
+    ]
+   }
+  },
+  {
+   "seviye": 36,
+   "ad": "Afili 1",
+   "metinAnahtari": "UI_Class_Lv36",
+   "altSinir": 2358001,
+   "ustSinir": 2565000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/36.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     2,
+     23,
+     19
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/36.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     8,
+     20,
+     118,
+     88
+    ]
+   }
+  },
+  {
+   "seviye": 37,
+   "ad": "Afili 2",
+   "metinAnahtari": "UI_Class_Lv37",
+   "altSinir": 2565001,
+   "ustSinir": 2782000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/37.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     2,
+     23,
+     19
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/37.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     8,
+     20,
+     118,
+     88
+    ]
+   }
+  },
+  {
+   "seviye": 38,
+   "ad": "Afili 3",
+   "metinAnahtari": "UI_Class_Lv38",
+   "altSinir": 2782001,
+   "ustSinir": 3008000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/38.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     2,
+     23,
+     19
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/38.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     8,
+     20,
+     118,
+     88
+    ]
+   }
+  },
+  {
+   "seviye": 39,
+   "ad": "Afili 4",
+   "metinAnahtari": "UI_Class_Lv39",
+   "altSinir": 3008001,
+   "ustSinir": 3244000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/39.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     2,
+     23,
+     19
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/39.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     8,
+     20,
+     118,
+     88
+    ]
+   }
+  },
+  {
+   "seviye": 40,
+   "ad": "Afili 5",
+   "metinAnahtari": "UI_Class_Lv40",
+   "altSinir": 3244001,
+   "ustSinir": 3490500,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/40.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     2,
+     23,
+     19
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/40.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     8,
+     20,
+     118,
+     88
+    ]
+   }
+  },
+  {
+   "seviye": 41,
+   "ad": "Afili 6",
+   "metinAnahtari": "UI_Class_Lv41",
+   "altSinir": 3490501,
+   "ustSinir": 3748000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/41.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     20
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/41.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     8,
+     20,
+     118,
+     88
+    ]
+   }
+  },
+  {
+   "seviye": 42,
+   "ad": "Jilet 1",
+   "metinAnahtari": "UI_Class_Lv42",
+   "altSinir": 3748001,
+   "ustSinir": 4015000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/42.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     6,
+     23,
+     15
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/42.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     26,
+     122,
+     77
+    ]
+   }
+  },
+  {
+   "seviye": 43,
+   "ad": "Jilet 2",
+   "metinAnahtari": "UI_Class_Lv43",
+   "altSinir": 4015001,
+   "ustSinir": 4292000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/43.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     6,
+     23,
+     15
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/43.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     26,
+     122,
+     77
+    ]
+   }
+  },
+  {
+   "seviye": 44,
+   "ad": "Jilet 3",
+   "metinAnahtari": "UI_Class_Lv44",
+   "altSinir": 4292001,
+   "ustSinir": 4579500,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/44.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     6,
+     23,
+     15
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/44.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     26,
+     122,
+     77
+    ]
+   }
+  },
+  {
+   "seviye": 45,
+   "ad": "Jilet 4",
+   "metinAnahtari": "UI_Class_Lv45",
+   "altSinir": 4579501,
+   "ustSinir": 4878000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/45.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     6,
+     23,
+     15
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/45.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     26,
+     122,
+     77
+    ]
+   }
+  },
+  {
+   "seviye": 46,
+   "ad": "Jilet 5",
+   "metinAnahtari": "UI_Class_Lv46",
+   "altSinir": 4878001,
+   "ustSinir": 5378000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/46.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     5,
+     23,
+     16
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/46.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     26,
+     122,
+     77
+    ]
+   }
+  },
+  {
+   "seviye": 47,
+   "ad": "Jilet 6",
+   "metinAnahtari": "UI_Class_Lv47",
+   "altSinir": 5378001,
+   "ustSinir": 6378000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/47.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     20
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/47.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     24,
+     122,
+     79
+    ]
+   }
+  },
+  {
+   "seviye": 48,
+   "ad": "Çakal 1",
+   "metinAnahtari": "UI_Class_Lv48",
+   "altSinir": 6378001,
+   "ustSinir": 7378000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/48.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     2,
+     23,
+     19
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/48.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     22,
+     122,
+     84
+    ]
+   }
+  },
+  {
+   "seviye": 49,
+   "ad": "Çakal 2",
+   "metinAnahtari": "UI_Class_Lv49",
+   "altSinir": 7378001,
+   "ustSinir": 8878000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/49.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     2,
+     23,
+     19
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/49.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     22,
+     122,
+     84
+    ]
+   }
+  },
+  {
+   "seviye": 50,
+   "ad": "Çakal 3",
+   "metinAnahtari": "UI_Class_Lv50",
+   "altSinir": 8878001,
+   "ustSinir": 10978000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/50.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     2,
+     23,
+     19
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/50.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     22,
+     122,
+     84
+    ]
+   }
+  },
+  {
+   "seviye": 51,
+   "ad": "Çakal 4",
+   "metinAnahtari": "UI_Class_Lv51",
+   "altSinir": 10978001,
+   "ustSinir": 13828000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/51.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     2,
+     23,
+     19
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/51.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     22,
+     122,
+     84
+    ]
+   }
+  },
+  {
+   "seviye": 52,
+   "ad": "Çakal 5",
+   "metinAnahtari": "UI_Class_Lv52",
+   "altSinir": 13828001,
+   "ustSinir": 17628000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/52.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     2,
+     23,
+     19
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/52.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     22,
+     122,
+     84
+    ]
+   }
+  },
+  {
+   "seviye": 53,
+   "ad": "Çakal 6",
+   "metinAnahtari": "UI_Class_Lv53",
+   "altSinir": 17628001,
+   "ustSinir": 22678000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/53.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     23,
+     20
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/53.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     4,
+     22,
+     122,
+     84
+    ]
+   }
+  },
+  {
+   "seviye": 54,
+   "ad": "Haydut",
+   "metinAnahtari": "UI_Class_Lv54",
+   "altSinir": 22678001,
+   "ustSinir": 29078000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/54.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     2,
+     2,
+     18,
+     18
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/54.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     23,
+     24,
+     82,
+     78
+    ]
+   }
+  },
+  {
+   "seviye": 55,
+   "ad": "Beylerbeyi",
+   "metinAnahtari": "UI_Class_Lv55",
+   "altSinir": 29078001,
+   "ustSinir": 36978000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/55.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     4,
+     22,
+     13
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/55.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     6,
+     37,
+     116,
+     55
+    ]
+   }
+  },
+  {
+   "seviye": 56,
+   "ad": "Kabadayı",
+   "metinAnahtari": "UI_Class_Lv56",
+   "altSinir": 36978001,
+   "ustSinir": 46628000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/56.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     1,
+     22,
+     20
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/56.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     6,
+     14,
+     116,
+     98
+    ]
+   }
+  },
+  {
+   "seviye": 57,
+   "ad": "Baba",
+   "metinAnahtari": "UI_Class_Lv57",
+   "altSinir": 46628001,
+   "ustSinir": 58528000,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/57.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     0,
+     0,
+     22,
+     22
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/57.png",
+    "genislik": 128,
+    "yukseklik": 128,
+    "kirpma": [
+     6,
+     9,
+     116,
+     108
+    ]
+   }
+  },
+  {
+   "seviye": 58,
+   "ad": "Reis",
+   "metinAnahtari": "UI_Class_Lv58",
+   "altSinir": 58528001,
+   "ustSinir": 99999999,
+   "ikonKucuk": {
+    "yol": "rutbe/kucuk/58.png",
+    "genislik": 32,
+    "yukseklik": 32,
+    "kirpma": [
+     3,
+     9,
+     26,
+     14
+    ]
+   },
+   "ikonBuyuk": {
+    "yol": "rutbe/buyuk/58.png",
+    "genislik": 64,
+    "yukseklik": 64,
+    "kirpma": [
+     4,
+     18,
+     55,
+     30
+    ]
+   }
+  }
+ ]
+}

@@ -5,12 +5,16 @@
 ### [TARGET] District 187: Sin Streets — Servidor Privado & Ecossistema Próprio
 - **Status:** em andamento (2026-11-02)
 - **Fase atual:**
-  - **Fase 1 Concluída:**
+  - **Fase 1 Concluída (Gráficos Ultra HD + Tradução):**
     - Baixados e validados os 1.72 GB do pacote de texturas HD (`HD1.ResDt` a `HD6.ResDt`).
     - `Default.archcfg` atualizado para montagem automática das texturas 2K/4K.
     - `settings.cfg` e `autoexec.cfg` configurados com `GraphicQualityLevel 3`, `BindTexturesMipOffset 0` e `MaxFPS 0` (144+ FPS destravado).
     - Idioma inglês verificado (3.923 strings).
     - Criado launcher [`launch_game_ultra_hd.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_game_ultra_hd.bat).
+  - **Fase 1.5 Concluída (Data Analytics & Telemetria Web Portal):**
+    - Criado pipeline ETL [`scripts/build_s2rebirth_dataset.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/build_s2rebirth_dataset.py) gerando `targets/district-187/data/s2rebirth.db` (185 armas com stats de combate, 750 itens, 58 patentes, 155 mapas, 1.524 itens de loja).
+    - Criado CLI Client [`scripts/s2rebirth_api_client.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/s2rebirth_api_client.py) para consulta em tempo real da telemetria de 1.140 jogadores, 73 clãs e histórico de partidas.
+    - Documentada a arquitetura REST em [`notes/s2-rebirth-hd-pack-and-web-portal-architecture.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/s2-rebirth-hd-pack-and-web-portal-architecture.md).
   - **Próxima Fase (Fase 2):**
     - Motor de Bots Inteligentes & Sessão Solo/PvE com seleção de dificuldade (Fácil, Médio, Difícil).
     - Contabilização de mortes, XP e headshots contra bots.

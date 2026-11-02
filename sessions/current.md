@@ -29,6 +29,11 @@
 5. **Preservação e Portfólio:**
    - Atualizados `decisions.md`, `projects/now.md` e criadas notas técnicas em `notes/s2-rebirth-client-architecture-and-hybrid-setup.md`.
 
+6. **Pipeline de Dados & Telemetria do Portal Web:**
+   - Criado `scripts/build_s2rebirth_dataset.py` que parseia metadados e gera banco relacional SQLite `targets/district-187/data/s2rebirth.db` (185 armas com métricas de combate, 750 itens, 58 patentes, 155 mapas e 1.524 itens da loja).
+   - Criado `scripts/s2rebirth_api_client.py` que consulta a telemetria ao vivo da comunidade (1.140 jogadores registrados, 73 clãs e buffer das últimas 20 partidas com placar e MVPs).
+   - Documentada a arquitetura REST e CDN em `notes/s2-rebirth-hd-pack-and-web-portal-architecture.md`.
+
 ## Próximo passo concreto
 1. Para jogar online na comunidade ativa:
    - Criar conta em `https://s2rebirth.com/kayit` (definir usuário e senha).

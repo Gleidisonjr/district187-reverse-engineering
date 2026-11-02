@@ -1,0 +1,582 @@
+{
+ "uretim": "2026-10-13T20:18:27.622Z",
+ "kaynakIstemci": "S2SonSilah",
+ "uretenArac": "WEBSITE/arac/varlik-cikar.js",
+ "not": "ELLE DUZENLEME. Bu dosyalar uretiliyor; degisiklik icin araci calistir.",
+ "unvanlar": [
+  {
+   "indeks": 1000,
+   "ad": "Başbuğ",
+   "metinAnahtari": "Title_1000",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1001,
+   "ad": "Usta",
+   "metinAnahtari": "Title_1001",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1002,
+   "ad": "Bahtsız",
+   "metinAnahtari": "Title_1002",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1003,
+   "ad": "Gardiyan",
+   "metinAnahtari": "Title_1003",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1004,
+   "ad": "Fatih",
+   "metinAnahtari": "Title_1004",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1005,
+   "ad": "Zombi",
+   "metinAnahtari": "Title_1005",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1006,
+   "ad": "Kelleci",
+   "metinAnahtari": "Title_1006",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1007,
+   "ad": "Uykusuz",
+   "metinAnahtari": "Title_1007",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1008,
+   "ad": "Gaddar",
+   "metinAnahtari": "Title_1008",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1009,
+   "ad": "Emo",
+   "metinAnahtari": "Title_1009",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1010,
+   "ad": "Ballı",
+   "metinAnahtari": "Title_1010",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1011,
+   "ad": "Kral",
+   "metinAnahtari": "Title_1011",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 1012,
+   "ad": "Tıfıl",
+   "metinAnahtari": "Title_1012",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 2000,
+   "ad": "Kabza",
+   "metinAnahtari": "Title_2000",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2001,
+   "ad": "Taarruz",
+   "metinAnahtari": "Title_2001",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2002,
+   "ad": "Casus",
+   "metinAnahtari": "Title_2002",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2003,
+   "ad": "Hamle",
+   "metinAnahtari": "Title_2003",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2004,
+   "ad": "Fişek",
+   "metinAnahtari": "Title_2004",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2005,
+   "ad": "Makinist",
+   "metinAnahtari": "Title_2005",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2006,
+   "ad": "Robin Hood",
+   "metinAnahtari": "Title_2006",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2007,
+   "ad": "Seçilmiş",
+   "metinAnahtari": "Title_2007",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2008,
+   "ad": "Silahşör",
+   "metinAnahtari": "Title_2008",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2009,
+   "ad": "Gururlu",
+   "metinAnahtari": "Title_2009",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2010,
+   "ad": "Bıçakçı",
+   "metinAnahtari": "Title_2010",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2011,
+   "ad": "Yabani",
+   "metinAnahtari": "Title_2011",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2012,
+   "ad": "Kasap",
+   "metinAnahtari": "Title_2012",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2013,
+   "ad": "Şampiyon",
+   "metinAnahtari": "Title_2013",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2014,
+   "ad": "Bombacı",
+   "metinAnahtari": "Title_2014",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 2015,
+   "ad": "Tuzakçı",
+   "metinAnahtari": "Title_2015",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 3000,
+   "ad": "Uzman",
+   "metinAnahtari": "Title_3000",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 3002,
+   "ad": "Kurtarıcı",
+   "metinAnahtari": "Title_3002",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 3003,
+   "ad": "Vurguncu",
+   "metinAnahtari": "Title_3003",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 3004,
+   "ad": "Kuşatma Rampası",
+   "metinAnahtari": "Title_3004",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 3005,
+   "ad": "Arkacı",
+   "metinAnahtari": "Title_3005",
+   "renk": "#FFCC00"
+  },
+  {
+   "indeks": 4000,
+   "ad": "Çapulcu",
+   "metinAnahtari": "Title_4000",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 4001,
+   "ad": "Veteran",
+   "metinAnahtari": "Title_4001",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 4002,
+   "ad": "Gardiyan",
+   "metinAnahtari": "Title_4002",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 4003,
+   "ad": "Kıdemli",
+   "metinAnahtari": "Title_4003",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 4004,
+   "ad": "Yağmacı",
+   "metinAnahtari": "Title_4004",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 4005,
+   "ad": "Fatih",
+   "metinAnahtari": "Title_4005",
+   "renk": "#00FF00"
+  },
+  {
+   "indeks": 4006,
+   "ad": "Şef",
+   "metinAnahtari": "Title_4006",
+   "renk": "#00FF00"
+  }
+ ],
+ "basari": {
+  "sinif": [
+   {
+    "sira": 1,
+    "ikon": {
+     "yol": "basari/sinif/1.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      15,
+      53,
+      98,
+      22
+     ]
+    }
+   },
+   {
+    "sira": 2,
+    "ikon": {
+     "yol": "basari/sinif/2.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      15,
+      42,
+      98,
+      44
+     ]
+    }
+   },
+   {
+    "sira": 3,
+    "ikon": {
+     "yol": "basari/sinif/3.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      15,
+      34,
+      98,
+      60
+     ]
+    }
+   },
+   {
+    "sira": 4,
+    "ikon": {
+     "yol": "basari/sinif/4.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      15,
+      24,
+      98,
+      80
+     ]
+    }
+   },
+   {
+    "sira": 5,
+    "ikon": {
+     "yol": "basari/sinif/5.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      15,
+      45,
+      98,
+      39
+     ]
+    }
+   },
+   {
+    "sira": 6,
+    "ikon": {
+     "yol": "basari/sinif/6.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      15,
+      38,
+      98,
+      54
+     ]
+    }
+   },
+   {
+    "sira": 7,
+    "ikon": {
+     "yol": "basari/sinif/7.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      15,
+      30,
+      98,
+      70
+     ]
+    }
+   },
+   {
+    "sira": 8,
+    "ikon": {
+     "yol": "basari/sinif/8.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      31,
+      13,
+      66,
+      102
+     ]
+    }
+   },
+   {
+    "sira": 9,
+    "ikon": {
+     "yol": "basari/sinif/9.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      16,
+      26,
+      97,
+      76
+     ]
+    }
+   },
+   {
+    "sira": 10,
+    "ikon": {
+     "yol": "basari/sinif/10.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      16,
+      5,
+      97,
+      119
+     ]
+    }
+   },
+   {
+    "sira": 11,
+    "ikon": {
+     "yol": "basari/sinif/11.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      20,
+      20,
+      88,
+      88
+     ]
+    }
+   },
+   {
+    "sira": 12,
+    "ikon": {
+     "yol": "basari/sinif/12.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      12,
+      40,
+      102,
+      48
+     ]
+    }
+   },
+   {
+    "sira": 13,
+    "ikon": {
+     "yol": "basari/sinif/13.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      14,
+      22,
+      100,
+      84
+     ]
+    }
+   },
+   {
+    "sira": 14,
+    "ikon": {
+     "yol": "basari/sinif/14.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      23,
+      25,
+      82,
+      78
+     ]
+    }
+   },
+   {
+    "sira": 15,
+    "ikon": {
+     "yol": "basari/sinif/15.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      6,
+      37,
+      116,
+      55
+     ]
+    }
+   },
+   {
+    "sira": 16,
+    "ikon": {
+     "yol": "basari/sinif/16.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      6,
+      15,
+      116,
+      98
+     ]
+    }
+   },
+   {
+    "sira": 17,
+    "ikon": {
+     "yol": "basari/sinif/17.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      6,
+      10,
+      116,
+      108
+     ]
+    }
+   }
+  ],
+  "madalya": [
+   {
+    "sira": 1,
+    "ikon": {
+     "yol": "basari/madalya/1.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      1,
+      1,
+      93,
+      95
+     ]
+    }
+   },
+   {
+    "sira": 2,
+    "ikon": {
+     "yol": "basari/madalya/2.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      0,
+      1,
+      93,
+      95
+     ]
+    }
+   },
+   {
+    "sira": 3,
+    "ikon": {
+     "yol": "basari/madalya/3.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      9,
+      1,
+      77,
+      87
+     ]
+    }
+   },
+   {
+    "sira": 4,
+    "ikon": {
+     "yol": "basari/madalya/4.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      9,
+      1,
+      79,
+      87
+     ]
+    }
+   },
+   {
+    "sira": 5,
+    "ikon": {
+     "yol": "basari/madalya/5.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      1,
+      1,
+      93,
+      95
+     ]
+    }
+   },
+   {
+    "sira": 6,
+    "ikon": {
+     "yol": "basari/madalya/6.png",
+     "genislik": 128,
+     "yukseklik": 128,
+     "kirpma": [
+      1,
+      1,
+      93,
+      100
+     ]
+    }
+   }
+  ]
+ }
+}
