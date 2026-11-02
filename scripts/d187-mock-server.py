@@ -62,13 +62,13 @@ def build_login_response(req_packet_id, req_opcode):
 
     # Payload:
     # 0x00..0x01: Result code (0 = SUCCESS)
-    # 0x02..0x05: Server IP (127.0.0.1 in network byte order)
+    # 0x02..0x05: Account ID (1001 != 0, required by IsPacketerrorMessage)
     # 0x06..0x07: Server Port (12000)
     # 0x08..0x27: Session Token / User Key (32 bytes)
     payload = bytearray(64)
-    struct.pack_into("<H", payload, 0, 0) # ResultCode = 0 (Success)
-    struct.pack_into("<BBBB", payload, 2, 127, 0, 0, 1) # 127.0.0.1
-    struct.pack_into("<H", payload, 6, 12000) # Port 12000
+    struct.pack_into("<H", payload, 0, 0)      # ResultCode = 0 (Success)
+    struct.pack_into("<I", payload, 2, 1001)   # AccountID = 1001 (must be != 0)
+    struct.pack_into("<H", payload, 6, 12000)  # Port 12000
     payload[8:24] = b"D187_SESSION_KEY"
 
     # Header:
@@ -91,11 +91,17 @@ def handle_incoming_data(client_sock, client_addr, data):
             pkt_len, flags, opcode, session_id, packet_id = struct.unpack_from("<HIHII", data, 0)
             print(f"[*] Decoded Hermit Header: Len={pkt_len}, Opcode={hex(opcode)}, PacketID={hex(packet_id)}")
 
-            if packet_id in (PACKET_CQ_JOYGAME_LOGIN, PACKET_CQ_LOGIN) or opcode in (OPCODE_JOYGAME_LOGIN, OPCODE_DEV_LOGIN):
-                print(f"[+] Recognized Login Request ({hex(packet_id)}). Emulating SA_JoyGameLogin response...")
-                resp = build_login_response(packet_id, opcode)
+            if packet_id == PACKET_CQ_JOYGAME_LOGIN or opcode == OPCODE_JOYGAME_LOGIN:
+                username = data[16:48].split(b"\x00")[0].decode("latin1", errors="ignore")
+                print(f"[+] Authentic Joygame Login request detected! Username: '{username}'")
+                resp = build_login_response(PACKET_CQ_JOYGAME_LOGIN, OPCODE_JOYGAME_LOGIN)
                 client_sock.sendall(resp)
-                print(f"[+] Sent {len(resp)} bytes login response to {client_addr}")
+                print(f"[+] Sent SA_JoyGameLogin ({len(resp)} bytes) with ResultCode=0, AccountID=1001 to {client_addr}")
+            elif packet_id == PACKET_CQ_LOGIN or opcode == OPCODE_DEV_LOGIN:
+                print(f"[+] DevMode Login request detected! Emulating SA_Login response...")
+                resp = build_login_response(PACKET_CQ_LOGIN, OPCODE_DEV_LOGIN)
+                client_sock.sendall(resp)
+                print(f"[+] Sent SA_Login ({len(resp)} bytes) to {client_addr}")
         except Exception as ex:
             print(f"[-] Error decoding packet header: {ex}")
 

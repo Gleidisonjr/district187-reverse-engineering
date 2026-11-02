@@ -6,15 +6,14 @@
 - **Status:** em andamento (2026-11-02)
 - **Fase atual:**
   - **Foco Primário (Caminho B):** Execução do executável original autêntico `TheRaw.exe` (LithTech Jupiter EX Engine).
-  - **Descoberta do Protocolo Hermit:** Mapeada a tabela de despacho de pacotes (offset `0x10058498` em `GameClient.dll`), identificando `tPacket_NAccount_NIdentity_CQ_JoyGameLogin` (`0x110111`, opcode `0x0062`) e sua resposta `SA_JoyGameLogin` (`0x110112`).
-  - **Bypass de UAC:** Aplicado `__COMPAT_LAYER=RunAsInvoker`, eliminando o erro de permissão administrativa.
-  - **Mock Server Hermit Atualizado:** `scripts/d187-mock-server.py` ativo na porta 12000 com decodificador de cabeçalhos e emulador de resposta de login.
-  - **Launcher Original:** Criado `launch_original_game.bat` para inicialização direta do jogo original com rede local.
+  - **Diagnóstico do Carregamento Infinito de Login:** Identificado que a rotina `0x100d7964` em `GameClient.dll` falhava ao ler `gs_ip` da linha de comando, abortando em `CGameServerConnectMgr::Connecting()` com `"empty szIP!!"`.
+  - **Patch de Rede Local:** Aplicado patch atômico no offset `0x100d7964` forçando IP fixo `127.0.0.1` e porta `12000.0f`, garantindo que todo clique de login conecte ao servidor mock local.
+  - **Mock Server Hermit Aprimorado:** `scripts/d187-mock-server.py` responde a `CQ_JoyGameLogin` com `SA_JoyGameLogin` (`ResultCode=0`, `AccountID=1001`), destravando o spinner e liberando a transição do lobby.
   - **Portfólio GitHub:** Sincronizado em [`https://github.com/Gleidisonjr/district187-reverse-engineering`](https://github.com/Gleidisonjr/district187-reverse-engineering).
 - **Alvo:** `targets/district-187/`
 - **Próximos Passos:**
-  - Testar inicialização do `TheRaw.exe` via `launch_original_game.bat` com conexão ao mock server.
-  - Inspecionar a transição da janela Direct3D e carregamento da UI Flash do lobby.
+  - Usuário executar `launch_original_game.bat` e logar com qualquer credencial.
+  - Validar recebimento de pacotes no mock server e transição de tela para o lobby/servidores.
 
 ### [SETUP] Configuração do ambiente RE
 - **Status:** concluído

@@ -22,3 +22,4 @@
 | 2026-11-02 | Priorizar Caminho B (execução e preservação do cliente original TheRaw.exe) | O usuário validou que recriações genéricas não possuem a fidelidade autêntica do District 187; foco total em fazer o cliente original rodar |
 | 2026-11-02 | Aplicar bypass `__COMPAT_LAYER=RunAsInvoker` para inicialização do TheRaw.exe | Contorna o manifesto embutido com `requireAdministrator` sem necessitar de privilégios elevados |
 | 2026-11-02 | Reverter a tabela de despacho do protocolo Hermit (offset 0x10058498 em GameClient.dll) | Identificou o mapeamento dos opcodes CQ_JoyGameLogin (0x110111 / 0x0062) e SA_JoyGameLogin (0x110112) para emulação do mock server |
+| 2026-11-02 | Patch no offset 0x100d7964 de GameClient.dll para forçar 127.0.0.1:12000 | TheRaw.exe ignora `+gs_ip` na linha de comando e abortava silenciosamente com "empty szIP!!", travando o login. O patch garante conexão ao mock server local |
