@@ -17,3 +17,5 @@
 | 2026-11-02 | Substituir proxy DLL modificada D3DX9_43.dll pelo runtime limpo do SysWOW64 | A versão da comunidade continha injeção de TheRawExt.dll que causava crash 0xC0000005 em Windows 11 moderno |
 | 2026-11-02 | Aprimorar conversor 3D com busca em byte-alignment e rastreio dinâmico de índice | Permitiu converter 526 de 585 modelos (89.9%) com texturas PNG e materiais MTL automáticos |
 | 2026-11-02 | Estruturar projeto base Godot 4 em `projects/godot-fps/` | Integra os modelos 3D convertidos, texturas e parâmetros balísticos calibrados diretamente em um FPS jogável |
+| 2026-11-02 | Construir arena de combate tática com IA de Bots (TacticalBot) no Godot 4.7 | Fornece experiência jogável offline imediata (Caminho A) com máquinas de estado, LoS raycast, headshots críticos e respawn |
+| 2026-11-02 | Publicar repositório público no GitHub com 5 commits atômicos estruturados | Documentação e apresentação profissional do portfólio de Engenharia Reversa, Data Analytics e Gamedev (@Gleidisonjr) |

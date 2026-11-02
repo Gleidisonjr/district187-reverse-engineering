@@ -2,11 +2,16 @@
 
 ## Em andamento
 
-### [TARGET] District 187: Sin Streets (S2 Online)
+### [TARGET] District 187: Sin Streets (S2 Online) — Remake Tático & Preservação
 - **Status:** em andamento (2026-11-02)
-- **Fase atual:** unpacker HBEK aprimorado com extração canônica das 2.305 pastas; 1.014 assets de armas descompactados; conversor MODL v33 atualizado com suporte a MTL e texturas PNG com 526 modelos (89.9%) convertidos para Wavefront OBJ; injeção de proxy DLL desarmada; e base de jogo FPS moderna construída em Godot 4 (`projects/godot-fps/`) com controller, balística e cenas 3D funcionais.
+- **Fase atual:**
+  - **Caminho A (Concluído & Jogável):** Arena de combate tática jogável offline no Godot 4.7 (`projects/godot-fps/`) com IA de bots autônomos (`TacticalBot`), máquinas de estado (`PATROL`, `CHASE`, `ENGAGE`, `DEAD`), detecção LoS raycast, disparos em rajada, multiplicador de headshot (2.5x), respawn automático, armas autênticas (AK-47, M4A1, AWM-300), recuo procedural, mira ADS, HUD tático completo e inicializador em 1 clique (`launch_game.bat`).
+  - **Portfólio GitHub (Publicado & Sincronizado):** Repositório público ativo em [`https://github.com/Gleidisonjr/district187-reverse-engineering`](https://github.com/Gleidisonjr/district187-reverse-engineering) com 5 commits atômicos estruturados e README arquitetural detalhado.
+  - **Caminho B (Paralelo / Preservação):** Servidor mock Python (`scripts/d187-mock-server.py`) ativo na porta 12000; proxy DLL maliciosa desarmada; executável original pronto para avançar no handshake de login Joygame.
 - **Alvo:** `targets/district-187/`
-- **Próximo:** testar execução do projeto Godot 4 com as malhas e texturas importadas; mapear os pacotes de rede adicionais para login e lobby no emulador Python.
+- **Próximos Passos:**
+  - Testar gameplay presencial no Godot com bot skirmish.
+  - Implementar resposta ao opcode de login `0x0062` no mock server Hermit para avançar a tela preta no executável original `TheRaw.exe`.
 
 ### [SETUP] Configuração do ambiente RE
 - **Status:** concluído
@@ -59,4 +64,4 @@ Duas frentes: (1) usar qlib como plataforma de econometria/quant com ML; (2) RE 
 ---
 
 ## Concluídos
-<!-- mover projetos finalizados aqui com data -->
+- **2026-11-02:** Conclusão da base jogável offline em Godot 4.7 com IA tática de bots e publicação do portfólio no GitHub ([Gleidisonjr/district187-reverse-engineering](https://github.com/Gleidisonjr/district187-reverse-engineering)).
