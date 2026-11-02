@@ -1,0 +1,3 @@
+interface:
+  display_name: "Agent worktree orchestration"
+  short_description: "Isolate agent work and compare verified candidate results"

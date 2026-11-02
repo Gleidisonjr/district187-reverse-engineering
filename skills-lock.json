@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-worktree-orchestration": {
+      "source": "rubenmarcus/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/agent-worktree-orchestration/SKILL.md",
+      "computedHash": "f7c26b101c43a1eb04238d180f1441e011ee228a56734094450203c01ba8a1a9"
+    },
+    "evidence-driven-debugging": {
+      "source": "rubenmarcus/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/evidence-driven-debugging/SKILL.md",
+      "computedHash": "b2d0c1e621feec770e940f815e03318d3fd9036bb3920bfec058877a36cbafdf"
+    },
+    "gauntlet-loop": {
+      "source": "rubenmarcus/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/gauntlet-loop/SKILL.md",
+      "computedHash": "5270a2b0c76bda78e9fc41d85e22475371edb6a24ca8e71b67f8b8ceb1bd301b"
+    },
+    "source-backed-research": {
+      "source": "rubenmarcus/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/source-backed-research/SKILL.md",
+      "computedHash": "7326333f7f03fa76712d65e92662c7d3fa4f7a9fa6e817299682a04611e90347"
+    },
+    "validated-coding-loop": {
+      "source": "rubenmarcus/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/validated-coding-loop/SKILL.md",
+      "computedHash": "b2b44eb74dc30fbcbab2091327185db28dd0b919d146abd1dacda2099b1a8f91"
+    }
+  }
+}

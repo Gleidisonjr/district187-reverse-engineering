@@ -1,0 +1,3 @@
+interface:
+  display_name: "Gauntlet loop"
+  short_description: "Iterate against a baseline with independent critics"

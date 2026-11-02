@@ -1,0 +1,42 @@
+# Environments & Secrets
+.env
+*.local.md
+CLAUDE.local.md
+
+# Agent & Editor Metadata
+.obsidian/
+.antigravitycli/
+.claude/
+.agents/skills-lock.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+scripts/logs/
+*.log
+
+# Godot 4 Cache
+projects/godot-fps/.godot/
+*.translation
+
+# Large Game Binaries & Archives (> 100MB / non-redistributable)
+targets/*/downloads/
+targets/*/client/
+targets/*/traffic/
+*.rar
+*.zip
+*.7z
+*.tar*
+*.ResDt
+*.bin
+*.dat
+*.dmp
+*.pdb
+
+# Extracted Bulk Assets (Curated models are kept in projects/godot-fps/assets/)
+targets/*/extracted/models/
+targets/*/extracted/materials/
+targets/*/extracted/weapons/
+targets/*/extracted/converted/
+targets/*/extracted/converted_weapons/

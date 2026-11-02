@@ -1,0 +1,3 @@
+interface:
+  display_name: "Validated coding loop"
+  short_description: "Iterate using real validation feedback and checkpoints"

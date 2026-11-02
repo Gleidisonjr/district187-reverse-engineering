@@ -1,0 +1,3 @@
+interface:
+  display_name: "Evidence-driven debugging"
+  short_description: "Reproduce defects and verify the actual failing path"
