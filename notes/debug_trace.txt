@@ -1,0 +1,14 @@
+=== Debug Trace ===
+[*] Launching process...
+[+] Started PID 12212
+[EXCEPTION] Code=0x80000003 at 0x7ffce613f56d (params: 1)
+[EXCEPTION] Code=0xc0000005 at 0x992dcd (params: 2)
+[EXCEPTION] Code=0x4000001f at 0x771c8328 (params: 1)
+[EXCEPTION] Code=0xe06d7363 at 0x74644644 (params: 3)
+   MSVC Exception: magic=0x19930520, pExcept=0x517ec58, pThrow=0x6df828a4
+   Exception message found: 'Ä\x1dìmÜWìm\x03'
+   Exception message found: 'è£9'
+   Exception message found: 'P%ìmdJìm\x04'
+[EXCEPTION] Code=0x4000001f at 0x6deef05d (params: 1)
+[EXIT_PROCESS] ExitCode=2147483651 (0x80000003)
+[*] Finished.
