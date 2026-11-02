@@ -1,0 +1,7 @@
+WeaponModeIndex,WeaponModeName,isMain_MAR,isMain_AR,isMain_shot,isMain_sniper,isMain_SMG,isMain_machinegun,isMain_Turret,isMain_bow,isMain_etc,isSubWeapon,isCloseWeapon,isTacticalWeapon,UseSlot1,UseSlot2,UseSlot3,UseSlot4
+1,UI_SYS_MODE_Normal,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+2,UI_SYS_MODE_Rifle,1,1,0,0,1,1,0,0,1,1,1,1,1,1,1,1
+3,UI_SYS_MODE_Sniper,0,0,0,1,0,0,0,1,0,1,1,1,1,1,1,1
+4,UI_SYS_MODE_Pistol,0,0,0,0,0,0,0,0,0,1,1,1,0,1,1,1
+5,UI_SYS_MODE_Knife,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0
+6,UI_SYS_MODE_Bomb,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1

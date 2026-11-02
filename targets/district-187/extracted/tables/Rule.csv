@@ -1,0 +1,15 @@
+INDEX,Name,Mod_Rule,Target_Count,WinTargetCount,Respawn,RespawnTime,bGoal
+3001,Assassin,Assasin_1,1,1,0,0,0
+3002,Bomb,Bomb_1,2,1,0,0,1
+3003,Rescue,Rescue_1,1,1,0,0,1
+3004,Rescue,Rescue_2,2,2,0,0,1
+3005,Capture,Capture_1,5,3,1,7,1
+3006,DeathMatch,DeathMatch,0,0,1,7,0
+3007,SuddenDeath,SuddenDeath,0,0,0,0,0
+3008,FlexibleCapture,FlexibleCapture,28,0,1,7,1
+3009,Conquest,Conquest_1,3,3,1,7,1
+3010,Captin,Captin_1,0,0,1,7,1
+3011,Extortion,Extortion_1,1,1,0,0,1
+3012,Escape,Escape_1,1,1,0,0,1
+3013,Convoy,Convoy_1,1,1,1,7,1
+3014,FFA,FFA_1,0,0,0,7,0

@@ -1,0 +1,7 @@
+Grade_Index,IsFinishServer,IsOpenCloseChannel,IsUseXignCode,IsNotifyAllChannel,IsEventBonusExpPoint,IsKickUser,IsSearchUser,IsObserverGameRoom,IsMatchStartGameRoom,IsUseContents,IsCashShopOpen,IsQuickMatchOpen,IsHacker,IsHost
+DEV,1,1,1,1,1,1,1,1,1,1,1,1,1,0
+GM,0,0,0,0,0,0,0,1,0,0,1,1,1,1
+Spectator,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+MC,0,0,0,0,0,0,0,1,1,0,0,0,0,0
+Judge,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+GMTool,1,1,1,1,1,1,1,0,0,0,1,1,1,1

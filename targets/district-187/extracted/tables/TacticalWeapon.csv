@@ -1,0 +1,11 @@
+Event,Index,key
+Select,0,4
+Fire,1,6
+SetUp,2,3
+Rattle,3,2
+Activate,4,1
+WEAPON_MISC1,5,11
+WEAPON_MISC2,6,12
+WEAPON_MISC3,7,13
+WEAPON_MISC4,8,14
+WEAPON_MISC5,9,15

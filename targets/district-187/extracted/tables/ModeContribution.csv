@@ -1,0 +1,15 @@
+ModeIndex,ModeName,Basic,Kill,Death,HeadShot,OverKill,OverDeath,Mission,Support,Suicide,WinBonus,RoundWinBonus,RoundLoseBonus,SubMisson,Max,Min
+DeathMatch,DeathMatch,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Assassin_1,Assassin,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Bomb_1,Bomb,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rescue_1,Rescue,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rescue_2,Rescue,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Capture_1,Capture,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+SuddenDeath,SuddenDeath,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Conquest_1,Conquest,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+FlexibleCapture,FlexibleCapture,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Captin_1,Captin,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Extortion_1,Extortion,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Escape_1,Escape,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Convoy_1,Convoy,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+FFA_1,FFA,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

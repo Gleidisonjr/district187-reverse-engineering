@@ -1,0 +1,181 @@
+GambleIndex,MarbleIndex,MarbleCount,Rank,RewardItem,SoundKey,SortIndex,Label,ItemCount,ItemName,Descript,Name
+1001,4320001,15,1,111001110,[Marbleland][Multipurpose][2],11,2,1,M4a1(365),365老,M4a1-JadeEd
+1001,4320001,15,2,111001104,[Marbleland][Multipurpose][3],11,2,20,M4a1(30),30老,M4a1-JadeEd
+1001,4320001,15,3,111001103,[Marbleland][Multipurpose][3],11,2,130,M4a1(15),15老,M4a1-JadeEd
+1001,4320001,15,4,111001102,[Marbleland][Multipurpose][3],11,2,160,M4a1(7),7老,M4a1-JadeEd
+1001,4320001,15,5,131000304,[Marbleland][Multipurpose][4],11,2,60,Combat Knife(30),30老,M4a1-JadeEd
+1001,4320001,15,6,131000303,[Marbleland][Multipurpose][4],11,2,110,Combat Knife(15),15老,M4a1-JadeEd
+1001,4320001,15,7,131000302,[Marbleland][Multipurpose][4],11,2,160,Combat Knife(7),7老,M4a1-JadeEd
+1001,4320001,15,8,141000302,[Marbleland][Multipurpose][4],11,2,119,Smoke(7),7老,M4a1-JadeEd
+1001,4320001,15,9,252100102,[Marbleland][Multipurpose][4],11,2,120,PG-S-01(7),7老,M4a1-JadeEd
+1001,4320001,15,10,251300102,[Marbleland][Multipurpose][4],11,2,120,Dragonfly(7),7老,M4a1-JadeEd
+1002,4320001,15,1,411000801,[Marbleland][Multipurpose][2],10,2,1,Gold Package 1,1000k,措冠 榜靛
+1002,4320001,15,2,411000901,[Marbleland][Multipurpose][3],10,2,300,Gold Package 2,100k,措冠 榜靛
+1002,4320001,15,3,411001001,[Marbleland][Multipurpose][3],10,2,667,Gold Package 3,10k,措冠 榜靛
+1002,4320001,15,4,411001001,[Marbleland][Multipurpose][3],10,2,667,Gold Package 3,10k,措冠 榜靛
+1002,4320001,15,5,411001001,[Marbleland][Multipurpose][4],10,2,666,Gold Package 3,10k,措冠 榜靛
+1002,4320001,15,6,411001101,[Marbleland][Multipurpose][4],10,2,1300,Gold Package 4,3k,措冠 榜靛
+1002,4320001,15,7,411001101,[Marbleland][Multipurpose][4],10,2,1300,Gold Package 4,3k,措冠 榜靛
+1002,4320001,15,8,411001101,[Marbleland][Multipurpose][4],10,2,1300,Gold Package 4,3k,措冠 榜靛
+1002,4320001,15,9,411001101,[Marbleland][Multipurpose][4],10,2,1299,Gold Package 4,3k,措冠 榜靛
+1002,4320001,15,10,432000106,[Marbleland][Multipurpose][4],10,2,2500,Cash Marble,15俺,措冠 榜靛
+1003,4310001,33,1,111001510,[Marbleland][Multipurpose][2],13,0,1,PSD XR(365),365老,PSD-XR Splendor
+1003,4310001,33,2,111001504,[Marbleland][Multipurpose][3],13,0,20,PSD XR(30),30老,PSD-XR Splendor
+1003,4310001,33,3,111001503,[Marbleland][Multipurpose][3],13,0,130,PSD XR(15),15老,PSD-XR Splendor
+1003,4310001,33,4,111001502,[Marbleland][Multipurpose][3],13,0,160,PSD XR(7),7老,PSD-XR Splendor
+1003,4310001,33,5,131000304,[Marbleland][Multipurpose][4],13,0,60,Combat Knife(30),30老,PSD-XR Splendor
+1003,4310001,33,6,131000303,[Marbleland][Multipurpose][4],13,0,110,Combat Knife(15),15老,PSD-XR Splendor
+1003,4310001,33,7,131000302,[Marbleland][Multipurpose][4],13,0,160,Combat Knife(7),7老,PSD-XR Splendor
+1003,4310001,33,8,141000302,[Marbleland][Multipurpose][4],13,0,119,Smoke(7),7老,PSD-XR Splendor
+1003,4310001,33,9,252100102,[Marbleland][Multipurpose][4],13,0,120,PG-S-01(7),7老,PSD-XR Splendor
+1003,4310001,33,10,251300102,[Marbleland][Multipurpose][4],13,0,120,Dragonfly(7),7老,PSD-XR Splendor
+1006,4320001,10,1,111001504,[Marbleland][Multipurpose][2],12,0,10,PSD XR-Splendor(30),30老,PSD-XR Splendor(100%)
+1006,4320001,10,2,111001503,[Marbleland][Multipurpose][2],12,0,30,PSD XR-Splendor(15),15老,PSD-XR Splendor(100%)
+1006,4320001,10,3,111001502,[Marbleland][Multipurpose][3],12,0,100,PSD XR-Splendor(7),7老,PSD-XR Splendor(100%)
+1006,4320001,10,4,111001501,[Marbleland][Multipurpose][4],12,0,100,PSD XR-Splendor(1),1老,PSD-XR Splendor(100%)
+1006,4320001,10,5,111001501,[Marbleland][Multipurpose][4],12,0,100,PSD XR-Splendor(1),1老,PSD-XR Splendor(100%)
+1006,4320001,10,6,111001501,[Marbleland][Multipurpose][4],12,0,100,PSD XR-Splendor(1),1老,PSD-XR Splendor(100%)
+1006,4320001,10,7,111001501,[Marbleland][Multipurpose][4],12,0,100,PSD XR-Splendor(1),1老,PSD-XR Splendor(100%)
+1006,4320001,10,8,111001501,[Marbleland][Multipurpose][4],12,0,100,PSD XR-Splendor(1),1老,PSD-XR Splendor(100%)
+1006,4320001,10,9,111001501,[Marbleland][Multipurpose][4],12,0,100,PSD XR-Splendor(1),1老,PSD-XR Splendor(100%)
+1006,4320001,10,10,111001501,[Marbleland][Multipurpose][4],12,0,260,PSD XR-Splendor(1),1老,PSD-XR Splendor(100%)
+1007,4320001,30,1,411001201,[Marbleland][Multipurpose][2],9,2,1,Pack_JinMad Sets 2(30),30老,某腐磐 赣脚
+1007,4320001,30,2,211300203,[Marbleland][Multipurpose][2],9,2,40,Mr.Mad(15),15老,某腐磐 赣脚
+1007,4320001,30,3,211100203,[Marbleland][Multipurpose][2],9,2,40,Jin(15),15老,某腐磐 赣脚
+1007,4320001,30,4,411001901,[Marbleland][Multipurpose][3],9,2,40,Pack_LawrenceJackson Set 2(30),30老,某腐磐 赣脚
+1007,4320001,30,5,211300403,[Marbleland][Multipurpose][3],9,2,50,Jackson(15),15老,某腐磐 赣脚
+1007,4320001,30,6,211100403,[Marbleland][Multipurpose][3],9,2,50,Lawrence(15),15老,某腐磐 赣脚
+1007,4320001,30,7,211300201,[Marbleland][Multipurpose][4],9,2,100,Mr.Mad(1),1老,某腐磐 赣脚
+1007,4320001,30,8,211100201,[Marbleland][Multipurpose][4],9,2,100,Jin(1),1老,某腐磐 赣脚
+1007,4320001,30,9,211300401,[Marbleland][Multipurpose][4],9,2,289,Jackson(1),1老,某腐磐 赣脚
+1007,4320001,30,10,211100401,[Marbleland][Multipurpose][4],9,2,290,Lawrence(1),1老,某腐磐 赣脚
+1008,4320001,10,1,112000504,[Marbleland][Multipurpose][2],8,0,10,AK47-Gold(30),30老,AK47-Gold
+1008,4320001,10,2,112000503,[Marbleland][Multipurpose][3],8,0,30,AK47-Gold(15),15老,AK47-Gold
+1008,4320001,10,3,112000502,[Marbleland][Multipurpose][3],8,0,100,AK47-Gold(7),7老,AK47-Gold
+1008,4320001,10,4,112000501,[Marbleland][Multipurpose][4],8,0,100,AK47-Gold(1),1老,AK47-Gold
+1008,4320001,10,5,112000501,[Marbleland][Multipurpose][4],8,0,100,AK47-Gold(1),1老,AK47-Gold
+1008,4320001,10,6,112000501,[Marbleland][Multipurpose][4],8,0,100,AK47-Gold(1),1老,AK47-Gold
+1008,4320001,10,7,112000501,[Marbleland][Multipurpose][4],8,0,100,AK47-Gold(1),1老,AK47-Gold
+1008,4320001,10,8,112000501,[Marbleland][Multipurpose][4],8,0,100,AK47-Gold(1),1老,AK47-Gold
+1008,4320001,10,9,112000501,[Marbleland][Multipurpose][4],8,0,100,AK47-Gold(1),1老,AK47-Gold
+1008,4320001,10,10,112000501,[Marbleland][Multipurpose][4],8,0,260,AK47-Gold(1),1老,AK47-Gold
+1012,4320001,10,1,111002404,[Marbleland][Multipurpose][2],7,0,1,M4a1-Gold_Marble(30),30老,M4a1 Gold-Plus
+1012,4320001,10,2,111002403,[Marbleland][Multipurpose][3],7,0,10,M4a1-Gold_Marble(15),15老,M4a1 Gold-Plus
+1012,4320001,10,3,111002402,[Marbleland][Multipurpose][3],7,0,30,M4a1-Gold_Marble(7),7老,M4a1 Gold-Plus
+1012,4320001,10,4,111002401,[Marbleland][Multipurpose][4],7,0,100,M4a1-Gold_Marble(1),1老,M4a1 Gold-Plus
+1012,4320001,10,5,111002401,[Marbleland][Multipurpose][4],7,0,100,M4a1-Gold_Marble(1),1老,M4a1 Gold-Plus
+1012,4320001,10,6,111002401,[Marbleland][Multipurpose][4],7,0,100,M4a1-Gold_Marble(1),1老,M4a1 Gold-Plus
+1012,4320001,10,7,111002401,[Marbleland][Multipurpose][4],7,0,100,M4a1-Gold_Marble(1),1老,M4a1 Gold-Plus
+1012,4320001,10,8,111002401,[Marbleland][Multipurpose][4],7,0,100,M4a1-Gold_Marble(1),1老,M4a1 Gold-Plus
+1012,4320001,10,9,111002401,[Marbleland][Multipurpose][4],7,0,100,M4a1-Gold_Marble(1),1老,M4a1 Gold-Plus
+1012,4320001,10,10,111002401,[Marbleland][Multipurpose][4],7,0,359,M4a1-Gold_Marble(1),1老,M4a1 Gold-Plus
+1013,4320001,30,1,411003401,[Marbleland][Multipurpose][2],6,0,5,Pack_BarazBesnik Set 4,30老,Baraz&Besnik_TUR
+1013,4320001,30,2,211300803,[Marbleland][Multipurpose][2],6,0,5,Besnik_Marble(15),30老,Baraz&Besnik_TUR
+1013,4320001,30,3,211100803,[Marbleland][Multipurpose][2],6,0,5,Baraz_Marble(15),30老,Baraz&Besnik_TUR
+1013,4320001,30,4,211300803,[Marbleland][Multipurpose][3],6,0,5,Besnik_Marble(15),15老,Baraz&Besnik_TUR
+1013,4320001,30,5,211100803,[Marbleland][Multipurpose][3],6,0,5,Baraz_Marble(15),15老,Baraz&Besnik_TUR
+1013,4320001,30,6,211300802,[Marbleland][Multipurpose][3],6,0,40,Besnik_Marble(7),15老,Baraz&Besnik_TUR
+1013,4320001,30,7,211100802,[Marbleland][Multipurpose][4],6,0,20,Baraz_Marble(7),7老,Baraz&Besnik_TUR
+1013,4320001,30,8,211100802,[Marbleland][Multipurpose][4],6,0,20,Baraz_Marble(7),7老,Baraz&Besnik_TUR
+1013,4320001,30,9,211300801,[Marbleland][Multipurpose][4],6,0,447,Besnik_Marble(1),1老,Baraz&Besnik_TUR
+1013,4320001,30,10,211100801,[Marbleland][Multipurpose][4],6,0,448,Baraz_Marble(1),1老,Baraz&Besnik_TUR
+1024,4320001,30,1,411005101,[Marbleland][Multipurpose][2],4,0,1,Pack_BrigetEmilia_Plus Set 30,30老,Briget&Emilia_TUR
+1024,4320001,30,2,411005001,[Marbleland][Multipurpose][2],4,0,9,Pack_BrigetEmilia_Plus Set 15,15老,Briget&Emilia_TUR
+1024,4320001,30,3,211400402,[Marbleland][Multipurpose][3],4,0,9,Emilia_Marble,7老,Briget&Emilia_TUR
+1024,4320001,30,4,211200402,[Marbleland][Multipurpose][3],4,0,2,Briget_Marble,7老,Briget&Emilia_TUR
+1024,4320001,30,5,211400402,[Marbleland][Multipurpose][3],4,0,10,Emilia_Marble,7老,Briget&Emilia_TUR
+1024,4320001,30,6,211200402,[Marbleland][Multipurpose][3],4,0,10,Briget_Marble,7老,Briget&Emilia_TUR
+1024,4320001,30,7,211400401,[Marbleland][Multipurpose][4],4,0,245,Emilia_Marble,1老,Briget&Emilia_TUR
+1024,4320001,30,8,211200401,[Marbleland][Multipurpose][4],4,0,245,Briget_Marble,1老,Briget&Emilia_TUR
+1024,4320001,30,9,211400401,[Marbleland][Multipurpose][4],4,0,235,Emilia_Marble,1老,Briget&Emilia_TUR
+1024,4320001,30,10,211200401,[Marbleland][Multipurpose][4],4,0,234,Briget_Marble,1老,Briget&Emilia_TUR
+1025,4320001,10,1,111002504,[Marbleland][Multipurpose][2],5,0,1,PSD XR-Gold_Marble,30老,PSD XR-Gold Plus_TUR
+1025,4320001,10,2,111002503,[Marbleland][Multipurpose][3],5,0,5,PSD XR-Gold_Marble,15老,PSD XR-Gold Plus_TUR
+1025,4320001,10,3,111002502,[Marbleland][Multipurpose][3],5,0,100,PSD XR-Gold_Marble,7老,PSD XR-Gold Plus_TUR
+1025,4320001,10,4,111002501,[Marbleland][Multipurpose][4],5,0,100,PSD XR-Gold_Marble,1老,PSD XR-Gold Plus_TUR
+1025,4320001,10,5,111002501,[Marbleland][Multipurpose][4],5,0,100,PSD XR-Gold_Marble,1老,PSD XR-Gold Plus_TUR
+1025,4320001,10,6,111002501,[Marbleland][Multipurpose][4],5,0,100,PSD XR-Gold_Marble,1老,PSD XR-Gold Plus_TUR
+1025,4320001,10,7,111002501,[Marbleland][Multipurpose][4],5,0,100,PSD XR-Gold_Marble,1老,PSD XR-Gold Plus_TUR
+1025,4320001,10,8,111002501,[Marbleland][Multipurpose][4],5,0,100,PSD XR-Gold_Marble,1老,PSD XR-Gold Plus_TUR
+1025,4320001,10,9,111002501,[Marbleland][Multipurpose][4],5,0,100,PSD XR-Gold_Marble,1老,PSD XR-Gold Plus_TUR
+1025,4320001,10,10,111002501,[Marbleland][Multipurpose][4],5,0,294,PSD XR-Gold_Marble,1老,PSD XR-Gold Plus_TUR
+1029,4320001,10,1,111002904,[Marbleland][Multipurpose][2],2,1,10,PDW K101-Cute Plus,30老,PDW K101-Cute Plus
+1029,4320001,10,2,111002903,[Marbleland][Multipurpose][3],2,1,30,PDW K101-Cute Plus,15老,PDW K101-Cute Plus
+1029,4320001,10,3,111002902,[Marbleland][Multipurpose][3],2,1,100,PDW K101-Cute Plus,7老,PDW K101-Cute Plus
+1029,4320001,10,4,111002901,[Marbleland][Multipurpose][4],2,1,100,PDW K101-Cute Plus,1老,PDW K101-Cute Plus
+1029,4320001,10,5,111002901,[Marbleland][Multipurpose][4],2,1,100,PDW K101-Cute Plus,1老,PDW K101-Cute Plus
+1029,4320001,10,6,111002901,[Marbleland][Multipurpose][4],2,1,100,PDW K101-Cute Plus,1老,PDW K101-Cute Plus
+1029,4320001,10,7,111002901,[Marbleland][Multipurpose][4],2,1,100,PDW K101-Cute Plus,1老,PDW K101-Cute Plus
+1029,4320001,10,8,111002901,[Marbleland][Multipurpose][4],2,1,100,PDW K101-Cute Plus,1老,PDW K101-Cute Plus
+1029,4320001,10,9,111002901,[Marbleland][Multipurpose][4],2,1,100,PDW K101-Cute Plus,1老,PDW K101-Cute Plus
+1029,4320001,10,10,111002901,[Marbleland][Multipurpose][4],2,1,260,PDW K101-Cute Plus,1老,PDW K101-Cute Plus
+1030,4320001,10,1,114001004,[Marbleland][Multipurpose][2],3,1,1,AWM 300-Cute Silencer,30老,AWM 300-Cute Silencer
+1030,4320001,10,2,114001003,[Marbleland][Multipurpose][3],3,1,10,AWM 300-Cute Silencer,15老,AWM 300-Cute Silencer
+1030,4320001,10,3,114001002,[Marbleland][Multipurpose][3],3,1,30,AWM 300-Cute Silencer,7老,AWM 300-Cute Silencer
+1030,4320001,10,4,114001001,[Marbleland][Multipurpose][4],3,1,100,AWM 300-Cute Silencer,1老,AWM 300-Cute Silencer
+1030,4320001,10,5,114001001,[Marbleland][Multipurpose][4],3,1,100,AWM 300-Cute Silencer,1老,AWM 300-Cute Silencer
+1030,4320001,10,6,114001001,[Marbleland][Multipurpose][4],3,1,100,AWM 300-Cute Silencer,1老,AWM 300-Cute Silencer
+1030,4320001,10,7,114001001,[Marbleland][Multipurpose][4],3,1,100,AWM 300-Cute Silencer,1老,AWM 300-Cute Silencer
+1030,4320001,10,8,114001001,[Marbleland][Multipurpose][4],3,1,100,AWM 300-Cute Silencer,1老,AWM 300-Cute Silencer
+1030,4320001,10,9,114001001,[Marbleland][Multipurpose][4],3,1,100,AWM 300-Cute Silencer,1老,AWM 300-Cute Silencer
+1030,4320001,10,10,114001001,[Marbleland][Multipurpose][4],3,1,359,AWM 300-Cute Silencer,1老,AWM 300-Cute Silencer
+1031,4320001,30,1,411005601,[Marbleland][Multipurpose][2],1,1,1,Pack_GloriaDebora_Plus Set 30,30老,Gloria&Debora
+1031,4320001,30,2,411005501,[Marbleland][Multipurpose][2],1,1,2,Pack_GloriaDebora_Plus Set 15,15老,Gloria&Debora
+1031,4320001,30,3,211200602,[Marbleland][Multipurpose][3],1,1,9,Debora_Marble,7老,Gloria&Debora
+1031,4320001,30,4,211400602,[Marbleland][Multipurpose][3],1,1,9,Gloria_Marble,7老,Gloria&Debora
+1031,4320001,30,5,211200602,[Marbleland][Multipurpose][3],1,1,10,Debora_Marble,7老,Gloria&Debora
+1031,4320001,30,6,211400602,[Marbleland][Multipurpose][3],1,1,10,Gloria_Marble,7老,Gloria&Debora
+1031,4320001,30,7,211200601,[Marbleland][Multipurpose][4],1,1,245,Debora_Marble,1老,Gloria&Debora
+1031,4320001,30,8,211400601,[Marbleland][Multipurpose][4],1,1,245,Gloria_Marble,1老,Gloria&Debora
+1031,4320001,30,9,211400601,[Marbleland][Multipurpose][4],1,1,234,Gloria_Marble,1老,Gloria&Debora
+1031,4320001,30,10,211200601,[Marbleland][Multipurpose][4],1,1,235,Debora_Marble,1老,Gloria&Debora
+1,4210005,1,1,111001510,0,0,0,1,PSD XR(365),TEST,
+1,4210005,1,2,111001504,0,0,0,20,PSD XR(30),TEST,
+1,4210005,1,3,111001503,0,0,0,130,PSD XR(15),TEST,
+1,4210005,1,4,111001502,0,0,0,160,PSD XR(7),TEST,
+1,4210005,1,5,131000304,0,0,0,60,Combat Knife(30),TEST,
+1,4210005,1,6,131000303,0,0,0,110,Combat Knife(15),TEST,
+1,4210005,1,7,131000302,0,0,0,160,Combat Knife(7),TEST,
+1,4210005,1,8,141000302,0,0,0,119,Smoke(7),TEST,
+1,4210005,1,9,252100102,0,0,0,120,PG-S-01(7),TEST,
+1,4210005,1,10,251300102,0,0,0,120,Dragonfly(7),TEST,
+1,4220002,1,1,411000801,0,0,0,1,Gold Package 1,TEST,
+1,4220002,1,2,411000901,0,0,0,300,Gold Package 2,TEST,
+1,4220002,1,3,411001001,0,0,0,667,Gold Package 3,TEST,
+1,4220002,1,4,411001001,0,0,0,667,Gold Package 3,TEST,
+1,4220002,1,5,411001001,0,0,0,666,Gold Package 3,TEST,
+1,4220002,1,6,411001101,0,0,0,1300,Gold Package 4,TEST,
+1,4220002,1,7,411001101,0,0,0,1300,Gold Package 4,TEST,
+1,4220002,1,8,411001101,0,0,0,1300,Gold Package 4,TEST,
+1,4220002,1,9,411001101,0,0,0,1299,Gold Package 4,TEST,
+1,4220002,1,10,422000201,0,0,0,2500,Gold Coupon Coin,TEST,
+1,4220003,1,1,111001110,0,0,0,1,M4a1(365),TEST,
+1,4220003,1,2,111001104,0,0,0,20,M4a1(30),TEST,
+1,4220003,1,3,111001103,0,0,0,130,M4a1(15),TEST,
+1,4220003,1,4,111001102,0,0,0,160,M4a1(7),TEST,
+1,4220003,1,5,131000304,0,0,0,60,Combat Knife(30),TEST,
+1,4220003,1,6,131000303,0,0,0,110,Combat Knife(15),TEST,
+1,4220003,1,7,131000302,0,0,0,160,Combat Knife(7),TEST,
+1,4220003,1,8,141000302,0,0,0,119,Smoke(7),TEST,
+1,4220003,1,9,252100102,0,0,0,120,PG-S-01(7),TEST,
+1,4220003,1,10,251300102,0,0,0,120,Dragonfly(7),TEST,
+1,4220004,1,1,411001601,0,0,0,10000,TukeyDecal+DS-01 Dot Set,Coin_TurkeyDecal,
+1,4220004,1,2,411001601,0,0,0,10000,TukeyDecal+DS-01 Dot Set,Coin_TurkeyDecal,
+1,4220004,1,3,411001601,0,0,0,10000,TukeyDecal+DS-01 Dot Set,Coin_TurkeyDecal,
+1,4220004,1,4,411001701,0,0,0,10000,TukeyDecal+WR-03 Light Set,Coin_TurkeyDecal,
+1,4220004,1,5,411001701,0,0,0,10000,TukeyDecal+WR-03 Light Set,Coin_TurkeyDecal,
+1,4220004,1,6,411001701,0,0,0,10000,TukeyDecal+WR-03 Light Set,Coin_TurkeyDecal,
+1,4220004,1,7,411001801,0,0,0,10000,TukeyDecal+SS-103 Silencer Set,Coin_TurkeyDecal,
+1,4220004,1,8,411001801,0,0,0,10000,TukeyDecal+SS-103 Silencer Set,Coin_TurkeyDecal,
+1,4220004,1,9,411001801,0,0,0,10000,TukeyDecal+SS-103 Silencer Set,Coin_TurkeyDecal,
+1,4220004,1,10,411001601,0,0,0,10000,TukeyDecal+DS-01 Dot Set,Coin_TurkeyDecal,
+1,4210001,1,1,211200101,0,0,0,10,Gloria,Coin_Silver1,0
+1,4210001,1,2,211400501,0,0,0,10,Amber,Coin_Silver1,0
+1,4210001,1,3,211100401,0,0,0,10,Lawrence,Coin_Silver1,0
+1,4210001,1,4,211300701,0,0,0,10,Besnik,Coin_Silver1,0
+1,4210001,1,5,111002801,0,0,0,20,PDW Cute,Coin_Silver1,0
+1,4210001,1,6,115001701,0,0,0,50,FN P90,Coin_Silver1,0
+1,4210001,1,7,114000901,0,0,0,20,AWM Cute,Coin_Silver1,0
+1,4210001,1,8,133000601,0,0,0,200,Punisher,Coin_Silver1,0
+1,4210001,1,9,141000301,0,0,0,500,Smoke Grenade,Coin_Silver1,0
+1,4210001,1,10,511002301,0,0,0,170,Bomb Kit,Coin_Silver1,0
