@@ -289,7 +289,7 @@ class D187Launcher(tk.Tk):
             target_ip = self.ent_ip.get().strip() or "127.0.0.1"
             target_port = self.ent_port.get().strip() or "12000"
 
-        if target_ip == "127.0.0.1" and not self.server_online:
+        if target_ip in ("127.0.0.1", "localhost") and not self.check_server():
             subprocess.Popen([sys.executable, SERVER_SCRIPT], creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
             time.sleep(1.5)
 
@@ -302,6 +302,8 @@ class D187Launcher(tk.Tk):
         time.sleep(0.3)
 
         # Set environment compatibility flag & apply Windows 11 QoL profile
+        env = os.environ.copy()
+        env["__COMPAT_LAYER"] = "RunAsInvoker"
         os.environ["__COMPAT_LAYER"] = "RunAsInvoker"
         try:
             from d187_qol_optimizer import apply_qol_profile, enforce_borderless_window
@@ -312,6 +314,7 @@ class D187Launcher(tk.Tk):
         cmd = [
             THE_RAW_EXE,
             "-arch", "game",
+            "-archcfg", "Default.archcfg",
             "-windowtitle", "District 187: Sin Streets",
             "+gs_ip", target_ip,
             "+gs_port", target_port,
@@ -321,7 +324,7 @@ class D187Launcher(tk.Tk):
         ]
 
         try:
-            subprocess.Popen(cmd, cwd=CLIENT_DIR)
+            subprocess.Popen(cmd, cwd=CLIENT_DIR, env=env)
             if self.borderless_var.get():
                 threading.Thread(target=enforce_borderless_window, kwargs={"timeout_sec": 12.0}, daemon=True).start()
             messagebox.showinfo("District 187", "Jogo inicializado com sucesso!\n\nNa tela de login dentro do jogo:\n- Digite seu Usuário (ex: gleidison)\n- Digite sua Senha (qualquer senha)\n- Clique em OK!")

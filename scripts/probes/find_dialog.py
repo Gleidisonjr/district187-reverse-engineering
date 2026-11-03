@@ -35,4 +35,5 @@ def enum_cb(hwnd, lparam):
 
 print(f"Enumerating windows for PID {pid}...")
 user32.EnumWindows(WNDENUMPROC(enum_cb), 0)
+user32.EnumThreadWindows(tid, WNDENUMPROC(enum_cb), 0)
 print(f"Done. Found {len(found)} windows.")
