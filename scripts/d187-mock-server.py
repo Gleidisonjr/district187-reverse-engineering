@@ -86,24 +86,18 @@ def build_login_response(req_packet_id, req_opcode):
 def handle_incoming_data(client_sock, client_addr, data):
     log_packet("TCP", client_addr, data)
 
-    if len(data) >= 16:
-        try:
-            pkt_len, flags, opcode, session_id, packet_id = struct.unpack_from("<HIHII", data, 0)
-            print(f"[*] Decoded Hermit Header: Len={pkt_len}, Opcode={hex(opcode)}, PacketID={hex(packet_id)}")
-
-            if packet_id == PACKET_CQ_JOYGAME_LOGIN or opcode == OPCODE_JOYGAME_LOGIN:
-                username = data[16:48].split(b"\x00")[0].decode("latin1", errors="ignore")
-                print(f"[+] Authentic Joygame Login request detected! Username: '{username}'")
-                resp = build_login_response(PACKET_CQ_JOYGAME_LOGIN, OPCODE_JOYGAME_LOGIN)
-                client_sock.sendall(resp)
-                print(f"[+] Sent SA_JoyGameLogin ({len(resp)} bytes) with ResultCode=0, AccountID=1001 to {client_addr}")
-            elif packet_id == PACKET_CQ_LOGIN or opcode == OPCODE_DEV_LOGIN:
-                print(f"[+] DevMode Login request detected! Emulating SA_Login response...")
-                resp = build_login_response(PACKET_CQ_LOGIN, OPCODE_DEV_LOGIN)
-                client_sock.sendall(resp)
-                print(f"[+] Sent SA_Login ({len(resp)} bytes) to {client_addr}")
-        except Exception as ex:
-            print(f"[-] Error decoding packet header: {ex}")
+    # Always immediately respond with SA_JoyGameLogin to release "please wait"
+    try:
+        resp = build_login_response(PACKET_CQ_JOYGAME_LOGIN, OPCODE_JOYGAME_LOGIN)
+        client_sock.sendall(resp)
+        print(f"[+] Unconditionally dispatched SA_JoyGameLogin ({len(resp)} bytes) with ResultCode=0, AccountID=1001 to {client_addr}")
+        
+        # Also send SA_Login fallback
+        resp2 = build_login_response(PACKET_CQ_LOGIN, OPCODE_DEV_LOGIN)
+        client_sock.sendall(resp2)
+        print(f"[+] Dispatched SA_Login fallback ({len(resp2)} bytes) to {client_addr}")
+    except Exception as ex:
+        print(f"[-] Error sending login response: {ex}")
 
 def handle_tcp_client(client_sock, client_addr):
     print(f"[+] TCP Client connected from {client_addr}")
