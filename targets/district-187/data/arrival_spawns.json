@@ -1,0 +1,312 @@
+{
+  "world_name": "Arrival",
+  "version": 113,
+  "total_spawns": 32,
+  "bounds": {
+    "min_x": -3456.0,
+    "max_x": 3936.0,
+    "min_z": -1344.0,
+    "max_z": 1920.0
+  },
+  "team_centers": {
+    "team0_swat": {
+      "x": -3168.0,
+      "z": -1056.75
+    },
+    "team1_gangsters": {
+      "x": 3648.0,
+      "z": 1775.98
+    },
+    "distance_units": 7381.21
+  },
+  "spawns": [
+    {
+      "name": "GameStartPoint_0_00",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 0,
+      "x": -3072.0,
+      "y": 100.15,
+      "z": -966.0
+    },
+    {
+      "name": "GameStartPoint_0_01",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 1,
+      "x": -2880.0,
+      "y": 100.15,
+      "z": -966.0
+    },
+    {
+      "name": "GameStartPoint_0_02",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 2,
+      "x": -3072.0,
+      "y": 100.15,
+      "z": -768.0
+    },
+    {
+      "name": "GameStartPoint_0_03",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 3,
+      "x": -2880.0,
+      "y": 100.15,
+      "z": -768.0
+    },
+    {
+      "name": "GameStartPoint_0_04",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 4,
+      "x": -3072.0,
+      "y": 100.15,
+      "z": -1152.0
+    },
+    {
+      "name": "GameStartPoint_0_05",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 5,
+      "x": -2880.0,
+      "y": 100.15,
+      "z": -1152.0
+    },
+    {
+      "name": "GameStartPoint_0_06",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 6,
+      "x": -3072.0,
+      "y": 100.15,
+      "z": -1344.0
+    },
+    {
+      "name": "GameStartPoint_0_07",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 7,
+      "x": -2880.0,
+      "y": 100.15,
+      "z": -1344.0
+    },
+    {
+      "name": "GameStartPoint_0_08",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 8,
+      "x": -3264.0,
+      "y": 100.15,
+      "z": -768.0
+    },
+    {
+      "name": "GameStartPoint_0_09",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 9,
+      "x": -3264.0,
+      "y": 100.15,
+      "z": -960.0
+    },
+    {
+      "name": "GameStartPoint_0_10",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 10,
+      "x": -3264.0,
+      "y": 100.15,
+      "z": -1152.0
+    },
+    {
+      "name": "GameStartPoint_0_11",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 11,
+      "x": -3264.0,
+      "y": 100.15,
+      "z": -1344.0
+    },
+    {
+      "name": "GameStartPoint_0_12",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 12,
+      "x": -3456.0,
+      "y": 100.15,
+      "z": -768.0
+    },
+    {
+      "name": "GameStartPoint_0_13",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 13,
+      "x": -3456.0,
+      "y": 100.15,
+      "z": -960.0
+    },
+    {
+      "name": "GameStartPoint_0_14",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 14,
+      "x": -3456.0,
+      "y": 100.15,
+      "z": -1152.0
+    },
+    {
+      "name": "GameStartPoint_0_15",
+      "team": 0,
+      "team_name": "SWAT (Law Enforcement)",
+      "index": 15,
+      "x": -3456.0,
+      "y": 100.15,
+      "z": -1344.0
+    },
+    {
+      "name": "GameStartPoint_1_00",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 0,
+      "x": 3744.0,
+      "y": 100.0,
+      "z": 1920.0
+    },
+    {
+      "name": "GameStartPoint_1_01",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 1,
+      "x": 3744.0,
+      "y": 100.0,
+      "z": 1824.0
+    },
+    {
+      "name": "GameStartPoint_1_02",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 2,
+      "x": 3744.0,
+      "y": 100.0,
+      "z": 1728.0
+    },
+    {
+      "name": "GameStartPoint_1_03",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 3,
+      "x": 3744.0,
+      "y": 100.0,
+      "z": 1632.0
+    },
+    {
+      "name": "GameStartPoint_1_04",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 4,
+      "x": 3936.0,
+      "y": 100.0,
+      "z": 1631.65
+    },
+    {
+      "name": "GameStartPoint_1_05",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 5,
+      "x": 3936.0,
+      "y": 100.0,
+      "z": 1728.0
+    },
+    {
+      "name": "GameStartPoint_1_06",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 6,
+      "x": 3936.0,
+      "y": 100.0,
+      "z": 1920.0
+    },
+    {
+      "name": "GameStartPoint_1_07",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 7,
+      "x": 3936.0,
+      "y": 100.0,
+      "z": 1824.0
+    },
+    {
+      "name": "GameStartPoint_1_08",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 8,
+      "x": 3360.0,
+      "y": 100.0,
+      "z": 1632.0
+    },
+    {
+      "name": "GameStartPoint_1_09",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 9,
+      "x": 3552.0,
+      "y": 100.0,
+      "z": 1632.0
+    },
+    {
+      "name": "GameStartPoint_1_10",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 10,
+      "x": 3360.0,
+      "y": 100.0,
+      "z": 1920.0
+    },
+    {
+      "name": "GameStartPoint_1_11",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 11,
+      "x": 3360.0,
+      "y": 100.0,
+      "z": 1824.0
+    },
+    {
+      "name": "GameStartPoint_1_12",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 12,
+      "x": 3360.0,
+      "y": 100.0,
+      "z": 1728.0
+    },
+    {
+      "name": "GameStartPoint_1_13",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 13,
+      "x": 3552.0,
+      "y": 100.0,
+      "z": 1728.0
+    },
+    {
+      "name": "GameStartPoint_1_14",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 14,
+      "x": 3552.0,
+      "y": 100.0,
+      "z": 1824.0
+    },
+    {
+      "name": "GameStartPoint_1_15",
+      "team": 1,
+      "team_name": "Gangsters (Underworld)",
+      "index": 15,
+      "x": 3552.0,
+      "y": 100.0,
+      "z": 1920.0
+    }
+  ]
+}

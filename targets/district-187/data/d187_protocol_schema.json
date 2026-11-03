@@ -1,0 +1,3288 @@
+{
+  "total_packets": 326,
+  "families": {
+    "Hanger": 3,
+    "NAccount": 11,
+    "NAchivement": 3,
+    "NBattle": 6,
+    "NGuild": 66,
+    "NHangar": 43,
+    "NHosting": 7,
+    "NInsperctor": 2,
+    "NLaunch": 12,
+    "NMailBox": 17,
+    "NMatchup": 118,
+    "NMessanger": 23,
+    "NTournament": 15
+  },
+  "directions": {
+    "CQ": 71,
+    "SA": 70,
+    "SN": 158,
+    "CN": 19,
+    "Unknown": 1,
+    "NN": 7
+  },
+  "packets": [
+    {
+      "name": "tPacket_Hanger_NEquiment_CQ_UseItem",
+      "family": "Hanger",
+      "subfamily": "NEquiment",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "UseItem",
+      "string_va": "0x1048a578",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_Hanger_NEquiment_SA_UseItem",
+      "family": "Hanger",
+      "subfamily": "NEquiment",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "UseItem",
+      "string_va": "0x1048a554",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_Hanger_NEquiment_SN_PackageItem",
+      "family": "Hanger",
+      "subfamily": "NEquiment",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "PackageItem",
+      "string_va": "0x1048a52c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAccount_NIdentity_CN_NetmarbleLoginData",
+      "family": "NAccount",
+      "subfamily": "NIdentity",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "NetmarbleLoginData",
+      "string_va": "0x1048c1c8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAccount_NIdentity_CN_NetmarbleLoginPCInfo",
+      "family": "NAccount",
+      "subfamily": "NIdentity",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "NetmarbleLoginPCInfo",
+      "string_va": "0x1048c164",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAccount_NIdentity_CQ_Join",
+      "family": "NAccount",
+      "subfamily": "NIdentity",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Join",
+      "string_va": "0x1048c050",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAccount_NIdentity_CQ_JoyGameLogin",
+      "family": "NAccount",
+      "subfamily": "NIdentity",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "JoyGameLogin",
+      "string_va": "0x1048c0f0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAccount_NIdentity_CQ_Login",
+      "family": "NAccount",
+      "subfamily": "NIdentity",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Login",
+      "string_va": "0x1048c140",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAccount_NIdentity_CQ_MenaLogin",
+      "family": "NAccount",
+      "subfamily": "NIdentity",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "MenaLogin",
+      "string_va": "0x1048c09c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAccount_NIdentity_SA_Join",
+      "family": "NAccount",
+      "subfamily": "NIdentity",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Join",
+      "string_va": "0x1048c02c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAccount_NIdentity_SA_JoyGameLogin",
+      "family": "NAccount",
+      "subfamily": "NIdentity",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "JoyGameLogin",
+      "string_va": "0x1048c0c4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAccount_NIdentity_SA_Login",
+      "family": "NAccount",
+      "subfamily": "NIdentity",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Login",
+      "string_va": "0x1048c11c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAccount_NIdentity_SA_MenaLogin",
+      "family": "NAccount",
+      "subfamily": "NIdentity",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "MenaLogin",
+      "string_va": "0x1048c074",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAccount_NIdentity_SA_NetmarbleLogin",
+      "family": "NAccount",
+      "subfamily": "NIdentity",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "NetmarbleLogin",
+      "string_va": "0x1048c198",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAchivement_NData_SN_BaseInfo",
+      "family": "NAchivement",
+      "subfamily": "NData",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "BaseInfo",
+      "string_va": "0x1048a02c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAchivement_NData_SN_Diary",
+      "family": "NAchivement",
+      "subfamily": "NData",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Diary",
+      "string_va": "0x10489fe0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NAchivement_NData_SN_Progress",
+      "family": "NAchivement",
+      "subfamily": "NData",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Progress",
+      "string_va": "0x1048a004",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NBattle_NGame_SN_Bomb",
+      "family": "NBattle",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Bomb",
+      "string_va": "0x1048a7f0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NBattle_NGame_SN_Captin",
+      "family": "NBattle",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Captin",
+      "string_va": "0x1048a7a4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NBattle_NGame_SN_Escape",
+      "family": "NBattle",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Escape",
+      "string_va": "0x1048a784",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NBattle_NGame_SN_FlexibleCapture",
+      "family": "NBattle",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "FlexibleCapture",
+      "string_va": "0x1048a7c4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NBattle_NGame_SN_Kill",
+      "family": "NBattle",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Kill",
+      "string_va": "0x1048a810",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NBattle_NGame_SN_Revive",
+      "family": "NBattle",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Revive",
+      "string_va": "0x1048a830",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NBattle_SN_ClanRecordNotify",
+      "family": "NGuild",
+      "subfamily": "NBattle",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ClanRecordNotify",
+      "string_va": "0x104890a0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NBattle_SN_ClannerRecordNotify",
+      "family": "NGuild",
+      "subfamily": "NBattle",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ClannerRecordNotify",
+      "string_va": "0x10489070",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_CQ_Delete",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Delete",
+      "string_va": "0x1048956c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_SA_Delete",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Delete",
+      "string_va": "0x10489548",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_SN_AddClanner",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "AddClanner",
+      "string_va": "0x10489590",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_SN_ChangeColor",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeColor",
+      "string_va": "0x104893c4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_SN_ChangeTitle",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeTitle",
+      "string_va": "0x104893ec",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_SN_ClannerListInChannel",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ClannerListInChannel",
+      "string_va": "0x104894b0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_SN_ClannerListInRoom",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ClannerListInRoom",
+      "string_va": "0x10489448",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_SN_DeleteClannerInfoInChannel",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "DeleteClannerInfoInChannel",
+      "string_va": "0x10489478",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_SN_DeleteClannerInfoInRoom",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "DeleteClannerInfoInRoom",
+      "string_va": "0x10489414",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_SN_Kick",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Kick",
+      "string_va": "0x10489504",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_SN_Offline",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Offline",
+      "string_va": "0x104894e0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NClanner_SN_Secede",
+      "family": "NGuild",
+      "subfamily": "NClanner",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Secede",
+      "string_va": "0x10489524",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NData_SN_ClannerList",
+      "family": "NGuild",
+      "subfamily": "NData",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ClannerList",
+      "string_va": "0x10489600",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NData_SN_SignupList",
+      "family": "NGuild",
+      "subfamily": "NData",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "SignupList",
+      "string_va": "0x104895dc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_CQ_Accept",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Accept",
+      "string_va": "0x10489770",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_CQ_CheckName",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "CheckName",
+      "string_va": "0x10489854",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_CQ_Delete",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Delete",
+      "string_va": "0x104896b8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_CQ_Search",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Search",
+      "string_va": "0x104898a0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_CQ_Signup",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Signup",
+      "string_va": "0x104897b8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_CQ_SignupList",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "SignupList",
+      "string_va": "0x10489804",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SA_Accept",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Accept",
+      "string_va": "0x1048974c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SA_CheckName",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "CheckName",
+      "string_va": "0x1048982c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SA_Delete",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Delete",
+      "string_va": "0x10489694",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SA_Search",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Search",
+      "string_va": "0x1048987c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SA_Signup",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Signup",
+      "string_va": "0x10489794",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SA_SignupList",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "SignupList",
+      "string_va": "0x104897dc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SN_Accept",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Accept",
+      "string_va": "0x10489728",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SN_Delete",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Delete",
+      "string_va": "0x10489670",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SN_Reject",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Reject",
+      "string_va": "0x1048964c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SN_SignerAccept",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "SignerAccept",
+      "string_va": "0x10489700",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SN_SignerReject",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "SignerReject",
+      "string_va": "0x10489624",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NFactory_SN_Signup",
+      "family": "NGuild",
+      "subfamily": "NFactory",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Signup",
+      "string_va": "0x104896dc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NGame_CN_Invite",
+      "family": "NGuild",
+      "subfamily": "NGame",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "Invite",
+      "string_va": "0x10489050",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NGame_CN_Reject",
+      "family": "NGuild",
+      "subfamily": "NGame",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "Reject",
+      "string_va": "0x10488fec",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NGame_CQ_Together",
+      "family": "NGuild",
+      "subfamily": "NGame",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Together",
+      "string_va": "0x10488fa8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NGame_SA_Together",
+      "family": "NGuild",
+      "subfamily": "NGame",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Together",
+      "string_va": "0x10488f60",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NGame_SN_Invite",
+      "family": "NGuild",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Invite",
+      "string_va": "0x10489030",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NGame_SN_InviteFail",
+      "family": "NGuild",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "InviteFail",
+      "string_va": "0x1048900c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NGame_SN_Reject",
+      "family": "NGuild",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Reject",
+      "string_va": "0x10488fcc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NInit_CQ_Close",
+      "family": "NGuild",
+      "subfamily": "NInit",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Close",
+      "string_va": "0x104898e4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NInit_CQ_Open",
+      "family": "NGuild",
+      "subfamily": "NInit",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Open",
+      "string_va": "0x10489924",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NInit_SA_Close",
+      "family": "NGuild",
+      "subfamily": "NInit",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Close",
+      "string_va": "0x104898c4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NInit_SA_Open",
+      "family": "NGuild",
+      "subfamily": "NInit",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Open",
+      "string_va": "0x10489904",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NInit_SN_ClanServerDisconnect",
+      "family": "NGuild",
+      "subfamily": "NInit",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ClanServerDisconnect",
+      "string_va": "0x10489944",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NInit_SN_LoadFail",
+      "family": "NGuild",
+      "subfamily": "NInit",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "LoadFail",
+      "string_va": "0x10489998",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NInit_SN_NotClanner",
+      "family": "NGuild",
+      "subfamily": "NInit",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "NotClanner",
+      "string_va": "0x10489974",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NInvite_CN_InviteReject",
+      "family": "NGuild",
+      "subfamily": "NInvite",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "InviteReject",
+      "string_va": "0x104890f4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NInvite_SA_Invite",
+      "family": "NGuild",
+      "subfamily": "NInvite",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Invite",
+      "string_va": "0x10489144",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NInvite_SN_InviteReject",
+      "family": "NGuild",
+      "subfamily": "NInvite",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "InviteReject",
+      "string_va": "0x104890cc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NInvite_SN_InviteToUser",
+      "family": "NGuild",
+      "subfamily": "NInvite",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "InviteToUser",
+      "string_va": "0x1048911c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_CQ_ChangeClanMark",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangeClanMark",
+      "string_va": "0x10489330",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_CQ_ChangeClanMarkPreCheck",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangeClanMarkPreCheck",
+      "string_va": "0x10489390",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_CQ_ChangeClanName",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangeClanName",
+      "string_va": "0x10489244",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_CQ_ChangeClanNamePreCheck",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangeClanNamePreCheck",
+      "string_va": "0x104892a4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_SA_ChangeClanMark",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangeClanMark",
+      "string_va": "0x10489304",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_SA_ChangeClanMarkPreCheck",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangeClanMarkPreCheck",
+      "string_va": "0x1048935c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_SA_ChangeClanName",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangeClanName",
+      "string_va": "0x10489218",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_SA_ChangeClanNamePreCheck",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangeClanNamePreCheck",
+      "string_va": "0x10489270",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_SN_ChangeClanMark",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeClanMark",
+      "string_va": "0x104892d8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_SN_ChangeClanName",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeClanName",
+      "string_va": "0x104891ec",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_SN_ChangeNickName",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeNickName",
+      "string_va": "0x10489194",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_SN_ResetClanRecord",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ResetClanRecord",
+      "string_va": "0x10489168",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_NUpdate_SN_UpdateClanLevel",
+      "family": "NGuild",
+      "subfamily": "NUpdate",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "UpdateClanLevel",
+      "string_va": "0x104891c0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NGuild_Nclanner_SN_Online",
+      "family": "NGuild",
+      "subfamily": "Nclanner",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Online",
+      "string_va": "0x104895b8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_CQ_ChangeNickName",
+      "family": "NHangar",
+      "subfamily": "CQ",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangeNickName",
+      "string_va": "0x1048a3e0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_CQ_CheckNickName",
+      "family": "NHangar",
+      "subfamily": "CQ",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "CheckNickName",
+      "string_va": "0x1048a3bc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NConvert_CQ_MainSkinUse",
+      "family": "NHangar",
+      "subfamily": "NConvert",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "MainSkinUse",
+      "string_va": "0x1048a2cc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NConvert_SA_MainSkinUse",
+      "family": "NHangar",
+      "subfamily": "NConvert",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "MainSkinUse",
+      "string_va": "0x1048a2f4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NDestroy_SN_LimitItemDestory",
+      "family": "NHangar",
+      "subfamily": "NDestroy",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "LimitItemDestory",
+      "string_va": "0x1048a464",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_CQ_ActiveItem",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ActiveItem",
+      "string_va": "0x1048a670",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_CQ_ChangePart",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangePart",
+      "string_va": "0x1048a6c8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_CQ_Close",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Close",
+      "string_va": "0x1048a718",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_CQ_DeleteItem",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "DeleteItem",
+      "string_va": "0x1048a5c8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_CQ_Open",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Open",
+      "string_va": "0x1048a760",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_CQ_Unequip",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Unequip",
+      "string_va": "0x1048a61c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_SA_ActiveItem",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ActiveItem",
+      "string_va": "0x1048a644",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_SA_ChangePart",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangePart",
+      "string_va": "0x1048a69c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_SA_Close",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Close",
+      "string_va": "0x1048a6f4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_SA_DeleteItem",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "DeleteItem",
+      "string_va": "0x1048a59c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_SA_Open",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Open",
+      "string_va": "0x1048a73c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NEquipment_SA_Unequip",
+      "family": "NHangar",
+      "subfamily": "NEquipment",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Unequip",
+      "string_va": "0x1048a5f4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NGift_CQ_Send",
+      "family": "NHangar",
+      "subfamily": "NGift",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Send",
+      "string_va": "0x1048a404",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NGift_SA_Send",
+      "family": "NHangar",
+      "subfamily": "NGift",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Send",
+      "string_va": "0x1048a424",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NGift_SN_Send",
+      "family": "NHangar",
+      "subfamily": "NGift",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Send",
+      "string_va": "0x1048a444",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_CQ_SelectGamble",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "SelectGamble",
+      "string_va": "0x1048a1b4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_CQ_UseCashLuckyShop",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "UseCashLuckyShop",
+      "string_va": "0x1048a100",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_CQ_UsePointLuckyShop",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "UsePointLuckyShop",
+      "string_va": "0x1048a15c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_CQ_WinnerList",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "WinnerList",
+      "string_va": "0x1048a278",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_SA_SelectGamble",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "SelectGamble",
+      "string_va": "0x1048a18c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_SA_UseCashLuckyShop",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "UseCashLuckyShop",
+      "string_va": "0x1048a0d4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_SA_UsePointLuckyShop",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "UsePointLuckyShop",
+      "string_va": "0x1048a12c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_SA_WinnerList",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "WinnerList",
+      "string_va": "0x1048a250",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_SN_LuckyRewardItem",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "LuckyRewardItem",
+      "string_va": "0x1048a0a8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_SN_LuckyWInner",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "LuckyWInner",
+      "string_va": "0x1048a080",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_SN_LuckyWinnerList",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "LuckyWinnerList",
+      "string_va": "0x1048a054",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_SN_RewardItem",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "RewardItem",
+      "string_va": "0x1048a200",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_SN_Winner",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Winner",
+      "string_va": "0x1048a1dc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NMarble_SN_WinnerList",
+      "family": "NHangar",
+      "subfamily": "NMarble",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "WinnerList",
+      "string_va": "0x1048a228",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NPurchase_CQ_Buy",
+      "family": "NHangar",
+      "subfamily": "NPurchase",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Buy",
+      "string_va": "0x1048a508",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NPurchase_CQ_CashBuy",
+      "family": "NHangar",
+      "subfamily": "NPurchase",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "CashBuy",
+      "string_va": "0x1048a4b8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NPurchase_SA_Buy",
+      "family": "NHangar",
+      "subfamily": "NPurchase",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Buy",
+      "string_va": "0x1048a494",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NPurchase_SA_CashBuy",
+      "family": "NHangar",
+      "subfamily": "NPurchase",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "CashBuy",
+      "string_va": "0x1048a4e0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NRandomBox_CQ_RewardList",
+      "family": "NHangar",
+      "subfamily": "NRandomBox",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "RewardList",
+      "string_va": "0x1048a348",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NRandomBox_SA_RewardList",
+      "family": "NHangar",
+      "subfamily": "NRandomBox",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "RewardList",
+      "string_va": "0x1048a31c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_NRandomBox_SN_RewardItem",
+      "family": "NHangar",
+      "subfamily": "NRandomBox",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "RewardItem",
+      "string_va": "0x1048a2a0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_SA_ChangeNickName",
+      "family": "NHangar",
+      "subfamily": "SA",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangeNickName",
+      "string_va": "0x1048a398",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHangar_SA_CheckNickName",
+      "family": "NHangar",
+      "subfamily": "SA",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "CheckNickName",
+      "string_va": "0x1048a374",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHosting_NGuest_SN_BattleStart",
+      "family": "NHosting",
+      "subfamily": "NGuest",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "BattleStart",
+      "string_va": "0x10488ec4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHosting_NGuest_SN_HostConnect",
+      "family": "NHosting",
+      "subfamily": "NGuest",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "HostConnect",
+      "string_va": "0x10488f14",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHosting_NGuest_SN_HostDisConnect",
+      "family": "NHosting",
+      "subfamily": "NGuest",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "HostDisConnect",
+      "string_va": "0x10488e98",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHosting_NGuest_SN_HostingFail",
+      "family": "NHosting",
+      "subfamily": "NGuest",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "HostingFail",
+      "string_va": "0x10488eec",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHosting_NGuest_SN_UserExit",
+      "family": "NHosting",
+      "subfamily": "NGuest",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "UserExit",
+      "string_va": "0x10488e74",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHosting_NGuest_SN_Waiting",
+      "family": "NHosting",
+      "subfamily": "NGuest",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Waiting",
+      "string_va": "0x10488f3c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NHosting_NHost_CanHostSyn",
+      "family": "NHosting",
+      "subfamily": "NHost",
+      "direction": "Unknown",
+      "direction_description": "Unknown",
+      "action": "CanHostSyn",
+      "string_va": "0x10488f84",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NInsperctor_NChannel_SN_AllNotify",
+      "family": "NInsperctor",
+      "subfamily": "NChannel",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "AllNotify",
+      "string_va": "0x10488e0c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NInsperctor_NInit_SN_Login",
+      "family": "NInsperctor",
+      "subfamily": "NInit",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Login",
+      "string_va": "0x10488e50",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NFactory_CQ_CreateUser",
+      "family": "NLaunch",
+      "subfamily": "NFactory",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "CreateUser",
+      "string_va": "0x1048be58",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NFactory_SA_CreateUser",
+      "family": "NLaunch",
+      "subfamily": "NFactory",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "CreateUser",
+      "string_va": "0x1048be30",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NLock_SN_ChatPunishInfo",
+      "family": "NLaunch",
+      "subfamily": "NLock",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChatPunishInfo",
+      "string_va": "0x1048be80",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NLock_SN_ItemList",
+      "family": "NLaunch",
+      "subfamily": "NLock",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ItemList",
+      "string_va": "0x1048bf98",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NLock_SN_LockEnd",
+      "family": "NLaunch",
+      "subfamily": "NLock",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "LockEnd",
+      "string_va": "0x1048bfbc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NLock_SN_NetCafeInfo",
+      "family": "NLaunch",
+      "subfamily": "NLock",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "NetCafeInfo",
+      "string_va": "0x1048bfe0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NLock_SN_RankingInfo",
+      "family": "NLaunch",
+      "subfamily": "NLock",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "RankingInfo",
+      "string_va": "0x1048bf2c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NLock_SN_Record",
+      "family": "NLaunch",
+      "subfamily": "NLock",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Record",
+      "string_va": "0x1048bf54",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NLock_SN_RecordMapList",
+      "family": "NLaunch",
+      "subfamily": "NLock",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "RecordMapList",
+      "string_va": "0x1048bf04",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NLock_SN_ShotdownToYouth",
+      "family": "NLaunch",
+      "subfamily": "NLock",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ShotdownToYouth",
+      "string_va": "0x1048bed8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NLock_SN_SlotInfo",
+      "family": "NLaunch",
+      "subfamily": "NLock",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "SlotInfo",
+      "string_va": "0x1048bf74",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NLaunch_NLock_SN_UserInfo",
+      "family": "NLaunch",
+      "subfamily": "NLock",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "UserInfo",
+      "string_va": "0x1048c008",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NGift_CQ_Delete",
+      "family": "NMailBox",
+      "subfamily": "NGift",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Delete",
+      "string_va": "0x10489e04",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NGift_CQ_ReceiveItem",
+      "family": "NMailBox",
+      "subfamily": "NGift",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ReceiveItem",
+      "string_va": "0x10489db8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NGift_CQ_Refresh",
+      "family": "NMailBox",
+      "subfamily": "NGift",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Refresh",
+      "string_va": "0x10489e28",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NGift_SA_Delete",
+      "family": "NMailBox",
+      "subfamily": "NGift",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Delete",
+      "string_va": "0x10489de0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NGift_SA_ReceiveItem",
+      "family": "NMailBox",
+      "subfamily": "NGift",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ReceiveItem",
+      "string_va": "0x10489d90",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NGift_SN_Gift",
+      "family": "NMailBox",
+      "subfamily": "NGift",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Gift",
+      "string_va": "0x10489e4c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NGift_SN_Info",
+      "family": "NMailBox",
+      "subfamily": "NGift",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Info",
+      "string_va": "0x10489e6c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NMail_CQ_Delete",
+      "family": "NMailBox",
+      "subfamily": "NMail",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Delete",
+      "string_va": "0x10489ef8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NMail_CQ_ReadTag",
+      "family": "NMailBox",
+      "subfamily": "NMail",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ReadTag",
+      "string_va": "0x10489eb0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NMail_CQ_Refresh",
+      "family": "NMailBox",
+      "subfamily": "NMail",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Refresh",
+      "string_va": "0x10489f5c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NMail_CQ_Send",
+      "family": "NMailBox",
+      "subfamily": "NMail",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Send",
+      "string_va": "0x10489f80",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NMail_SA_Delete",
+      "family": "NMailBox",
+      "subfamily": "NMail",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Delete",
+      "string_va": "0x10489ed4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NMail_SA_ReadTag",
+      "family": "NMailBox",
+      "subfamily": "NMail",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ReadTag",
+      "string_va": "0x10489e8c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NMail_SA_Send",
+      "family": "NMailBox",
+      "subfamily": "NMail",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Send",
+      "string_va": "0x10489f3c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NMail_SN_Info",
+      "family": "NMailBox",
+      "subfamily": "NMail",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Info",
+      "string_va": "0x10489fc0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NMail_SN_Mail",
+      "family": "NMailBox",
+      "subfamily": "NMail",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Mail",
+      "string_va": "0x10489fa0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMailBox_NMail_SN_Send",
+      "family": "NMailBox",
+      "subfamily": "NMail",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Send",
+      "string_va": "0x10489f1c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NAdvertise_SN_Notice",
+      "family": "NMatchup",
+      "subfamily": "NAdvertise",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Notice",
+      "string_va": "0x1048b1d4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_CQ_AwayUser",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "AwayUser",
+      "string_va": "0x1048bd90",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_CQ_EnterUser",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "EnterUser",
+      "string_va": "0x1048bcec",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_CQ_LeaveUser",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "LeaveUser",
+      "string_va": "0x1048bc9c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_CQ_QuickJoin",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "QuickJoin",
+      "string_va": "0x1048bb7c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_CQ_SearchUser",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "SearchUser",
+      "string_va": "0x1048bbcc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_CQ_ViewDetailInfo",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ViewDetailInfo",
+      "string_va": "0x1048bc20",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SA_AwayUser",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "AwayUser",
+      "string_va": "0x1048bd68",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SA_EnterUser",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "EnterUser",
+      "string_va": "0x1048bcc4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SA_LeaveUser",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "LeaveUser",
+      "string_va": "0x1048bc74",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SA_QuickJoin",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "QuickJoin",
+      "string_va": "0x1048bb54",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SA_SearchUser",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "SearchUser",
+      "string_va": "0x1048bba4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SA_ViewDetailInfo",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ViewDetailInfo",
+      "string_va": "0x1048bbf4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SN_ChannelList",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChannelList",
+      "string_va": "0x1048bd3c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SN_GroupList",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "GroupList",
+      "string_va": "0x1048bde0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SN_LeaveUser",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "LeaveUser",
+      "string_va": "0x1048bc4c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SN_ServerInfo",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ServerInfo",
+      "string_va": "0x1048be08",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SN_ServerList",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ServerList",
+      "string_va": "0x1048bdb8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SN_UserList",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "UserList",
+      "string_va": "0x1048bd14",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SN_ViewDetailInfo_Diary",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Diary",
+      "string_va": "0x1048bb20",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChannel_SN_ViewDetailInfo_Progress",
+      "family": "NMatchup",
+      "subfamily": "NChannel",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Progress",
+      "string_va": "0x1048bae8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_CN_DevCommand",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "DevCommand",
+      "string_va": "0x1048b384",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_CQ_Whisper",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Whisper",
+      "string_va": "0x1048b470",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_NN_BattleAll",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "NN",
+      "direction_description": "Network Broadcast (Peer-to-Peer / Channel Broadcast)",
+      "action": "BattleAll",
+      "string_va": "0x1048b428",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_NN_BattleTeam",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "NN",
+      "direction_description": "Network Broadcast (Peer-to-Peer / Channel Broadcast)",
+      "action": "BattleTeam",
+      "string_va": "0x1048b400",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_NN_BattleTeamRadio",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "NN",
+      "direction_description": "Network Broadcast (Peer-to-Peer / Channel Broadcast)",
+      "action": "BattleTeamRadio",
+      "string_va": "0x1048b3d4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_NN_ChattingFail",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "NN",
+      "direction_description": "Network Broadcast (Peer-to-Peer / Channel Broadcast)",
+      "action": "ChattingFail",
+      "string_va": "0x1048b4e4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_NN_NotBattleAll",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "NN",
+      "direction_description": "Network Broadcast (Peer-to-Peer / Channel Broadcast)",
+      "action": "NotBattleAll",
+      "string_va": "0x1048b494",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_NN_NotBattleTeam",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "NN",
+      "direction_description": "Network Broadcast (Peer-to-Peer / Channel Broadcast)",
+      "action": "NotBattleTeam",
+      "string_va": "0x1048b4bc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_NN_WaitRoom",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "NN",
+      "direction_description": "Network Broadcast (Peer-to-Peer / Channel Broadcast)",
+      "action": "WaitRoom",
+      "string_va": "0x1048b50c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_SN_ChatPunish",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChatPunish",
+      "string_va": "0x1048b35c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_SN_DevCommandFail",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "DevCommandFail",
+      "string_va": "0x1048b330",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NChat_SN_Whisper",
+      "family": "NMatchup",
+      "subfamily": "NChat",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Whisper",
+      "string_va": "0x1048b44c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NEvent_SN_EventMap",
+      "family": "NMatchup",
+      "subfamily": "NEvent",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "EventMap",
+      "string_va": "0x1048b224",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NEvent_SN_MapEventInfo",
+      "family": "NMatchup",
+      "subfamily": "NEvent",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "MapEventInfo",
+      "string_va": "0x1048b1fc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NInvite_CQ_Together",
+      "family": "NMatchup",
+      "subfamily": "NInvite",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Together",
+      "string_va": "0x1048b2e0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NInvite_SA_Together",
+      "family": "NMatchup",
+      "subfamily": "NInvite",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Together",
+      "string_va": "0x1048b248",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NInvite_SA_UserList",
+      "family": "NMatchup",
+      "subfamily": "NInvite",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "UserList",
+      "string_va": "0x1048b308",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NInvite_SN_Invite",
+      "family": "NMatchup",
+      "subfamily": "NInvite",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Invite",
+      "string_va": "0x1048b294",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NInvite_SN_Reject",
+      "family": "NMatchup",
+      "subfamily": "NInvite",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Reject",
+      "string_va": "0x1048b270",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NInvite_SN_UserList",
+      "family": "NMatchup",
+      "subfamily": "NInvite",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "UserList",
+      "string_va": "0x1048b2b8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_CN_ExitButton",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "ExitButton",
+      "string_va": "0x1048aff4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_CN_ReadyButton",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "ReadyButton",
+      "string_va": "0x1048b1ac",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_CN_StartButton",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "StartButton",
+      "string_va": "0x1048b110",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_CQ_ChangeWeapon",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangeWeapon",
+      "string_va": "0x1048afa4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_CQ_ItemUse",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ItemUse",
+      "string_va": "0x1048b188",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SA_ChangeWeapon",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangeWeapon",
+      "string_va": "0x1048af7c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SA_ItemUse",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ItemUse",
+      "string_va": "0x1048b164",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SN_BaseRoomInfo",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "BaseRoomInfo",
+      "string_va": "0x1048b0bc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SN_BaseUserList",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "BaseUserList",
+      "string_va": "0x1048b094",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SN_BattleInfo",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "BattleInfo",
+      "string_va": "0x1048b06c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SN_ChangeWeapon",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeWeapon",
+      "string_va": "0x1048af54",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SN_EndRoundPlayTime",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "EndRoundPlayTime",
+      "string_va": "0x1048af28",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SN_ExchangeRule",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ExchangeRule",
+      "string_va": "0x1048b01c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SN_ExchangeTeam",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ExchangeTeam",
+      "string_va": "0x1048b044",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SN_ExitButton",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ExitButton",
+      "string_va": "0x1048afcc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SN_ReadyButtonFail",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ReadyButtonFail",
+      "string_va": "0x1048b138",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NPlay_SN_StartButtonFail",
+      "family": "NMatchup",
+      "subfamily": "NPlay",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "StartButtonFail",
+      "string_va": "0x1048b0e4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_CN_BreakArenaRoom",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "BreakArenaRoom",
+      "string_va": "0x1048aa18",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_CN_CancelMatching",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "CancelMatching",
+      "string_va": "0x1048aaac",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_CN_ManualMatching",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "ManualMatching",
+      "string_va": "0x1048a92c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_CN_ManualMatchingResponse",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "ManualMatchingResponse",
+      "string_va": "0x1048a8c4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_CN_RegisterMatching",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "RegisterMatching",
+      "string_va": "0x1048ab7c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_CQ_DetailView",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "DetailView",
+      "string_va": "0x1048a988",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_SA_DetailView",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "DetailView",
+      "string_va": "0x1048a95c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_SN_BreakArenaRoom",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "BreakArenaRoom",
+      "string_va": "0x1048a9e8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_SN_CancelMatching",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "CancelMatching",
+      "string_va": "0x1048aa7c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_SN_CompleteMatching",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "CompleteMatching",
+      "string_va": "0x1048ab14",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_SN_InitializeArenaRoom",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "InitializeArenaRoom",
+      "string_va": "0x1048a9b4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_SN_InitializeMatching",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "InitializeMatching",
+      "string_va": "0x1048aa48",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_SN_ManualMatching",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ManualMatching",
+      "string_va": "0x1048a8fc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_SN_ManualMatchingRequest",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ManualMatchingRequest",
+      "string_va": "0x1048a88c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_SN_ManualMatchingResponseFail",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ManualMatchingResponseFail",
+      "string_va": "0x1048a850",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_SN_MatchingConditionList",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "MatchingConditionList",
+      "string_va": "0x1048aadc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NQuickMatch_SN_RegisterMatching",
+      "family": "NMatchup",
+      "subfamily": "NQuickMatch",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "RegisterMatching",
+      "string_va": "0x1048ab48",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NResult_SN_GameFinalResult",
+      "family": "NMatchup",
+      "subfamily": "NResult",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "GameFinalResult",
+      "string_va": "0x1048ae7c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NResult_SN_MapEventReward",
+      "family": "NMatchup",
+      "subfamily": "NResult",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "MapEventReward",
+      "string_va": "0x1048aea8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NResult_SN_PCRoomMileage",
+      "family": "NMatchup",
+      "subfamily": "NResult",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "PCRoomMileage",
+      "string_va": "0x1048aed4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NResult_SN_UserScore",
+      "family": "NMatchup",
+      "subfamily": "NResult",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "UserScore",
+      "string_va": "0x1048af00",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_CQ_ChangeBoundary",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangeBoundary",
+      "string_va": "0x1048b89c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_CQ_ChangeMapInfo",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangeMapInfo",
+      "string_va": "0x1048b8c8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_CQ_ChangeName",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangeName",
+      "string_va": "0x1048b874",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_CQ_ChangeOption",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangeOption",
+      "string_va": "0x1048b84c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_CQ_ChangePassword",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangePassword",
+      "string_va": "0x1048b820",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_CQ_CompulsionAway",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "CompulsionAway",
+      "string_va": "0x1048b948",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_CQ_Create",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Create",
+      "string_va": "0x1048bac4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_CQ_EnterUser",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "EnterUser",
+      "string_va": "0x1048ba04",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_CQ_LeaveUser",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "LeaveUser",
+      "string_va": "0x1048b9bc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SA_ChangeBoundary",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangeBoundary",
+      "string_va": "0x1048b728",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SA_ChangeMapInfo",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangeMapInfo",
+      "string_va": "0x1048b754",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SA_ChangeName",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangeName",
+      "string_va": "0x1048b700",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SA_ChangeOption",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangeOption",
+      "string_va": "0x1048b6d8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SA_ChangePassword",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ChangePassword",
+      "string_va": "0x1048b6ac",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SA_CompulsionAway",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "CompulsionAway",
+      "string_va": "0x1048b91c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SA_Create",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Create",
+      "string_va": "0x1048ba28",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SA_EnterUser",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "EnterUser",
+      "string_va": "0x1048b9e0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SA_LeaveUser",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "LeaveUser",
+      "string_va": "0x1048b998",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SN_ChangeBoundary",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeBoundary",
+      "string_va": "0x1048b7cc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SN_ChangeMapInfo",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeMapInfo",
+      "string_va": "0x1048b7f8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SN_ChangeName",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeName",
+      "string_va": "0x1048b7a4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SN_ChangeOption",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeOption",
+      "string_va": "0x1048b77c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SN_Info",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Info",
+      "string_va": "0x1048ba4c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SN_LeaveUser",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "LeaveUser",
+      "string_va": "0x1048b974",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SN_UpdateInfoToChannelUser",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "UpdateInfoToChannelUser",
+      "string_va": "0x1048ba90",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SN_UserColorNickInfo",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "UserColorNickInfo",
+      "string_va": "0x1048b8f0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NRoom_SN_UserList",
+      "family": "NMatchup",
+      "subfamily": "NRoom",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "UserList",
+      "string_va": "0x1048ba6c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NTeam_CQ_Change",
+      "family": "NMatchup",
+      "subfamily": "NTeam",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Change",
+      "string_va": "0x1048b688",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NTeam_CQ_ChangeLeader",
+      "family": "NMatchup",
+      "subfamily": "NTeam",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ChangeLeader",
+      "string_va": "0x1048b660",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NTeam_SA_Change",
+      "family": "NMatchup",
+      "subfamily": "NTeam",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Change",
+      "string_va": "0x1048b614",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NTeam_SN_Change",
+      "family": "NMatchup",
+      "subfamily": "NTeam",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Change",
+      "string_va": "0x1048b5f0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NTeam_SN_ChangeLeader",
+      "family": "NMatchup",
+      "subfamily": "NTeam",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeLeader",
+      "string_va": "0x1048b638",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NTeam_SN_ChangeTeamLeader",
+      "family": "NMatchup",
+      "subfamily": "NTeam",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeTeamLeader",
+      "string_va": "0x1048b5c4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NUser_SN_ChangeNickName",
+      "family": "NMatchup",
+      "subfamily": "NUser",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeNickName",
+      "string_va": "0x1048b530",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NUser_SN_ChangeNickNameColor",
+      "family": "NMatchup",
+      "subfamily": "NUser",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeNickNameColor",
+      "string_va": "0x1048bea8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NUser_SN_ChangeTitle",
+      "family": "NMatchup",
+      "subfamily": "NUser",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeTitle",
+      "string_va": "0x1048b3ac",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NUser_SN_Record",
+      "family": "NMatchup",
+      "subfamily": "NUser",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Record",
+      "string_va": "0x1048b580",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NUser_SN_State",
+      "family": "NMatchup",
+      "subfamily": "NUser",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "State",
+      "string_va": "0x1048b5a4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMatchup_NUser_SN_UserLevel",
+      "family": "NMatchup",
+      "subfamily": "NUser",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "UserLevel",
+      "string_va": "0x1048b55c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NData_CN_Load",
+      "family": "NMessanger",
+      "subfamily": "NData",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "Load",
+      "string_va": "0x10489d44",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NData_SN_FriendList",
+      "family": "NMessanger",
+      "subfamily": "NData",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "FriendList",
+      "string_va": "0x10489d68",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NData_SN_NotHaveFriend",
+      "family": "NMessanger",
+      "subfamily": "NData",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "NotHaveFriend",
+      "string_va": "0x10489cf4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NData_SN_NotLoad",
+      "family": "NMessanger",
+      "subfamily": "NData",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "NotLoad",
+      "string_va": "0x10489d20",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_CN_Add",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "Add",
+      "string_va": "0x10489cd0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_CN_AddResponseFromTarget",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "AddResponseFromTarget",
+      "string_va": "0x10489c40",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_CN_Chat",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "Chat",
+      "string_va": "0x10489b38",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_CQ_Delete",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "Delete",
+      "string_va": "0x10489bb0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SA_Delete",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "Delete",
+      "string_va": "0x10489b88",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_AddNotifyToRequester",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "AddNotifyToRequester",
+      "string_va": "0x10489bd8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_AddRequestToTarget",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "AddRequestToTarget",
+      "string_va": "0x10489c74",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_AddResponseToTarget",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "AddResponseToTarget",
+      "string_va": "0x10489c0c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_AddResult",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "AddResult",
+      "string_va": "0x10489ca8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_ChangeClanInfo",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeClanInfo",
+      "string_va": "0x10489a0c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_ChangeColor",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeColor",
+      "string_va": "0x10489a3c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_ChangeLevel",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeLevel",
+      "string_va": "0x10489a98",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_ChangeNickName",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ChangeNickName",
+      "string_va": "0x10489a68",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_Chat",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Chat",
+      "string_va": "0x10489b14",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_DeleteNotify",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "DeleteNotify",
+      "string_va": "0x10489b5c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_Offline",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Offline",
+      "string_va": "0x10489ac4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NFriend_SN_Online",
+      "family": "NMessanger",
+      "subfamily": "NFriend",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Online",
+      "string_va": "0x10489aec",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NGame_CN_Together",
+      "family": "NMessanger",
+      "subfamily": "NGame",
+      "direction": "CN",
+      "direction_description": "Client Notification (Unsolicited Event to Server)",
+      "action": "Together",
+      "string_va": "0x104899e4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NMessanger_NGame_SN_Together",
+      "family": "NMessanger",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "Together",
+      "string_va": "0x104899bc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_CQ_JoinTournamentList",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "JoinTournamentList",
+      "string_va": "0x1048ae4c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_CQ_ProgressTournament",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ProgressTournament",
+      "string_va": "0x1048ac90",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_CQ_ProgressTournamentList",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "ProgressTournamentList",
+      "string_va": "0x1048ad28",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_CQ_TournamentUpdate",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "CQ",
+      "direction_description": "Client Query (Request to Server)",
+      "action": "TournamentUpdate",
+      "string_va": "0x1048ad8c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_SA_JoinTournamentList",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "JoinTournamentList",
+      "string_va": "0x1048ae1c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_SA_ProgressTournament",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ProgressTournament",
+      "string_va": "0x1048ac60",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_SA_ProgressTournamentList",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "ProgressTournamentList",
+      "string_va": "0x1048acf4",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_SA_TournamentUpdate",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "SA",
+      "direction_description": "Server Answer (Response to Query)",
+      "action": "TournamentUpdate",
+      "string_va": "0x1048ad5c",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_SN_ExecuteRoomFail",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ExecuteRoomFail",
+      "string_va": "0x1048ac00",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_SN_JoinClannerList",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "JoinClannerList",
+      "string_va": "0x1048adbc",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_SN_JoinTournamentList",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "JoinTournamentList",
+      "string_va": "0x1048adec",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_SN_NoticeList",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "NoticeList",
+      "string_va": "0x1048abd8",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_SN_ProgressTournament",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ProgressTournament",
+      "string_va": "0x1048ac30",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_SN_ProgressTournamentList",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "ProgressTournamentList",
+      "string_va": "0x1048acc0",
+      "occurrences": 1
+    },
+    {
+      "name": "tPacket_NTournament_NGame_SN_RewardList",
+      "family": "NTournament",
+      "subfamily": "NGame",
+      "direction": "SN",
+      "direction_description": "Server Notification (Unsolicited Event to Client)",
+      "action": "RewardList",
+      "string_va": "0x1048abb0",
+      "occurrences": 1
+    }
+  ]
+}

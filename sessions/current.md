@@ -3,30 +3,22 @@
 ## Estado atual
 - **Agente:** Antigravity (Gemini 3.8 Flash)
 - **Alvo ativo:** `targets/district-187/` (District 187 / S2 Rebirth — Motor Nativo LithTech Jupiter EX)
-- **Timestamp:** 2026-11-02 20:10
-- **Diretriz Absoluta:** 100% foco no executável e motor original LithTech (`TheRaw.exe`, `GameClient.dll`, `Engine_Server.dll`) e emulação de rede/servidor dedicado. Qualquer menção a engines externas foi descartada.
-- **Status:**
-  1. **Motor Nativo Configurado com Fidelidade Máxima:**
-     - 1.72 GB de texturas HD instaladas em `targets/district-187/client-rebirth/Game/` (`HD1.ResDt` a `HD6.ResDt`).
-     - `Default.archcfg` montando os volumes HD nativos.
-     - `settings.cfg` e `autoexec.cfg` configurados com `GraphicQualityLevel 3`, `BindTexturesMipOffset 0`, `MaxFPS 0` (144+ FPS destravado) e `ShowFrameRate 1`.
-     - Pacote de tradução inglesa ativado.
-  2. **Scripts de Disparo do Executável Original:**
-     - `launch_s2rebirth_online.bat` (abre o launcher oficial da comunidade)
-     - `launch_s2rebirth_direct.bat` (conecta diretamente a `179.61.147.154:12000`)
-     - `launch_offline_emulator.bat` (inicialização local em `127.0.0.1:12000`)
-  3. **Camada de Rede & Handshake Resolvidos (100% Nativo):**
-     - Decifrado o algoritmo de cifra de rede em `TheRaw.exe` (`VA 0x4ff470` / `0x4ff660`) sincronizado com tabela CRC32 IEEE 802.3 (`VA 0x802a58`, chave inicial `0x0F`).
-     - Decifrada a máquina de estados Hermit (`0x20080` -> `0x20081` -> `0x20082` -> `0x20083`).
-     - Decifrado o handler de login Scaleform em `GameClient.dll` (`VA 0x100d74a0`) que desbloqueia a interface via `mov [eax+0x64], 0` em `0x100d74db` ao receber `SA_JoyGameLogin` (`0x110112`).
-     - Emulador `scripts/d187-mock-server.py` ativo em segundo plano processando e validando as conexões.
-     - Documentação completa em [`notes/district-187-hermit-protocol-and-handshake.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-hermit-protocol-and-handshake.md).
-  4. **Ferramental & Analytics Entregues (Frentes Paralelas Concluídas):**
-     - `scripts/d187_control_center.py` (Launcher GUI desktop para gerenciamento e inicialização nativa).
-     - `scripts/generate_weapon_analytics.py` (Dashboard interativo HTML de armas, DPS, TTK e meta).
-     - `scripts/re-router.py` (Autonomous RE Agent com suporte local e GitHub Issues).
-     - `scripts/extract_lithtech_cvars.py` (Mapeamento de 77 cvars e geração de `autoexec_competitive.cfg`).
+- **Timestamp:** 2026-11-02 21:00
+- **Diretriz Absoluta:** 100% foco no executável e motor original LithTech (`TheRaw.exe`, `GameClient.dll`, `Engine_Server.dll`) e emulação de rede/servidor dedicado.
+- **Entregas Concluídas nesta Sessão:**
+  1. **Protocolo Mestre de Rede (326 Pacotes Catalogados):**
+     - Script extrator estático [`scripts/map_district187_protocol.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/map_district187_protocol.py) gerando [`targets/district-187/data/d187_protocol_schema.json`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/district-187/data/d187_protocol_schema.json).
+     - Biblioteca de serialização e cifra [`scripts/d187_protocol.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_protocol.py) com testes unitários passando.
+     - Documentação formal em [`notes/district-187-full-network-protocol-specification.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-full-network-protocol-specification.md).
+  2. **Serviço de Perfil VIP & Inventário para o Lobby:**
+     - [`scripts/d187_profile_service.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_profile_service.py) conectando a `s2rebirth.db`, carregando 185 armas, equipando slots primários, secundários, facas e granadas, gerando pacotes `SN_UserInfo`, `SN_ItemList`, `SN_Record` e `SN_LockEnd`.
+  3. **Parser de Mapas Nativos LithTech v113:**
+     - [`scripts/inspect_world00p.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/inspect_world00p.py) extraindo 32 entidades `GameStartPoint` de `Arrival.World00p` (16 SWAT, 16 Gangsters) com coordenadas 3D reais.
+     - Minimapa tático interativo exportado em [`targets/district-187/tactical_map_arrival.html`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/district-187/tactical_map_arrival.html) e dados em `data/arrival_spawns.json`.
+     - Documentação técnica em [`notes/lithtech-world00p-format-and-map-entities.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/lithtech-world00p-format-and-map-entities.md).
+  4. **Painel de Controle & Administração Web Local:**
+     - [`scripts/d187_web_panel.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_panel.py) (porta 8080) com status em tempo real do mock server (porta 12000), processo do jogo, ajuste de CVars de vídeo no `autoexec.cfg` e atalhos rápidos.
 
-## Próximo passo concreto
-1. O usuário pode testar agora a tela de login digitando as credenciais no cliente; o servidor responderá com o handshake 0x20081 e SA_JoyGameLogin liberando a transição imediata para o lobby.
-2. Iniciar a Fase 3: mapeamento de mapas (`twoway.World00p`), bots e salas de jogo locais.
+## Próximos Passos
+1. Executar partida headless/local vinculando `Arrival.World00p` com `Engine_Server.dll` (`CreateServer`).
+2. Sincronizar qualquer alteração do mock server da outra sessão com `d187_profile_service.py` para entrega imediata do inventário VIP ao logar.

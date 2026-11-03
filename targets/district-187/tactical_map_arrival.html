@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>District 187 - Tactical Map: Arrival (LithTech Jupiter EX)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0f172a; color: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; }
+    .spawn-marker:hover circle { r: 13; filter: drop-shadow(0 0 8px rgba(255,255,255,0.8)); cursor: pointer; }
+  </style>
+</head>
+<body class="p-6">
+  <div class="max-w-7xl mx-auto space-y-6">
+    <header class="border-b border-slate-800 pb-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+          <span class="p-2 bg-blue-600 rounded-lg text-lg">D187</span>
+          Tactical Map Inspector: Arrival (<code class="text-emerald-400">Arrival.World00p</code>)
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">Extracted from LithTech Jupiter EX v113 Binary Geometry</p>
+      </div>
+      <div class="flex gap-4">
+        <span class="px-3 py-1.5 bg-blue-900/50 text-blue-400 border border-blue-700/50 rounded-md text-xs font-semibold">SWAT Spawn: 16 Slots</span>
+        <span class="px-3 py-1.5 bg-red-900/50 text-red-400 border border-red-700/50 rounded-md text-xs font-semibold">Gangsters Spawn: 16 Slots</span>
+      </div>
+    </header>
+
+    <!-- Top Stats -->
+    <div class="grid grid-cols-4 gap-4">
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">World Format</p>
+        <p class="text-2xl font-bold text-white mt-1">LithTech v113</p>
+        <p class="text-xs text-slate-500 mt-1">Binary World00p Engine Mesh</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Player Start Entities</p>
+        <p class="text-2xl font-bold text-emerald-400 mt-1">32 Points</p>
+        <p class="text-xs text-slate-500 mt-1">16 vs 16 Full Lobby Capacity</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Base-to-Base Distance</p>
+        <p class="text-2xl font-bold text-amber-400 mt-1">7381 Units</p>
+        <p class="text-xs text-slate-500 mt-1">~147.6m Engagement Corridor</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">World Elevation</p>
+        <p class="text-2xl font-bold text-cyan-400 mt-1">Y = 100.0</p>
+        <p class="text-xs text-slate-500 mt-1">Ground Plane Standard</p>
+      </div>
+    </div>
+
+    <!-- Map Canvas Card -->
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl relative">
+      <div class="flex justify-between items-center mb-4">
+        <div class="flex items-center gap-3">
+          <h2 class="text-lg font-semibold text-white">Top-Down Tactical Radar (XZ Plane)</h2>
+          <span class="text-xs bg-slate-800 px-2.5 py-1 rounded text-slate-400">Hover over markers for 3D coordinates</span>
+        </div>
+        <div class="text-xs text-slate-400 flex gap-4">
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-blue-500 inline-block"></span> Team 0: SWAT</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span> Team 1: Gangsters</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span> Neutral Engagement Mid</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-950 rounded-lg p-2 border border-slate-800/80 flex justify-center">
+        <svg viewBox="0 0 1000 750" class="w-full h-auto max-h-[580px]">
+          <!-- Grid Background -->
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.8"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+
+          <!-- Dynamic Tactical Nodes -->
+          <line x1="131.2" y1="601.6" x2="868.8" y2="124.3" stroke="#475569" stroke-width="2" stroke-dasharray="6 6" />
+<circle cx="500.0" cy="362.95" r="65" fill="#f59e0b15" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 4"/><text x="500.0" y="366.95" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">MID CHOKE POINT</text>
+<g class="spawn-marker" data-name="GameStartPoint_0_00" data-coord="(-3072.0, 100.15, -966.0)"><circle cx="141.6" cy="586.3" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="141.6" y="589.8" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P0</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_01" data-coord="(-2880.0, 100.15, -966.0)"><circle cx="162.3" cy="586.3" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="162.3" y="589.8" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P1</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_02" data-coord="(-3072.0, 100.15, -768.0)"><circle cx="141.6" cy="552.9" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="141.6" y="556.4" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P2</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_03" data-coord="(-2880.0, 100.15, -768.0)"><circle cx="162.3" cy="552.9" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="162.3" y="556.4" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P3</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_04" data-coord="(-3072.0, 100.15, -1152.0)"><circle cx="141.6" cy="617.6" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="141.6" y="621.1" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P4</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_05" data-coord="(-2880.0, 100.15, -1152.0)"><circle cx="162.3" cy="617.6" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="162.3" y="621.1" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P5</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_06" data-coord="(-3072.0, 100.15, -1344.0)"><circle cx="141.6" cy="650.0" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="141.6" y="653.5" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P6</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_07" data-coord="(-2880.0, 100.15, -1344.0)"><circle cx="162.3" cy="650.0" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="162.3" y="653.5" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P7</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_08" data-coord="(-3264.0, 100.15, -768.0)"><circle cx="120.8" cy="552.9" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="120.8" y="556.4" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P8</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_09" data-coord="(-3264.0, 100.15, -960.0)"><circle cx="120.8" cy="585.3" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="120.8" y="588.8" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P9</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_10" data-coord="(-3264.0, 100.15, -1152.0)"><circle cx="120.8" cy="617.6" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="120.8" y="621.1" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P10</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_11" data-coord="(-3264.0, 100.15, -1344.0)"><circle cx="120.8" cy="650.0" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="120.8" y="653.5" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P11</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_12" data-coord="(-3456.0, 100.15, -768.0)"><circle cx="100.0" cy="552.9" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="100.0" y="556.4" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P12</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_13" data-coord="(-3456.0, 100.15, -960.0)"><circle cx="100.0" cy="585.3" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="100.0" y="588.8" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P13</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_14" data-coord="(-3456.0, 100.15, -1152.0)"><circle cx="100.0" cy="617.6" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="100.0" y="621.1" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P14</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_0_15" data-coord="(-3456.0, 100.15, -1344.0)"><circle cx="100.0" cy="650.0" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="100.0" y="653.5" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P15</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_00" data-coord="(3744.0, 100.0, 1920.0)"><circle cx="879.2" cy="100.0" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="879.2" y="103.5" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P0</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_01" data-coord="(3744.0, 100.0, 1824.0)"><circle cx="879.2" cy="116.2" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="879.2" y="119.7" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P1</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_02" data-coord="(3744.0, 100.0, 1728.0)"><circle cx="879.2" cy="132.4" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="879.2" y="135.9" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P2</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_03" data-coord="(3744.0, 100.0, 1632.0)"><circle cx="879.2" cy="148.5" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="879.2" y="152.0" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P3</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_04" data-coord="(3936.0, 100.0, 1631.65)"><circle cx="900.0" cy="148.6" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="900.0" y="152.1" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P4</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_05" data-coord="(3936.0, 100.0, 1728.0)"><circle cx="900.0" cy="132.4" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="900.0" y="135.9" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P5</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_06" data-coord="(3936.0, 100.0, 1920.0)"><circle cx="900.0" cy="100.0" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="900.0" y="103.5" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P6</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_07" data-coord="(3936.0, 100.0, 1824.0)"><circle cx="900.0" cy="116.2" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="900.0" y="119.7" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P7</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_08" data-coord="(3360.0, 100.0, 1632.0)"><circle cx="837.7" cy="148.5" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="837.7" y="152.0" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P8</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_09" data-coord="(3552.0, 100.0, 1632.0)"><circle cx="858.4" cy="148.5" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="858.4" y="152.0" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P9</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_10" data-coord="(3360.0, 100.0, 1920.0)"><circle cx="837.7" cy="100.0" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="837.7" y="103.5" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P10</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_11" data-coord="(3360.0, 100.0, 1824.0)"><circle cx="837.7" cy="116.2" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="837.7" y="119.7" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P11</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_12" data-coord="(3360.0, 100.0, 1728.0)"><circle cx="837.7" cy="132.4" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="837.7" y="135.9" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P12</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_13" data-coord="(3552.0, 100.0, 1728.0)"><circle cx="858.4" cy="132.4" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="858.4" y="135.9" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P13</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_14" data-coord="(3552.0, 100.0, 1824.0)"><circle cx="858.4" cy="116.2" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="858.4" y="119.7" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P14</text></g>
+<g class="spawn-marker" data-name="GameStartPoint_1_15" data-coord="(3552.0, 100.0, 1920.0)"><circle cx="858.4" cy="100.0" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="858.4" y="103.5" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">P15</text></g>
+        </svg>
+      </div>
+
+      <div id="coord-tooltip" class="mt-4 p-3 bg-slate-950 border border-slate-800 rounded text-xs text-slate-300 flex justify-between items-center">
+        <span><strong>Live Entity Inspector:</strong> Hover any spawn node on the radar above.</span>
+        <span class="text-slate-500">Coordinate units in LithTech World Space (X, Y, Z)</span>
+      </div>
+    </div>
+
+    <!-- Entity Coordinates Table -->
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+      <h3 class="text-md font-semibold text-white mb-3">Spawn Entities Table (First 10)</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-slate-400">
+          <thead class="bg-slate-950 text-slate-300 uppercase font-semibold">
+            <tr>
+              <th class="p-2.5">Entity Name</th>
+              <th class="p-2.5">Team</th>
+              <th class="p-2.5">X Coordinate</th>
+              <th class="p-2.5">Y Elevation</th>
+              <th class="p-2.5">Z Coordinate</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 font-mono">
+            <tr class="hover:bg-slate-800/50">
+              <td class="p-2.5 text-white font-semibold">GameStartPoint_0_00</td>
+              <td class="p-2.5 text-blue-400">SWAT (Law Enforcement)</td>
+              <td class="p-2.5">-3072.0</td>
+              <td class="p-2.5 text-emerald-400">100.15</td>
+              <td class="p-2.5">-966.0</td>
+            </tr><tr class="hover:bg-slate-800/50">
+              <td class="p-2.5 text-white font-semibold">GameStartPoint_0_01</td>
+              <td class="p-2.5 text-blue-400">SWAT (Law Enforcement)</td>
+              <td class="p-2.5">-2880.0</td>
+              <td class="p-2.5 text-emerald-400">100.15</td>
+              <td class="p-2.5">-966.0</td>
+            </tr><tr class="hover:bg-slate-800/50">
+              <td class="p-2.5 text-white font-semibold">GameStartPoint_0_02</td>
+              <td class="p-2.5 text-blue-400">SWAT (Law Enforcement)</td>
+              <td class="p-2.5">-3072.0</td>
+              <td class="p-2.5 text-emerald-400">100.15</td>
+              <td class="p-2.5">-768.0</td>
+            </tr><tr class="hover:bg-slate-800/50">
+              <td class="p-2.5 text-white font-semibold">GameStartPoint_0_03</td>
+              <td class="p-2.5 text-blue-400">SWAT (Law Enforcement)</td>
+              <td class="p-2.5">-2880.0</td>
+              <td class="p-2.5 text-emerald-400">100.15</td>
+              <td class="p-2.5">-768.0</td>
+            </tr><tr class="hover:bg-slate-800/50">
+              <td class="p-2.5 text-white font-semibold">GameStartPoint_0_04</td>
+              <td class="p-2.5 text-blue-400">SWAT (Law Enforcement)</td>
+              <td class="p-2.5">-3072.0</td>
+              <td class="p-2.5 text-emerald-400">100.15</td>
+              <td class="p-2.5">-1152.0</td>
+            </tr><tr class="hover:bg-slate-800/50">
+              <td class="p-2.5 text-white font-semibold">GameStartPoint_0_05</td>
+              <td class="p-2.5 text-blue-400">SWAT (Law Enforcement)</td>
+              <td class="p-2.5">-2880.0</td>
+              <td class="p-2.5 text-emerald-400">100.15</td>
+              <td class="p-2.5">-1152.0</td>
+            </tr><tr class="hover:bg-slate-800/50">
+              <td class="p-2.5 text-white font-semibold">GameStartPoint_0_06</td>
+              <td class="p-2.5 text-blue-400">SWAT (Law Enforcement)</td>
+              <td class="p-2.5">-3072.0</td>
+              <td class="p-2.5 text-emerald-400">100.15</td>
+              <td class="p-2.5">-1344.0</td>
+            </tr><tr class="hover:bg-slate-800/50">
+              <td class="p-2.5 text-white font-semibold">GameStartPoint_0_07</td>
+              <td class="p-2.5 text-blue-400">SWAT (Law Enforcement)</td>
+              <td class="p-2.5">-2880.0</td>
+              <td class="p-2.5 text-emerald-400">100.15</td>
+              <td class="p-2.5">-1344.0</td>
+            </tr><tr class="hover:bg-slate-800/50">
+              <td class="p-2.5 text-white font-semibold">GameStartPoint_0_08</td>
+              <td class="p-2.5 text-blue-400">SWAT (Law Enforcement)</td>
+              <td class="p-2.5">-3264.0</td>
+              <td class="p-2.5 text-emerald-400">100.15</td>
+              <td class="p-2.5">-768.0</td>
+            </tr><tr class="hover:bg-slate-800/50">
+              <td class="p-2.5 text-white font-semibold">GameStartPoint_0_09</td>
+              <td class="p-2.5 text-blue-400">SWAT (Law Enforcement)</td>
+              <td class="p-2.5">-3264.0</td>
+              <td class="p-2.5 text-emerald-400">100.15</td>
+              <td class="p-2.5">-960.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.spawn-marker').forEach(marker => {
+      marker.addEventListener('mouseenter', () => {
+        const name = marker.getAttribute('data-name');
+        const coord = marker.getAttribute('data-coord');
+        document.getElementById('coord-tooltip').innerHTML = 
+          `<span class="text-emerald-400 font-semibold">${name}</span> &mdash; LithTech World Coordinates: <code class="text-amber-300 bg-slate-900 px-2 py-0.5 rounded font-mono">${coord}</code>`;
+      });
+    });
+  </script>
+</body>
+</html>

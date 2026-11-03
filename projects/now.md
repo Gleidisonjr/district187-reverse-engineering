@@ -25,8 +25,14 @@
     - Descoberto o manipulador Scaleform `0x100d74a0` em `GameClient.dll` que zera a flag de bloqueio (`mov [eax+0x64], 0` em `0x100d74db`) ao receber `SA_JoyGameLogin` (`0x110112`) cifrado com `ResultCode = 0` e `AccountID = 1001`.
     - Servidor [`scripts/d187-mock-server.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187-mock-server.py) totalmente reconstruído e ativo na porta 12000.
     - Documentação em [`notes/district-187-hermit-protocol-and-handshake.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-hermit-protocol-and-handshake.md).
-  - **Fase 3 (Em Andamento — Bots & Salas PvE Solo):**
-    - Carregamento de mapas de combate (`twoway`, etc.) com bots e persistência de pontuação no banco `data/s2rebirth.db`.
+  - **Fase 3 Concluída (Protocolo Mestre, Inventário VIP, Mapas LithTech e Painel Web):**
+    - Mapeados todos os 326 pacotes da engine em [`targets/district-187/data/d187_protocol_schema.json`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/district-187/data/d187_protocol_schema.json) via [`scripts/map_district187_protocol.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/map_district187_protocol.py).
+    - Criada a biblioteca mestre serializadora de pacotes [`scripts/d187_protocol.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_protocol.py) e documentação em [`notes/district-187-full-network-protocol-specification.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-full-network-protocol-specification.md).
+    - Criado o gerador de perfil VIP e inventário de lobby [`scripts/d187_profile_service.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_profile_service.py) (Rank 58, 185 armas, Gold/Cash infinitos, pacotes `SN_UserInfo`, `SN_ItemList`, `SN_Record`, `SN_LockEnd`).
+    - Desenvolvido o parser LithTech v113 [`scripts/inspect_world00p.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/inspect_world00p.py) extraindo os 32 spawns oficiais de `Arrival.World00p` e gerando o minimapa tático [`targets/district-187/tactical_map_arrival.html`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/district-187/tactical_map_arrival.html).
+    - Desenvolvido o painel de controle web local em [`scripts/d187_web_panel.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_panel.py) (porta 8080) com monitoramento em tempo real, ajuste de cvars e atalhos rápidos.
+  - **Fase 4 (Próximo Passo — Execução de Partida Local / Dedicated Server):**
+    - Iniciar instância local da partida vinculando `Arrival.World00p` a `Engine_Server.dll` / `GameServer.dll`.
 - **Alvo:** `targets/district-187/`
 
 ### [SETUP] Configuração do ambiente RE
@@ -88,4 +94,4 @@ Duas frentes: (1) usar qlib como plataforma de econometria/quant com ML; (2) RE 
 ---
 
 ## Concluídos
-- **2026-11-02:** Conclusão da base jogável offline em Godot 4.7 com IA tática de bots e publicação do portfólio no GitHub ([Gleidisonjr/district187-reverse-engineering](https://github.com/Gleidisonjr/district187-reverse-engineering)).
+- **2026-11-02:** Conclusão do mapeamento da cifra de rede Hermit (CRC32), handshake de login e lançamento do Control Center nativo LithTech no GitHub ([Gleidisonjr/district187-reverse-engineering](https://github.com/Gleidisonjr/district187-reverse-engineering)).
