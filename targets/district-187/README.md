@@ -23,6 +23,11 @@
   - Conversor de modelos 3D MODL para OBJ: [`scripts/convert-model00p-to-obj.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/convert-model00p-to-obj.py)
   - Mock Server de protocolo Hermit: [`scripts/d187-mock-server.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187-mock-server.py)
   - Análise exploratória de balanceamento (pandas): [`scripts/analyze-weapon-meta.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/analyze-weapon-meta.py)
+  - Parser de entidades e minimapas World00p: [`scripts/inspect_world00p.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/inspect_world00p.py)
+  - Gerador de NavMeshes e rotas A*: [`scripts/d187_navmesh_generator.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_navmesh_generator.py)
+  - Gerador de Heatmaps 2D KDE: [`scripts/generate_match_heatmap.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/generate_match_heatmap.py)
+  - Extrator de Áudio FMOD FSB5: [`scripts/extract_fmod_audio.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/extract_fmod_audio.py)
+  - Biblioteca serializadora de protocolo NBattle: [`scripts/d187_protocol.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_protocol.py)
   - Sincronizador de updates: [`scripts/sync-district-187-updates.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/sync-district-187-updates.py)
 - **Antivírus:** Kaspersky CLI 21.26 (`avp.com`)
 
@@ -41,3 +46,4 @@
 - [`notes/district-187-network-and-launch-architecture.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-network-and-launch-architecture.md) — Parâmetros de linha de comando, portas e hooking de socket
 - [`notes/district-187-client-internals-and-launch-hooks.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-client-internals-and-launch-hooks.md) — Desarmamento de proxy DLL injetada, handler Joygame e cvars de desenvolvedor
 - [`notes/district-187-weapon-balance-analysis.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-weapon-balance-analysis.md) — Análise estatística de dano, recuo, alcance e STK das 178 armas
+- [`notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md) — Extração dos 29 mapas compilados, NavMeshes A*, Heatmaps 2D de telemetria e extração dos 9 SoundBanks FMOD FSB5 (901 amostras)

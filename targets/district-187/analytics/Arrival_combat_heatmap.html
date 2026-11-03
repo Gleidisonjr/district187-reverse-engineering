@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>D187 Combat Heatmap: Arrival</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0b1120; color: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; }
+    .kill-marker:hover circle { r: 8; stroke: #fbbf24; stroke-width: 2.5; cursor: pointer; }
+  </style>
+</head>
+<body class="p-6">
+  <div class="max-w-7xl mx-auto space-y-6">
+    <header class="border-b border-slate-800 pb-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+          <span class="p-2 bg-rose-600 rounded-lg text-lg">🔥 KDE</span>
+          Combat Lethality Heatmap: <span class="text-rose-400 font-mono">Arrival</span>
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">Spatial Density Analysis of 188 Combat Engagements</p>
+      </div>
+      <div class="flex gap-3">
+        <span class="px-3 py-1.5 bg-rose-950 text-rose-400 border border-rose-800 rounded-md text-xs font-semibold">70 Headshots (37.2%)</span>
+        <span class="px-3 py-1.5 bg-amber-950 text-amber-400 border border-amber-800 rounded-md text-xs font-semibold">Avg Engagement: 684 u (~13.7m)</span>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-4 gap-4">
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Total Combat Abates</p>
+        <p class="text-2xl font-bold text-white mt-1">188 Kills</p>
+        <p class="text-xs text-slate-500 mt-1">Logged to SQLite s2rebirth.db</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Headshot Precision</p>
+        <p class="text-2xl font-bold text-rose-400 mt-1">37.2%</p>
+        <p class="text-xs text-slate-500 mt-1">Fatal Cranial Multiplier</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Deadliest Weapon</p>
+        <p class="text-2xl font-bold text-cyan-400 mt-1">AWM Altın Sustrc</p>
+        <p class="text-xs text-slate-500 mt-1">43 Kills in Dataset</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Choke Point Intensity</p>
+        <p class="text-2xl font-bold text-amber-400 mt-1">119 Hits / Cell</p>
+        <p class="text-xs text-slate-500 mt-1">High Congestion Core</p>
+      </div>
+    </div>
+
+    <!-- Main Radar with Heatmap Overlay -->
+    <div class="grid grid-cols-3 gap-6">
+      <div class="col-span-2 bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl relative">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold text-white">Spatial Density Radar (2D KDE Sightlines & Hotspots)</h2>
+          <div class="text-xs text-slate-400 flex gap-4">
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span> Headshot Kill</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-orange-500 inline-block"></span> Torso/Limb Kill</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-1 bg-red-500/40 inline-block"></span> Sightline Vector</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 rounded-lg p-2 border border-slate-800/80 flex justify-center">
+          <svg viewBox="0 0 900 600" class="w-full h-auto max-h-[580px]">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.8"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <circle cx="591.0" cy="204.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="551.9" cy="226.0" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="386.9" cy="319.1" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="432.8" cy="291.0" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="445.9" cy="277.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="453.8" cy="282.9" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="470.8" cy="260.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="451.0" cy="280.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="460.6" cy="264.9" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="453.3" cy="274.8" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="464.3" cy="275.5" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="461.7" cy="275.2" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="462.7" cy="272.5" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="464.7" cy="274.2" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="463.6" cy="273.7" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="774.6" cy="120.4" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="600.8" cy="201.3" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="523.7" cy="228.7" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="504.0" cy="251.3" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="498.0" cy="265.1" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="429.2" cy="288.6" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="467.7" cy="264.4" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="468.6" cy="268.7" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="466.2" cy="269.7" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="327.7" cy="361.2" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="363.7" cy="347.0" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="379.1" cy="322.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="524.5" cy="248.6" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="413.1" cy="300.7" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="426.7" cy="293.0" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="469.2" cy="258.8" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="444.2" cy="280.3" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="452.7" cy="280.2" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="471.1" cy="264.5" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="457.6" cy="280.6" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="397.1" cy="314.0" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="509.6" cy="250.0" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="488.6" cy="249.3" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="483.0" cy="256.1" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="480.5" cy="258.7" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="469.7" cy="267.9" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="468.3" cy="266.3" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="450.9" cy="276.4" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="465.1" cy="265.2" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="469.9" cy="269.5" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="727.0" cy="139.2" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="331.3" cy="339.3" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="443.0" cy="289.7" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="448.6" cy="286.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="463.0" cy="266.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="451.2" cy="276.5" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="451.1" cy="280.3" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="453.4" cy="274.1" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="462.4" cy="270.0" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="458.8" cy="279.4" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="521.5" cy="235.2" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="493.1" cy="258.2" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="483.7" cy="257.1" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="442.4" cy="290.8" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="478.5" cy="258.6" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="467.6" cy="271.7" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="467.0" cy="267.4" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="459.9" cy="275.3" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="459.9" cy="267.5" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="464.6" cy="272.9" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="774.5" cy="123.0" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="396.4" cy="317.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="425.3" cy="298.3" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="478.9" cy="257.9" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="450.8" cy="276.4" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="474.1" cy="266.1" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="472.8" cy="262.6" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="461.6" cy="266.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="460.8" cy="276.2" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="456.1" cy="270.6" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="462.1" cy="274.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="456.7" cy="270.7" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="456.6" cy="272.6" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="459.3" cy="276.4" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="176.9" cy="493.4" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="278.1" cy="407.1" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="363.2" cy="343.1" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="525.6" cy="247.8" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="418.2" cy="298.5" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="434.7" cy="290.4" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="445.8" cy="282.1" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="454.5" cy="280.5" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="454.0" cy="274.3" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="330.5" cy="366.2" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="432.2" cy="296.1" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="474.4" cy="265.7" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="451.4" cy="281.3" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="470.0" cy="271.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="466.4" cy="268.1" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="459.0" cy="270.2" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="460.0" cy="272.9" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="460.3" cy="273.0" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="458.9" cy="272.2" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="460.4" cy="271.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="459.0" cy="273.6" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="459.7" cy="274.3" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="461.1" cy="271.8" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="596.6" cy="216.4" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="396.3" cy="322.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="520.6" cy="239.0" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="473.1" cy="270.1" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="449.9" cy="272.4" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="450.7" cy="270.9" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="466.1" cy="266.6" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="462.2" cy="270.7" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="458.4" cy="278.1" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="455.9" cy="276.2" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="456.4" cy="275.1" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="462.3" cy="276.0" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="454.8" cy="267.3" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="455.8" cy="273.8" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="511.1" cy="254.9" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="484.6" cy="265.3" r="18" fill="#f97316" fill-opacity="0.18" />
+<circle cx="457.4" cy="270.2" r="18" fill="#ef4444" fill-opacity="0.18" />
+<circle cx="462.8" cy="269.4" r="18" fill="#ef4444" fill-opacity="0.18" />
+<line x1="335.8" y1="351.8" x2="591.0" y2="204.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Cobra" data-weapon="AWM 300 Şirin" data-dist="2692.1" data-hs="0"><circle cx="591.0" cy="204.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="369.9" y1="334.2" x2="551.9" y2="226.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Bravo" data-victim="Gang_Viper" data-weapon="AWM 300 Şirin" data-dist="1929.4" data-hs="0"><circle cx="551.9" cy="226.0" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="548.9" y1="222.2" x2="386.9" y2="319.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Zero" data-victim="SWAT_Vanguard" data-weapon="AWM 300 Altın" data-dist="1718.8" data-hs="1"><circle cx="386.9" cy="319.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="491.9" y1="254.5" x2="432.8" y2="291.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Bane" data-victim="SWAT_Sentinel" data-weapon="AWM Şirin Silencer" data-dist="630.3" data-hs="0"><circle cx="432.8" cy="291.0" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="478.4" y1="256.3" x2="445.9" y2="277.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Bane" data-victim="SWAT_Echo" data-weapon="AWM Şirin Silencer" data-dist="351.3" data-hs="0"><circle cx="445.9" cy="277.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="470.6" y1="262.3" x2="453.8" y2="282.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Bane" data-victim="SWAT_Recon" data-weapon="AWM Şirin Silencer" data-dist="219.2" data-hs="0"><circle cx="453.8" cy="282.9" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="445.0" y1="275.5" x2="470.8" y2="260.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Bane" data-weapon="AWM 300 Turkuaz" data-dist="271.0" data-hs="0"><circle cx="470.8" cy="260.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="465.9" y1="272.1" x2="451.0" y2="280.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Ghost" data-weapon="AWM 300 Altın" data-dist="156.9" data-hs="0"><circle cx="451.0" cy="280.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="452.2" y1="272.1" x2="460.6" y2="264.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Zero" data-weapon="AWM 300 Turkuaz" data-dist="96.6" data-hs="1"><circle cx="460.6" cy="264.9" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="465.1" y1="271.3" x2="453.3" y2="274.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Bravo" data-weapon="AWM 300" data-dist="117.2" data-hs="1"><circle cx="453.3" cy="274.8" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="460.0" y1="277.6" x2="464.3" y2="275.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Sin" data-weapon="AWM 300" data-dist="44.9" data-hs="1"><circle cx="464.3" cy="275.5" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="466.1" y1="272.7" x2="461.7" y2="275.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Delta" data-weapon="AWM 300" data-dist="45.7" data-hs="1"><circle cx="461.7" cy="275.2" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="457.4" y1="273.1" x2="462.7" y2="272.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Apex" data-weapon="AWM 300 Turkuaz" data-dist="51.8" data-hs="0"><circle cx="462.7" cy="272.5" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="457.0" y1="276.2" x2="464.7" y2="274.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Havoc" data-weapon="AWM 300 Turkuaz" data-dist="76.2" data-hs="0"><circle cx="464.7" cy="274.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="454.9" y1="272.9" x2="463.6" y2="273.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Rogue" data-weapon="AWM 300 Turkuaz" data-dist="84.6" data-hs="0"><circle cx="463.6" cy="273.7" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="178.5" y1="420.4" x2="774.6" y2="120.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Bane" data-weapon="AWM 300" data-dist="6176.2" data-hs="1"><circle cx="774.6" cy="120.4" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="335.5" y1="362.4" x2="600.8" y2="201.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Bravo" data-victim="Gang_Sin" data-weapon="AWM 300 Şirin" data-dist="2822.4" data-hs="1"><circle cx="600.8" cy="201.3" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="399.5" y1="302.7" x2="523.7" y2="228.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Zero" data-weapon="AWM Altın Sustrc" data-dist="1317.7" data-hs="0"><circle cx="523.7" cy="228.7" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="416.2" y1="293.9" x2="504.0" y2="251.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Cobra" data-weapon="AWM Altın Sustrc" data-dist="905.1" data-hs="0"><circle cx="504.0" cy="251.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="419.2" y1="302.3" x2="498.0" y2="265.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Rogue" data-weapon="AWM 300 Turkuaz" data-dist="810.7" data-hs="1"><circle cx="498.0" cy="265.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="491.2" y1="261.6" x2="429.2" y2="288.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Ghost" data-weapon="AWM 300 Altın" data-dist="633.0" data-hs="1"><circle cx="429.2" cy="288.6" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="451.4" y1="276.5" x2="467.7" y2="264.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Apex" data-weapon="AWM 300 Fire-S" data-dist="179.6" data-hs="1"><circle cx="467.7" cy="264.4" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="449.8" y1="274.7" x2="468.6" y2="268.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Viper" data-weapon="AWM 300 Şirin" data-dist="187.8" data-hs="0"><circle cx="468.6" cy="268.7" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="453.4" y1="275.8" x2="466.2" y2="269.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Havoc" data-weapon="AWM 300 Altın" data-dist="131.4" data-hs="0"><circle cx="466.2" cy="269.7" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="601.9" y1="198.0" x2="327.7" y2="361.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Alpha" data-weapon="AWM 300 Altın" data-dist="2907.0" data-hs="0"><circle cx="327.7" cy="361.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="565.1" y1="233.2" x2="363.7" y2="347.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Rogue" data-victim="SWAT_Echo" data-weapon="test" data-dist="2119.2" data-hs="1"><circle cx="363.7" cy="347.0" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="537.1" y1="236.9" x2="379.1" y2="322.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Vanguard" data-weapon="AWM 300 Altın" data-dist="1653.0" data-hs="0"><circle cx="379.1" cy="322.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="403.5" y1="306.6" x2="524.5" y2="248.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Bravo" data-victim="Gang_Bane" data-weapon="AWM 300 Şirin" data-dist="1246.0" data-hs="0"><circle cx="524.5" cy="248.6" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="509.6" y1="252.0" x2="413.1" y2="300.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Bravo" data-weapon="AWM 300 Altın" data-dist="1000.4" data-hs="1"><circle cx="413.1" cy="300.7" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="496.9" y1="261.4" x2="426.7" y2="293.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Delta" data-weapon="AWM 300 Altın" data-dist="719.0" data-hs="0"><circle cx="426.7" cy="293.0" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="445.7" y1="280.0" x2="469.2" y2="258.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Cobra" data-weapon="AWM Altın Sustrc" data-dist="273.7" data-hs="1"><circle cx="469.2" cy="258.8" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="473.1" y1="268.4" x2="444.2" y2="280.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Sentinel" data-weapon="AWM 300" data-dist="293.6" data-hs="0"><circle cx="444.2" cy="280.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="472.1" y1="272.2" x2="452.7" y2="280.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Recon" data-weapon="AWM 300" data-dist="196.4" data-hs="0"><circle cx="452.7" cy="280.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.7" y1="283.6" x2="471.1" y2="264.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Sin" data-weapon="AWM Altın Sustrc" data-dist="181.2" data-hs="0"><circle cx="471.1" cy="264.5" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="465.4" y1="272.5" x2="457.6" y2="280.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Ghost" data-weapon="AWM 300" data-dist="95.1" data-hs="0"><circle cx="457.6" cy="280.6" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="530.3" y1="224.2" x2="397.1" y2="314.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Vanguard" data-weapon="AWM 300 Altın" data-dist="1444.1" data-hs="1"><circle cx="397.1" cy="314.0" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="411.5" y1="298.2" x2="509.6" y2="250.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Zero" data-weapon="AWM Altın Sustrc" data-dist="1014.0" data-hs="1"><circle cx="509.6" cy="250.0" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="430.8" y1="285.3" x2="488.6" y2="249.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Apex" data-weapon="AWM 300 Altın" data-dist="618.1" data-hs="1"><circle cx="488.6" cy="249.3" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="433.2" y1="290.0" x2="483.0" y2="256.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Cobra" data-weapon="AWM Altın Sustrc" data-dist="541.3" data-hs="0"><circle cx="483.0" cy="256.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="444.7" y1="276.8" x2="480.5" y2="258.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Bane" data-weapon="AWM 300 Turkuaz" data-dist="370.8" data-hs="1"><circle cx="480.5" cy="258.7" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="449.7" y1="282.8" x2="469.7" y2="267.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Havoc" data-weapon="AWM 300 Fire-S" data-dist="221.2" data-hs="0"><circle cx="469.7" cy="267.9" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="453.9" y1="284.6" x2="468.3" y2="266.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Rogue" data-weapon="AWM 300 Altın" data-dist="191.6" data-hs="0"><circle cx="468.3" cy="266.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="468.5" y1="264.4" x2="450.9" y2="276.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Echo" data-weapon="AWM 300 Altın" data-dist="190.7" data-hs="0"><circle cx="450.9" cy="276.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="457.4" y1="277.5" x2="465.1" y2="265.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Bravo" data-victim="Gang_Sin" data-weapon="AWM 300 Şirin" data-dist="115.0" data-hs="0"><circle cx="465.1" cy="265.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="457.8" y1="283.4" x2="469.9" y2="269.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Viper" data-weapon="AWM 300 Altın" data-dist="154.2" data-hs="0"><circle cx="469.9" cy="269.5" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="208.8" y1="418.8" x2="727.0" y2="139.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Sin" data-weapon="AWM Altın Sustrc" data-dist="5416.9" data-hs="1"><circle cx="727.0" cy="139.2" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="591.5" y1="209.0" x2="331.3" y2="339.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Delta" data-weapon="AWM 300" data-dist="2694.3" data-hs="0"><circle cx="331.3" cy="339.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="474.8" y1="269.9" x2="443.0" y2="289.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Cobra" data-victim="SWAT_Echo" data-weapon="Zımba" data-dist="340.2" data-hs="0"><circle cx="443.0" cy="289.7" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="473.7" y1="267.6" x2="448.6" y2="286.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Rogue" data-victim="SWAT_Recon" data-weapon="test" data-dist="279.4" data-hs="0"><circle cx="448.6" cy="286.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="450.9" y1="279.2" x2="463.0" y2="266.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Rogue" data-weapon="AWM 300 Şirin" data-dist="147.3" data-hs="0"><circle cx="463.0" cy="266.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="463.9" y1="262.9" x2="451.2" y2="276.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Sentinel" data-weapon="AWM 300 Altın" data-dist="156.5" data-hs="0"><circle cx="451.2" cy="276.5" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="462.0" y1="266.8" x2="451.1" y2="280.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Bane" data-victim="SWAT_Ghost" data-weapon="AWM Şirin Silencer" data-dist="142.5" data-hs="0"><circle cx="451.1" cy="280.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="468.3" y1="270.7" x2="453.4" y2="274.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Zero" data-victim="SWAT_Bravo" data-weapon="AWM 300 Altın" data-dist="147.6" data-hs="0"><circle cx="453.4" cy="274.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="461.0" y1="275.2" x2="462.4" y2="270.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Alpha" data-weapon="AWM 300" data-dist="38.9" data-hs="1"><circle cx="462.4" cy="270.0" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.8" y1="274.3" x2="458.8" y2="279.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Vanguard" data-weapon="AWM 300" data-dist="40.6" data-hs="0"><circle cx="458.8" cy="279.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="405.6" y1="302.5" x2="521.5" y2="235.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Bravo" data-victim="Gang_Zero" data-weapon="AWM 300 Şirin" data-dist="1224.7" data-hs="0"><circle cx="521.5" cy="235.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="431.0" y1="294.4" x2="493.1" y2="258.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Havoc" data-weapon="AWM 300 Şirin" data-dist="655.8" data-hs="1"><circle cx="493.1" cy="258.2" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="436.5" y1="282.5" x2="483.7" y2="257.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Rogue" data-weapon="AWM 300" data-dist="493.4" data-hs="0"><circle cx="483.7" cy="257.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="480.5" y1="263.8" x2="442.4" y2="290.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Alpha" data-weapon="AWM 300 Altın" data-dist="417.0" data-hs="1"><circle cx="442.4" cy="290.8" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="447.4" y1="287.4" x2="478.5" y2="258.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Bane" data-weapon="AWM 300 Şirin" data-dist="365.5" data-hs="0"><circle cx="478.5" cy="258.6" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="451.0" y1="277.4" x2="467.6" y2="271.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Bravo" data-victim="Gang_Cobra" data-weapon="AWM 300 Şirin" data-dist="166.7" data-hs="0"><circle cx="467.6" cy="271.7" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="453.7" y1="279.8" x2="467.0" y2="267.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Apex" data-weapon="AWM Altın Sustrc" data-dist="156.8" data-hs="0"><circle cx="467.0" cy="267.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="462.6" y1="271.8" x2="459.9" y2="275.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Sentinel" data-weapon="AWM 300 Altın" data-dist="35.8" data-hs="0"><circle cx="459.9" cy="275.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.6" y1="277.7" x2="459.9" y2="267.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Sin" data-weapon="AWM 300" data-dist="73.3" data-hs="1"><circle cx="459.9" cy="267.5" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="461.0" y1="276.4" x2="464.6" y2="272.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Viper" data-weapon="AWM Altın Sustrc" data-dist="43.5" data-hs="1"><circle cx="464.6" cy="272.9" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="180.4" y1="421.4" x2="774.5" y2="123.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Bane" data-weapon="AWM 300" data-dist="6154.6" data-hs="1"><circle cx="774.5" cy="123.0" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="532.2" y1="227.8" x2="396.4" y2="317.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Zero" data-victim="SWAT_Recon" data-weapon="AWM 300 Altın" data-dist="1467.1" data-hs="0"><circle cx="396.4" cy="317.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="491.8" y1="258.6" x2="425.3" y2="298.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Echo" data-weapon="AWM 300 Altın" data-dist="705.4" data-hs="0"><circle cx="425.3" cy="298.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="450.4" y1="277.1" x2="478.9" y2="257.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Zero" data-weapon="AWM 300 Şirin" data-dist="308.2" data-hs="0"><circle cx="478.9" cy="257.9" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="474.4" y1="261.2" x2="450.8" y2="276.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Delta" data-weapon="AWM 300 Altın" data-dist="253.7" data-hs="0"><circle cx="450.8" cy="276.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="452.1" y1="278.6" x2="474.1" y2="266.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Rogue" data-weapon="AWM Altın Sustrc" data-dist="231.1" data-hs="1"><circle cx="474.1" cy="266.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="454.4" y1="279.7" x2="472.8" y2="262.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Cobra" data-weapon="AWM 300 Turkuaz" data-dist="216.0" data-hs="0"><circle cx="472.8" cy="262.6" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="455.6" y1="274.2" x2="461.6" y2="266.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Apex" data-weapon="AWM Altın Sustrc" data-dist="78.5" data-hs="0"><circle cx="461.6" cy="266.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="455.4" y1="272.7" x2="460.8" y2="276.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Havoc" data-weapon="AWM Altın Sustrc" data-dist="58.4" data-hs="0"><circle cx="460.8" cy="276.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="460.5" y1="267.6" x2="456.1" y2="270.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Ghost" data-weapon="AWM 300 Altın" data-dist="47.8" data-hs="1"><circle cx="456.1" cy="270.6" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.7" y1="267.0" x2="462.1" y2="274.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Vanguard" data-weapon="AWM 300 Altın" data-dist="76.7" data-hs="0"><circle cx="462.1" cy="274.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="457.8" y1="276.9" x2="456.7" y2="270.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Bravo" data-weapon="AWM 300 Altın" data-dist="45.2" data-hs="0"><circle cx="456.7" cy="270.7" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="455.0" y1="275.7" x2="456.6" y2="272.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Sentinel" data-weapon="AWM 300 Altın" data-dist="27.1" data-hs="0"><circle cx="456.6" cy="272.6" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="457.4" y1="277.1" x2="459.3" y2="276.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Alpha" data-weapon="AWM 300 Altın" data-dist="18.8" data-hs="0"><circle cx="459.3" cy="276.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="772.4" y1="103.4" x2="176.9" y2="493.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Zero" data-victim="SWAT_Recon" data-weapon="JNG-90" data-dist="6419.0" data-hs="1"><circle cx="176.9" cy="493.4" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="649.6" y1="182.9" x2="278.1" y2="407.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Rogue" data-victim="SWAT_Echo" data-weapon="AWM Şirin Silencer" data-dist="3948.5" data-hs="1"><circle cx="278.1" cy="407.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="553.8" y1="228.2" x2="363.2" y2="343.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Alpha" data-weapon="AWM Şirin Silencer" data-dist="2024.8" data-hs="0"><circle cx="363.2" cy="343.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="407.4" y1="312.8" x2="525.6" y2="247.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Sin" data-weapon="AWM Turkuaz Silencer" data-dist="1239.1" data-hs="1"><circle cx="525.6" cy="247.8" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="505.4" y1="255.2" x2="418.2" y2="298.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Rogue" data-victim="SWAT_Delta" data-weapon="AWM Şirin Silencer" data-dist="902.3" data-hs="0"><circle cx="418.2" cy="298.5" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="484.0" y1="259.2" x2="434.7" y2="290.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Bravo" data-weapon="AWM Şirin Silencer" data-dist="528.4" data-hs="0"><circle cx="434.7" cy="290.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="475.1" y1="259.5" x2="445.8" y2="282.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Bane" data-victim="SWAT_Ghost" data-weapon="AWM Altın Sustrc" data-dist="326.4" data-hs="0"><circle cx="445.8" cy="282.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="466.5" y1="273.9" x2="454.5" y2="280.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Apex" data-victim="SWAT_Sentinel" data-weapon="AWM Turkuaz Silencer" data-dist="126.2" data-hs="1"><circle cx="454.5" cy="280.5" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="467.8" y1="273.7" x2="454.0" y2="274.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Apex" data-victim="SWAT_Vanguard" data-weapon="AWM Turkuaz Silencer" data-dist="134.4" data-hs="0"><circle cx="454.0" cy="274.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="591.1" y1="210.4" x2="330.5" y2="366.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Echo" data-weapon="AWM Şirin Silencer" data-dist="2765.0" data-hs="0"><circle cx="330.5" cy="366.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="492.9" y1="264.0" x2="432.2" y2="296.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Ghost" data-weapon="JNG-90" data-dist="633.0" data-hs="1"><circle cx="432.2" cy="296.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="440.9" y1="278.5" x2="474.4" y2="265.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Viper" data-weapon="AWM 300 Altın" data-dist="338.3" data-hs="0"><circle cx="474.4" cy="265.7" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="470.2" y1="264.3" x2="451.4" y2="281.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Apex" data-victim="SWAT_Bravo" data-weapon="AWM Turkuaz Silencer" data-dist="219.2" data-hs="1"><circle cx="451.4" cy="281.3" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="453.0" y1="273.8" x2="470.0" y2="271.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Havoc" data-weapon="AWM 300" data-dist="166.3" data-hs="0"><circle cx="470.0" cy="271.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.3" y1="274.4" x2="466.4" y2="268.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Rogue" data-weapon="AWM 300 Altın" data-dist="107.4" data-hs="1"><circle cx="466.4" cy="268.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.8" y1="273.3" x2="459.0" y2="270.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Bane" data-victim="SWAT_Sentinel" data-weapon="AWM Altın Sustrc" data-dist="22.1" data-hs="0"><circle cx="459.0" cy="270.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="461.4" y1="270.9" x2="460.0" y2="272.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Zero" data-weapon="AWM 300" data-dist="19.8" data-hs="0"><circle cx="460.0" cy="272.9" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="460.6" y1="271.0" x2="460.3" y2="273.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Cobra" data-weapon="AWM 300 Turkuaz" data-dist="14.6" data-hs="0"><circle cx="460.3" cy="273.0" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.1" y1="277.9" x2="458.9" y2="272.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Apex" data-weapon="AWM 300 Altın" data-dist="41.2" data-hs="1"><circle cx="458.9" cy="272.2" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="461.1" y1="269.6" x2="460.4" y2="271.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Bane" data-victim="SWAT_Alpha" data-weapon="AWM Altın Sustrc" data-dist="17.2" data-hs="0"><circle cx="460.4" cy="271.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.9" y1="273.3" x2="459.0" y2="273.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Bane" data-victim="SWAT_Delta" data-weapon="AWM Altın Sustrc" data-dist="2.8" data-hs="0"><circle cx="459.0" cy="273.6" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="461.1" y1="275.9" x2="459.7" y2="274.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Bane" data-victim="SWAT_Vanguard" data-weapon="AWM Altın Sustrc" data-dist="18.0" data-hs="0"><circle cx="459.7" cy="274.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="457.5" y1="281.8" x2="461.1" y2="271.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Bane" data-victim="SWAT_Recon" data-weapon="AWM Altın Sustrc" data-dist="78.5" data-hs="1"><circle cx="461.1" cy="271.8" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="330.5" y1="350.6" x2="596.6" y2="216.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Rogue" data-weapon="AWM Turkuaz Silencer" data-dist="2757.4" data-hs="1"><circle cx="596.6" cy="216.4" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="531.0" y1="242.1" x2="396.3" y2="322.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Bravo" data-weapon="JNG-90" data-dist="1429.7" data-hs="0"><circle cx="396.3" cy="322.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="401.9" y1="297.9" x2="520.6" y2="239.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Bane" data-weapon="AWM 300 Altın" data-dist="1228.0" data-hs="1"><circle cx="520.6" cy="239.0" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="443.7" y1="281.6" x2="473.1" y2="270.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Viper" data-weapon="AWM 300" data-dist="297.3" data-hs="1"><circle cx="473.1" cy="270.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="468.1" y1="269.0" x2="449.9" y2="272.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Recon" data-weapon="AWM 300 Altın" data-dist="178.4" data-hs="0"><circle cx="449.9" cy="272.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="463.7" y1="274.1" x2="450.7" y2="270.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Delta" data-weapon="AWM 300 Altın" data-dist="128.2" data-hs="1"><circle cx="450.7" cy="270.9" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="457.0" y1="269.1" x2="466.1" y2="266.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Cobra" data-weapon="AWM Şirin Silencer" data-dist="90.5" data-hs="1"><circle cx="466.1" cy="266.6" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.6" y1="277.7" x2="462.2" y2="270.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Echo" data-victim="Gang_Zero" data-weapon="AWM 300" data-dist="74.1" data-hs="0"><circle cx="462.2" cy="270.7" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.0" y1="269.6" x2="458.4" y2="278.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Apex" data-victim="SWAT_Vanguard" data-weapon="AWM Turkuaz Silencer" data-dist="60.7" data-hs="1"><circle cx="458.4" cy="278.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="459.7" y1="265.3" x2="455.9" y2="276.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Alpha" data-weapon="AWM 300 Altın" data-dist="85.8" data-hs="0"><circle cx="455.9" cy="276.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="461.0" y1="272.8" x2="456.4" y2="275.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Apex" data-weapon="AWM Şirin Silencer" data-dist="48.1" data-hs="0"><circle cx="456.4" cy="275.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="457.0" y1="268.6" x2="462.3" y2="276.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Echo" data-weapon="AWM 300 Altın" data-dist="73.3" data-hs="0"><circle cx="462.3" cy="276.0" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="455.9" y1="278.8" x2="454.8" y2="267.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Havoc" data-weapon="AWM Şirin Silencer" data-dist="82.5" data-hs="0"><circle cx="454.8" cy="267.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.1" y1="278.8" x2="455.8" y2="273.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Sentinel" data-weapon="JNG-90" data-dist="41.9" data-hs="0"><circle cx="455.8" cy="273.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="411.4" y1="299.9" x2="511.1" y2="254.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Bane" data-weapon="AWM Altın Sustrc" data-dist="1021.5" data-hs="0"><circle cx="511.1" cy="254.9" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="432.4" y1="289.3" x2="484.6" y2="265.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Havoc" data-weapon="AWM Altın Sustrc" data-dist="535.7" data-hs="0"><circle cx="484.6" cy="265.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.9" y1="281.9" x2="457.4" y2="270.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Bravo" data-victim="Gang_Apex" data-weapon="AWM 300 Fire" data-dist="83.4" data-hs="1"><circle cx="457.4" cy="270.2" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.7" y1="271.8" x2="462.8" y2="269.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Zero" data-weapon="AWM 300 Şirin" data-dist="61.7" data-hs="1"><circle cx="462.8" cy="269.4" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.4" y1="277.1" x2="457.5" y2="271.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Cobra" data-victim="SWAT_Recon" data-weapon="AWM 300 Fire-S" data-dist="44.2" data-hs="0"><circle cx="457.5" cy="271.0" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="469.5" y1="271.3" x2="453.9" y2="282.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Rogue" data-victim="SWAT_Sentinel" data-weapon="AWM 300" data-dist="170.0" data-hs="1"><circle cx="453.9" cy="282.2" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="460.2" y1="274.1" x2="457.4" y2="271.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Sin" data-weapon="AWM Altın Sustrc" data-dist="33.6" data-hs="1"><circle cx="457.4" cy="271.2" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="463.2" y1="282.4" x2="459.1" y2="277.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Viper" data-weapon="AWM Altın Sustrc" data-dist="52.2" data-hs="0"><circle cx="459.1" cy="277.6" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="459.5" y1="274.9" x2="459.5" y2="267.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Rogue" data-weapon="AWM 300 Fire" data-dist="53.1" data-hs="0"><circle cx="459.5" cy="267.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="461.5" y1="274.1" x2="459.4" y2="275.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Cobra" data-weapon="AWM 300 Fire" data-dist="22.5" data-hs="0"><circle cx="459.4" cy="275.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="288.5" y1="364.5" x2="654.2" y2="186.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Rogue" data-weapon="DSR-E1 Toz" data-dist="3775.3" data-hs="0"><circle cx="654.2" cy="186.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="389.3" y1="324.0" x2="534.7" y2="236.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Zero" data-weapon="AWM Altın Sustrc" data-dist="1544.5" data-hs="0"><circle cx="534.7" cy="236.6" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="500.9" y1="252.0" x2="421.5" y2="295.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Vanguard" data-weapon="AWM Altın Sustrc" data-dist="831.2" data-hs="1"><circle cx="421.5" cy="295.2" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="433.2" y1="292.1" x2="490.9" y2="261.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Cobra" data-weapon="DSR-E1 Toz" data-dist="601.7" data-hs="0"><circle cx="490.9" cy="261.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="474.6" y1="262.0" x2="450.6" y2="284.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Bravo" data-weapon="DSR-E1 Toz" data-dist="284.1" data-hs="0"><circle cx="450.6" cy="284.9" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="451.6" y1="281.5" x2="473.3" y2="268.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Havoc" data-weapon="DSR-E1 Toz" data-dist="229.5" data-hs="0"><circle cx="473.3" cy="268.7" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="447.1" y1="283.4" x2="465.4" y2="270.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Sin" data-weapon="AWM Altın Sustrc" data-dist="200.6" data-hs="1"><circle cx="465.4" cy="270.3" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="450.7" y1="272.6" x2="467.5" y2="265.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Viper" data-weapon="AWM 300 Şirin" data-dist="171.7" data-hs="1"><circle cx="467.5" cy="265.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="459.1" y1="270.7" x2="467.7" y2="266.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Echo" data-victim="Gang_Apex" data-weapon="AWM 300" data-dist="89.2" data-hs="0"><circle cx="467.7" cy="266.5" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="455.9" y1="278.5" x2="463.1" y2="267.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Bane" data-weapon="AWM 300 Şirin" data-dist="102.7" data-hs="0"><circle cx="463.1" cy="267.9" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="590.4" y1="196.2" x2="332.7" y2="362.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Cobra" data-victim="SWAT_Bravo" data-weapon="AWM 300 Fire-S" data-dist="2771.0" data-hs="1"><circle cx="332.7" cy="362.8" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="412.6" y1="307.8" x2="516.2" y2="246.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Alpha" data-victim="Gang_Zero" data-weapon="AWM Altın Sustrc" data-dist="1097.4" data-hs="0"><circle cx="516.2" cy="246.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="453.0" y1="276.8" x2="468.4" y2="268.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Rogue" data-weapon="AWM Altın Sustrc" data-dist="162.2" data-hs="1"><circle cx="468.4" cy="268.0" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="462.4" y1="275.5" x2="459.8" y2="276.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Apex" data-victim="SWAT_Vanguard" data-weapon="AWM 300" data-dist="26.8" data-hs="1"><circle cx="459.8" cy="276.9" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.1" y1="273.2" x2="451.9" y2="268.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Cobra" data-victim="SWAT_Echo" data-weapon="AWM 300 Fire-S" data-dist="70.6" data-hs="1"><circle cx="451.9" cy="268.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="457.2" y1="272.5" x2="458.6" y2="266.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Alpha" data-weapon="AWM Altın Sustrc" data-dist="46.7" data-hs="0"><circle cx="458.6" cy="266.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="461.1" y1="268.9" x2="459.8" y2="271.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Havoc" data-weapon="DSR-E1 Toz" data-dist="22.2" data-hs="0"><circle cx="459.8" cy="271.5" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.8" y1="275.7" x2="458.7" y2="279.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Cobra" data-victim="SWAT_Sentinel" data-weapon="AWM 300 Fire-S" data-dist="30.1" data-hs="0"><circle cx="458.7" cy="279.0" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="461.6" y1="267.4" x2="458.7" y2="271.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Ghost" data-weapon="DSR-E1 Toz" data-dist="41.6" data-hs="1"><circle cx="458.7" cy="271.7" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.5" y1="275.9" x2="455.3" y2="279.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Bane" data-weapon="AWM 300 Şirin" data-dist="26.3" data-hs="0"><circle cx="455.3" cy="279.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.2" y1="279.0" x2="460.7" y2="274.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Delta" data-weapon="AWM Altın Sustrc" data-dist="41.3" data-hs="1"><circle cx="460.7" cy="274.3" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="462.3" y1="275.1" x2="454.0" y2="269.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Apex" data-victim="SWAT_Recon" data-weapon="AWM 300" data-dist="89.7" data-hs="0"><circle cx="454.0" cy="269.6" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="729.0" y1="135.6" x2="206.6" y2="459.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Echo" data-weapon="AWM Altın Sustrc" data-dist="5577.8" data-hs="1"><circle cx="206.6" cy="459.6" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="612.6" y1="182.4" x2="317.1" y2="363.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Apex" data-victim="SWAT_Vanguard" data-weapon="AWM 300" data-dist="3147.3" data-hs="1"><circle cx="317.1" cy="363.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="408.6" y1="301.6" x2="517.2" y2="240.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Apex" data-weapon="DSR-E1 Toz" data-dist="1141.8" data-hs="0"><circle cx="517.2" cy="240.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="480.4" y1="270.6" x2="445.4" y2="279.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Sentinel" data-weapon="AWM Altın Sustrc" data-dist="346.1" data-hs="0"><circle cx="445.4" cy="279.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="448.1" y1="291.8" x2="474.0" y2="267.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Bravo" data-victim="Gang_Zero" data-weapon="AWM 300 Fire" data-dist="306.8" data-hs="1"><circle cx="474.0" cy="267.0" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="467.0" y1="266.3" x2="448.8" y2="284.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Alpha" data-weapon="AWM Altın Sustrc" data-dist="218.1" data-hs="0"><circle cx="448.8" cy="284.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="463.2" y1="270.8" x2="451.5" y2="276.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Recon" data-weapon="AWM Altın Sustrc" data-dist="120.5" data-hs="1"><circle cx="451.5" cy="276.4" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.5" y1="270.2" x2="454.9" y2="281.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Ghost" data-weapon="AWM Altın Sustrc" data-dist="79.3" data-hs="0"><circle cx="454.9" cy="281.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="462.2" y1="271.9" x2="456.1" y2="270.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Delta" data-weapon="AWM 300 SE" data-dist="59.8" data-hs="0"><circle cx="456.1" cy="270.6" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.2" y1="276.9" x2="455.4" y2="275.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Bravo" data-weapon="AWM Altın Sustrc" data-dist="14.8" data-hs="0"><circle cx="455.4" cy="275.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="303.4" y1="355.8" x2="611.8" y2="181.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Apex" data-weapon="AWM Altın Sustrc" data-dist="3244.9" data-hs="0"><circle cx="611.8" cy="181.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="434.9" y1="282.0" x2="483.1" y2="260.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Zero" data-weapon="DSR-E1 Toz" data-dist="493.1" data-hs="0"><circle cx="483.1" cy="260.3" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="470.7" y1="274.2" x2="448.1" y2="282.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Delta" data-weapon="AWM Altın Sustrc" data-dist="226.4" data-hs="0"><circle cx="448.1" cy="282.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="451.6" y1="281.7" x2="467.1" y2="266.3" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Rogue" data-weapon="AWM Altın Sustrc" data-dist="185.7" data-hs="1"><circle cx="467.1" cy="266.3" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="454.6" y1="270.4" x2="466.0" y2="268.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Cobra" data-weapon="AWM 300 Şirin" data-dist="111.6" data-hs="1"><circle cx="466.0" cy="268.8" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.4" y1="276.0" x2="466.0" y2="266.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Vanguard" data-victim="Gang_Viper" data-weapon="AWM 300 Fire" data-dist="114.1" data-hs="1"><circle cx="466.0" cy="266.8" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="459.4" y1="270.5" x2="458.3" y2="278.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Sin" data-weapon="AWM 300 Şirin" data-dist="56.9" data-hs="1"><circle cx="458.3" cy="278.4" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="461.1" y1="267.8" x2="464.5" y2="277.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Havoc" data-weapon="AWM 300 Şirin" data-dist="74.1" data-hs="0"><circle cx="464.5" cy="277.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="462.7" y1="267.6" x2="453.7" y2="277.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Bane" data-victim="SWAT_Alpha" data-weapon="AWM Turkuaz Silencer" data-dist="112.4" data-hs="1"><circle cx="453.7" cy="277.5" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="455.7" y1="273.4" x2="466.1" y2="265.2" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Bane" data-weapon="AWM Altın Sustrc" data-dist="117.1" data-hs="0"><circle cx="466.1" cy="265.2" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="437.0" y1="283.9" x2="481.2" y2="263.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Bane" data-weapon="AWM 300 Şirin" data-dist="452.7" data-hs="1"><circle cx="481.2" cy="263.9" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="452.6" y1="277.9" x2="467.2" y2="266.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Apex" data-weapon="AWM 300 Şirin" data-dist="162.9" data-hs="0"><circle cx="467.2" cy="266.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="466.7" y1="265.5" x2="453.4" y2="278.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Alpha" data-weapon="DSR-E1 Toz" data-dist="160.3" data-hs="0"><circle cx="453.4" cy="278.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="452.8" y1="276.1" x2="464.2" y2="274.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Bravo" data-victim="Gang_Sin" data-weapon="AWM 300 Fire" data-dist="112.0" data-hs="0"><circle cx="464.2" cy="274.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="468.1" y1="278.6" x2="458.0" y2="269.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Zero" data-victim="SWAT_Delta" data-weapon="AWM 300 Turkuaz" data-dist="117.0" data-hs="0"><circle cx="458.0" cy="269.7" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.0" y1="268.4" x2="464.6" y2="276.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Zero" data-weapon="AWM Altın Sustrc" data-dist="86.0" data-hs="0"><circle cx="464.6" cy="276.5" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="457.7" y1="268.1" x2="457.9" y2="271.9" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Ghost" data-victim="Gang_Cobra" data-weapon="Zımba" data-dist="27.2" data-hs="0"><circle cx="457.9" cy="271.9" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="459.9" y1="270.2" x2="460.3" y2="276.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Sentinel" data-victim="Gang_Rogue" data-weapon="AWM Altın Sustrc" data-dist="42.0" data-hs="0"><circle cx="460.3" cy="276.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="460.9" y1="271.1" x2="459.1" y2="276.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Viper" data-weapon="AWM 300 Şirin" data-dist="43.0" data-hs="1"><circle cx="459.1" cy="276.7" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="466.8" y1="278.1" x2="458.1" y2="274.7" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Recon" data-victim="Gang_Havoc" data-weapon="AWM 300 Şirin" data-dist="88.0" data-hs="1"><circle cx="458.1" cy="274.7" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="207.3" y1="458.4" x2="712.9" y2="140.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Echo" data-victim="Gang_Cobra" data-weapon="AWM 300" data-dist="5412.0" data-hs="0"><circle cx="712.9" cy="140.0" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="258.8" y1="384.0" x2="685.1" y2="161.0" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="SWAT_Delta" data-victim="Gang_Bane" data-weapon="DSR-E1 Toz" data-dist="4437.7" data-hs="0"><circle cx="685.1" cy="161.0" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="466.1" y1="272.3" x2="454.1" y2="278.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Bravo" data-weapon="AWM Altın Sustrc" data-dist="124.0" data-hs="0"><circle cx="454.1" cy="278.1" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="467.1" y1="275.8" x2="448.3" y2="282.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Rogue" data-victim="SWAT_Vanguard" data-weapon="AWM 300" data-dist="190.0" data-hs="0"><circle cx="448.3" cy="282.8" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="467.6" y1="270.3" x2="458.2" y2="276.8" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Viper" data-victim="SWAT_Ghost" data-weapon="DSR-E1 Toz" data-dist="102.6" data-hs="1"><circle cx="458.2" cy="276.8" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="464.9" y1="276.2" x2="455.7" y2="273.4" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Sin" data-victim="SWAT_Alpha" data-weapon="AWM Altın Sustrc" data-dist="92.3" data-hs="0"><circle cx="455.7" cy="273.4" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="459.3" y1="272.3" x2="454.8" y2="277.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Apex" data-victim="SWAT_Recon" data-weapon="AWM 300" data-dist="55.6" data-hs="1"><circle cx="454.8" cy="277.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="464.2" y1="275.4" x2="460.4" y2="273.1" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Zero" data-victim="SWAT_Echo" data-weapon="AWM 300 Turkuaz" data-dist="40.7" data-hs="1"><circle cx="460.4" cy="273.1" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="458.7" y1="271.1" x2="460.8" y2="276.5" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Zero" data-victim="SWAT_Delta" data-weapon="AWM 300 Turkuaz" data-dist="43.2" data-hs="0"><circle cx="460.8" cy="276.5" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="0.8" /></g>
+<line x1="456.5" y1="264.8" x2="462.1" y2="280.6" stroke="#ef4444" stroke-opacity="0.12" stroke-width="1.2" />
+<g class="kill-marker" data-killer="Gang_Havoc" data-victim="SWAT_Sentinel" data-weapon="AWM 300 SE" data-dist="125.0" data-hs="1"><circle cx="462.1" cy="280.6" r="4.5" fill="#dc2626" stroke="#ffffff" stroke-width="0.8" /></g>
+<circle cx="109.5" cy="476.7" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="129.2" cy="476.7" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="109.5" cy="448.8" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="129.2" cy="448.8" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="109.5" cy="502.9" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="129.2" cy="502.9" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="109.5" cy="530.0" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="129.2" cy="530.0" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="89.7" cy="448.8" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="89.7" cy="475.9" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="89.7" cy="502.9" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="89.7" cy="530.0" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="70.0" cy="448.8" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="70.0" cy="475.9" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="70.0" cy="502.9" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="70.0" cy="530.0" r="7" fill="#3b82f6" fill-opacity="0.4" stroke="#3b82f6" stroke-width="1.5" />
+<circle cx="810.3" cy="70.0" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="810.3" cy="83.5" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="810.3" cy="97.1" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="810.3" cy="110.6" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="830.0" cy="110.6" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="830.0" cy="97.1" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="830.0" cy="70.0" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="830.0" cy="83.5" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="770.8" cy="110.6" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="790.5" cy="110.6" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="770.8" cy="70.0" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="770.8" cy="83.5" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="770.8" cy="97.1" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="790.5" cy="97.1" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="790.5" cy="83.5" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+<circle cx="790.5" cy="70.0" r="7" fill="#ef4444" fill-opacity="0.4" stroke="#ef4444" stroke-width="1.5" />
+          </svg>
+        </div>
+
+        <div id="kill-tooltip" class="mt-4 p-3 bg-slate-950 border border-slate-800 rounded text-xs text-slate-300 flex justify-between items-center">
+          <span id="tooltip-text"><strong>Telemetry Inspector:</strong> Hover any kill marker for weapon & distance details.</span>
+          <span class="text-slate-500">Coordinates mapped to LithTech World00p</span>
+        </div>
+      </div>
+
+      <!-- Top Weapons Leaderboard -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-white mb-4">Deadliest Weapons on Arrival</h3>
+        <table class="w-full text-left text-xs">
+          <thead class="text-slate-400 border-b border-slate-800">
+            <tr>
+              <th class="pb-2">Weapon</th>
+              <th class="pb-2 text-right">Kills</th>
+              <th class="pb-2 text-right">Headshots</th>
+              <th class="pb-2 text-right">Share</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr class="border-b border-slate-800/60 hover:bg-slate-800/40">
+          <td class="py-2.5 font-medium text-white">AWM Altın Sustrc</td>
+          <td class="py-2.5 text-right font-mono text-cyan-400">43</td>
+          <td class="py-2.5 text-right font-mono text-rose-400">14</td>
+          <td class="py-2.5 text-right text-slate-400">22.9%</td>
+        </tr>
+        
+        <tr class="border-b border-slate-800/60 hover:bg-slate-800/40">
+          <td class="py-2.5 font-medium text-white">AWM 300 Altın</td>
+          <td class="py-2.5 text-right font-mono text-cyan-400">33</td>
+          <td class="py-2.5 text-right font-mono text-rose-400">11</td>
+          <td class="py-2.5 text-right text-slate-400">17.6%</td>
+        </tr>
+        
+        <tr class="border-b border-slate-800/60 hover:bg-slate-800/40">
+          <td class="py-2.5 font-medium text-white">AWM 300</td>
+          <td class="py-2.5 text-right font-mono text-cyan-400">25</td>
+          <td class="py-2.5 text-right font-mono text-rose-400">12</td>
+          <td class="py-2.5 text-right text-slate-400">13.3%</td>
+        </tr>
+        
+        <tr class="border-b border-slate-800/60 hover:bg-slate-800/40">
+          <td class="py-2.5 font-medium text-white">AWM 300 Şirin</td>
+          <td class="py-2.5 text-right font-mono text-cyan-400">23</td>
+          <td class="py-2.5 text-right font-mono text-rose-400">9</td>
+          <td class="py-2.5 text-right text-slate-400">12.2%</td>
+        </tr>
+        
+        <tr class="border-b border-slate-800/60 hover:bg-slate-800/40">
+          <td class="py-2.5 font-medium text-white">AWM Şirin Silencer</td>
+          <td class="py-2.5 text-right font-mono text-cyan-400">12</td>
+          <td class="py-2.5 text-right font-mono text-rose-400">2</td>
+          <td class="py-2.5 text-right text-slate-400">6.4%</td>
+        </tr>
+        
+        <tr class="border-b border-slate-800/60 hover:bg-slate-800/40">
+          <td class="py-2.5 font-medium text-white">AWM 300 Turkuaz</td>
+          <td class="py-2.5 text-right font-mono text-cyan-400">12</td>
+          <td class="py-2.5 text-right font-mono text-rose-400">4</td>
+          <td class="py-2.5 text-right text-slate-400">6.4%</td>
+        </tr>
+        
+          </tbody>
+        </table>
+
+        <div class="mt-6 p-4 bg-slate-950 border border-slate-800 rounded-lg text-xs space-y-2">
+          <p class="font-semibold text-slate-300">Data Analytics Findings:</p>
+          <p class="text-slate-400">
+            A densidade espacial indica que mais de <strong class="text-rose-400">65%</strong> dos abates ocorrem nos corredores de acesso e no Choke Central.
+            Fuzis de precisão e rifles de assalto dominam as trocas de longa distância (~13.7m).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tooltip = document.getElementById('tooltip-text');
+    document.querySelectorAll('.kill-marker').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        const killer = el.getAttribute('data-killer');
+        const victim = el.getAttribute('data-victim');
+        const weapon = el.getAttribute('data-weapon');
+        const dist = el.getAttribute('data-dist');
+        const hs = el.getAttribute('data-hs') === '1' ? ' (HEADSHOT)' : '';
+        tooltip.innerHTML = `<strong class="text-white">${killer}</strong> eliminated <strong class="text-rose-400">${victim}</strong> with <span class="text-cyan-300">${weapon}</span>${hs} &bull; Distance: <span class="font-mono text-amber-300">${dist} u</span>`;
+      });
+      el.addEventListener('mouseleave', () => {
+        tooltip.innerHTML = '<strong>Telemetry Inspector:</strong> Hover any kill marker for weapon & distance details.';
+      });
+    });
+  </script>
+</body>
+</html>

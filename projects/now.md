@@ -48,8 +48,20 @@
     - Criado o simulador autoritativo universal [`scripts/d187_match_simulator.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_match_simulator.py) com gravação contínua em SQLite (`match_history`) e suporte a qualquer mapa (`--map twoway`, `--map thebank`, etc.).
     - Atualizado o painel [`scripts/d187_web_panel.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_panel.py) com seletor de radares, visualizador de NavMesh, simulação 8v8 com 1 clique e feed de histórico.
     - Criado o orquestrador multi-processo [`launch_4_terminals.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_4_terminals.bat) para subir toda a stack conectada sem conflitos de arquivo.
-  - **Fase 7 (Próximo Passo):**
-    - Jogabilidade ao vivo com o executável e monitoramento via Web Panel.
+  - **Fase 7 Concluída (Resolução Definitiva do Login Scaleform, Launcher Próprio & Web Portal):**
+    - Desmontada a função `0x10191740` em `GameClient.dll` descobrindo a instrução `0x10191bd0: cmp edi, 0xa40221`: comprovado que o offset 18 de `SA_JoyGameLogin` DEVE ser `0x00A40221` (10748449) para zerar o overlay `"please wait"` em `0x100d752b: mov dword ptr [eax + 0x64], 0`.
+    - Implementados os handlers dos pacotes `0x20084` (Keepalive Ping) e `0x5A0101` (S2Rebirth ApexGuard Heartbeat) respondendo com `0x5A0102` (48 bytes).
+    - Conectada autenticação dinâmica ao banco de dados `targets/district-187/data/s2rebirth.db` (`users` com 58 patentes, EXP, Gold/Cash, Kills, Deaths, Headshots).
+    - Desenvolvido o **Launcher Gráfico Próprio** [`scripts/d187_launcher.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_launcher.py) / [`iniciar_launcher.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/iniciar_launcher.bat) em Tkinter com tema Dark/Amber, seleção de mapas e dificuldade de bots, modo online com amigos e inicialização do servidor em 1 clique.
+    - Desenvolvido o **Web Portal Standalone** [`scripts/d187_web_portal.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_portal.py) (FastAPI na porta 8080) com alternância instantânea PT-BR / EN, arsenal de 185 armas com stats de balística, tabela de classificação e registro de novas contas.
+  - **Fase 8 Concluída (Telemetria Espacial 2D KDE, Extração FMOD Audio FSB5 & Protocolo NBattle):**
+    - Desenvolvido o pipeline de telemetria espacial e gerador de heatmaps 2D com Kernel Density Estimation (KDE) [`scripts/generate_match_heatmap.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/generate_match_heatmap.py) sobreposto aos radares de `twoway`, `thebank` e `Arrival`.
+    - Persistência granular de cada abate na tabela `match_kills` em `s2rebirth.db` (coordenadas $x, z$, arma, hitbox, TTK, distância).
+    - Extração e catalogação completa de 901 amostras de áudio dos 9 SoundBanks FMOD FSB5 via [`scripts/extract_fmod_audio.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/extract_fmod_audio.py) em `targets/district-187/extracted/audio/` e manifesto em `targets/district-187/data/audio_manifest.json`.
+    - Biblioteca de protocolo mestre [`scripts/d187_protocol.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_protocol.py) estendida com os serializadores de combate em tempo real (`SN_Spawn`, `SN_Fire`, `SN_Hit`, `SN_Kill`, `SN_Bomb`, `SN_RoundEnd`).
+    - Documentação técnica consolidada em [`notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md).
+  - **Fase 9 (Próximo Passo):**
+    - Testes e gameplay competitiva multi-mapas no cliente nativo original.
 - **Alvo:** `targets/district-187/`
 
 ### [SETUP] Configuração do ambiente RE

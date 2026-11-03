@@ -12,7 +12,15 @@ echo.
 :: 1. Compatibility Layer
 set __COMPAT_LAYER=RunAsInvoker
 
-:: 2. Check / Start Hermit Mock Server
+:: 2. Check / Start Hermit Mock Server & ApexGuard Stub
+echo [*] Verificando ApexGuard Anti-Cheat Stub...
+powershell -Command "Get-Process python -ErrorAction SilentlyContinue | ForEach-Object { (Get-CimInstance Win32_Process -Filter \"ProcessId = $($_.Id)\").CommandLine } | Select-String 'apexguard_stub'" >nul
+if %errorlevel% neq 0 (
+    echo [*] Subindo ApexGuard Heartbeat Stub (scripts\apexguard_stub.py)...
+    start "D187 ApexGuard Stub" /min python -u "%~dp0scripts\apexguard_stub.py"
+    timeout /t 1 /nobreak >nul
+)
+
 echo [*] Verificando Servidor Mock Hermit na porta 12000...
 netstat -ano | findstr ":12000" >nul
 if %errorlevel% equ 0 (

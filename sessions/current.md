@@ -3,39 +3,28 @@
 ## Estado atual
 - **Agente:** Antigravity (Gemini 3.8 Flash)
 - **Alvo ativo:** `targets/district-187/` (District 187 / S2 Rebirth — Motor Nativo LithTech Jupiter EX)
-- **Timestamp:** 2026-11-02 21:46
+- **Timestamp:** 2026-11-02 21:55
 - **Diretriz Absoluta:** 100% foco no executável e motor original LithTech (`TheRaw.exe`, `GameClient.dll`, `Engine_Server.dll`) e emulação de rede/servidor dedicado.
-- **Entregas Concluídas nesta Sessão:**
-  1. **Extração de Todos os 29 Mapas Oficiais (`.World00p`):**
-     - Extraídos diretamente para `targets/district-187/client-rebirth/Game/Worlds/`:
-       - `twoway.World00p` (8,25 MB)
-       - `thebank.World00p` (14,8 MB)
-       - `10025_Heaven.World00p` (12,4 MB)
-       - `oldtown.World00p` (9,31 MB)
-       - `10034_TheMetro.World00p` (17,4 MB)
-       - `10023_GrandBazar.World00p` (15,4 MB)
-       - `DeadWood1.World00p` (22,6 MB)
-       - e mais 22 mapas compilados.
-  2. **Extração das 54 Tabelas Oficiais de Balanço & Combate:**
-     - Extraídas para `targets/district-187/data/tables/` (`WeaponInfo.csv`, `Rule.csv`, `Setting.csv`, `TotalItem.csv`, `ExpPointRule.csv`).
-     - Mapeadas as hitboxes de `GameServer.dll` (`CCharacterHitBox`, `HitBoxHeadNodeRadius` $2.5\times \sim 4.0\times$, `HitBoxTorsoNodeRadius` $1.0\times$, etc.) em [`notes/district-187-combat-and-damage-formula-specification.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-combat-and-damage-formula-specification.md).
-  3. **Validação do Ciclo de Rede Ponta-a-Ponta (100% PASS):**
-     - Script [`scripts/test_client_handshake_smoke.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/test_client_handshake_smoke.py) executou o ciclo completo contra `127.0.0.1:12000`:
-       - `0x20080` -> `0x20081` (Handshake)
-       - `0x20082` -> `0x20083` (ACK / Pong)
-       - `CQ_JoyGameLogin` (0x110111) -> `SA_JoyGameLogin` (0x110112)
-       - Recebimento de `SN_UserInfo` (Rank 58, 50M Exp, 9.99M Gold/Cash)
-       - Recebimento de `SN_ItemList` (VIP Arsenal completo)
-       - Recebimento de `SN_Record` e `SN_LockEnd`
-       - `CQ_EnterUser` (0x220101) -> `SA_EnterUser` (0x220102) [Canal 1]
-       - `CQ_CreateRoom` (0x220201) -> `SA_CreateRoom` (0x220202) [Sala 1]
-       - `CN_StartButton` (0x220301) -> `SN_BattleStart` (0x230104) [UDP 27888]
-
-  4. **Orquestrador de 4 Terminais & Hub de Simulação em Tempo Real:**
-     - Criado o inicializador concorrente seguro [`launch_4_terminals.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_4_terminals.bat) para rodar os 4 processos sincronizados via loopback e SQLite WAL.
-     - Gerados todos os 25 radares táticos SVG/HTML e malhas de navegação A* dos bots em `targets/district-187/maps/` e `targets/district-187/navmeshes/`.
-     - Atualizado [`scripts/d187_match_simulator.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_match_simulator.py) para simulação universal de mapas (`--map twoway`, `--map thebank`, etc.) com gravação contínua no banco `s2rebirth.db` (`match_history`).
-     - Atualizado [`scripts/d187_web_panel.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_panel.py) com seletor dos 25 radares táticos, visualizador de NavMeshes A*, acionamento de simulação 8v8 com 1 clique e histórico de partidas em tempo real.
+- **Entregas Concluídas nesta Sessão (Todas as 4 Trilhas Aprovadas):**
+  1. **Extração de Todos os 29 Mapas Clássicos (`.World00p`):**
+     - Extraídos de `Game.Res00`/`Game.ResDt`, `Update_1` e `Update_2` para `targets/district-187/client-rebirth/Game/Worlds/` (`twoway`, `thebank`, `oldtown`, `10025_Heaven`, `DeadWood1`, `10023_GrandBazar`, etc.).
+  2. **Parser Universal de Geometria e Objetivos (`inspect_world00p.py`):**
+     - Mapeou e gerou metadados JSON e minimapas interativos HTML para 25 mapas compilados, com detecção de spawns SWAT/Gangsters, Bomb Sites A/B (Demolição) e Cofres de Ouro (CarryObjectArea no Assalto a Banco).
+  3. **NavMeshes Táticas & Pathfinding A\* (`d187_navmesh_generator.py`):**
+     - Grafos táticos e rotas de ataque frontal vs flanco furtivo com coberturas para todas as arenas, com visualizadores interativos em SVG/HTML (`targets/district-187/navmeshes/`).
+  4. **Dedicated Server Multi-Mapas & Protocolo Autoritativo:**
+     - [`scripts/d187_server_runner.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_server_runner.py) com suporte a rotação de mapas configurável via `server.cfg`.
+     - [`scripts/d187-mock-server.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187-mock-server.py) com parâmetro `--map`, navegador de salas `SA_RoomList` e acionamento `SN_BattleStart` apontando para a arena selecionada.
+     - [`scripts/d187_protocol.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_protocol.py) com serializadores de combate em tempo real: `SN_Spawn`, `SN_Fire`, `SN_Hit`, `SN_Kill`, `SN_Bomb` e `SN_RoundEnd`.
+  5. **Telemetria de Combate & Heatmaps Espaciais 2D (`generate_match_heatmap.py`):**
+     - Tabela `match_kills` em `s2rebirth.db` registrando coordenadas $(x, y, z)$, arma, hitbox, TTK e distância para cada abate.
+     - Heatmaps 2D com Kernel Density Estimation (KDE) gerados para `twoway`, `thebank` e `Arrival`.
+  6. **Extração dos 9 SoundBanks FMOD FSB5 (`extract_fmod_audio.py`):**
+     - 901 amostras de áudio desempacotadas dos 9 SoundBanks (`System.fsb`, `MainWeapon.fsb`, `CloseWeapon.fsb`, `SubWeapon.fsb`, `TacticalWeapon.fsb`, etc.) e catalogadas em `targets/district-187/data/audio_manifest.json`.
+  7. **Launcher e Control Center 1-Clique (`d187_control_center.py`):**
+     - Integração com `apexguard_stub.py` e `d187-mock-server.py` em `launch_offline_emulator.bat`.
+  8. **Documentação Técnica Completa:**
+     - [`notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md).
 
 ## Próximo Passo
-- O cliente original e o servidor estão 100% integrados e prontos para jogabilidade local ou partidas via servidor dedicado.
+- Executar partidas ao vivo com os novos mapas e testar in-game no cliente original LithTech.

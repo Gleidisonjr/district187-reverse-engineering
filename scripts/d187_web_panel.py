@@ -461,6 +461,19 @@ ShowFrameRate 1
             self.end_headers()
             self.wfile.write(json.dumps({"launched": target}).encode("utf-8"))
 
+        elif path.startswith("/analytics/heatmap/"):
+            map_name = os.path.basename(path)
+            heat_file = f"{map_name}_combat_heatmap.html"
+            full_path = os.path.join(TARGET_DIR, "analytics", heat_file)
+            if os.path.exists(full_path):
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.end_headers()
+                with open(full_path, "rb") as f:
+                    self.wfile.write(f.read())
+            else:
+                self.send_error(404)
+
         elif path.startswith("/maps/"):
             map_file = os.path.basename(path)
             full_path = os.path.join(TARGET_DIR, "maps", map_file)

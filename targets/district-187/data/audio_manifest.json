@@ -1,0 +1,7282 @@
+{
+  "System": {
+    "bank_name": "System",
+    "codec": "CELT",
+    "num_samples": 171,
+    "total_data_bytes": 12722208,
+    "samples": [
+      {
+        "index": 0,
+        "name": "uncer_Ally_LeaderKill",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6852,
+        "size": 74398
+      },
+      {
+        "index": 1,
+        "name": "uncer_Enemy_LeaderKill",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 81250,
+        "size": 74398
+      },
+      {
+        "index": 2,
+        "name": "uncer_Kill_AllyLeader",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 155648,
+        "size": 74398
+      },
+      {
+        "index": 3,
+        "name": "AllSuffle",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 230046,
+        "size": 74398
+      },
+      {
+        "index": 4,
+        "name": "Choose",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 304444,
+        "size": 74398
+      },
+      {
+        "index": 5,
+        "name": "HUDCoinGet",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 378842,
+        "size": 74398
+      },
+      {
+        "index": 6,
+        "name": "Pick",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 453240,
+        "size": 74398
+      },
+      {
+        "index": 7,
+        "name": "PickFail",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 527638,
+        "size": 74398
+      },
+      {
+        "index": 8,
+        "name": "PickSuccess",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 602036,
+        "size": 74398
+      },
+      {
+        "index": 9,
+        "name": "draw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 676434,
+        "size": 74398
+      },
+      {
+        "index": 10,
+        "name": "failure",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 750832,
+        "size": 74398
+      },
+      {
+        "index": 11,
+        "name": "firstkill",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 825230,
+        "size": 74398
+      },
+      {
+        "index": 12,
+        "name": "headshot",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 899628,
+        "size": 74398
+      },
+      {
+        "index": 13,
+        "name": "multikills01",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 974026,
+        "size": 74398
+      },
+      {
+        "index": 14,
+        "name": "multikills02",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1048424,
+        "size": 74398
+      },
+      {
+        "index": 15,
+        "name": "multikills03",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1122822,
+        "size": 74398
+      },
+      {
+        "index": 16,
+        "name": "multikills04",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1197220,
+        "size": 74398
+      },
+      {
+        "index": 17,
+        "name": "multikills05a",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1271618,
+        "size": 74398
+      },
+      {
+        "index": 18,
+        "name": "multikills05b",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1346016,
+        "size": 74398
+      },
+      {
+        "index": 19,
+        "name": "multikills06a",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1420414,
+        "size": 74398
+      },
+      {
+        "index": 20,
+        "name": "multikills06b",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1494812,
+        "size": 74398
+      },
+      {
+        "index": 21,
+        "name": "multikills07a",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1569210,
+        "size": 74398
+      },
+      {
+        "index": 22,
+        "name": "multikills07b",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1643608,
+        "size": 74398
+      },
+      {
+        "index": 23,
+        "name": "multikills08",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1718006,
+        "size": 74398
+      },
+      {
+        "index": 24,
+        "name": "multikills09",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1792404,
+        "size": 74398
+      },
+      {
+        "index": 25,
+        "name": "multikills10",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1866802,
+        "size": 74398
+      },
+      {
+        "index": 26,
+        "name": "success",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 1941200,
+        "size": 74398
+      },
+      {
+        "index": 27,
+        "name": "youlose",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2015598,
+        "size": 74398
+      },
+      {
+        "index": 28,
+        "name": "youwin",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2089996,
+        "size": 74398
+      },
+      {
+        "index": 29,
+        "name": "AllyLeaderDeath",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2164394,
+        "size": 74398
+      },
+      {
+        "index": 30,
+        "name": "AllyLeaderSelected",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2238792,
+        "size": 74398
+      },
+      {
+        "index": 31,
+        "name": "AllySuppliesGet",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2313190,
+        "size": 74398
+      },
+      {
+        "index": 32,
+        "name": "Captain_intro",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2387588,
+        "size": 74398
+      },
+      {
+        "index": 33,
+        "name": "EnemyLeaderKill",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2461986,
+        "size": 74398
+      },
+      {
+        "index": 34,
+        "name": "EnemyLeaderSelected",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2536384,
+        "size": 74398
+      },
+      {
+        "index": 35,
+        "name": "EnemySuppliesGet",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2610782,
+        "size": 74398
+      },
+      {
+        "index": 36,
+        "name": "Enemylederfind",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2685180,
+        "size": 74398
+      },
+      {
+        "index": 37,
+        "name": "LeaderBGM_ver1",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2759578,
+        "size": 74398
+      },
+      {
+        "index": 38,
+        "name": "LeaderBGM_ver2",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2833976,
+        "size": 74398
+      },
+      {
+        "index": 39,
+        "name": "SelectionItSelf",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2908374,
+        "size": 74398
+      },
+      {
+        "index": 40,
+        "name": "SuppliesGetSelf",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 2982772,
+        "size": 74398
+      },
+      {
+        "index": 41,
+        "name": "WeaponSupply",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3057170,
+        "size": 74398
+      },
+      {
+        "index": 42,
+        "name": "aquaEventBGM",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3131568,
+        "size": 74398
+      },
+      {
+        "index": 43,
+        "name": "bombdefused",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3205966,
+        "size": 74398
+      },
+      {
+        "index": 44,
+        "name": "bombplanted",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3280364,
+        "size": 74398
+      },
+      {
+        "index": 45,
+        "name": "bombunable",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3354762,
+        "size": 74398
+      },
+      {
+        "index": 46,
+        "name": "bosskill",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3429160,
+        "size": 74398
+      },
+      {
+        "index": 47,
+        "name": "defusing",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3503558,
+        "size": 74398
+      },
+      {
+        "index": 48,
+        "name": "enemystoredmoney",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3577956,
+        "size": 74398
+      },
+      {
+        "index": 49,
+        "name": "enemytookmoney",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3652354,
+        "size": 74398
+      },
+      {
+        "index": 50,
+        "name": "escapeBGM",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3726752,
+        "size": 74398
+      },
+      {
+        "index": 51,
+        "name": "startcount",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3801150,
+        "size": 74398
+      },
+      {
+        "index": 52,
+        "name": "storedmoney",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3875548,
+        "size": 74398
+      },
+      {
+        "index": 53,
+        "name": "takingmoney",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 3949946,
+        "size": 74398
+      },
+      {
+        "index": 54,
+        "name": "tookmoney",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4024344,
+        "size": 74398
+      },
+      {
+        "index": 55,
+        "name": "defaultclick",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4098742,
+        "size": 74398
+      },
+      {
+        "index": 56,
+        "name": "defaultover",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4173140,
+        "size": 74398
+      },
+      {
+        "index": 57,
+        "name": "exit00",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4247538,
+        "size": 74398
+      },
+      {
+        "index": 58,
+        "name": "listclick00",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4321936,
+        "size": 74398
+      },
+      {
+        "index": 59,
+        "name": "listover00",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4396334,
+        "size": 74398
+      },
+      {
+        "index": 60,
+        "name": "mainclick00",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4470732,
+        "size": 74398
+      },
+      {
+        "index": 61,
+        "name": "mainover00",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4545130,
+        "size": 74398
+      },
+      {
+        "index": 62,
+        "name": "notice00",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4619528,
+        "size": 74398
+      },
+      {
+        "index": 63,
+        "name": "specialclick",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4693926,
+        "size": 74398
+      },
+      {
+        "index": 64,
+        "name": "specialover",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4768324,
+        "size": 74398
+      },
+      {
+        "index": 65,
+        "name": "subclick00",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4842722,
+        "size": 74398
+      },
+      {
+        "index": 66,
+        "name": "subover00",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4917120,
+        "size": 74398
+      },
+      {
+        "index": 67,
+        "name": "TitleUse",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 4991518,
+        "size": 74398
+      },
+      {
+        "index": 68,
+        "name": "achievement1",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5065916,
+        "size": 74398
+      },
+      {
+        "index": 69,
+        "name": "achievement2",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5140314,
+        "size": 74398
+      },
+      {
+        "index": 70,
+        "name": "achievement3",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5214712,
+        "size": 74398
+      },
+      {
+        "index": 71,
+        "name": "clothequip",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5289110,
+        "size": 74398
+      },
+      {
+        "index": 72,
+        "name": "countt",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5363508,
+        "size": 74398
+      },
+      {
+        "index": 73,
+        "name": "decalequip",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5437906,
+        "size": 74398
+      },
+      {
+        "index": 74,
+        "name": "error",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5512304,
+        "size": 74398
+      },
+      {
+        "index": 75,
+        "name": "gunfirehit01",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5586702,
+        "size": 74398
+      },
+      {
+        "index": 76,
+        "name": "gunfirehit01_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5661100,
+        "size": 74398
+      },
+      {
+        "index": 77,
+        "name": "gunfirehit02",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5735498,
+        "size": 74398
+      },
+      {
+        "index": 78,
+        "name": "gunfirehit02_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5809896,
+        "size": 74398
+      },
+      {
+        "index": 79,
+        "name": "gunfirehit03",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5884294,
+        "size": 74398
+      },
+      {
+        "index": 80,
+        "name": "gunfirehit03_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 5958692,
+        "size": 74398
+      },
+      {
+        "index": 81,
+        "name": "gunfirehit04",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6033090,
+        "size": 74398
+      },
+      {
+        "index": 82,
+        "name": "gunfirehit04_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6107488,
+        "size": 74398
+      },
+      {
+        "index": 83,
+        "name": "gunfirehit05",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6181886,
+        "size": 74398
+      },
+      {
+        "index": 84,
+        "name": "gunfirehit05_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6256284,
+        "size": 74398
+      },
+      {
+        "index": 85,
+        "name": "gunfirehit06",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6330682,
+        "size": 74398
+      },
+      {
+        "index": 86,
+        "name": "gunfirehit06_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6405080,
+        "size": 74398
+      },
+      {
+        "index": 87,
+        "name": "gunfirehit07",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6479478,
+        "size": 74398
+      },
+      {
+        "index": 88,
+        "name": "gunfirehit07_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6553876,
+        "size": 74398
+      },
+      {
+        "index": 89,
+        "name": "gunfirehit08",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6628274,
+        "size": 74398
+      },
+      {
+        "index": 90,
+        "name": "gunfirehit08_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6702672,
+        "size": 74398
+      },
+      {
+        "index": 91,
+        "name": "gunfirehit09",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6777070,
+        "size": 74398
+      },
+      {
+        "index": 92,
+        "name": "gunfirehit09_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6851468,
+        "size": 74398
+      },
+      {
+        "index": 93,
+        "name": "gunfirehit10",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 6925866,
+        "size": 74398
+      },
+      {
+        "index": 94,
+        "name": "gunfirehit10_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7000264,
+        "size": 74398
+      },
+      {
+        "index": 95,
+        "name": "gunfirehit11",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7074662,
+        "size": 74398
+      },
+      {
+        "index": 96,
+        "name": "gunfirehit11_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7149060,
+        "size": 74398
+      },
+      {
+        "index": 97,
+        "name": "gunfirehit12",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7223458,
+        "size": 74398
+      },
+      {
+        "index": 98,
+        "name": "gunfirehit12_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7297856,
+        "size": 74398
+      },
+      {
+        "index": 99,
+        "name": "headshothit",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7372254,
+        "size": 74398
+      },
+      {
+        "index": 100,
+        "name": "headshothit_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7446652,
+        "size": 74398
+      },
+      {
+        "index": 101,
+        "name": "heartbeat",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7521050,
+        "size": 74398
+      },
+      {
+        "index": 102,
+        "name": "irondoor_close",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7595448,
+        "size": 74398
+      },
+      {
+        "index": 103,
+        "name": "irondoor_open",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7669846,
+        "size": 74398
+      },
+      {
+        "index": 104,
+        "name": "levelup",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7744244,
+        "size": 74398
+      },
+      {
+        "index": 105,
+        "name": "message",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7818642,
+        "size": 74398
+      },
+      {
+        "index": 106,
+        "name": "metaldoor_close",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7893040,
+        "size": 74398
+      },
+      {
+        "index": 107,
+        "name": "metaldoor_open",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 7967438,
+        "size": 74398
+      },
+      {
+        "index": 108,
+        "name": "metalhatch_close",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8041836,
+        "size": 74398
+      },
+      {
+        "index": 109,
+        "name": "metalhatch_open",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8116234,
+        "size": 74398
+      },
+      {
+        "index": 110,
+        "name": "missionstart",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8190632,
+        "size": 74398
+      },
+      {
+        "index": 111,
+        "name": "partsequip",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8265030,
+        "size": 74398
+      },
+      {
+        "index": 112,
+        "name": "partspreview",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8339428,
+        "size": 74398
+      },
+      {
+        "index": 113,
+        "name": "personenter",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8413826,
+        "size": 74398
+      },
+      {
+        "index": 114,
+        "name": "personexit",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8488224,
+        "size": 74398
+      },
+      {
+        "index": 115,
+        "name": "ready01",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8562622,
+        "size": 74398
+      },
+      {
+        "index": 116,
+        "name": "ready02",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8637020,
+        "size": 74398
+      },
+      {
+        "index": 117,
+        "name": "ready03",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8711418,
+        "size": 74398
+      },
+      {
+        "index": 118,
+        "name": "ready04",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8785816,
+        "size": 74398
+      },
+      {
+        "index": 119,
+        "name": "ready05",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8860214,
+        "size": 74398
+      },
+      {
+        "index": 120,
+        "name": "ready06",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 8934612,
+        "size": 74398
+      },
+      {
+        "index": 121,
+        "name": "rumble01",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9009010,
+        "size": 74398
+      },
+      {
+        "index": 122,
+        "name": "rumble02",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9083408,
+        "size": 74398
+      },
+      {
+        "index": 123,
+        "name": "rumble03",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9157806,
+        "size": 74398
+      },
+      {
+        "index": 124,
+        "name": "rumble04",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9232204,
+        "size": 74398
+      },
+      {
+        "index": 125,
+        "name": "rumble05",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9306602,
+        "size": 74398
+      },
+      {
+        "index": 126,
+        "name": "rumble06",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9381000,
+        "size": 74398
+      },
+      {
+        "index": 127,
+        "name": "rumble07",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9455398,
+        "size": 74398
+      },
+      {
+        "index": 128,
+        "name": "rumble08",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9529796,
+        "size": 74398
+      },
+      {
+        "index": 129,
+        "name": "rumble09",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9604194,
+        "size": 74398
+      },
+      {
+        "index": 130,
+        "name": "rumble10",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9678592,
+        "size": 74398
+      },
+      {
+        "index": 131,
+        "name": "rumble11",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9752990,
+        "size": 74398
+      },
+      {
+        "index": 132,
+        "name": "rumble12",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9827388,
+        "size": 74398
+      },
+      {
+        "index": 133,
+        "name": "underwater01",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9901786,
+        "size": 74398
+      },
+      {
+        "index": 134,
+        "name": "underwater02",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 9976184,
+        "size": 74398
+      },
+      {
+        "index": 135,
+        "name": "underwater03",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10050582,
+        "size": 74398
+      },
+      {
+        "index": 136,
+        "name": "weaponequip",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10124980,
+        "size": 74398
+      },
+      {
+        "index": 137,
+        "name": "whisper",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10199378,
+        "size": 74398
+      },
+      {
+        "index": 138,
+        "name": "windowbreaking01",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10273776,
+        "size": 74398
+      },
+      {
+        "index": 139,
+        "name": "windowbreaking02",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10348174,
+        "size": 74398
+      },
+      {
+        "index": 140,
+        "name": "windowbreaking03",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10422572,
+        "size": 74398
+      },
+      {
+        "index": 141,
+        "name": "ion01",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10496970,
+        "size": 74398
+      },
+      {
+        "index": 142,
+        "name": "yShop_BGM",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10571368,
+        "size": 74398
+      },
+      {
+        "index": 143,
+        "name": "yShop_Grade",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10645766,
+        "size": 74398
+      },
+      {
+        "index": 144,
+        "name": "yShop_MachineBottonClick",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10720164,
+        "size": 74398
+      },
+      {
+        "index": 145,
+        "name": "yShop_MachineBottonOver",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10794562,
+        "size": 74398
+      },
+      {
+        "index": 146,
+        "name": "yShop_MachineListClick",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10868960,
+        "size": 74398
+      },
+      {
+        "index": 147,
+        "name": "yShop_MachineListOver",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 10943358,
+        "size": 74398
+      },
+      {
+        "index": 148,
+        "name": "yShop_OpeningBGM",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11017756,
+        "size": 74398
+      },
+      {
+        "index": 149,
+        "name": "yShop_Slotturn1",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11092154,
+        "size": 74398
+      },
+      {
+        "index": 150,
+        "name": "yShop_Slotturn2",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11166552,
+        "size": 74398
+      },
+      {
+        "index": 151,
+        "name": "yShop_Slotturn3",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11240950,
+        "size": 74398
+      },
+      {
+        "index": 152,
+        "name": "er01",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11315348,
+        "size": 74398
+      },
+      {
+        "index": 153,
+        "name": "er01_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11389746,
+        "size": 74398
+      },
+      {
+        "index": 154,
+        "name": "er02",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11464144,
+        "size": 74398
+      },
+      {
+        "index": 155,
+        "name": "er02_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11538542,
+        "size": 74398
+      },
+      {
+        "index": 156,
+        "name": "er03",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11612940,
+        "size": 74398
+      },
+      {
+        "index": 157,
+        "name": "er03_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11687338,
+        "size": 74398
+      },
+      {
+        "index": 158,
+        "name": "er04",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11761736,
+        "size": 74398
+      },
+      {
+        "index": 159,
+        "name": "er04_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11836134,
+        "size": 74398
+      },
+      {
+        "index": 160,
+        "name": "er05",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11910532,
+        "size": 74398
+      },
+      {
+        "index": 161,
+        "name": "er05_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 11984930,
+        "size": 74398
+      },
+      {
+        "index": 162,
+        "name": "er06",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 12059328,
+        "size": 74398
+      },
+      {
+        "index": 163,
+        "name": "er06_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 12133726,
+        "size": 74398
+      },
+      {
+        "index": 164,
+        "name": "er07",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 12208124,
+        "size": 74398
+      },
+      {
+        "index": 165,
+        "name": "er07_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 12282522,
+        "size": 74398
+      },
+      {
+        "index": 166,
+        "name": "er08",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 12356920,
+        "size": 74398
+      },
+      {
+        "index": 167,
+        "name": "er08_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 12431318,
+        "size": 74398
+      },
+      {
+        "index": 168,
+        "name": "er09",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 12505716,
+        "size": 74398
+      },
+      {
+        "index": 169,
+        "name": "er09_uw",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 12580114,
+        "size": 74398
+      },
+      {
+        "index": 170,
+        "name": "sample_0170",
+        "bank": "System",
+        "codec": "CELT",
+        "offset": 12654512,
+        "size": 74548
+      }
+    ]
+  },
+  "CloseWeapon": {
+    "bank_name": "CloseWeapon",
+    "codec": "CELT",
+    "num_samples": 88,
+    "total_data_bytes": 1104736,
+    "samples": [
+      {
+        "index": 0,
+        "name": "leaxe_select_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 3780,
+        "size": 12553
+      },
+      {
+        "index": 1,
+        "name": "leaxe_stab01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 16333,
+        "size": 12553
+      },
+      {
+        "index": 2,
+        "name": "leaxe_stab01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 28886,
+        "size": 12553
+      },
+      {
+        "index": 3,
+        "name": "leaxe_stab02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 41439,
+        "size": 12553
+      },
+      {
+        "index": 4,
+        "name": "leaxe_stab02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 53992,
+        "size": 12553
+      },
+      {
+        "index": 5,
+        "name": "leaxe_swish01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 66545,
+        "size": 12553
+      },
+      {
+        "index": 6,
+        "name": "leaxe_swish01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 79098,
+        "size": 12553
+      },
+      {
+        "index": 7,
+        "name": "leaxe_swish02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 91651,
+        "size": 12553
+      },
+      {
+        "index": 8,
+        "name": "leaxe_swish02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 104204,
+        "size": 12553
+      },
+      {
+        "index": 9,
+        "name": "leaxe_swish03",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 116757,
+        "size": 12553
+      },
+      {
+        "index": 10,
+        "name": "leaxe_swish03_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 129310,
+        "size": 12553
+      },
+      {
+        "index": 11,
+        "name": "Axe_select",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 141863,
+        "size": 12553
+      },
+      {
+        "index": 12,
+        "name": "Axe_select_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 154416,
+        "size": 12553
+      },
+      {
+        "index": 13,
+        "name": "Axe_stab01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 166969,
+        "size": 12553
+      },
+      {
+        "index": 14,
+        "name": "Axe_stab01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 179522,
+        "size": 12553
+      },
+      {
+        "index": 15,
+        "name": "Axe_stab02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 192075,
+        "size": 12553
+      },
+      {
+        "index": 16,
+        "name": "Axe_stab02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 204628,
+        "size": 12553
+      },
+      {
+        "index": 17,
+        "name": "Axe_swish01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 217181,
+        "size": 12553
+      },
+      {
+        "index": 18,
+        "name": "Axe_swish01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 229734,
+        "size": 12553
+      },
+      {
+        "index": 19,
+        "name": "Axe_swish02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 242287,
+        "size": 12553
+      },
+      {
+        "index": 20,
+        "name": "Axe_swish02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 254840,
+        "size": 12553
+      },
+      {
+        "index": 21,
+        "name": "Axe_swish03",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 267393,
+        "size": 12553
+      },
+      {
+        "index": 22,
+        "name": "Axe_swish03_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 279946,
+        "size": 12553
+      },
+      {
+        "index": 23,
+        "name": "e_select",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 292499,
+        "size": 12553
+      },
+      {
+        "index": 24,
+        "name": "e_select_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 305052,
+        "size": 12553
+      },
+      {
+        "index": 25,
+        "name": "e_stab01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 317605,
+        "size": 12553
+      },
+      {
+        "index": 26,
+        "name": "e_stab01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 330158,
+        "size": 12553
+      },
+      {
+        "index": 27,
+        "name": "e_stab02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 342711,
+        "size": 12553
+      },
+      {
+        "index": 28,
+        "name": "e_stab02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 355264,
+        "size": 12553
+      },
+      {
+        "index": 29,
+        "name": "e_swish01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 367817,
+        "size": 12553
+      },
+      {
+        "index": 30,
+        "name": "e_swish01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 380370,
+        "size": 12553
+      },
+      {
+        "index": 31,
+        "name": "e_swish02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 392923,
+        "size": 12553
+      },
+      {
+        "index": 32,
+        "name": "e_swish02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 405476,
+        "size": 12553
+      },
+      {
+        "index": 33,
+        "name": "e_swish03",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 418029,
+        "size": 12553
+      },
+      {
+        "index": 34,
+        "name": "e_swish03_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 430582,
+        "size": 12553
+      },
+      {
+        "index": 35,
+        "name": "attle",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 443135,
+        "size": 12553
+      },
+      {
+        "index": 36,
+        "name": "attle_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 455688,
+        "size": 12553
+      },
+      {
+        "index": 37,
+        "name": "elect",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 468241,
+        "size": 12553
+      },
+      {
+        "index": 38,
+        "name": "elect_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 480794,
+        "size": 12553
+      },
+      {
+        "index": 39,
+        "name": "tab01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 493347,
+        "size": 12553
+      },
+      {
+        "index": 40,
+        "name": "tab01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 505900,
+        "size": 12553
+      },
+      {
+        "index": 41,
+        "name": "tab02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 518453,
+        "size": 12553
+      },
+      {
+        "index": 42,
+        "name": "tab02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 531006,
+        "size": 12553
+      },
+      {
+        "index": 43,
+        "name": "wish01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 543559,
+        "size": 12553
+      },
+      {
+        "index": 44,
+        "name": "wish01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 556112,
+        "size": 12553
+      },
+      {
+        "index": 45,
+        "name": "wish02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 568665,
+        "size": 12553
+      },
+      {
+        "index": 46,
+        "name": "wish02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 581218,
+        "size": 12553
+      },
+      {
+        "index": 47,
+        "name": "wish03",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 593771,
+        "size": 12553
+      },
+      {
+        "index": 48,
+        "name": "wish03_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 606324,
+        "size": 12553
+      },
+      {
+        "index": 49,
+        "name": "manQuama_rattle",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 618877,
+        "size": 12553
+      },
+      {
+        "index": 50,
+        "name": "manQuama_rattle_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 631430,
+        "size": 12553
+      },
+      {
+        "index": 51,
+        "name": "manQuama_select",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 643983,
+        "size": 12553
+      },
+      {
+        "index": 52,
+        "name": "manQuama_select_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 656536,
+        "size": 12553
+      },
+      {
+        "index": 53,
+        "name": "manQuama_stab01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 669089,
+        "size": 12553
+      },
+      {
+        "index": 54,
+        "name": "manQuama_stab01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 681642,
+        "size": 12553
+      },
+      {
+        "index": 55,
+        "name": "manQuama_stab02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 694195,
+        "size": 12553
+      },
+      {
+        "index": 56,
+        "name": "manQuama_stab02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 706748,
+        "size": 12553
+      },
+      {
+        "index": 57,
+        "name": "manQuama_swish01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 719301,
+        "size": 12553
+      },
+      {
+        "index": 58,
+        "name": "manQuama_swish01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 731854,
+        "size": 12553
+      },
+      {
+        "index": 59,
+        "name": "manQuama_swish02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 744407,
+        "size": 12553
+      },
+      {
+        "index": 60,
+        "name": "manQuama_swish02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 756960,
+        "size": 12553
+      },
+      {
+        "index": 61,
+        "name": "manQuama_swish03",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 769513,
+        "size": 12553
+      },
+      {
+        "index": 62,
+        "name": "manQuama_swish03_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 782066,
+        "size": 12553
+      },
+      {
+        "index": 63,
+        "name": "ballBat_fire1_01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 794619,
+        "size": 12553
+      },
+      {
+        "index": 64,
+        "name": "ballBat_fire1_01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 807172,
+        "size": 12553
+      },
+      {
+        "index": 65,
+        "name": "ballBat_fire1_02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 819725,
+        "size": 12553
+      },
+      {
+        "index": 66,
+        "name": "ballBat_fire1_02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 832278,
+        "size": 12553
+      },
+      {
+        "index": 67,
+        "name": "ballBat_fire1_03",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 844831,
+        "size": 12553
+      },
+      {
+        "index": 68,
+        "name": "ballBat_fire1_03_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 857384,
+        "size": 12553
+      },
+      {
+        "index": 69,
+        "name": "ballBat_fire2_01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 869937,
+        "size": 12553
+      },
+      {
+        "index": 70,
+        "name": "ballBat_fire2_01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 882490,
+        "size": 12553
+      },
+      {
+        "index": 71,
+        "name": "ballBat_fire2_02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 895043,
+        "size": 12553
+      },
+      {
+        "index": 72,
+        "name": "ballBat_fire2_02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 907596,
+        "size": 12553
+      },
+      {
+        "index": 73,
+        "name": "ballBat_select",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 920149,
+        "size": 12553
+      },
+      {
+        "index": 74,
+        "name": "ballBat_select_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 932702,
+        "size": 12553
+      },
+      {
+        "index": 75,
+        "name": "sher_fire1_01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 945255,
+        "size": 12553
+      },
+      {
+        "index": 76,
+        "name": "sher_fire1_01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 957808,
+        "size": 12553
+      },
+      {
+        "index": 77,
+        "name": "sher_fire1_02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 970361,
+        "size": 12553
+      },
+      {
+        "index": 78,
+        "name": "sher_fire1_02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 982914,
+        "size": 12553
+      },
+      {
+        "index": 79,
+        "name": "sher_fire1_03",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 995467,
+        "size": 12553
+      },
+      {
+        "index": 80,
+        "name": "sher_fire1_03_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 1008020,
+        "size": 12553
+      },
+      {
+        "index": 81,
+        "name": "sher_fire2_01",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 1020573,
+        "size": 12553
+      },
+      {
+        "index": 82,
+        "name": "sher_fire2_01_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 1033126,
+        "size": 12553
+      },
+      {
+        "index": 83,
+        "name": "sher_fire2_02",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 1045679,
+        "size": 12553
+      },
+      {
+        "index": 84,
+        "name": "sher_fire2_02_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 1058232,
+        "size": 12553
+      },
+      {
+        "index": 85,
+        "name": "sher_select",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 1070785,
+        "size": 12553
+      },
+      {
+        "index": 86,
+        "name": "sher_select_uw",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 1083338,
+        "size": 12553
+      },
+      {
+        "index": 87,
+        "name": "sample_0087",
+        "bank": "CloseWeapon",
+        "codec": "CELT",
+        "offset": 1095891,
+        "size": 12625
+      }
+    ]
+  },
+  "CloseWeaponImpact": {
+    "bank_name": "CloseWeaponImpact",
+    "codec": "CELT",
+    "num_samples": 106,
+    "total_data_bytes": 1578720,
+    "samples": [
+      {
+        "index": 0,
+        "name": "it_carpet01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 4484,
+        "size": 14893
+      },
+      {
+        "index": 1,
+        "name": "it_carpet02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 19377,
+        "size": 14893
+      },
+      {
+        "index": 2,
+        "name": "it_carpet02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 34270,
+        "size": 14893
+      },
+      {
+        "index": 3,
+        "name": "it_dirt01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 49163,
+        "size": 14893
+      },
+      {
+        "index": 4,
+        "name": "it_dirt02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 64056,
+        "size": 14893
+      },
+      {
+        "index": 5,
+        "name": "it_glass01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 78949,
+        "size": 14893
+      },
+      {
+        "index": 6,
+        "name": "it_glass01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 93842,
+        "size": 14893
+      },
+      {
+        "index": 7,
+        "name": "it_glass02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 108735,
+        "size": 14893
+      },
+      {
+        "index": 8,
+        "name": "it_glass02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 123628,
+        "size": 14893
+      },
+      {
+        "index": 9,
+        "name": "it_grass01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 138521,
+        "size": 14893
+      },
+      {
+        "index": 10,
+        "name": "it_grass01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 153414,
+        "size": 14893
+      },
+      {
+        "index": 11,
+        "name": "it_grass02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 168307,
+        "size": 14893
+      },
+      {
+        "index": 12,
+        "name": "it_grass02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 183200,
+        "size": 14893
+      },
+      {
+        "index": 13,
+        "name": "it_metal01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 198093,
+        "size": 14893
+      },
+      {
+        "index": 14,
+        "name": "it_metal01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 212986,
+        "size": 14893
+      },
+      {
+        "index": 15,
+        "name": "it_metal02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 227879,
+        "size": 14893
+      },
+      {
+        "index": 16,
+        "name": "it_metal02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 242772,
+        "size": 14893
+      },
+      {
+        "index": 17,
+        "name": "it_metalfence01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 257665,
+        "size": 14893
+      },
+      {
+        "index": 18,
+        "name": "it_metalfence01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 272558,
+        "size": 14893
+      },
+      {
+        "index": 19,
+        "name": "it_metalfence02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 287451,
+        "size": 14893
+      },
+      {
+        "index": 20,
+        "name": "it_metalfence02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 302344,
+        "size": 14893
+      },
+      {
+        "index": 21,
+        "name": "it_stone01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 317237,
+        "size": 14893
+      },
+      {
+        "index": 22,
+        "name": "it_stone01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 332130,
+        "size": 14893
+      },
+      {
+        "index": 23,
+        "name": "it_stone02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 347023,
+        "size": 14893
+      },
+      {
+        "index": 24,
+        "name": "it_stone02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 361916,
+        "size": 14893
+      },
+      {
+        "index": 25,
+        "name": "it_water01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 376809,
+        "size": 14893
+      },
+      {
+        "index": 26,
+        "name": "it_water01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 391702,
+        "size": 14893
+      },
+      {
+        "index": 27,
+        "name": "it_water02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 406595,
+        "size": 14893
+      },
+      {
+        "index": 28,
+        "name": "it_water02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 421488,
+        "size": 14893
+      },
+      {
+        "index": 29,
+        "name": "it_wood01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 436381,
+        "size": 14893
+      },
+      {
+        "index": 30,
+        "name": "it_wood01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 451274,
+        "size": 14893
+      },
+      {
+        "index": 31,
+        "name": "it_wood02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 466167,
+        "size": 14893
+      },
+      {
+        "index": 32,
+        "name": "it_wood02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 481060,
+        "size": 14893
+      },
+      {
+        "index": 33,
+        "name": "hit_carpet01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 495953,
+        "size": 14893
+      },
+      {
+        "index": 34,
+        "name": "hit_carpet01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 510846,
+        "size": 14893
+      },
+      {
+        "index": 35,
+        "name": "hit_carpet02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 525739,
+        "size": 14893
+      },
+      {
+        "index": 36,
+        "name": "hit_carpet02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 540632,
+        "size": 14893
+      },
+      {
+        "index": 37,
+        "name": "hit_dirt01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 555525,
+        "size": 14893
+      },
+      {
+        "index": 38,
+        "name": "hit_dirt01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 570418,
+        "size": 14893
+      },
+      {
+        "index": 39,
+        "name": "hit_dirt02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 585311,
+        "size": 14893
+      },
+      {
+        "index": 40,
+        "name": "hit_dirt02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 600204,
+        "size": 14893
+      },
+      {
+        "index": 41,
+        "name": "hit_glass01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 615097,
+        "size": 14893
+      },
+      {
+        "index": 42,
+        "name": "hit_glass01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 629990,
+        "size": 14893
+      },
+      {
+        "index": 43,
+        "name": "hit_glass02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 644883,
+        "size": 14893
+      },
+      {
+        "index": 44,
+        "name": "hit_glass02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 659776,
+        "size": 14893
+      },
+      {
+        "index": 45,
+        "name": "hit_grass01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 674669,
+        "size": 14893
+      },
+      {
+        "index": 46,
+        "name": "hit_grass01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 689562,
+        "size": 14893
+      },
+      {
+        "index": 47,
+        "name": "hit_grass02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 704455,
+        "size": 14893
+      },
+      {
+        "index": 48,
+        "name": "hit_grass02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 719348,
+        "size": 14893
+      },
+      {
+        "index": 49,
+        "name": "hit_metal01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 734241,
+        "size": 14893
+      },
+      {
+        "index": 50,
+        "name": "hit_metal01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 749134,
+        "size": 14893
+      },
+      {
+        "index": 51,
+        "name": "hit_metal02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 764027,
+        "size": 14893
+      },
+      {
+        "index": 52,
+        "name": "hit_metal02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 778920,
+        "size": 14893
+      },
+      {
+        "index": 53,
+        "name": "hit_metalfence01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 793813,
+        "size": 14893
+      },
+      {
+        "index": 54,
+        "name": "hit_metalfence01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 808706,
+        "size": 14893
+      },
+      {
+        "index": 55,
+        "name": "hit_metalfence02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 823599,
+        "size": 14893
+      },
+      {
+        "index": 56,
+        "name": "hit_metalfence02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 838492,
+        "size": 14893
+      },
+      {
+        "index": 57,
+        "name": "hit_stone01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 853385,
+        "size": 14893
+      },
+      {
+        "index": 58,
+        "name": "hit_stone01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 868278,
+        "size": 14893
+      },
+      {
+        "index": 59,
+        "name": "hit_stone02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 883171,
+        "size": 14893
+      },
+      {
+        "index": 60,
+        "name": "hit_stone02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 898064,
+        "size": 14893
+      },
+      {
+        "index": 61,
+        "name": "hit_water01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 912957,
+        "size": 14893
+      },
+      {
+        "index": 62,
+        "name": "hit_water01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 927850,
+        "size": 14893
+      },
+      {
+        "index": 63,
+        "name": "hit_water02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 942743,
+        "size": 14893
+      },
+      {
+        "index": 64,
+        "name": "hit_water02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 957636,
+        "size": 14893
+      },
+      {
+        "index": 65,
+        "name": "hit_wood01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 972529,
+        "size": 14893
+      },
+      {
+        "index": 66,
+        "name": "hit_wood01_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 987422,
+        "size": 14893
+      },
+      {
+        "index": 67,
+        "name": "hit_wood02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1002315,
+        "size": 14893
+      },
+      {
+        "index": 68,
+        "name": "hit_wood02_UW",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1017208,
+        "size": 14893
+      },
+      {
+        "index": 69,
+        "name": "ehit_carpet01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1032101,
+        "size": 14893
+      },
+      {
+        "index": 70,
+        "name": "ehit_carpet01_uw",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1046994,
+        "size": 14893
+      },
+      {
+        "index": 71,
+        "name": "ehit_carpet02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1061887,
+        "size": 14893
+      },
+      {
+        "index": 72,
+        "name": "ehit_carpet02_uw",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1076780,
+        "size": 14893
+      },
+      {
+        "index": 73,
+        "name": "ehit_cloth01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1091673,
+        "size": 14893
+      },
+      {
+        "index": 74,
+        "name": "ehit_cloth02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1106566,
+        "size": 14893
+      },
+      {
+        "index": 75,
+        "name": "ehit_dirt01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1121459,
+        "size": 14893
+      },
+      {
+        "index": 76,
+        "name": "ehit_dirt02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1136352,
+        "size": 14893
+      },
+      {
+        "index": 77,
+        "name": "ehit_flesh01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1151245,
+        "size": 14893
+      },
+      {
+        "index": 78,
+        "name": "ehit_flesh01_uw",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1166138,
+        "size": 14893
+      },
+      {
+        "index": 79,
+        "name": "ehit_flesh02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1181031,
+        "size": 14893
+      },
+      {
+        "index": 80,
+        "name": "ehit_flesh02_uw",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1195924,
+        "size": 14893
+      },
+      {
+        "index": 81,
+        "name": "ehit_glass01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1210817,
+        "size": 14893
+      },
+      {
+        "index": 82,
+        "name": "ehit_glass02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1225710,
+        "size": 14893
+      },
+      {
+        "index": 83,
+        "name": "ehit_grass01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1240603,
+        "size": 14893
+      },
+      {
+        "index": 84,
+        "name": "ehit_grass02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1255496,
+        "size": 14893
+      },
+      {
+        "index": 85,
+        "name": "ehit_leaves01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1270389,
+        "size": 14893
+      },
+      {
+        "index": 86,
+        "name": "ehit_leaves02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1285282,
+        "size": 14893
+      },
+      {
+        "index": 87,
+        "name": "ehit_metal01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1300175,
+        "size": 14893
+      },
+      {
+        "index": 88,
+        "name": "ehit_metal01_uw",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1315068,
+        "size": 14893
+      },
+      {
+        "index": 89,
+        "name": "ehit_metal02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1329961,
+        "size": 14893
+      },
+      {
+        "index": 90,
+        "name": "ehit_metal02_uw",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1344854,
+        "size": 14893
+      },
+      {
+        "index": 91,
+        "name": "ehit_metalfence01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1359747,
+        "size": 14893
+      },
+      {
+        "index": 92,
+        "name": "ehit_metalfence02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1374640,
+        "size": 14893
+      },
+      {
+        "index": 93,
+        "name": "ehit_paper01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1389533,
+        "size": 14893
+      },
+      {
+        "index": 94,
+        "name": "ehit_paper02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1404426,
+        "size": 14893
+      },
+      {
+        "index": 95,
+        "name": "ehit_stone01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1419319,
+        "size": 14893
+      },
+      {
+        "index": 96,
+        "name": "ehit_stone01_uw",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1434212,
+        "size": 14893
+      },
+      {
+        "index": 97,
+        "name": "ehit_stone02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1449105,
+        "size": 14893
+      },
+      {
+        "index": 98,
+        "name": "ehit_stone02_uw",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1463998,
+        "size": 14893
+      },
+      {
+        "index": 99,
+        "name": "ehit_water01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1478891,
+        "size": 14893
+      },
+      {
+        "index": 100,
+        "name": "ehit_water02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1493784,
+        "size": 14893
+      },
+      {
+        "index": 101,
+        "name": "ehit_wood01",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1508677,
+        "size": 14893
+      },
+      {
+        "index": 102,
+        "name": "ehit_wood01_uw",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1523570,
+        "size": 14893
+      },
+      {
+        "index": 103,
+        "name": "ehit_wood02",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1538463,
+        "size": 14893
+      },
+      {
+        "index": 104,
+        "name": "ehit_wood02_uw",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1553356,
+        "size": 14893
+      },
+      {
+        "index": 105,
+        "name": "sample_0105",
+        "bank": "CloseWeaponImpact",
+        "codec": "CELT",
+        "offset": 1568249,
+        "size": 14955
+      }
+    ]
+  },
+  "MainWeapon": {
+    "bank_name": "MainWeapon",
+    "codec": "CELT",
+    "num_samples": 361,
+    "total_data_bytes": 5579872,
+    "samples": [
+      {
+        "index": 0,
+        "name": "shellout01",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 14756,
+        "size": 15456
+      },
+      {
+        "index": 1,
+        "name": "boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 30212,
+        "size": 15456
+      },
+      {
+        "index": 2,
+        "name": "boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 45668,
+        "size": 15456
+      },
+      {
+        "index": 3,
+        "name": "boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 61124,
+        "size": 15456
+      },
+      {
+        "index": 4,
+        "name": "boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 76580,
+        "size": 15456
+      },
+      {
+        "index": 5,
+        "name": "clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 92036,
+        "size": 15456
+      },
+      {
+        "index": 6,
+        "name": "clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 107492,
+        "size": 15456
+      },
+      {
+        "index": 7,
+        "name": "clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 122948,
+        "size": 15456
+      },
+      {
+        "index": 8,
+        "name": "clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 138404,
+        "size": 15456
+      },
+      {
+        "index": 9,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 153860,
+        "size": 15456
+      },
+      {
+        "index": 10,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 169316,
+        "size": 15456
+      },
+      {
+        "index": 11,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 184772,
+        "size": 15456
+      },
+      {
+        "index": 12,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 200228,
+        "size": 15456
+      },
+      {
+        "index": 13,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 215684,
+        "size": 15456
+      },
+      {
+        "index": 14,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 231140,
+        "size": 15456
+      },
+      {
+        "index": 15,
+        "name": "boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 246596,
+        "size": 15456
+      },
+      {
+        "index": 16,
+        "name": "boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 262052,
+        "size": 15456
+      },
+      {
+        "index": 17,
+        "name": "boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 277508,
+        "size": 15456
+      },
+      {
+        "index": 18,
+        "name": "boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 292964,
+        "size": 15456
+      },
+      {
+        "index": 19,
+        "name": "clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 308420,
+        "size": 15456
+      },
+      {
+        "index": 20,
+        "name": "clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 323876,
+        "size": 15456
+      },
+      {
+        "index": 21,
+        "name": "clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 339332,
+        "size": 15456
+      },
+      {
+        "index": 22,
+        "name": "clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 354788,
+        "size": 15456
+      },
+      {
+        "index": 23,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 370244,
+        "size": 15456
+      },
+      {
+        "index": 24,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 385700,
+        "size": 15456
+      },
+      {
+        "index": 25,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 401156,
+        "size": 15456
+      },
+      {
+        "index": 26,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 416612,
+        "size": 15456
+      },
+      {
+        "index": 27,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 432068,
+        "size": 15456
+      },
+      {
+        "index": 28,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 447524,
+        "size": 15456
+      },
+      {
+        "index": 29,
+        "name": "A1_boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 462980,
+        "size": 15456
+      },
+      {
+        "index": 30,
+        "name": "A1_boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 478436,
+        "size": 15456
+      },
+      {
+        "index": 31,
+        "name": "A1_boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 493892,
+        "size": 15456
+      },
+      {
+        "index": 32,
+        "name": "A1_boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 509348,
+        "size": 15456
+      },
+      {
+        "index": 33,
+        "name": "A1_clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 524804,
+        "size": 15456
+      },
+      {
+        "index": 34,
+        "name": "A1_clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 540260,
+        "size": 15456
+      },
+      {
+        "index": 35,
+        "name": "A1_clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 555716,
+        "size": 15456
+      },
+      {
+        "index": 36,
+        "name": "A1_clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 571172,
+        "size": 15456
+      },
+      {
+        "index": 37,
+        "name": "A1_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 586628,
+        "size": 15456
+      },
+      {
+        "index": 38,
+        "name": "A1_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 602084,
+        "size": 15456
+      },
+      {
+        "index": 39,
+        "name": "A1_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 617540,
+        "size": 15456
+      },
+      {
+        "index": 40,
+        "name": "A1_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 632996,
+        "size": 15456
+      },
+      {
+        "index": 41,
+        "name": "A1_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 648452,
+        "size": 15456
+      },
+      {
+        "index": 42,
+        "name": "A1_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 663908,
+        "size": 15456
+      },
+      {
+        "index": 43,
+        "name": "S-F1_boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 679364,
+        "size": 15456
+      },
+      {
+        "index": 44,
+        "name": "S-F1_boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 694820,
+        "size": 15456
+      },
+      {
+        "index": 45,
+        "name": "S-F1_boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 710276,
+        "size": 15456
+      },
+      {
+        "index": 46,
+        "name": "S-F1_boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 725732,
+        "size": 15456
+      },
+      {
+        "index": 47,
+        "name": "S-F1_clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 741188,
+        "size": 15456
+      },
+      {
+        "index": 48,
+        "name": "S-F1_clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 756644,
+        "size": 15456
+      },
+      {
+        "index": 49,
+        "name": "S-F1_clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 772100,
+        "size": 15456
+      },
+      {
+        "index": 50,
+        "name": "S-F1_clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 787556,
+        "size": 15456
+      },
+      {
+        "index": 51,
+        "name": "S-F1_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 803012,
+        "size": 15456
+      },
+      {
+        "index": 52,
+        "name": "S-F1_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 818468,
+        "size": 15456
+      },
+      {
+        "index": 53,
+        "name": "S-F1_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 833924,
+        "size": 15456
+      },
+      {
+        "index": 54,
+        "name": "S-F1_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 849380,
+        "size": 15456
+      },
+      {
+        "index": 55,
+        "name": "S-F1_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 864836,
+        "size": 15456
+      },
+      {
+        "index": 56,
+        "name": "S-F1_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 880292,
+        "size": 15456
+      },
+      {
+        "index": 57,
+        "name": "90_boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 895748,
+        "size": 15456
+      },
+      {
+        "index": 58,
+        "name": "90_boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 911204,
+        "size": 15456
+      },
+      {
+        "index": 59,
+        "name": "90_boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 926660,
+        "size": 15456
+      },
+      {
+        "index": 60,
+        "name": "90_boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 942116,
+        "size": 15456
+      },
+      {
+        "index": 61,
+        "name": "90_clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 957572,
+        "size": 15456
+      },
+      {
+        "index": 62,
+        "name": "90_clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 973028,
+        "size": 15456
+      },
+      {
+        "index": 63,
+        "name": "90_clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 988484,
+        "size": 15456
+      },
+      {
+        "index": 64,
+        "name": "90_clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1003940,
+        "size": 15456
+      },
+      {
+        "index": 65,
+        "name": "90_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1019396,
+        "size": 15456
+      },
+      {
+        "index": 66,
+        "name": "90_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1034852,
+        "size": 15456
+      },
+      {
+        "index": 67,
+        "name": "90_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1050308,
+        "size": 15456
+      },
+      {
+        "index": 68,
+        "name": "90_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1065764,
+        "size": 15456
+      },
+      {
+        "index": 69,
+        "name": "90_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1081220,
+        "size": 15456
+      },
+      {
+        "index": 70,
+        "name": "90_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1096676,
+        "size": 15456
+      },
+      {
+        "index": 71,
+        "name": "CAR_boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1112132,
+        "size": 15456
+      },
+      {
+        "index": 72,
+        "name": "CAR_boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1127588,
+        "size": 15456
+      },
+      {
+        "index": 73,
+        "name": "CAR_boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1143044,
+        "size": 15456
+      },
+      {
+        "index": 74,
+        "name": "CAR_boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1158500,
+        "size": 15456
+      },
+      {
+        "index": 75,
+        "name": "CAR_clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1173956,
+        "size": 15456
+      },
+      {
+        "index": 76,
+        "name": "CAR_clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1189412,
+        "size": 15456
+      },
+      {
+        "index": 77,
+        "name": "CAR_clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1204868,
+        "size": 15456
+      },
+      {
+        "index": 78,
+        "name": "CAR_clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1220324,
+        "size": 15456
+      },
+      {
+        "index": 79,
+        "name": "CAR_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1235780,
+        "size": 15456
+      },
+      {
+        "index": 80,
+        "name": "CAR_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1251236,
+        "size": 15456
+      },
+      {
+        "index": 81,
+        "name": "CAR_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1266692,
+        "size": 15456
+      },
+      {
+        "index": 82,
+        "name": "CAR_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1282148,
+        "size": 15456
+      },
+      {
+        "index": 83,
+        "name": "CAR_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1297604,
+        "size": 15456
+      },
+      {
+        "index": 84,
+        "name": "CAR_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1313060,
+        "size": 15456
+      },
+      {
+        "index": 85,
+        "name": "boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1328516,
+        "size": 15456
+      },
+      {
+        "index": 86,
+        "name": "boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1343972,
+        "size": 15456
+      },
+      {
+        "index": 87,
+        "name": "boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1359428,
+        "size": 15456
+      },
+      {
+        "index": 88,
+        "name": "boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1374884,
+        "size": 15456
+      },
+      {
+        "index": 89,
+        "name": "clipfix",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1390340,
+        "size": 15456
+      },
+      {
+        "index": 90,
+        "name": "clipfix_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1405796,
+        "size": 15456
+      },
+      {
+        "index": 91,
+        "name": "clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1421252,
+        "size": 15456
+      },
+      {
+        "index": 92,
+        "name": "clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1436708,
+        "size": 15456
+      },
+      {
+        "index": 93,
+        "name": "clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1452164,
+        "size": 15456
+      },
+      {
+        "index": 94,
+        "name": "clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1467620,
+        "size": 15456
+      },
+      {
+        "index": 95,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1483076,
+        "size": 15456
+      },
+      {
+        "index": 96,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1498532,
+        "size": 15456
+      },
+      {
+        "index": 97,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1513988,
+        "size": 15456
+      },
+      {
+        "index": 98,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1529444,
+        "size": 15456
+      },
+      {
+        "index": 99,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1544900,
+        "size": 15456
+      },
+      {
+        "index": 100,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1560356,
+        "size": 15456
+      },
+      {
+        "index": 101,
+        "name": "boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1575812,
+        "size": 15456
+      },
+      {
+        "index": 102,
+        "name": "boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1591268,
+        "size": 15456
+      },
+      {
+        "index": 103,
+        "name": "boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1606724,
+        "size": 15456
+      },
+      {
+        "index": 104,
+        "name": "boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1622180,
+        "size": 15456
+      },
+      {
+        "index": 105,
+        "name": "clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1637636,
+        "size": 15456
+      },
+      {
+        "index": 106,
+        "name": "clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1653092,
+        "size": 15456
+      },
+      {
+        "index": 107,
+        "name": "clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1668548,
+        "size": 15456
+      },
+      {
+        "index": 108,
+        "name": "clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1684004,
+        "size": 15456
+      },
+      {
+        "index": 109,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1699460,
+        "size": 15456
+      },
+      {
+        "index": 110,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1714916,
+        "size": 15456
+      },
+      {
+        "index": 111,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1730372,
+        "size": 15456
+      },
+      {
+        "index": 112,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1745828,
+        "size": 15456
+      },
+      {
+        "index": 113,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1761284,
+        "size": 15456
+      },
+      {
+        "index": 114,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1776740,
+        "size": 15456
+      },
+      {
+        "index": 115,
+        "name": "boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1792196,
+        "size": 15456
+      },
+      {
+        "index": 116,
+        "name": "boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1807652,
+        "size": 15456
+      },
+      {
+        "index": 117,
+        "name": "clipfix",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1823108,
+        "size": 15456
+      },
+      {
+        "index": 118,
+        "name": "clipfix_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1838564,
+        "size": 15456
+      },
+      {
+        "index": 119,
+        "name": "clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1854020,
+        "size": 15456
+      },
+      {
+        "index": 120,
+        "name": "clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1869476,
+        "size": 15456
+      },
+      {
+        "index": 121,
+        "name": "clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1884932,
+        "size": 15456
+      },
+      {
+        "index": 122,
+        "name": "clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1900388,
+        "size": 15456
+      },
+      {
+        "index": 123,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1915844,
+        "size": 15456
+      },
+      {
+        "index": 124,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1931300,
+        "size": 15456
+      },
+      {
+        "index": 125,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1946756,
+        "size": 15456
+      },
+      {
+        "index": 126,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1962212,
+        "size": 15456
+      },
+      {
+        "index": 127,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1977668,
+        "size": 15456
+      },
+      {
+        "index": 128,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 1993124,
+        "size": 15456
+      },
+      {
+        "index": 129,
+        "name": "boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2008580,
+        "size": 15456
+      },
+      {
+        "index": 130,
+        "name": "boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2024036,
+        "size": 15456
+      },
+      {
+        "index": 131,
+        "name": "boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2039492,
+        "size": 15456
+      },
+      {
+        "index": 132,
+        "name": "boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2054948,
+        "size": 15456
+      },
+      {
+        "index": 133,
+        "name": "clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2070404,
+        "size": 15456
+      },
+      {
+        "index": 134,
+        "name": "clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2085860,
+        "size": 15456
+      },
+      {
+        "index": 135,
+        "name": "clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2101316,
+        "size": 15456
+      },
+      {
+        "index": 136,
+        "name": "clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2116772,
+        "size": 15456
+      },
+      {
+        "index": 137,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2132228,
+        "size": 15456
+      },
+      {
+        "index": 138,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2147684,
+        "size": 15456
+      },
+      {
+        "index": 139,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2163140,
+        "size": 15456
+      },
+      {
+        "index": 140,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2178596,
+        "size": 15456
+      },
+      {
+        "index": 141,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2194052,
+        "size": 15456
+      },
+      {
+        "index": 142,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2209508,
+        "size": 15456
+      },
+      {
+        "index": 143,
+        "name": "101_boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2224964,
+        "size": 15456
+      },
+      {
+        "index": 144,
+        "name": "101_boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2240420,
+        "size": 15456
+      },
+      {
+        "index": 145,
+        "name": "101_boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2255876,
+        "size": 15456
+      },
+      {
+        "index": 146,
+        "name": "101_boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2271332,
+        "size": 15456
+      },
+      {
+        "index": 147,
+        "name": "101_clipfix",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2286788,
+        "size": 15456
+      },
+      {
+        "index": 148,
+        "name": "101_clipfix_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2302244,
+        "size": 15456
+      },
+      {
+        "index": 149,
+        "name": "101_clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2317700,
+        "size": 15456
+      },
+      {
+        "index": 150,
+        "name": "101_clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2333156,
+        "size": 15456
+      },
+      {
+        "index": 151,
+        "name": "101_clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2348612,
+        "size": 15456
+      },
+      {
+        "index": 152,
+        "name": "101_clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2364068,
+        "size": 15456
+      },
+      {
+        "index": 153,
+        "name": "101_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2379524,
+        "size": 15456
+      },
+      {
+        "index": 154,
+        "name": "101_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2394980,
+        "size": 15456
+      },
+      {
+        "index": 155,
+        "name": "101_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2410436,
+        "size": 15456
+      },
+      {
+        "index": 156,
+        "name": "101_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2425892,
+        "size": 15456
+      },
+      {
+        "index": 157,
+        "name": "101_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2441348,
+        "size": 15456
+      },
+      {
+        "index": 158,
+        "name": "101_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2456804,
+        "size": 15456
+      },
+      {
+        "index": 159,
+        "name": "XR_boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2472260,
+        "size": 15456
+      },
+      {
+        "index": 160,
+        "name": "XR_boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2487716,
+        "size": 15456
+      },
+      {
+        "index": 161,
+        "name": "XR_boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2503172,
+        "size": 15456
+      },
+      {
+        "index": 162,
+        "name": "XR_boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2518628,
+        "size": 15456
+      },
+      {
+        "index": 163,
+        "name": "XR_clipfix",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2534084,
+        "size": 15456
+      },
+      {
+        "index": 164,
+        "name": "XR_clipfix_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2549540,
+        "size": 15456
+      },
+      {
+        "index": 165,
+        "name": "XR_clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2564996,
+        "size": 15456
+      },
+      {
+        "index": 166,
+        "name": "XR_clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2580452,
+        "size": 15456
+      },
+      {
+        "index": 167,
+        "name": "XR_clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2595908,
+        "size": 15456
+      },
+      {
+        "index": 168,
+        "name": "XR_clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2611364,
+        "size": 15456
+      },
+      {
+        "index": 169,
+        "name": "XR_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2626820,
+        "size": 15456
+      },
+      {
+        "index": 170,
+        "name": "XR_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2642276,
+        "size": 15456
+      },
+      {
+        "index": 171,
+        "name": "XR_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2657732,
+        "size": 15456
+      },
+      {
+        "index": 172,
+        "name": "XR_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2673188,
+        "size": 15456
+      },
+      {
+        "index": 173,
+        "name": "XR_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2688644,
+        "size": 15456
+      },
+      {
+        "index": 174,
+        "name": "XR_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2704100,
+        "size": 15456
+      },
+      {
+        "index": 175,
+        "name": "boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2719556,
+        "size": 15456
+      },
+      {
+        "index": 176,
+        "name": "boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2735012,
+        "size": 15456
+      },
+      {
+        "index": 177,
+        "name": "boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2750468,
+        "size": 15456
+      },
+      {
+        "index": 178,
+        "name": "boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2765924,
+        "size": 15456
+      },
+      {
+        "index": 179,
+        "name": "clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2781380,
+        "size": 15456
+      },
+      {
+        "index": 180,
+        "name": "clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2796836,
+        "size": 15456
+      },
+      {
+        "index": 181,
+        "name": "clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2812292,
+        "size": 15456
+      },
+      {
+        "index": 182,
+        "name": "clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2827748,
+        "size": 15456
+      },
+      {
+        "index": 183,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2843204,
+        "size": 15456
+      },
+      {
+        "index": 184,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2858660,
+        "size": 15456
+      },
+      {
+        "index": 185,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2874116,
+        "size": 15456
+      },
+      {
+        "index": 186,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2889572,
+        "size": 15456
+      },
+      {
+        "index": 187,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2905028,
+        "size": 15456
+      },
+      {
+        "index": 188,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2920484,
+        "size": 15456
+      },
+      {
+        "index": 189,
+        "name": "boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2935940,
+        "size": 15456
+      },
+      {
+        "index": 190,
+        "name": "boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2951396,
+        "size": 15456
+      },
+      {
+        "index": 191,
+        "name": "boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2966852,
+        "size": 15456
+      },
+      {
+        "index": 192,
+        "name": "clipfix",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2982308,
+        "size": 15456
+      },
+      {
+        "index": 193,
+        "name": "clipfix_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 2997764,
+        "size": 15456
+      },
+      {
+        "index": 194,
+        "name": "clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3013220,
+        "size": 15456
+      },
+      {
+        "index": 195,
+        "name": "clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3028676,
+        "size": 15456
+      },
+      {
+        "index": 196,
+        "name": "clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3044132,
+        "size": 15456
+      },
+      {
+        "index": 197,
+        "name": "clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3059588,
+        "size": 15456
+      },
+      {
+        "index": 198,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3075044,
+        "size": 15456
+      },
+      {
+        "index": 199,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3090500,
+        "size": 15456
+      },
+      {
+        "index": 200,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3105956,
+        "size": 15456
+      },
+      {
+        "index": 201,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3121412,
+        "size": 15456
+      },
+      {
+        "index": 202,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3136868,
+        "size": 15456
+      },
+      {
+        "index": 203,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3152324,
+        "size": 15456
+      },
+      {
+        "index": 204,
+        "name": "boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3167780,
+        "size": 15456
+      },
+      {
+        "index": 205,
+        "name": "boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3183236,
+        "size": 15456
+      },
+      {
+        "index": 206,
+        "name": "boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3198692,
+        "size": 15456
+      },
+      {
+        "index": 207,
+        "name": "boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3214148,
+        "size": 15456
+      },
+      {
+        "index": 208,
+        "name": "clipfix",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3229604,
+        "size": 15456
+      },
+      {
+        "index": 209,
+        "name": "clipfix_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3245060,
+        "size": 15456
+      },
+      {
+        "index": 210,
+        "name": "clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3260516,
+        "size": 15456
+      },
+      {
+        "index": 211,
+        "name": "clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3275972,
+        "size": 15456
+      },
+      {
+        "index": 212,
+        "name": "clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3291428,
+        "size": 15456
+      },
+      {
+        "index": 213,
+        "name": "clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3306884,
+        "size": 15456
+      },
+      {
+        "index": 214,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3322340,
+        "size": 15456
+      },
+      {
+        "index": 215,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3337796,
+        "size": 15456
+      },
+      {
+        "index": 216,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3353252,
+        "size": 15456
+      },
+      {
+        "index": 217,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3368708,
+        "size": 15456
+      },
+      {
+        "index": 218,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3384164,
+        "size": 15456
+      },
+      {
+        "index": 219,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3399620,
+        "size": 15456
+      },
+      {
+        "index": 220,
+        "name": "boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3415076,
+        "size": 15456
+      },
+      {
+        "index": 221,
+        "name": "boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3430532,
+        "size": 15456
+      },
+      {
+        "index": 222,
+        "name": "boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3445988,
+        "size": 15456
+      },
+      {
+        "index": 223,
+        "name": "boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3461444,
+        "size": 15456
+      },
+      {
+        "index": 224,
+        "name": "clipfix",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3476900,
+        "size": 15456
+      },
+      {
+        "index": 225,
+        "name": "clipfix_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3492356,
+        "size": 15456
+      },
+      {
+        "index": 226,
+        "name": "clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3507812,
+        "size": 15456
+      },
+      {
+        "index": 227,
+        "name": "clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3523268,
+        "size": 15456
+      },
+      {
+        "index": 228,
+        "name": "clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3538724,
+        "size": 15456
+      },
+      {
+        "index": 229,
+        "name": "clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3554180,
+        "size": 15456
+      },
+      {
+        "index": 230,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3569636,
+        "size": 15456
+      },
+      {
+        "index": 231,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3585092,
+        "size": 15456
+      },
+      {
+        "index": 232,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3600548,
+        "size": 15456
+      },
+      {
+        "index": 233,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3616004,
+        "size": 15456
+      },
+      {
+        "index": 234,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3631460,
+        "size": 15456
+      },
+      {
+        "index": 235,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3646916,
+        "size": 15456
+      },
+      {
+        "index": 236,
+        "name": "7ex_boltpull",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3662372,
+        "size": 15456
+      },
+      {
+        "index": 237,
+        "name": "7ex_boltpull_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3677828,
+        "size": 15456
+      },
+      {
+        "index": 238,
+        "name": "7ex_clipfix",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3693284,
+        "size": 15456
+      },
+      {
+        "index": 239,
+        "name": "7ex_clipfix_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3708740,
+        "size": 15456
+      },
+      {
+        "index": 240,
+        "name": "7ex_clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3724196,
+        "size": 15456
+      },
+      {
+        "index": 241,
+        "name": "7ex_clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3739652,
+        "size": 15456
+      },
+      {
+        "index": 242,
+        "name": "7ex_clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3755108,
+        "size": 15456
+      },
+      {
+        "index": 243,
+        "name": "7ex_clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3770564,
+        "size": 15456
+      },
+      {
+        "index": 244,
+        "name": "7ex_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3786020,
+        "size": 15456
+      },
+      {
+        "index": 245,
+        "name": "7ex_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3801476,
+        "size": 15456
+      },
+      {
+        "index": 246,
+        "name": "7ex_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3816932,
+        "size": 15456
+      },
+      {
+        "index": 247,
+        "name": "7ex_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3832388,
+        "size": 15456
+      },
+      {
+        "index": 248,
+        "name": "7ex_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3847844,
+        "size": 15456
+      },
+      {
+        "index": 249,
+        "name": "7ex_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3863300,
+        "size": 15456
+      },
+      {
+        "index": 250,
+        "name": "in_rifle",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3878756,
+        "size": 15456
+      },
+      {
+        "index": 251,
+        "name": "in_rifle_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3894212,
+        "size": 15456
+      },
+      {
+        "index": 252,
+        "name": "out_rifle",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3909668,
+        "size": 15456
+      },
+      {
+        "index": 253,
+        "name": "out_rifle_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3925124,
+        "size": 15456
+      },
+      {
+        "index": 254,
+        "name": "2_boltpull",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3940580,
+        "size": 15456
+      },
+      {
+        "index": 255,
+        "name": "2_boltpull_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3956036,
+        "size": 15456
+      },
+      {
+        "index": 256,
+        "name": "2_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3971492,
+        "size": 15456
+      },
+      {
+        "index": 257,
+        "name": "2_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 3986948,
+        "size": 15456
+      },
+      {
+        "index": 258,
+        "name": "2_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4002404,
+        "size": 15456
+      },
+      {
+        "index": 259,
+        "name": "2_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4017860,
+        "size": 15456
+      },
+      {
+        "index": 260,
+        "name": "2_reload1",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4033316,
+        "size": 15456
+      },
+      {
+        "index": 261,
+        "name": "2_reload1_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4048772,
+        "size": 15456
+      },
+      {
+        "index": 262,
+        "name": "2_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4064228,
+        "size": 15456
+      },
+      {
+        "index": 263,
+        "name": "2_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4079684,
+        "size": 15456
+      },
+      {
+        "index": 264,
+        "name": "leBarreled_clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4095140,
+        "size": 15456
+      },
+      {
+        "index": 265,
+        "name": "leBarreled_clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4110596,
+        "size": 15456
+      },
+      {
+        "index": 266,
+        "name": "leBarreled_clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4126052,
+        "size": 15456
+      },
+      {
+        "index": 267,
+        "name": "leBarreled_clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4141508,
+        "size": 15456
+      },
+      {
+        "index": 268,
+        "name": "leBarreled_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4156964,
+        "size": 15456
+      },
+      {
+        "index": 269,
+        "name": "leBarreled_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4172420,
+        "size": 15456
+      },
+      {
+        "index": 270,
+        "name": "leBarreled_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4187876,
+        "size": 15456
+      },
+      {
+        "index": 271,
+        "name": "leBarreled_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4203332,
+        "size": 15456
+      },
+      {
+        "index": 272,
+        "name": "leBarreled_reload1",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4218788,
+        "size": 15456
+      },
+      {
+        "index": 273,
+        "name": "leBarreled_reload1_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4234244,
+        "size": 15456
+      },
+      {
+        "index": 274,
+        "name": "leBarreled_reload2",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4249700,
+        "size": 15456
+      },
+      {
+        "index": 275,
+        "name": "leBarreled_reload2_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4265156,
+        "size": 15456
+      },
+      {
+        "index": 276,
+        "name": "leBarreled_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4280612,
+        "size": 15456
+      },
+      {
+        "index": 277,
+        "name": "leBarreled_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4296068,
+        "size": 15456
+      },
+      {
+        "index": 278,
+        "name": "boltpull",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4311524,
+        "size": 15456
+      },
+      {
+        "index": 279,
+        "name": "boltpull_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4326980,
+        "size": 15456
+      },
+      {
+        "index": 280,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4342436,
+        "size": 15456
+      },
+      {
+        "index": 281,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4357892,
+        "size": 15456
+      },
+      {
+        "index": 282,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4373348,
+        "size": 15456
+      },
+      {
+        "index": 283,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4388804,
+        "size": 15456
+      },
+      {
+        "index": 284,
+        "name": "reload1",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4404260,
+        "size": 15456
+      },
+      {
+        "index": 285,
+        "name": "reload1_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4419716,
+        "size": 15456
+      },
+      {
+        "index": 286,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4435172,
+        "size": 15456
+      },
+      {
+        "index": 287,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4450628,
+        "size": 15456
+      },
+      {
+        "index": 288,
+        "name": "00_boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4466084,
+        "size": 15456
+      },
+      {
+        "index": 289,
+        "name": "00_boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4481540,
+        "size": 15456
+      },
+      {
+        "index": 290,
+        "name": "00_boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4496996,
+        "size": 15456
+      },
+      {
+        "index": 291,
+        "name": "00_boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4512452,
+        "size": 15456
+      },
+      {
+        "index": 292,
+        "name": "00_clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4527908,
+        "size": 15456
+      },
+      {
+        "index": 293,
+        "name": "00_clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4543364,
+        "size": 15456
+      },
+      {
+        "index": 294,
+        "name": "00_clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4558820,
+        "size": 15456
+      },
+      {
+        "index": 295,
+        "name": "00_clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4574276,
+        "size": 15456
+      },
+      {
+        "index": 296,
+        "name": "00_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4589732,
+        "size": 15456
+      },
+      {
+        "index": 297,
+        "name": "00_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4605188,
+        "size": 15456
+      },
+      {
+        "index": 298,
+        "name": "00_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4620644,
+        "size": 15456
+      },
+      {
+        "index": 299,
+        "name": "00_fire_silencer",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4636100,
+        "size": 15456
+      },
+      {
+        "index": 300,
+        "name": "00_fire_silencer_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4651556,
+        "size": 15456
+      },
+      {
+        "index": 301,
+        "name": "00_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4667012,
+        "size": 15456
+      },
+      {
+        "index": 302,
+        "name": "00_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4682468,
+        "size": 15456
+      },
+      {
+        "index": 303,
+        "name": "00_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4697924,
+        "size": 15456
+      },
+      {
+        "index": 304,
+        "name": "boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4713380,
+        "size": 15456
+      },
+      {
+        "index": 305,
+        "name": "boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4728836,
+        "size": 15456
+      },
+      {
+        "index": 306,
+        "name": "boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4744292,
+        "size": 15456
+      },
+      {
+        "index": 307,
+        "name": "boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4759748,
+        "size": 15456
+      },
+      {
+        "index": 308,
+        "name": "clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4775204,
+        "size": 15456
+      },
+      {
+        "index": 309,
+        "name": "clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4790660,
+        "size": 15456
+      },
+      {
+        "index": 310,
+        "name": "clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4806116,
+        "size": 15456
+      },
+      {
+        "index": 311,
+        "name": "clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4821572,
+        "size": 15456
+      },
+      {
+        "index": 312,
+        "name": "dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4837028,
+        "size": 15456
+      },
+      {
+        "index": 313,
+        "name": "dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4852484,
+        "size": 15456
+      },
+      {
+        "index": 314,
+        "name": "fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4867940,
+        "size": 15456
+      },
+      {
+        "index": 315,
+        "name": "fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4883396,
+        "size": 15456
+      },
+      {
+        "index": 316,
+        "name": "select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4898852,
+        "size": 15456
+      },
+      {
+        "index": 317,
+        "name": "select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4914308,
+        "size": 15456
+      },
+      {
+        "index": 318,
+        "name": "90_boltin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4929764,
+        "size": 15456
+      },
+      {
+        "index": 319,
+        "name": "90_boltin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4945220,
+        "size": 15456
+      },
+      {
+        "index": 320,
+        "name": "90_boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4960676,
+        "size": 15456
+      },
+      {
+        "index": 321,
+        "name": "90_boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4976132,
+        "size": 15456
+      },
+      {
+        "index": 322,
+        "name": "90_clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 4991588,
+        "size": 15456
+      },
+      {
+        "index": 323,
+        "name": "90_clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5007044,
+        "size": 15456
+      },
+      {
+        "index": 324,
+        "name": "90_clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5022500,
+        "size": 15456
+      },
+      {
+        "index": 325,
+        "name": "90_clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5037956,
+        "size": 15456
+      },
+      {
+        "index": 326,
+        "name": "90_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5053412,
+        "size": 15456
+      },
+      {
+        "index": 327,
+        "name": "90_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5068868,
+        "size": 15456
+      },
+      {
+        "index": 328,
+        "name": "90_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5084324,
+        "size": 15456
+      },
+      {
+        "index": 329,
+        "name": "90_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5099780,
+        "size": 15456
+      },
+      {
+        "index": 330,
+        "name": "90_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5115236,
+        "size": 15456
+      },
+      {
+        "index": 331,
+        "name": "90_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5130692,
+        "size": 15456
+      },
+      {
+        "index": 332,
+        "name": "1AM_bolt",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5146148,
+        "size": 15456
+      },
+      {
+        "index": 333,
+        "name": "1AM_bolt_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5161604,
+        "size": 15456
+      },
+      {
+        "index": 334,
+        "name": "1AM_clipin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5177060,
+        "size": 15456
+      },
+      {
+        "index": 335,
+        "name": "1AM_clipin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5192516,
+        "size": 15456
+      },
+      {
+        "index": 336,
+        "name": "1AM_clipout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5207972,
+        "size": 15456
+      },
+      {
+        "index": 337,
+        "name": "1AM_clipout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5223428,
+        "size": 15456
+      },
+      {
+        "index": 338,
+        "name": "1AM_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5238884,
+        "size": 15456
+      },
+      {
+        "index": 339,
+        "name": "1AM_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5254340,
+        "size": 15456
+      },
+      {
+        "index": 340,
+        "name": "1AM_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5269796,
+        "size": 15456
+      },
+      {
+        "index": 341,
+        "name": "1AM_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5285252,
+        "size": 15456
+      },
+      {
+        "index": 342,
+        "name": "1AM_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5300708,
+        "size": 15456
+      },
+      {
+        "index": 343,
+        "name": "1AM_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5316164,
+        "size": 15456
+      },
+      {
+        "index": 344,
+        "name": "TC_boltout",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5331620,
+        "size": 15456
+      },
+      {
+        "index": 345,
+        "name": "TC_boltout_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5347076,
+        "size": 15456
+      },
+      {
+        "index": 346,
+        "name": "TC_clipoutin",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5362532,
+        "size": 15456
+      },
+      {
+        "index": 347,
+        "name": "TC_clipoutin_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5377988,
+        "size": 15456
+      },
+      {
+        "index": 348,
+        "name": "TC_dryfire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5393444,
+        "size": 15456
+      },
+      {
+        "index": 349,
+        "name": "TC_dryfire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5408900,
+        "size": 15456
+      },
+      {
+        "index": 350,
+        "name": "TC_fire",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5424356,
+        "size": 15456
+      },
+      {
+        "index": 351,
+        "name": "TC_fire_silencer",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5439812,
+        "size": 15456
+      },
+      {
+        "index": 352,
+        "name": "TC_fire_silencer_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5455268,
+        "size": 15456
+      },
+      {
+        "index": 353,
+        "name": "TC_fire_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5470724,
+        "size": 15456
+      },
+      {
+        "index": 354,
+        "name": "TC_select",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5486180,
+        "size": 15456
+      },
+      {
+        "index": 355,
+        "name": "TC_select_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5501636,
+        "size": 15456
+      },
+      {
+        "index": 356,
+        "name": "in_sniper",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5517092,
+        "size": 15456
+      },
+      {
+        "index": 357,
+        "name": "in_sniper_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5532548,
+        "size": 15456
+      },
+      {
+        "index": 358,
+        "name": "out_sniper",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5548004,
+        "size": 15456
+      },
+      {
+        "index": 359,
+        "name": "out_sniper_uw",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5563460,
+        "size": 15456
+      },
+      {
+        "index": 360,
+        "name": "sample_0360",
+        "bank": "MainWeapon",
+        "codec": "CELT",
+        "offset": 5578916,
+        "size": 15712
+      }
+    ]
+  },
+  "SubWeapon": {
+    "bank_name": "SubWeapon",
+    "codec": "CELT",
+    "num_samples": 78,
+    "total_data_bytes": 841408,
+    "samples": [
+      {
+        "index": 0,
+        "name": "shellout01_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 3268,
+        "size": 10787
+      },
+      {
+        "index": 1,
+        "name": "shellout02",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 14055,
+        "size": 10787
+      },
+      {
+        "index": 2,
+        "name": "shellout02_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 24842,
+        "size": 10787
+      },
+      {
+        "index": 3,
+        "name": "-Anaconda_boltin",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 35629,
+        "size": 10787
+      },
+      {
+        "index": 4,
+        "name": "-Anaconda_boltin_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 46416,
+        "size": 10787
+      },
+      {
+        "index": 5,
+        "name": "-Anaconda_boltout",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 57203,
+        "size": 10787
+      },
+      {
+        "index": 6,
+        "name": "-Anaconda_boltout_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 67990,
+        "size": 10787
+      },
+      {
+        "index": 7,
+        "name": "-Anaconda_clipin",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 78777,
+        "size": 10787
+      },
+      {
+        "index": 8,
+        "name": "-Anaconda_clipin_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 89564,
+        "size": 10787
+      },
+      {
+        "index": 9,
+        "name": "-Anaconda_clipout",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 100351,
+        "size": 10787
+      },
+      {
+        "index": 10,
+        "name": "-Anaconda_clipout_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 111138,
+        "size": 10787
+      },
+      {
+        "index": 11,
+        "name": "-Anaconda_dryfire",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 121925,
+        "size": 10787
+      },
+      {
+        "index": 12,
+        "name": "-Anaconda_dryfire_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 132712,
+        "size": 10787
+      },
+      {
+        "index": 13,
+        "name": "-Anaconda_fire",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 143499,
+        "size": 10787
+      },
+      {
+        "index": 14,
+        "name": "-Anaconda_fire_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 154286,
+        "size": 10787
+      },
+      {
+        "index": 15,
+        "name": "-Anaconda_select",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 165073,
+        "size": 10787
+      },
+      {
+        "index": 16,
+        "name": "-Anaconda_select_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 175860,
+        "size": 10787
+      },
+      {
+        "index": 17,
+        "name": "rane_boltin",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 186647,
+        "size": 10787
+      },
+      {
+        "index": 18,
+        "name": "rane_boltin_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 197434,
+        "size": 10787
+      },
+      {
+        "index": 19,
+        "name": "rane_boltout",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 208221,
+        "size": 10787
+      },
+      {
+        "index": 20,
+        "name": "rane_boltout_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 219008,
+        "size": 10787
+      },
+      {
+        "index": 21,
+        "name": "rane_clipin",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 229795,
+        "size": 10787
+      },
+      {
+        "index": 22,
+        "name": "rane_clipin_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 240582,
+        "size": 10787
+      },
+      {
+        "index": 23,
+        "name": "rane_clipout",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 251369,
+        "size": 10787
+      },
+      {
+        "index": 24,
+        "name": "rane_clipout_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 262156,
+        "size": 10787
+      },
+      {
+        "index": 25,
+        "name": "rane_dryfire",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 272943,
+        "size": 10787
+      },
+      {
+        "index": 26,
+        "name": "rane_dryfire_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 283730,
+        "size": 10787
+      },
+      {
+        "index": 27,
+        "name": "rane_fire",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 294517,
+        "size": 10787
+      },
+      {
+        "index": 28,
+        "name": "rane_fire_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 305304,
+        "size": 10787
+      },
+      {
+        "index": 29,
+        "name": "rane_select",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 316091,
+        "size": 10787
+      },
+      {
+        "index": 30,
+        "name": "rane_select_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 326878,
+        "size": 10787
+      },
+      {
+        "index": 31,
+        "name": "3_boltin",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 337665,
+        "size": 10787
+      },
+      {
+        "index": 32,
+        "name": "3_boltin_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 348452,
+        "size": 10787
+      },
+      {
+        "index": 33,
+        "name": "3_clipin",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 359239,
+        "size": 10787
+      },
+      {
+        "index": 34,
+        "name": "3_clipin_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 370026,
+        "size": 10787
+      },
+      {
+        "index": 35,
+        "name": "3_clipout",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 380813,
+        "size": 10787
+      },
+      {
+        "index": 36,
+        "name": "3_clipout_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 391600,
+        "size": 10787
+      },
+      {
+        "index": 37,
+        "name": "3_dryfire",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 402387,
+        "size": 10787
+      },
+      {
+        "index": 38,
+        "name": "3_dryfire_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 413174,
+        "size": 10787
+      },
+      {
+        "index": 39,
+        "name": "3_fire",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 423961,
+        "size": 10787
+      },
+      {
+        "index": 40,
+        "name": "3_fire_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 434748,
+        "size": 10787
+      },
+      {
+        "index": 41,
+        "name": "3_select",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 445535,
+        "size": 10787
+      },
+      {
+        "index": 42,
+        "name": "3_select_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 456322,
+        "size": 10787
+      },
+      {
+        "index": 43,
+        "name": "3_slideout",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 467109,
+        "size": 10787
+      },
+      {
+        "index": 44,
+        "name": "3_slideout_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 477896,
+        "size": 10787
+      },
+      {
+        "index": 45,
+        "name": "k_boltin",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 488683,
+        "size": 10787
+      },
+      {
+        "index": 46,
+        "name": "k_boltin_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 499470,
+        "size": 10787
+      },
+      {
+        "index": 47,
+        "name": "k_clipin",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 510257,
+        "size": 10787
+      },
+      {
+        "index": 48,
+        "name": "k_clipin_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 521044,
+        "size": 10787
+      },
+      {
+        "index": 49,
+        "name": "k_clipout",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 531831,
+        "size": 10787
+      },
+      {
+        "index": 50,
+        "name": "k_clipout_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 542618,
+        "size": 10787
+      },
+      {
+        "index": 51,
+        "name": "k_dryfire",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 553405,
+        "size": 10787
+      },
+      {
+        "index": 52,
+        "name": "k_dryfire_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 564192,
+        "size": 10787
+      },
+      {
+        "index": 53,
+        "name": "k_fire",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 574979,
+        "size": 10787
+      },
+      {
+        "index": 54,
+        "name": "k_fire_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 585766,
+        "size": 10787
+      },
+      {
+        "index": 55,
+        "name": "k_select",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 596553,
+        "size": 10787
+      },
+      {
+        "index": 56,
+        "name": "k_select_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 607340,
+        "size": 10787
+      },
+      {
+        "index": 57,
+        "name": "k_slideout",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 618127,
+        "size": 10787
+      },
+      {
+        "index": 58,
+        "name": "k_slideout_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 628914,
+        "size": 10787
+      },
+      {
+        "index": 59,
+        "name": "boltin",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 639701,
+        "size": 10787
+      },
+      {
+        "index": 60,
+        "name": "boltin_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 650488,
+        "size": 10787
+      },
+      {
+        "index": 61,
+        "name": "clipin",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 661275,
+        "size": 10787
+      },
+      {
+        "index": 62,
+        "name": "clipin_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 672062,
+        "size": 10787
+      },
+      {
+        "index": 63,
+        "name": "clipout",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 682849,
+        "size": 10787
+      },
+      {
+        "index": 64,
+        "name": "clipout_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 693636,
+        "size": 10787
+      },
+      {
+        "index": 65,
+        "name": "dryfire",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 704423,
+        "size": 10787
+      },
+      {
+        "index": 66,
+        "name": "dryfire_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 715210,
+        "size": 10787
+      },
+      {
+        "index": 67,
+        "name": "fire",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 725997,
+        "size": 10787
+      },
+      {
+        "index": 68,
+        "name": "fire_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 736784,
+        "size": 10787
+      },
+      {
+        "index": 69,
+        "name": "select",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 747571,
+        "size": 10787
+      },
+      {
+        "index": 70,
+        "name": "select_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 758358,
+        "size": 10787
+      },
+      {
+        "index": 71,
+        "name": "slideout",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 769145,
+        "size": 10787
+      },
+      {
+        "index": 72,
+        "name": "slideout_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 779932,
+        "size": 10787
+      },
+      {
+        "index": 73,
+        "name": "in_pistol",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 790719,
+        "size": 10787
+      },
+      {
+        "index": 74,
+        "name": "in_pistol_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 801506,
+        "size": 10787
+      },
+      {
+        "index": 75,
+        "name": "out_pistol",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 812293,
+        "size": 10787
+      },
+      {
+        "index": 76,
+        "name": "out_pistol_uw",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 823080,
+        "size": 10787
+      },
+      {
+        "index": 77,
+        "name": "sample_0077",
+        "bank": "SubWeapon",
+        "codec": "CELT",
+        "offset": 833867,
+        "size": 10809
+      }
+    ]
+  },
+  "TacticalWeapon": {
+    "bank_name": "TacticalWeapon",
+    "codec": "CELT",
+    "num_samples": 36,
+    "total_data_bytes": 910464,
+    "samples": [
+      {
+        "index": 0,
+        "name": "Bomb_fire_uw",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 1540,
+        "size": 25290
+      },
+      {
+        "index": 1,
+        "name": "Bomb_select",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 26830,
+        "size": 25290
+      },
+      {
+        "index": 2,
+        "name": "Bomb_select_uw",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 52120,
+        "size": 25290
+      },
+      {
+        "index": 3,
+        "name": "ade_fire",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 77410,
+        "size": 25290
+      },
+      {
+        "index": 4,
+        "name": "ade_fire_uw",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 102700,
+        "size": 25290
+      },
+      {
+        "index": 5,
+        "name": "ade_select",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 127990,
+        "size": 25290
+      },
+      {
+        "index": 6,
+        "name": "ade_select_uw",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 153280,
+        "size": 25290
+      },
+      {
+        "index": 7,
+        "name": "explosion",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 178570,
+        "size": 25290
+      },
+      {
+        "index": 8,
+        "name": "rerlease",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 203860,
+        "size": 25290
+      },
+      {
+        "index": 9,
+        "name": "Pinout",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 229150,
+        "size": 25290
+      },
+      {
+        "index": 10,
+        "name": "Pinout_uw",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 254440,
+        "size": 25290
+      },
+      {
+        "index": 11,
+        "name": "Rattle01_uw",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 279730,
+        "size": 25290
+      },
+      {
+        "index": 12,
+        "name": "Rattle02_uw",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 305020,
+        "size": 25290
+      },
+      {
+        "index": 13,
+        "name": "Rattle03_uw",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 330310,
+        "size": 25290
+      },
+      {
+        "index": 14,
+        "name": "onShell_rerlease",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 355600,
+        "size": 25290
+      },
+      {
+        "index": 15,
+        "name": "Bomb_Pinout",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 380890,
+        "size": 25290
+      },
+      {
+        "index": 16,
+        "name": "Bomb_Pinout02",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 406180,
+        "size": 25290
+      },
+      {
+        "index": 17,
+        "name": "Bomb_Pinout02_uw",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 431470,
+        "size": 25290
+      },
+      {
+        "index": 18,
+        "name": "Bomb_Pinout_uw",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 456760,
+        "size": 25290
+      },
+      {
+        "index": 19,
+        "name": "Bomb_fire",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 482050,
+        "size": 25290
+      },
+      {
+        "index": 20,
+        "name": "Bomb_fire_uw",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 507340,
+        "size": 25290
+      },
+      {
+        "index": 21,
+        "name": "4_fire",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 532630,
+        "size": 25290
+      },
+      {
+        "index": 22,
+        "name": "4_select",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 557920,
+        "size": 25290
+      },
+      {
+        "index": 23,
+        "name": "4_switchselect",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 583210,
+        "size": 25290
+      },
+      {
+        "index": 24,
+        "name": "4_toggle",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 608500,
+        "size": 25290
+      },
+      {
+        "index": 25,
+        "name": "4_trigger",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 633790,
+        "size": 25290
+      },
+      {
+        "index": 26,
+        "name": "4_activate",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 659080,
+        "size": 25290
+      },
+      {
+        "index": 27,
+        "name": "4_control01",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 684370,
+        "size": 25290
+      },
+      {
+        "index": 28,
+        "name": "4_control02",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 709660,
+        "size": 25290
+      },
+      {
+        "index": 29,
+        "name": "4_control03",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 734950,
+        "size": 25290
+      },
+      {
+        "index": 30,
+        "name": "4_control04",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 760240,
+        "size": 25290
+      },
+      {
+        "index": 31,
+        "name": "4_control05",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 785530,
+        "size": 25290
+      },
+      {
+        "index": 32,
+        "name": "4_control06",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 810820,
+        "size": 25290
+      },
+      {
+        "index": 33,
+        "name": "4_control07",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 836110,
+        "size": 25290
+      },
+      {
+        "index": 34,
+        "name": "4_fire",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 861400,
+        "size": 25290
+      },
+      {
+        "index": 35,
+        "name": "sample_0035",
+        "bank": "TacticalWeapon",
+        "codec": "CELT",
+        "offset": 886690,
+        "size": 25314
+      }
+    ]
+  },
+  "TacticalWeaponImpact": {
+    "bank_name": "TacticalWeaponImpact",
+    "codec": "CELT",
+    "num_samples": 29,
+    "total_data_bytes": 1296608,
+    "samples": [
+      {
+        "index": 0,
+        "name": "ce_SnowBomb_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 1316,
+        "size": 44710
+      },
+      {
+        "index": 1,
+        "name": "ce_dirt",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 46026,
+        "size": 44710
+      },
+      {
+        "index": 2,
+        "name": "ce_dirt_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 90736,
+        "size": 44710
+      },
+      {
+        "index": 3,
+        "name": "ce_fence",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 135446,
+        "size": 44710
+      },
+      {
+        "index": 4,
+        "name": "ce_fence_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 180156,
+        "size": 44710
+      },
+      {
+        "index": 5,
+        "name": "ce_glass",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 224866,
+        "size": 44710
+      },
+      {
+        "index": 6,
+        "name": "ce_glass_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 269576,
+        "size": 44710
+      },
+      {
+        "index": 7,
+        "name": "ce_metal",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 314286,
+        "size": 44710
+      },
+      {
+        "index": 8,
+        "name": "ce_metal_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 358996,
+        "size": 44710
+      },
+      {
+        "index": 9,
+        "name": "ce_stone",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 403706,
+        "size": 44710
+      },
+      {
+        "index": 10,
+        "name": "ce_stone_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 448416,
+        "size": 44710
+      },
+      {
+        "index": 11,
+        "name": "ce_water",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 493126,
+        "size": 44710
+      },
+      {
+        "index": 12,
+        "name": "ce_wood",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 537836,
+        "size": 44710
+      },
+      {
+        "index": 13,
+        "name": "ce_wood_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 582546,
+        "size": 44710
+      },
+      {
+        "index": 14,
+        "name": "osion_AquaBomb",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 627256,
+        "size": 44710
+      },
+      {
+        "index": 15,
+        "name": "osion_AquaBomb_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 671966,
+        "size": 44710
+      },
+      {
+        "index": 16,
+        "name": "osion_SnowBomb",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 716676,
+        "size": 44710
+      },
+      {
+        "index": 17,
+        "name": "osion_SnowBomb2",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 761386,
+        "size": 44710
+      },
+      {
+        "index": 18,
+        "name": "osion_SnowBomb_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 806096,
+        "size": 44710
+      },
+      {
+        "index": 19,
+        "name": "osion_c4",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 850806,
+        "size": 44710
+      },
+      {
+        "index": 20,
+        "name": "osion_c4mission",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 895516,
+        "size": 44710
+      },
+      {
+        "index": 21,
+        "name": "osion_m67",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 940226,
+        "size": 44710
+      },
+      {
+        "index": 22,
+        "name": "osion_HeartGrenade_A",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 984936,
+        "size": 44710
+      },
+      {
+        "index": 23,
+        "name": "osion_HeartGrenade_A_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 1029646,
+        "size": 44710
+      },
+      {
+        "index": 24,
+        "name": "osion_HeartGrenade_B",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 1074356,
+        "size": 44710
+      },
+      {
+        "index": 25,
+        "name": "osion_HeartGrenade_B_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 1119066,
+        "size": 44710
+      },
+      {
+        "index": 26,
+        "name": "osion_HeartGrenade_C",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 1163776,
+        "size": 44710
+      },
+      {
+        "index": 27,
+        "name": "osion_HeartGrenade_C_uw",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 1208486,
+        "size": 44710
+      },
+      {
+        "index": 28,
+        "name": "sample_0028",
+        "bank": "TacticalWeaponImpact",
+        "codec": "CELT",
+        "offset": 1253196,
+        "size": 44728
+      }
+    ]
+  },
+  "WeaponDrop": {
+    "bank_name": "WeaponDrop",
+    "codec": "CELT",
+    "num_samples": 12,
+    "total_data_bytes": 159712,
+    "samples": [
+      {
+        "index": 0,
+        "name": "hvy_gndrop_2",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 580,
+        "size": 13309
+      },
+      {
+        "index": 1,
+        "name": "hvy_gndrop_3",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 13889,
+        "size": 13309
+      },
+      {
+        "index": 2,
+        "name": "hvy_gndrop_4",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 27198,
+        "size": 13309
+      },
+      {
+        "index": 3,
+        "name": "med_gndrop_1",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 40507,
+        "size": 13309
+      },
+      {
+        "index": 4,
+        "name": "med_gndrop_2",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 53816,
+        "size": 13309
+      },
+      {
+        "index": 5,
+        "name": "med_gndrop_3",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 67125,
+        "size": 13309
+      },
+      {
+        "index": 6,
+        "name": "med_gndrop_4",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 80434,
+        "size": 13309
+      },
+      {
+        "index": 7,
+        "name": "sml_gndrop_1",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 93743,
+        "size": 13309
+      },
+      {
+        "index": 8,
+        "name": "sml_gndrop_2",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 107052,
+        "size": 13309
+      },
+      {
+        "index": 9,
+        "name": "sml_gndrop_3",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 120361,
+        "size": 13309
+      },
+      {
+        "index": 10,
+        "name": "sml_gndrop_4",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 133670,
+        "size": 13309
+      },
+      {
+        "index": 11,
+        "name": "sample_0011",
+        "bank": "WeaponDrop",
+        "codec": "CELT",
+        "offset": 146979,
+        "size": 13313
+      }
+    ]
+  },
+  "WeaponParts": {
+    "bank_name": "WeaponParts",
+    "codec": "CELT",
+    "num_samples": 20,
+    "total_data_bytes": 103648,
+    "samples": [
+      {
+        "index": 0,
+        "name": "knob",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 804,
+        "size": 5182
+      },
+      {
+        "index": 1,
+        "name": "normal",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 5986,
+        "size": 5182
+      },
+      {
+        "index": 2,
+        "name": "switch",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 11168,
+        "size": 5182
+      },
+      {
+        "index": 3,
+        "name": "utton",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 16350,
+        "size": 5182
+      },
+      {
+        "index": 4,
+        "name": "nob",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 21532,
+        "size": 5182
+      },
+      {
+        "index": 5,
+        "name": "ormal",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 26714,
+        "size": 5182
+      },
+      {
+        "index": 6,
+        "name": "witch",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 31896,
+        "size": 5182
+      },
+      {
+        "index": 7,
+        "name": "hick_Fire1",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 37078,
+        "size": 5182
+      },
+      {
+        "index": 8,
+        "name": "hick_Fire1_uw",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 42260,
+        "size": 5182
+      },
+      {
+        "index": 9,
+        "name": "hick_Fire2",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 47442,
+        "size": 5182
+      },
+      {
+        "index": 10,
+        "name": "hick_Fire2_uw",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 52624,
+        "size": 5182
+      },
+      {
+        "index": 11,
+        "name": "hick_Fire3",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 57806,
+        "size": 5182
+      },
+      {
+        "index": 12,
+        "name": "hick_Fire3_uw",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 62988,
+        "size": 5182
+      },
+      {
+        "index": 13,
+        "name": "fire",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 68170,
+        "size": 5182
+      },
+      {
+        "index": 14,
+        "name": "fire_uw",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 73352,
+        "size": 5182
+      },
+      {
+        "index": 15,
+        "name": "fire",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 78534,
+        "size": 5182
+      },
+      {
+        "index": 16,
+        "name": "fire_uw",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 83716,
+        "size": 5182
+      },
+      {
+        "index": 17,
+        "name": "fire",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 88898,
+        "size": 5182
+      },
+      {
+        "index": 18,
+        "name": "fire_uw",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 94080,
+        "size": 5182
+      },
+      {
+        "index": 19,
+        "name": "sample_0019",
+        "bank": "WeaponParts",
+        "codec": "CELT",
+        "offset": 99262,
+        "size": 5190
+      }
+    ]
+  }
+}

@@ -42,6 +42,7 @@ class D187LauncherApp:
 
         # Variables
         self.mode_var = tk.StringVar(value="online")
+        self.map_var = tk.StringVar(value="twoway")
         self.hd_var = tk.BooleanVar(value=True)
         self.lang_var = tk.StringVar(value="en")
         self.fps_var = tk.StringVar(value="0 (Unlimited 144+)")
@@ -84,6 +85,12 @@ class D187LauncherApp:
 
         ttk.Radiobutton(server_box, text="Servidor Oficial da Comunidade (Online • 179.61.147.154:12000)", variable=self.mode_var, value="online").pack(anchor='w', pady=2)
         ttk.Radiobutton(server_box, text="Emulador / Servidor Local Offline (Preservação • 127.0.0.1:12000)", variable=self.mode_var, value="offline").pack(anchor='w', pady=2)
+
+        row_map = ttk.Frame(server_box, style='TFrame')
+        row_map.pack(fill=tk.X, pady=(6, 2))
+        ttk.Label(row_map, text="Mapa Ativo (Offline/Emulador):").pack(side=tk.LEFT, padx=(0, 10))
+        map_cb = ttk.Combobox(row_map, textvariable=self.map_var, values=["twoway (Demolition)", "Arrival (TDM)", "thebank (Gold Heist)", "oldtown (TDM)", "10025_Heaven (Demolition)"], state="readonly", width=26)
+        map_cb.pack(side=tk.LEFT)
 
         # 2. Engine & Graphics Config Box
         engine_box = ttk.LabelFrame(main_frame, text=" 2. Configurações de Motor & Gráficos ", style='Section.TLabelframe', padding="10")

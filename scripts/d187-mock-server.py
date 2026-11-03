@@ -466,17 +466,30 @@ class HermitClientSession:
         elif pkt_id == PACKET_CQ_JOYGAME_LOGIN or pkt_id == PACKET_CQ_LOGIN:
             login_type = "CQ_JoyGameLogin" if pkt_id == PACKET_CQ_JOYGAME_LOGIN else "CQ_Login"
             resp_pkt_id = PACKET_SA_JOYGAME_LOGIN if pkt_id == PACKET_CQ_JOYGAME_LOGIN else PACKET_SA_LOGIN
-            print(f"[+] {login_type} (0x{pkt_id:X}) received! Authenticating user and preparing VIP Lobby...")
+            
+            # Extract username hint from offset 16 if present
+            username_hint = "gleidison"
+            if len(plain_packet) > 16:
+                try:
+                    raw_user = plain_packet[16:48].split(b'\x00')[0]
+                    decoded = raw_user.decode('utf-8', 'ignore').strip()
+                    if decoded:
+                        username_hint = decoded
+                except Exception:
+                    pass
+
+            user_data = get_user_data_from_db(username_hint)
+            print(f"[+] {login_type} (0x{pkt_id:X}) received for '{username_hint}'! Authenticating as '{user_data['nickname']}' (Rank {user_data['rank']})...")
             
             # 1. Login Response (clears 'please wait' at 0x100d74db)
             resp = build_login_success_response(resp_pkt_id, self.session_id, account_id=ACCOUNT_ID_SUCCESS, key_byte=self.key_byte)
             self.sock.sendall(resp)
             print(f"[+] Dispatched SA_JoyGameLogin ({len(resp)} bytes, ResultCode=0, AccountID=0x{ACCOUNT_ID_SUCCESS:X})!")
 
-            # 2. Dispatch User Info (Rank 58, 50M Exp, 9.99M Gold/Cash)
-            uinfo = build_user_info_hermit(self.session_id, account_id=ACCOUNT_ID_SUCCESS, nickname="Gleidison", key_byte=self.key_byte)
+            # 2. Dispatch User Info (Rank, Exp, Gold/Cash)
+            uinfo = build_user_info_hermit(self.session_id, user_data, account_id=ACCOUNT_ID_SUCCESS, key_byte=self.key_byte)
             self.sock.sendall(uinfo)
-            print(f"[+] Dispatched SN_UserInfo (Rank 58, 9.99M Gold/Cash)!")
+            print(f"[+] Dispatched SN_UserInfo (Rank {user_data['rank']}, {user_data['gold']:,} Gold, {user_data['cash']:,} Cash)!")
 
             # 3. Dispatch Item List (VIP Arsenal from s2rebirth.db)
             ilist = build_item_list_hermit(self.session_id, key_byte=self.key_byte)
@@ -484,9 +497,9 @@ class HermitClientSession:
             print(f"[+] Dispatched SN_ItemList ({len(ilist)} bytes with equipped weapon slots)!")
 
             # 4. Dispatch Record Stats
-            rec = build_record_hermit(self.session_id, key_byte=self.key_byte)
+            rec = build_record_hermit(self.session_id, user_data, key_byte=self.key_byte)
             self.sock.sendall(rec)
-            print(f"[+] Dispatched SN_Record (2450 Kills, 1620 Headshots)!")
+            print(f"[+] Dispatched SN_Record ({user_data['kills']} Kills, {user_data['headshots']} Headshots, {user_data['wins']} Wins)!")
 
             # 5. Dispatch LockEnd (Instructs UI to unlock Lobby and load Arsenal)
             lend = build_lock_end_hermit(self.session_id, key_byte=self.key_byte)
