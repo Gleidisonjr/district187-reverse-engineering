@@ -31,5 +31,11 @@
        - `CQ_CreateRoom` (0x220201) -> `SA_CreateRoom` (0x220202) [Sala 1]
        - `CN_StartButton` (0x220301) -> `SN_BattleStart` (0x230104) [UDP 27888]
 
+  4. **Orquestrador de 4 Terminais & Hub de Simulação em Tempo Real:**
+     - Criado o inicializador concorrente seguro [`launch_4_terminals.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_4_terminals.bat) para rodar os 4 processos sincronizados via loopback e SQLite WAL.
+     - Gerados todos os 25 radares táticos SVG/HTML e malhas de navegação A* dos bots em `targets/district-187/maps/` e `targets/district-187/navmeshes/`.
+     - Atualizado [`scripts/d187_match_simulator.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_match_simulator.py) para simulação universal de mapas (`--map twoway`, `--map thebank`, etc.) com gravação contínua no banco `s2rebirth.db` (`match_history`).
+     - Atualizado [`scripts/d187_web_panel.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_panel.py) com seletor dos 25 radares táticos, visualizador de NavMeshes A*, acionamento de simulação 8v8 com 1 clique e histórico de partidas em tempo real.
+
 ## Próximo Passo
 - O cliente original e o servidor estão 100% integrados e prontos para jogabilidade local ou partidas via servidor dedicado.

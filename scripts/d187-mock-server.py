@@ -213,11 +213,65 @@ def build_hermit_packet(packet_id: int, session_id: int, payload: bytes, key_byt
     plain = b'\x00\x00\x00\x00' + header + payload
     return encrypt_hermit_packet(plain, key_byte)
 
-def build_user_info_hermit(session_id: int, account_id: int = ACCOUNT_ID_SUCCESS, nickname: str = "Gleidison", key_byte: int = 0x0F) -> bytes:
-    """SN_UserInfo (0x210101): Rank 58, 50M Exp, 9.99M Gold/Cash, Nickname, Clan."""
+def get_user_data_from_db(username_hint: str = "gleidison") -> dict:
+    """Queries user profile and stats from SQLite database."""
+    import sqlite3
+    db_path = os.path.join(r"targets\district-187\data\s2rebirth.db")
+    default_user = {
+        "id": 1,
+        "username": "gleidison",
+        "nickname": "Gleidison",
+        "rank": 58,
+        "exp": 50000000,
+        "gold": 9999999,
+        "cash": 9999999,
+        "kills": 2450,
+        "deaths": 180,
+        "headshots": 1620,
+        "wins": 310,
+        "losses": 15
+    }
+    if not os.path.exists(db_path):
+        return default_user
+    try:
+        conn = sqlite3.connect(db_path)
+        c = conn.cursor()
+        c.execute("SELECT id, username, nickname, rank_level, exp, gold, cash, kills, deaths, headshots, wins, losses FROM users WHERE username = ? OR nickname = ? LIMIT 1", (username_hint, username_hint))
+        row = c.fetchone()
+        if not row:
+            c.execute("SELECT id, username, nickname, rank_level, exp, gold, cash, kills, deaths, headshots, wins, losses FROM users LIMIT 1")
+            row = c.fetchone()
+        conn.close()
+        if row:
+            return {
+                "id": row[0],
+                "username": row[1],
+                "nickname": row[2],
+                "rank": row[3],
+                "exp": row[4],
+                "gold": row[5],
+                "cash": row[6],
+                "kills": row[7],
+                "deaths": row[8],
+                "headshots": row[9],
+                "wins": row[10],
+                "losses": row[11]
+            }
+    except Exception as e:
+        print(f"[!] DB Query Error: {e}")
+    return default_user
+
+def build_user_info_hermit(session_id: int, user_data: dict, account_id: int = ACCOUNT_ID_SUCCESS, key_byte: int = 0x0F) -> bytes:
+    """SN_UserInfo (0x210101): Rank, Exp, Gold/Cash, Nickname, Clan."""
+    nickname = user_data.get("nickname", "Gleidison")
+    rank = user_data.get("rank", 58)
+    exp = user_data.get("exp", 50000000)
+    gold = user_data.get("gold", 9999999)
+    cash = user_data.get("cash", 9999999)
+
     nick_b = nickname.encode("utf-8")[:31].ljust(32, b"\x00")
     clan_b = b"D187_Meta\x00".ljust(32, b"\x00")
-    payload = struct.pack("<IIQII32s32s", account_id, 58, 50000000, 9999999, 9999999, nick_b, clan_b)
+    payload = struct.pack("<IIQII32s32s", account_id, rank, exp, gold, cash, nick_b, clan_b)
     return build_hermit_packet(PACKET_SN_USER_INFO, session_id, payload, key_byte)
 
 def build_item_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
@@ -256,9 +310,14 @@ def build_item_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
         payload += struct.pack("<IHhh", gid, itype, dur, slot)
     return build_hermit_packet(PACKET_SN_ITEM_LIST, session_id, bytes(payload), key_byte)
 
-def build_record_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
+def build_record_hermit(session_id: int, user_data: dict, key_byte: int = 0x0F) -> bytes:
     """SN_Record (0x210203): Kills, Deaths, Headshots, Wins, Losses."""
-    payload = struct.pack("<IIIII", 2450, 180, 1620, 310, 15)
+    kills = user_data.get("kills", 2450)
+    deaths = user_data.get("deaths", 180)
+    headshots = user_data.get("headshots", 1620)
+    wins = user_data.get("wins", 310)
+    losses = user_data.get("losses", 15)
+    payload = struct.pack("<IIIII", kills, deaths, headshots, wins, losses)
     return build_hermit_packet(PACKET_SN_RECORD, session_id, payload, key_byte)
 
 def build_lock_end_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
