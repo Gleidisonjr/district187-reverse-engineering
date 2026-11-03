@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>District 187 - Tactical NavMesh & A* Pathfinding (Arrival)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0b0f19; color: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; }
+    .waypoint-node:hover circle { r: 20; filter: drop-shadow(0 0 10px #38bdf8); cursor: pointer; }
+  </style>
+</head>
+<body class="p-6">
+  <div class="max-w-7xl mx-auto space-y-6">
+    <header class="border-b border-slate-800 pb-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+          <span class="p-2 bg-indigo-600 rounded-lg text-lg">AI</span>
+          Tactical NavMesh & Pathfinding: Arrival (<code class="text-emerald-400">Arrival.World00p</code>)
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">Autonomous A* Graph Topology & Bot Flanking Routes</p>
+      </div>
+      <div class="flex gap-3 text-xs font-semibold">
+        <span class="px-3 py-1.5 bg-blue-900/50 text-blue-400 border border-blue-700/50 rounded-md">SWAT Rush (Direct)</span>
+        <span class="px-3 py-1.5 bg-red-900/50 text-red-400 border border-red-700/50 rounded-md">Gangster Flank (Cover)</span>
+      </div>
+    </header>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl">
+      <div class="bg-slate-950 rounded-lg p-2 border border-slate-800 flex justify-center">
+        <svg viewBox="0 0 1000 750" class="w-full h-auto max-h-[600px]">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.8"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)"/>
+
+          <!-- Adjacency Edges -->
+          <line x1="133.7" y1="564.9" x2="206.0" y2="598.4" stroke="#10b981" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="133.7" y1="564.9" x2="270.4" y2="483.8" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="133.7" y1="564.9" x2="474.6" y2="512.5" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="206.0" y1="598.4" x2="500.0" y2="358.2" stroke="#334155" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="270.4" y1="483.8" x2="415.5" y2="304.8" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="270.4" y1="483.8" x2="500.0" y2="358.2" stroke="#334155" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="415.5" y1="304.8" x2="500.0" y2="358.2" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="474.6" y1="512.5" x2="500.0" y2="358.2" stroke="#10b981" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="474.6" y1="512.5" x2="721.8" y2="340.6" stroke="#10b981" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="500.0" y1="358.2" x2="635.8" y2="254.7" stroke="#334155" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="500.0" y1="358.2" x2="721.8" y2="340.6" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="635.8" y1="254.7" x2="721.8" y2="340.6" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="635.8" y1="254.7" x2="797.1" y2="226.1" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="721.8" y1="340.6" x2="866.3" y2="151.6" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="797.1" y1="226.1" x2="866.3" y2="151.6" stroke="#10b981" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+
+          <!-- Active Path Highlights -->
+          <line x1="133.7" y1="564.9" x2="270.4" y2="483.8" stroke="#60a5fa" stroke-width="4" stroke-dasharray="none" stroke-linecap="round"/>
+<line x1="270.4" y1="483.8" x2="415.5" y2="304.8" stroke="#60a5fa" stroke-width="4" stroke-dasharray="none" stroke-linecap="round"/>
+          <line x1="866.3" y1="151.6" x2="721.8" y2="340.6" stroke="#f87171" stroke-width="4" stroke-dasharray="8 6" stroke-linecap="round"/>
+<line x1="721.8" y1="340.6" x2="500.0" y2="358.2" stroke="#f87171" stroke-width="4" stroke-dasharray="8 6" stroke-linecap="round"/>
+<line x1="500.0" y1="358.2" x2="415.5" y2="304.8" stroke="#f87171" stroke-width="4" stroke-dasharray="8 6" stroke-linecap="round"/>
+
+          <!-- Waypoints -->
+          <g class="waypoint-node" data-name="SWAT Base Spawn" data-coord="(-3072.0, -966.0)"><circle cx="133.7" cy="564.9" r="16" fill="#3b82f6" stroke="#ffffff" stroke-width="2"/><text x="133.7" y="596.9" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">SWAT Base Spawn</text></g><g class="waypoint-node" data-name="SWAT Sniper Overlook" data-coord="(-2400.0, -1200.0)"><circle cx="206.0" cy="598.4" r="12" fill="#64748b" stroke="#ffffff" stroke-width="2"/><text x="206.0" y="630.4" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">SWAT Sniper Overlook</text></g><g class="waypoint-node" data-name="Long A Entrance" data-coord="(-1800.0, -400.0)"><circle cx="270.4" cy="483.8" r="12" fill="#64748b" stroke="#ffffff" stroke-width="2"/><text x="270.4" y="515.8" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">Long A Entrance</text></g><g class="waypoint-node" data-name="Bomb Site Alpha (Warehouse)" data-coord="(-450.0, 850.0)"><circle cx="415.5" cy="304.8" r="16" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/><text x="415.5" y="336.8" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">Bomb Site Alpha (Warehouse)</text></g><g class="waypoint-node" data-name="Courtyard Central Choke" data-coord="(336.0, 477.0)"><circle cx="500.0" cy="358.2" r="12" fill="#64748b" stroke="#ffffff" stroke-width="2"/><text x="500.0" y="390.2" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">Courtyard Central Choke</text></g><g class="waypoint-node" data-name="Underpass Flank Tunnel" data-coord="(100.0, -600.0)"><circle cx="474.6" cy="512.5" r="12" fill="#10b981" stroke="#ffffff" stroke-width="2"/><text x="474.6" y="544.5" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">Underpass Flank Tunnel</text></g><g class="waypoint-node" data-name="Bomb Site Bravo (Containers)" data-coord="(1600.0, 1200.0)"><circle cx="635.8" cy="254.7" r="16" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/><text x="635.8" y="286.7" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">Bomb Site Bravo (Containers)</text></g><g class="waypoint-node" data-name="Long B Approach" data-coord="(2400.0, 600.0)"><circle cx="721.8" cy="340.6" r="12" fill="#64748b" stroke="#ffffff" stroke-width="2"/><text x="721.8" y="372.6" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">Long B Approach</text></g><g class="waypoint-node" data-name="Gangster Vantage Tower" data-coord="(3100.0, 1400.0)"><circle cx="797.1" cy="226.1" r="12" fill="#64748b" stroke="#ffffff" stroke-width="2"/><text x="797.1" y="258.1" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">Gangster Vantage Tower</text></g><g class="waypoint-node" data-name="Gangsters Base Spawn" data-coord="(3744.0, 1920.0)"><circle cx="866.3" cy="151.6" r="16" fill="#ef4444" stroke="#ffffff" stroke-width="2"/><text x="866.3" y="183.6" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">Gangsters Base Spawn</text></g>
+        </svg>
+      </div>
+
+      <div class="mt-4 p-4 bg-slate-950 border border-slate-800 rounded-lg text-xs flex justify-between text-slate-300">
+        <div>
+          <span class="text-blue-400 font-bold">Solid Blue Line:</span> SWAT Direct Assault Route to Bomb Site Alpha
+        </div>
+        <div>
+          <span class="text-red-400 font-bold">Dashed Red Line:</span> Gangster Stealth Flank via Underpass to Alpha
+        </div>
+        <div class="text-slate-500">
+          LithTech Coordinates $(X, Z)$
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

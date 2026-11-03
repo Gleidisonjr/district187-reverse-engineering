@@ -1,0 +1,166 @@
+{
+  "map": "Arrival",
+  "waypoints": {
+    "SWAT_BASE": {
+      "name": "SWAT Base Spawn",
+      "x": -3072.0,
+      "z": -966.0,
+      "type": "spawn_swat"
+    },
+    "SWAT_SNIPER": {
+      "name": "SWAT Sniper Overlook",
+      "x": -2400.0,
+      "z": -1200.0,
+      "type": "vantage"
+    },
+    "LONG_A_WEST": {
+      "name": "Long A Entrance",
+      "x": -1800.0,
+      "z": -400.0,
+      "type": "corridor"
+    },
+    "BOMB_SITE_A": {
+      "name": "Bomb Site Alpha (Warehouse)",
+      "x": -450.0,
+      "z": 850.0,
+      "type": "objective"
+    },
+    "MID_CHOKE": {
+      "name": "Courtyard Central Choke",
+      "x": 336.0,
+      "z": 477.0,
+      "type": "choke"
+    },
+    "UNDERPASS": {
+      "name": "Underpass Flank Tunnel",
+      "x": 100.0,
+      "z": -600.0,
+      "type": "tunnel"
+    },
+    "BOMB_SITE_B": {
+      "name": "Bomb Site Bravo (Containers)",
+      "x": 1600.0,
+      "z": 1200.0,
+      "type": "objective"
+    },
+    "LONG_B_EAST": {
+      "name": "Long B Approach",
+      "x": 2400.0,
+      "z": 600.0,
+      "type": "corridor"
+    },
+    "GANG_SNIPER": {
+      "name": "Gangster Vantage Tower",
+      "x": 3100.0,
+      "z": 1400.0,
+      "type": "vantage"
+    },
+    "GANG_BASE": {
+      "name": "Gangsters Base Spawn",
+      "x": 3744.0,
+      "z": 1920.0,
+      "type": "spawn_gang"
+    }
+  },
+  "edges": [
+    [
+      "SWAT_BASE",
+      "SWAT_SNIPER",
+      0.8
+    ],
+    [
+      "SWAT_BASE",
+      "LONG_A_WEST",
+      0.6
+    ],
+    [
+      "SWAT_BASE",
+      "UNDERPASS",
+      0.7
+    ],
+    [
+      "SWAT_SNIPER",
+      "MID_CHOKE",
+      0.4
+    ],
+    [
+      "LONG_A_WEST",
+      "BOMB_SITE_A",
+      0.7
+    ],
+    [
+      "LONG_A_WEST",
+      "MID_CHOKE",
+      0.5
+    ],
+    [
+      "BOMB_SITE_A",
+      "MID_CHOKE",
+      0.6
+    ],
+    [
+      "UNDERPASS",
+      "MID_CHOKE",
+      0.9
+    ],
+    [
+      "UNDERPASS",
+      "LONG_B_EAST",
+      0.8
+    ],
+    [
+      "MID_CHOKE",
+      "BOMB_SITE_B",
+      0.5
+    ],
+    [
+      "MID_CHOKE",
+      "LONG_B_EAST",
+      0.6
+    ],
+    [
+      "BOMB_SITE_B",
+      "LONG_B_EAST",
+      0.7
+    ],
+    [
+      "BOMB_SITE_B",
+      "GANG_SNIPER",
+      0.6
+    ],
+    [
+      "LONG_B_EAST",
+      "GANG_BASE",
+      0.7
+    ],
+    [
+      "GANG_SNIPER",
+      "GANG_BASE",
+      0.8
+    ]
+  ],
+  "sample_routes": {
+    "swat_site_a": [
+      "SWAT_BASE",
+      "LONG_A_WEST",
+      "BOMB_SITE_A"
+    ],
+    "swat_site_b_flank": [
+      "SWAT_BASE",
+      "UNDERPASS",
+      "MID_CHOKE",
+      "BOMB_SITE_B"
+    ],
+    "gangster_site_b": [
+      "GANG_BASE",
+      "GANG_SNIPER",
+      "BOMB_SITE_B"
+    ],
+    "gangster_site_a_flank": [
+      "GANG_BASE",
+      "LONG_B_EAST",
+      "MID_CHOKE",
+      "BOMB_SITE_A"
+    ]
+  }
+}

@@ -36,8 +36,14 @@
     - Criado o inicializador do servidor dedicado nativo [`scripts/d187_server_runner.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_server_runner.py) (`TheRaw.exe -arch game +serverdll Game\GameServer.dll +runworld Worlds\Arrival.World00p -dedicated -port 27888`).
     - Desenvolvido o simulador autoritativo de combate 8v8 [`scripts/d187_match_simulator.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_match_simulator.py) com 16 bots usando os 32 spawns reais de `Arrival.World00p`, balística real do SQLite e árvore de plant/defuse de C4.
     - Documentada a arquitetura em [`notes/district-187-dedicated-server-and-matchmaking-architecture.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-dedicated-server-and-matchmaking-architecture.md).
-  - **Fase 5 (Próximo Passo — Teste Integrado ao Vivo no Cliente):**
-    - Iniciar o executável do cliente original e validar a transição contínua da autenticação até a sala de partida.
+  - **Fase 5 Concluída (Decifragem de .ResDt, Proxy MITM Hermit, ApexGuard Stub e NavMesh A*):**
+    - Desvendado o formato proprietário dos pacotes de 2.8 GB `.ResDt` (Zlib streams contínuos com Table of Contents no rodapé) via [`scripts/extract_resdt.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/extract_resdt.py), descobrindo os 29 mapas oficiais compilados (`twoway.World00p`, `thebank.World00p`, `10025_Heaven.World00p`, etc.).
+    - Criado o Proxy Sniffer MITM em tempo real [`scripts/d187_proxy_sniffer.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_proxy_sniffer.py) com decifragem instantânea de stream Hermit e mapeamento para os 326 opcodes.
+    - Criado o emulador do Anti-Cheat ApexGuard [`scripts/apexguard_stub.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/apexguard_stub.py) mantendo viva a memória compartilhada `Local\ApexRing_` com heartbeat para jogatina offline sem crash.
+    - Criada a malha de navegação tática A* dos bots [`scripts/d187_navmesh_generator.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_navmesh_generator.py) e visualizador interativo [`targets/district-187/navmesh_arrival.html`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/district-187/navmesh_arrival.html).
+    - Documentação técnica em [`notes/resdt-archive-and-anti-cheat-decompilation-manifest.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/resdt-archive-and-anti-cheat-decompilation-manifest.md).
+  - **Fase 6 (Próximo Passo):**
+    - Extração seletiva dos outros mapas clássicos (`twoway.World00p`) de `Game.ResDt` e teste in-game.
 - **Alvo:** `targets/district-187/`
 
 ### [SETUP] Configuração do ambiente RE
