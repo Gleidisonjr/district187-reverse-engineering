@@ -15,9 +15,13 @@
     - Criado pipeline ETL [`scripts/build_s2rebirth_dataset.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/build_s2rebirth_dataset.py) gerando `targets/district-187/data/s2rebirth.db` (185 armas com stats de combate, 750 itens, 58 patentes, 155 mapas, 1.524 itens de loja).
     - Criado CLI Client [`scripts/s2rebirth_api_client.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/s2rebirth_api_client.py) para consulta em tempo real da telemetria de 1.140 jogadores, 73 clãs e histórico de partidas.
     - Documentada a arquitetura REST em [`notes/s2-rebirth-hd-pack-and-web-portal-architecture.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/s2-rebirth-hd-pack-and-web-portal-architecture.md).
-  - **Próxima Fase (Fase 2):**
-    - Motor de Bots Inteligentes & Sessão Solo/PvE com seleção de dificuldade (Fácil, Médio, Difícil).
-    - Contabilização de mortes, XP e headshots contra bots.
+  - **Fase 2 Concluída (Motor de Bots Inteligentes & Sessão PvE Offline):**
+    - Implementados 3 níveis de dificuldade tática (`BotDifficulty`: Fácil, Médio, Difícil) em [`projects/godot-fps/scripts/bot_controller.gd`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/projects/godot-fps/scripts/bot_controller.gd) com ajuste dinâmico de dispersão, recuo e tempo de reação.
+    - Contabilização em tempo real de mortes, XP (+50 XP) e headshots críticos (+75 XP com multiplicador 2.5x) em [`projects/godot-fps/scripts/hud_manager.gd`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/projects/godot-fps/scripts/hud_manager.gd).
+    - Descoberta da cifra de rede `MD5` + `RC4` e seções customizadas do Rebirth (`.s2*`), documentada em [`notes/district-187-rc4-network-crypto-and-bot-ai-engine.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-rc4-network-crypto-and-bot-ai-engine.md).
+    - Mock server atualizado com suporte ao handshake de 20 bytes em [`scripts/d187-mock-server.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187-mock-server.py).
+  - **Próxima Fase (Fase 3):**
+    - Mapeamento e exportação de novos mapas clássicos (`twoway`, `deathharbor`) para o ambiente Godot 4.
 - **Alvo:** `targets/district-187/`
 
 ### [SETUP] Configuração do ambiente RE

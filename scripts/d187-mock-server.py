@@ -86,7 +86,17 @@ def build_login_response(req_packet_id, req_opcode):
 def handle_incoming_data(client_sock, client_addr, data):
     log_packet("TCP", client_addr, data)
 
-    # Always immediately respond with SA_JoyGameLogin to release "please wait"
+    # 1. Handle S2 Rebirth / Apex 20-byte Handshake
+    if len(data) == 20:
+        print(f"[+] Detected S2 Rebirth 20-byte Handshake packet: {data.hex()}")
+        resp_handshake = bytes([b ^ 0x5a for b in data])
+        try:
+            client_sock.sendall(resp_handshake)
+            print(f"[+] Dispatched 20-byte Handshake ACK ({resp_handshake.hex()}) to {client_addr}")
+        except Exception as ex:
+            print(f"[-] Error sending handshake ACK: {ex}")
+
+    # 2. Always immediately respond with SA_JoyGameLogin to release "please wait"
     try:
         resp = build_login_response(PACKET_CQ_JOYGAME_LOGIN, OPCODE_JOYGAME_LOGIN)
         client_sock.sendall(resp)

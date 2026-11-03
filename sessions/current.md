@@ -34,6 +34,12 @@
    - Criado `scripts/s2rebirth_api_client.py` que consulta a telemetria ao vivo da comunidade (1.140 jogadores registrados, 73 clãs e buffer das últimas 20 partidas com placar e MVPs).
    - Documentada a arquitetura REST e CDN em `notes/s2-rebirth-hd-pack-and-web-portal-architecture.md`.
 
+7. **Cifra de Rede RC4, Seções S2 Rebirth & Motor de Bots PvE (Fase 2):**
+   - Mapeada a CryptoAPI do Windows em `TheRaw.exe` (`CALG_MD5` + `CALG_RC4` via `ADVAPI32.dll`).
+   - Identificadas as 5 seções customizadas do Rebirth em `GameClient.dll` (`.s2zm`, `.s2fk`, `.s2mk`, `.s2fp`, `.s2kl` com IPC `Local\ApexRing_`).
+   - Mock server [`scripts/d187-mock-server.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187-mock-server.py) atualizado para responder ao handshake de 20 bytes com ACK e login.
+   - Motor de bots e HUD tático atualizados em `projects/godot-fps/` com 3 dificuldades (Easy, Medium, Hard), headshots críticos e recompensas de XP dinâmicas.
+
 ## Próximo passo concreto
 1. Para jogar online na comunidade ativa:
    - Criar conta em `https://s2rebirth.com/kayit` (definir usuário e senha).

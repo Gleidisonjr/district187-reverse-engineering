@@ -22,7 +22,9 @@ func _ready() -> void:
 	# Connect to all tactical bots
 	var bots = get_tree().get_nodes_in_group("bot")
 	for b in bots:
-		if b.has_signal("bot_eliminated"):
+		if b.has_signal("bot_killed"):
+			b.bot_killed.connect(_on_bot_killed)
+		elif b.has_signal("bot_eliminated"):
 			b.bot_eliminated.connect(_on_bot_eliminated)
 
 func connect_player(player: Node) -> void:
@@ -60,6 +62,14 @@ func _on_damage_taken() -> void:
 
 func _on_player_eliminated() -> void:
 	death_overlay.visible = true
+
+func _on_bot_killed(bot_name: String, is_headshot: bool, xp_reward: int) -> void:
+	if is_headshot:
+		killfeed_label.text = "🎯 HEADSHOT! %s (+%d XP)" % [bot_name, xp_reward]
+	else:
+		killfeed_label.text = "✖ %s ELIMINATED (+%d XP)" % [bot_name, xp_reward]
+	await get_tree().create_timer(3.0).timeout
+	killfeed_label.text = ""
 
 func _on_bot_eliminated(bot_name: String) -> void:
 	killfeed_label.text = "✖ %s ELIMINATED" % bot_name

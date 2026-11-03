@@ -2,11 +2,14 @@ class_name TacticalBot
 extends CharacterBody3D
 
 signal bot_eliminated(bot_name: String)
+signal bot_killed(bot_name: String, is_headshot: bool, xp_reward: int)
 
 enum BotState { PATROL, CHASE, ENGAGE, TAKE_COVER, DEAD }
+enum BotDifficulty { EASY, MEDIUM, HARD }
 
 # --- Bot Config ---
 @export var bot_name: String = "Bot Alpha"
+@export var difficulty: BotDifficulty = BotDifficulty.MEDIUM
 @export var max_health: float = 100.0
 @export var move_speed: float = 4.2
 @export var sprint_speed: float = 6.5
@@ -16,6 +19,8 @@ enum BotState { PATROL, CHASE, ENGAGE, TAKE_COVER, DEAD }
 @export var bullet_damage: float = 18.0
 @export var burst_count: int = 3
 @export var burst_cooldown: float = 0.8
+@export var aim_spread: float = 0.06
+@export var reaction_delay: float = 0.25
 
 # --- State Variables ---
 var current_health: float = 100.0
@@ -36,12 +41,34 @@ var initial_spawn_position: Vector3
 @onready var gun_mesh: MeshInstance3D = $Head/GunMesh
 
 func _ready() -> void:
+	apply_difficulty()
 	current_health = max_health
 	initial_spawn_position = global_position
 	# Find player in tree
 	await get_tree().process_frame
 	target_player = get_tree().get_first_node_in_group("player")
 	pick_random_patrol()
+
+func apply_difficulty() -> void:
+	match difficulty:
+		BotDifficulty.EASY:
+			move_speed = 3.5
+			bullet_damage = 12.0
+			aim_spread = 0.12
+			burst_cooldown = 1.2
+			detection_range = 25.0
+		BotDifficulty.MEDIUM:
+			move_speed = 4.2
+			bullet_damage = 18.0
+			aim_spread = 0.06
+			burst_cooldown = 0.8
+			detection_range = 35.0
+		BotDifficulty.HARD:
+			move_speed = 5.2
+			bullet_damage = 26.0
+			aim_spread = 0.02
+			burst_cooldown = 0.4
+			detection_range = 45.0
 
 func _physics_process(delta: float) -> void:
 	if state == BotState.DEAD:
@@ -139,10 +166,10 @@ func handle_firing(delta: float) -> void:
 		shot_timer = 60.0 / fire_rate
 
 func fire_bullet() -> void:
-	# Add slight bot spread for balanced tactical difficulty
+	# Add bot spread based on configured tactical difficulty
 	var spread_offset = Vector3(
-		randf_range(-0.06, 0.06),
-		randf_range(-0.06, 0.06),
+		randf_range(-aim_spread, aim_spread),
+		randf_range(-aim_spread, aim_spread),
 		0
 	)
 	var ray_target = (target_player.global_position + Vector3(0, 1.2, 0) + spread_offset) - head.global_position
@@ -185,8 +212,8 @@ func take_damage(amount: float, hit_point: Vector3, hit_normal: Vector3) -> void
 	if state == BotState.DEAD:
 		return
 
-	# Headshot multiplier if hit near head
-	if hit_point.y - global_position.y > 1.35:
+	var is_headshot = (hit_point.y - global_position.y) > 1.35
+	if is_headshot:
 		amount *= 2.5
 		print("[%s] HEADSHOT! Critical hit: %.1f dmg" % [bot_name, amount])
 
@@ -200,7 +227,7 @@ func take_damage(amount: float, hit_point: Vector3, hit_normal: Vector3) -> void
 	flash_hurt()
 
 	if current_health <= 0.0:
-		die()
+		die(is_headshot)
 
 func flash_hurt() -> void:
 	var mat = mesh_body.get_active_material(0)
@@ -209,12 +236,14 @@ func flash_hurt() -> void:
 		await get_tree().create_timer(0.08).timeout
 		mat.albedo_color = Color(0.2, 0.35, 0.6) # Standard tactical uniform blue
 
-func die() -> void:
+func die(is_headshot: bool = false) -> void:
 	state = BotState.DEAD
 	velocity = Vector3.ZERO
 	respawn_timer = 4.0
 	bot_eliminated.emit(bot_name)
-	print("[%s] Eliminated! Respawning in 4s..." % bot_name)
+	var xp_reward = 75 if is_headshot else 50
+	bot_killed.emit(bot_name, is_headshot, xp_reward)
+	print("[%s] Eliminated! (Headshot: %s) Respawning in 4s..." % [bot_name, str(is_headshot)])
 	# Turn off collision and hide while dead
 	set_collision_layer_value(1, false)
 	visible = false
