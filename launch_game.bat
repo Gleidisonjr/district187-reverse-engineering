@@ -1,6 +1,6 @@
 @echo off
 setlocal
-title District 187: Sin Streets - Launcher (Offline & Dedicated)
+title District 187: Sin Streets - Launcher (Offline and Dedicated)
 
 echo =====================================================================
 echo   District 187: Sin Streets - Ultra HD ^& High-FPS Edition
