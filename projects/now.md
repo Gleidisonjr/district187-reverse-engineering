@@ -19,10 +19,14 @@
     - Criado pipeline ETL [`scripts/build_s2rebirth_dataset.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/build_s2rebirth_dataset.py) gerando `targets/district-187/data/s2rebirth.db` (185 armas com stats reais de combate, 750 itens, 58 patentes, 155 mapas, 1.524 itens de loja).
     - Criado CLI Client [`scripts/s2rebirth_api_client.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/s2rebirth_api_client.py) para consulta em tempo real da telemetria de 1.140 jogadores, 73 clãs e histórico de partidas.
     - Documentada a arquitetura REST em [`notes/s2-rebirth-hd-pack-and-web-portal-architecture.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/s2-rebirth-hd-pack-and-web-portal-architecture.md).
-  - **Fase 2 (Em Andamento — Handshake & Conexão Nativa do TheRaw.exe):**
-    - Mapeada a CryptoAPI do Windows (`ADVAPI32.dll`) em `TheRaw.exe` (MD5 + RC4).
-    - Mapeadas as seções customizadas do Rebirth em `GameClient.dll` (`.s2*` e canal IPC `Local\ApexRing_`).
-    - Ajustar a recepção e despacho dos pacotes de handshake no mock server / emulador para o cliente original passar direto da tela de login para o lobby e entrar nas partidas nos mapas oficiais (`Worlds\twoway.World00p`, etc.) dentro do próprio executável original.
+  - **Fase 2 Concluída (Engenharia Reversa Completa do Handshake & Cifra Hermit):**
+    - Mapeada a cifra de fluxo proprietária em `TheRaw.exe` (IEEE 802.3 CRC32 lookup table em `0x802a58`, chave inicial `0x0F`).
+    - Descoberta a máquina de estados Hermit (`0x20080` Handshake Request -> `0x20081` Response -> `0x20082` ACK -> `0x20083` Pong).
+    - Descoberto o manipulador Scaleform `0x100d74a0` em `GameClient.dll` que zera a flag de bloqueio (`mov [eax+0x64], 0` em `0x100d74db`) ao receber `SA_JoyGameLogin` (`0x110112`) cifrado com `ResultCode = 0` e `AccountID = 1001`.
+    - Servidor [`scripts/d187-mock-server.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187-mock-server.py) totalmente reconstruído e ativo na porta 12000.
+    - Documentação em [`notes/district-187-hermit-protocol-and-handshake.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-hermit-protocol-and-handshake.md).
+  - **Fase 3 (Em Andamento — Bots & Salas PvE Solo):**
+    - Carregamento de mapas de combate (`twoway`, etc.) com bots e persistência de pontuação no banco `data/s2rebirth.db`.
 - **Alvo:** `targets/district-187/`
 
 ### [SETUP] Configuração do ambiente RE
