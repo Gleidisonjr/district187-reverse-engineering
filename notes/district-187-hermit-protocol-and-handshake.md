@@ -41,24 +41,45 @@ sequenceDiagram
     participant UI as GameClient.dll (Scaleform UI)
 
     Client->>Server: 1. TCP SYN / Connect (Port 12000)
-    Client->>Server: 2. Hermit Handshake Req (0x20080, 20 bytes, Key=0x0F)
-    Server-->>Client: 3. Hermit Handshake Res (0x20081, 32 bytes, Key=0x0F)
-    Note over Client: Estado transiciona para Connect -> Established (0x868dd8)
+    Client->>Server: 2. Hermit Handshake Req (0x20080, 20 bytes, Key=0x0F, Payload=ClientTS)
+    Server-->>Client: 3. Hermit Handshake Res (0x20081, 32 bytes, DW0=ServerSeed, DW1=EchoClientTS, DW2=0, DW3=KeyLE)
+    Note over Client: Valida dwDelay = ClientNow - DW1 < 30000ms<br/>Deriva SessionKey = DW3 ^ DW2 (0x0F)<br/>Transiciona Connect (0x8028c0) -> Online (0x80291c)
     Client->>Server: 4. Hermit Handshake ACK (0x20082, 24 bytes)
     Server-->>Client: 5. Hermit Pong / Session OK (0x20083, 20 bytes)
     Client->>Server: 6. Hermit Keepalive Ping (0x20090, 20 bytes)
     Server-->>Client: 7. Hermit Keepalive Pong (0x20083, 20 bytes)
-    UI->>Server: 8. CQ_JoyGameLogin (0x110111, 80 bytes, Opcode 0x0062)
-    Server-->>UI: 9. SA_JoyGameLogin (0x110112, ResultCode=0, AccountID=1001)
-    Note over UI: Executa 0x100d74db: mov [eax+0x64], 0<br/>Limpa "please wait" e entra no Lobby!
+    UI->>Server: 8. CQ_Login (0x110101, 845 bytes, User & Password em 0x10/0x31)
+    Server-->>UI: 9. SA_Login (0x110102, 80 bytes, ResultCode=0 em 0x10, AccountID=1001 em 0x12)
+    Note over UI: Executa 0x100d74db: mov [eax+0x64], 0<br/>Limpa "please wait" e abre o Lobby oficial!
+    Server-->>Client: 10. SN_UserInfo (0x210101) - Patente 58, 9.99M Gold/Cash
+    Server-->>Client: 11. SN_ItemList (0x210201) - Arsenal VIP completo equipado
+    Server-->>Client: 12. SN_Record (0x210203) - Status de K/D, Headshots e Partidas
+    Server-->>Client: 13. SN_LockEnd (0x210202) - Destrava interface e arsenal
 ```
 
 ---
 
-## 3. Implementação no Servidor Dedicado Local
+## 3. Causa Raiz do "Please Wait" Infinito e Soluções Cirúrgicas
 
-O arquivo [`scripts/d187-mock-server.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187-mock-server.py) foi totalmente reescrito para implementar:
-- Tabela de CRC32 e rotinas de cifragem/decifragem 1:1 com `TheRaw.exe`.
-- Despacho atômico de `0x20081` e `0x20083`.
-- Resposta criptografada de `SA_JoyGameLogin` (`0x110112`) com `ResultCode = 0` e `AccountID = 1001`.
-- Suporte a conexões simultâneas locais e em rede LAN para partidas entre amigos.
+Durante a desmontagem reversa com Capstone e Pefile em `0x4fd190` e `0x4fdef0`, encontramos as duas causas exatas que fechavam a conexão:
+1. **Verificação de Atraso de Rede (`dwDelay > s_dwTimeout * 3`):**
+   - Ao receber `0x20081`, `TheRaw.exe` calcula `dwDelay = client_now - DWORD 1`.
+   - Se o servidor enviasse `DWORD 1 = 0`, quando o cliente estivesse aberto há mais de 30 segundos (30.000 ms), `dwDelay > 30000` acionava imediatamente a chamada `0x4fdd70` (desconexão por timeout).
+   - **Correção:** O servidor agora lê o `client_timestamp` enviado pelo cliente no pacote `0x20080` (offset 16) e o reflete fielmente em `DWORD 1` de `0x20081`. O RTT resultante é $\approx 1$ ms, eliminando a desconexão.
+2. **Endianness da Chave de Sessão (`DWORD 3`):**
+   - Em `0x4fd1e6`: `mov ecx, [ebx + 0x1c]` lê `DWORD 3` diretamente da memória como inteiro Little-Endian x86.
+   - Ao empacotar `DWORD 3` como Big-Endian (`>I`), o x86 lia `0x0F000000`. O byte inferior (`byte ptr [session + 4]`) era `0x00`, fazendo o cliente cifrar os pacotes seguintes com a chave nula.
+   - **Correção:** `DWORD 3` empacotado explicitamente como `<I` (`b'\x0f\x00\x00\x00'`), garantindo derivação idêntica de `0x0F` no cliente e no servidor.
+3. **Despacho de Login Real (`CQ_Login` 0x110101):**
+   - A rotina de login padrão chamada pela interface Scaleform é `_Send_Login_ID()` (`GameClient.dll` VA `0x10052bc0`), que monta `0x110101` com 845 bytes e aguarda `0x110102` (`SA_Login`).
+   - O servidor responde com `SA_Login` contendo `ResultCode = 0` (uint16 LE no offset 16) e `AccountID = 1001` (uint32 LE no offset 18), destravando o `mov [eax+0x64], 0` no manipulador `0x100d74a0`.
+
+---
+
+## 4. Implementação no Servidor Dedicado Local
+
+O arquivo [`scripts/d187-mock-server.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187-mock-server.py) foi totalmente atualizado com:
+- Reflexão do timestamp do cliente para sincronização sem latência.
+- Chave de sessão Little-Endian rigorosa (`0x0F`).
+- Respostas para `0x110101` (`SA_Login`) e `0x110111` (`SA_JoyGameLogin`).
+- Injeção atômica de perfil de lobby: Patente 58, 9.99M Gold/Cash e Arsenal VIP montado do banco SQLite local.

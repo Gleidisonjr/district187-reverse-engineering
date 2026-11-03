@@ -121,17 +121,29 @@ def decrypt_hermit_packet(cipher_pkt: bytes, key_byte: int = 0x0F) -> tuple[byte
         buf[i] = cipher_pkt[i] ^ tbl_byte ^ key_byte
     return bytes(buf), crc_valid
 
-def build_handshake_response_81(session_id: int, key_byte: int = 0x0F) -> bytes:
+def build_handshake_response_81(session_id: int, client_ts: int = 0, key_byte: int = 0x0F) -> bytes:
     """
     Constructs Handshake Response 0x20081 (32 bytes).
-    Client requires:
+    Client requirements reverse engineered from TheRaw.exe (VA 0x004fd190):
     - PacketID = 0x20081 (Big Endian)
     - Length = 32 (Big Endian)
     - Session ID matching client session
-    - Payload DWORD 1 <= client random (0 is always valid)
-    - Payload DWORD 3 ^ DWORD 2 = key_byte (0x0F)
+    - Payload DWORD 0 (offset 0x10): Server Timestamp / Seed (Big Endian)
+    - Payload DWORD 1 (offset 0x14): Echo of Client Timestamp (Big Endian).
+      Client compares: dwDelay = client_now - DWORD 1.
+      If dwDelay > 30000ms (timeout * 3), client disconnects!
+    - Payload DWORD 2 (offset 0x18): 0x00000000
+    - Payload DWORD 3 (offset 0x1c): Little-Endian key_byte (b'\x0f\x00\x00\x00').
+      0x4fd1e6 reads DWORD 3 as native x86 little-endian:
+      mov ecx, [ebx + 0x1c]; xor ecx, [ebx + 0x18]; call 0x5004d0.
+      Must be 0x0000000F so session key byte is 0x0F!
     """
-    payload = struct.pack('>IIII', 0x12345678, 0, 0, key_byte)
+    server_seed = (client_ts + 1) & 0xFFFFFFFF
+    dw0 = struct.pack('>I', server_seed)
+    dw1 = struct.pack('>I', client_ts)
+    dw2 = struct.pack('<I', 0)
+    dw3 = struct.pack('<I', key_byte)
+    payload = dw0 + dw1 + dw2 + dw3
     header = struct.pack('>HHII', 0, 32, session_id, PACKET_HERMIT_HANDSHAKE_RES)
     plain = b'\x00\x00\x00\x00' + header + payload
     return encrypt_hermit_packet(plain, key_byte)
@@ -320,8 +332,9 @@ class HermitClientSession:
 
         # 1. Hermit Handshake Step 1 (Client Request -> Server Response 0x20081)
         if pkt_id == PACKET_HERMIT_HANDSHAKE_REQ:
-            print(f"[+] Hermit Handshake Step 1 (0x20080) received! Sending 0x20081 response...")
-            resp = build_handshake_response_81(self.session_id, self.key_byte)
+            client_ts = struct.unpack('>I', plain_packet[16:20])[0] if len(plain_packet) >= 20 else 0
+            print(f"[+] Hermit Handshake Step 1 (0x20080) received! Client TS: {client_ts}. Sending 0x20081 response...")
+            resp = build_handshake_response_81(self.session_id, client_ts, self.key_byte)
             self.sock.sendall(resp)
             print(f"[+] Dispatched Handshake Response 0x20081 ({len(resp)} bytes)")
 
