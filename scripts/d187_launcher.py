@@ -293,6 +293,14 @@ class D187Launcher(tk.Tk):
             subprocess.Popen([sys.executable, SERVER_SCRIPT], creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
             time.sleep(1.5)
 
+        # Terminate any orphaned/hung TheRaw.exe to guarantee mutex is free
+        subprocess.run(
+            ["taskkill", "/F", "/IM", "TheRaw.exe"],
+            capture_output=True,
+            creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0
+        )
+        time.sleep(0.3)
+
         # Set environment compatibility flag & apply Windows 11 QoL profile
         os.environ["__COMPAT_LAYER"] = "RunAsInvoker"
         try:
@@ -303,10 +311,14 @@ class D187Launcher(tk.Tk):
 
         cmd = [
             THE_RAW_EXE,
-            "-arch", "Default.archcfg",
-            "-windowtitle", "District 187: Sin Streets (Ultra HD)",
+            "-arch", "game",
+            "-windowtitle", "District 187: Sin Streets",
             "+gs_ip", target_ip,
-            "+gs_port", target_port
+            "+gs_port", target_port,
+            "+windowed", "1",
+            "+ScreenWidth", "1920",
+            "+ScreenHeight", "1080",
+            "+ShowLog", "1"
         ]
 
         try:

@@ -34,9 +34,12 @@ if not exist "%CLIENT_DIR%\TheRaw.exe" (
     exit /b 1
 )
 
+:: Libera mutex orfao caso uma instancia anterior tenha ficado travada em segundo plano
+taskkill /f /im TheRaw.exe >nul 2>&1
+
 echo [*] Inicializando TheRaw.exe em modo Ultra HD...
 cd /d "%CLIENT_DIR%"
-start "" "TheRaw.exe" -arch Default.archcfg -windowtitle "District 187: Sin Streets (Ultra HD)" +gs_ip 127.0.0.1 +gs_port 12000
+start "" "TheRaw.exe" -arch game -windowtitle "District 187: Sin Streets" +gs_ip 127.0.0.1 +gs_port 12000 +windowed 1 +ScreenWidth 1920 +ScreenHeight 1080 +ShowLog 1
 
 echo [+] Jogo disparado com sucesso!
 echo =====================================================================
