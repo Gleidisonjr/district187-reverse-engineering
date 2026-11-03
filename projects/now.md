@@ -31,8 +31,13 @@
     - Criado o gerador de perfil VIP e inventário de lobby [`scripts/d187_profile_service.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_profile_service.py) (Rank 58, 185 armas, Gold/Cash infinitos, pacotes `SN_UserInfo`, `SN_ItemList`, `SN_Record`, `SN_LockEnd`).
     - Desenvolvido o parser LithTech v113 [`scripts/inspect_world00p.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/inspect_world00p.py) extraindo os 32 spawns oficiais de `Arrival.World00p` e gerando o minimapa tático [`targets/district-187/tactical_map_arrival.html`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/district-187/tactical_map_arrival.html).
     - Desenvolvido o painel de controle web local em [`scripts/d187_web_panel.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_panel.py) (porta 8080) com monitoramento em tempo real, ajuste de cvars e atalhos rápidos.
-  - **Fase 4 (Próximo Passo — Execução de Partida Local / Dedicated Server):**
-    - Iniciar instância local da partida vinculando `Arrival.World00p` a `Engine_Server.dll` / `GameServer.dll`.
+  - **Fase 4 Concluída (Matchmaking Completo, Servidor Dedicado Nativo e Simulador 8v8):**
+    - `scripts/d187-mock-server.py` atualizado com o fluxo completo de lobby: `SA_JoyGameLogin` -> `SN_UserInfo` (Rank 58) -> `SN_ItemList` (185 armas VIP) -> `SN_Record` -> `SN_LockEnd` -> `SA_EnterUser` (Canal 1) -> `SA_CreateRoom` (Arrival 8v8) -> `SN_BattleStart` (127.0.0.1:27888).
+    - Criado o inicializador do servidor dedicado nativo [`scripts/d187_server_runner.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_server_runner.py) (`TheRaw.exe -arch game +serverdll Game\GameServer.dll +runworld Worlds\Arrival.World00p -dedicated -port 27888`).
+    - Desenvolvido o simulador autoritativo de combate 8v8 [`scripts/d187_match_simulator.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_match_simulator.py) com 16 bots usando os 32 spawns reais de `Arrival.World00p`, balística real do SQLite e árvore de plant/defuse de C4.
+    - Documentada a arquitetura em [`notes/district-187-dedicated-server-and-matchmaking-architecture.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-dedicated-server-and-matchmaking-architecture.md).
+  - **Fase 5 (Próximo Passo — Teste Integrado ao Vivo no Cliente):**
+    - Iniciar o executável do cliente original e validar a transição contínua da autenticação até a sala de partida.
 - **Alvo:** `targets/district-187/`
 
 ### [SETUP] Configuração do ambiente RE

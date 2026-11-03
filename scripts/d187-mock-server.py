@@ -38,6 +38,22 @@ PACKET_SA_LOGIN = 0x110102
 PACKET_CQ_JOYGAME_LOGIN = 0x110111
 PACKET_SA_JOYGAME_LOGIN = 0x110112
 
+# NLaunch Family
+PACKET_SN_USER_INFO = 0x210101
+PACKET_SN_ITEM_LIST = 0x210201
+PACKET_SN_LOCK_END = 0x210202
+PACKET_SN_RECORD = 0x210203
+
+# NMatchup Family
+PACKET_CQ_ENTER_USER = 0x220101
+PACKET_SA_ENTER_USER = 0x220102
+PACKET_CQ_CREATE_ROOM = 0x220201
+PACKET_SA_CREATE_ROOM = 0x220202
+PACKET_CN_START_BUTTON = 0x220301
+
+# NBattle Family
+PACKET_SN_BATTLE_START = 0x230104
+
 # Standard IEEE 802.3 CRC32 lookup table (matching TheRaw.exe VA 0x802a58)
 CRC_TABLE = []
 for i in range(256):
@@ -154,6 +170,83 @@ def build_login_success_response(packet_id: int, session_id: int, account_id: in
     plain = b'\x00\x00\x00\x00' + header + bytes(payload)
     return encrypt_hermit_packet(plain, key_byte)
 
+def build_hermit_packet(packet_id: int, session_id: int, payload: bytes, key_byte: int = 0x0F) -> bytes:
+    total_len = 16 + len(payload)
+    header = struct.pack('>HHII', 0, total_len, session_id, packet_id)
+    plain = b'\x00\x00\x00\x00' + header + payload
+    return encrypt_hermit_packet(plain, key_byte)
+
+def build_user_info_hermit(session_id: int, account_id: int = 1001, nickname: str = "Gleidison", key_byte: int = 0x0F) -> bytes:
+    """SN_UserInfo (0x210101): Rank 58, 50M Exp, 9.99M Gold/Cash, Nickname, Clan."""
+    nick_b = nickname.encode("utf-8")[:31].ljust(32, b"\x00")
+    clan_b = b"D187_Meta\x00".ljust(32, b"\x00")
+    payload = struct.pack("<IIQII32s32s", account_id, 58, 50000000, 9999999, 9999999, nick_b, clan_b)
+    return build_hermit_packet(PACKET_SN_USER_INFO, session_id, payload, key_byte)
+
+def build_item_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
+    """SN_ItemList (0x210201): Loads VIP weapons with slots equipped."""
+    import sqlite3
+    db_path = os.path.join(r"targets\district-187\data\s2rebirth.db")
+    items = []
+    if os.path.exists(db_path):
+        try:
+            conn = sqlite3.connect(db_path)
+            c = conn.cursor()
+            c.execute("SELECT group_id, slot FROM weapons ORDER BY damage DESC LIMIT 64")
+            equipped = {0: False, 1: False, 2: False, 3: False}
+            for row in c.fetchall():
+                gid, slot_name = row[0], row[1] or ""
+                slot = -1
+                if slot_name == "ana-silah" and not equipped[0]:
+                    slot = 0; equipped[0] = True
+                elif slot_name == "tabanca" and not equipped[1]:
+                    slot = 1; equipped[1] = True
+                elif slot_name == "bicak" and not equipped[2]:
+                    slot = 2; equipped[2] = True
+                elif slot_name == "bomba" and not equipped[3]:
+                    slot = 3; equipped[3] = True
+                items.append((gid, 1, 100, slot))
+            conn.close()
+        except Exception:
+            pass
+
+    if not items:
+        # Fallback VIP items
+        items = [(1110001, 1, 100, 0), (1120001, 2, 100, 1), (1130001, 3, 100, 2), (1140001, 4, 100, 3)]
+
+    payload = bytearray(struct.pack("<I", len(items)))
+    for gid, itype, dur, slot in items:
+        payload += struct.pack("<IHhh", gid, itype, dur, slot)
+    return build_hermit_packet(PACKET_SN_ITEM_LIST, session_id, bytes(payload), key_byte)
+
+def build_record_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
+    """SN_Record (0x210203): Kills, Deaths, Headshots, Wins, Losses."""
+    payload = struct.pack("<IIIII", 2450, 180, 1620, 310, 15)
+    return build_hermit_packet(PACKET_SN_RECORD, session_id, payload, key_byte)
+
+def build_lock_end_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
+    """SN_LockEnd (0x210202): Signals UI to open lobby."""
+    return build_hermit_packet(PACKET_SN_LOCK_END, session_id, struct.pack("<I", 0), key_byte)
+
+def build_enter_channel_response(session_id: int, channel_id: int = 1, key_byte: int = 0x0F) -> bytes:
+    """SA_EnterUser (0x220102): Response to CQ_EnterUser for lobby channel."""
+    cname = b"Canal 1 - Livre [Competitivo]\x00".ljust(32, b"\x00")
+    payload = struct.pack("<II32s", 0, channel_id, cname)
+    return build_hermit_packet(PACKET_SA_ENTER_USER, session_id, payload, key_byte)
+
+def build_create_room_response(session_id: int, room_id: int = 1, key_byte: int = 0x0F) -> bytes:
+    """SA_CreateRoom (0x220202): Response to CQ_CreateRoom."""
+    rname = b"Arrival 8v8 [Bots & VIP]\x00".ljust(32, b"\x00")
+    payload = struct.pack("<II32sI", 0, room_id, rname, 1)
+    return build_hermit_packet(PACKET_SA_CREATE_ROOM, session_id, payload, key_byte)
+
+def build_battle_start_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
+    """SN_BattleStart (0x230104): Directs client to connect to combat server."""
+    ip_b = b"127.0.0.1\x00".ljust(16, b"\x00")
+    map_b = b"Worlds\\Arrival.World00p\x00".ljust(32, b"\x00")
+    payload = struct.pack("<16sH32s", ip_b, 27888, map_b)
+    return build_hermit_packet(PACKET_SN_BATTLE_START, session_id, payload, key_byte)
+
 class HermitClientSession:
     def __init__(self, sock, addr):
         self.sock = sock
@@ -246,19 +339,57 @@ class HermitClientSession:
             resp = build_handshake_pong_83(self.session_id, self.key_byte)
             self.sock.sendall(resp)
 
-        # 4. CQ_JoyGameLogin (0x110111) -> SA_JoyGameLogin (0x110112)
-        elif pkt_id == PACKET_CQ_JOYGAME_LOGIN:
-            print(f"[+] CQ_JoyGameLogin (0x110111) received! Authenticating user...")
-            resp = build_login_success_response(PACKET_SA_JOYGAME_LOGIN, self.session_id, account_id=1001, key_byte=self.key_byte)
+        # 4. CQ_JoyGameLogin (0x110111) -> SA_JoyGameLogin + Full VIP Lobby Packets
+        elif pkt_id == PACKET_CQ_JOYGAME_LOGIN or pkt_id == PACKET_CQ_LOGIN:
+            login_type = "CQ_JoyGameLogin" if pkt_id == PACKET_CQ_JOYGAME_LOGIN else "CQ_Login"
+            resp_pkt_id = PACKET_SA_JOYGAME_LOGIN if pkt_id == PACKET_CQ_JOYGAME_LOGIN else PACKET_SA_LOGIN
+            print(f"[+] {login_type} (0x{pkt_id:X}) received! Authenticating user and preparing VIP Lobby...")
+            
+            # 1. Login Response (clears 'please wait' at 0x100d74db)
+            resp = build_login_success_response(resp_pkt_id, self.session_id, account_id=1001, key_byte=self.key_byte)
             self.sock.sendall(resp)
-            print(f"[+] Dispatched SA_JoyGameLogin ({len(resp)} bytes, ResultCode=0, AccountID=1001) to release 'please wait'!")
+            print(f"[+] Dispatched SA_JoyGameLogin ({len(resp)} bytes, ResultCode=0, AccountID=1001)!")
 
-        # 5. CQ_Login Developer Mode (0x110101) -> SA_Login (0x110102)
-        elif pkt_id == PACKET_CQ_LOGIN:
-            print(f"[+] CQ_Login (0x110101) received! Sending SA_Login...")
-            resp = build_login_success_response(PACKET_SA_LOGIN, self.session_id, account_id=1001, key_byte=self.key_byte)
+            # 2. Dispatch User Info (Rank 58, 50M Exp, 9.99M Gold/Cash)
+            uinfo = build_user_info_hermit(self.session_id, account_id=1001, nickname="Gleidison", key_byte=self.key_byte)
+            self.sock.sendall(uinfo)
+            print(f"[+] Dispatched SN_UserInfo (Rank 58, 9.99M Gold/Cash)!")
+
+            # 3. Dispatch Item List (VIP Arsenal from s2rebirth.db)
+            ilist = build_item_list_hermit(self.session_id, key_byte=self.key_byte)
+            self.sock.sendall(ilist)
+            print(f"[+] Dispatched SN_ItemList ({len(ilist)} bytes with equipped weapon slots)!")
+
+            # 4. Dispatch Record Stats
+            rec = build_record_hermit(self.session_id, key_byte=self.key_byte)
+            self.sock.sendall(rec)
+            print(f"[+] Dispatched SN_Record (2450 Kills, 1620 Headshots)!")
+
+            # 5. Dispatch LockEnd (Instructs UI to unlock Lobby and load Arsenal)
+            lend = build_lock_end_hermit(self.session_id, key_byte=self.key_byte)
+            self.sock.sendall(lend)
+            print(f"[+] Dispatched SN_LockEnd -> Client transitioned to LOBBY!")
+
+        # 6. CQ_EnterUser (0x220101) -> SA_EnterUser (0x220102) [Channel Navigation]
+        elif pkt_id == PACKET_CQ_ENTER_USER:
+            print(f"[+] CQ_EnterUser (0x220101) received! Entering Lobby Channel...")
+            resp = build_enter_channel_response(self.session_id, channel_id=1, key_byte=self.key_byte)
             self.sock.sendall(resp)
-            print(f"[+] Dispatched SA_Login ({len(resp)} bytes, ResultCode=0, AccountID=1001)!")
+            print(f"[+] Dispatched SA_EnterUser (Channel 1 [Competitivo])!")
+
+        # 7. CQ_CreateRoom (0x220201) -> SA_CreateRoom (0x220202) [Room Creation]
+        elif pkt_id == PACKET_CQ_CREATE_ROOM:
+            print(f"[+] CQ_CreateRoom (0x220201) received! Creating Match Room...")
+            resp = build_create_room_response(self.session_id, room_id=1, key_byte=self.key_byte)
+            self.sock.sendall(resp)
+            print(f"[+] Dispatched SA_CreateRoom (Room 1: Arrival 8v8 [Bots & VIP])!")
+
+        # 8. CN_StartButton (0x220301) -> SN_BattleStart (0x230104) [Match Trigger]
+        elif pkt_id == PACKET_CN_START_BUTTON:
+            print(f"[+] CN_StartButton (0x220301) received! Launching Battle...")
+            resp = build_battle_start_hermit(self.session_id, key_byte=self.key_byte)
+            self.sock.sendall(resp)
+            print(f"[+] Dispatched SN_BattleStart -> Directing client to 127.0.0.1:27888 (Arrival.World00p)!")
 
         else:
             print(f"[?] Unknown / Unhandled Hermit Packet ID: 0x{pkt_id:X}")
