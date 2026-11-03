@@ -545,8 +545,17 @@ class HermitClientSession:
 
 def start_tcp_server(port=12000, active_map="Arrival.World00p"):
     server_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    server_sock.bind(("0.0.0.0", port))
+    # Windows: SO_REUSEADDR permits several servers on one port (stale instances answer clients).
+    # SO_EXCLUSIVEADDRUSE guarantees a single listener.
+    if os.name == "nt":
+        server_sock.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+    else:
+        server_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    try:
+        server_sock.bind(("0.0.0.0", port))
+    except OSError as e:
+        print(f"[FATAL] Port {port} already in use by another server instance: {e}")
+        sys.exit(1)
     server_sock.listen(10)
     print(f"=====================================================================")
     print(f"  District 187: Sin Streets — Hermit Dedicated Server Emulator")
