@@ -255,6 +255,46 @@ def process_issue(issue: dict, repo: str, agent: dict, pool: list[dict], dry_run
             f"Check `scripts/logs/` for details.")
 
 
+def run_local_triage(target_dir: str, agent_name: str, dry_run: bool = False):
+    """Executes static triage and triggers a local agent worker without GitHub dependencies."""
+    p = Path(target_dir)
+    if not p.is_absolute():
+        p = PROJECT_DIR / p
+
+    if not p.exists():
+        print(f"[router:local] Target directory not found: {p}", file=sys.stderr)
+        return
+
+    target_name = p.name
+    print(f"[router:local] Initiating local autonomous triage on '{target_name}' using agent '{agent_name}'")
+    
+    # 1. Discover PE/ELF/Binary artifacts
+    binaries = list(p.glob("*.exe")) + list(p.glob("*.dll")) + list(p.glob("*.so")) + list(p.glob("*.apk"))
+    print(f"[router:local] Discovered {len(binaries)} binary artifact(s) in {p}")
+    for b in binaries:
+        size_mb = round(b.stat().st_size / (1024 * 1024), 2)
+        print(f"  • {b.name:<25} ({size_mb} MB)")
+
+    # 2. Worker prompt invocation
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M")
+    prompt = WORKER_PROMPT.format(
+        target_name=target_name,
+        issue_number="LOCAL-001",
+        timestamp=ts,
+    )
+
+    if dry_run:
+        print("[router:local] [dry-run] Would execute worker with prompt:")
+        print(prompt)
+        return
+
+    pool = resolve_pool(agent_name)
+    agent = pool[0]
+    print(f"[router:local] Dispatching to {agent['name']} worker...")
+    run_agent_worker(agent, prompt)
+    print(f"[router:local] Local triage completed for {target_name}.")
+
+
 # ── Main loop ─────────────────────────────────────────────────────────────────
 
 def resolve_pool(agent_filter: str | None) -> list[dict]:
@@ -272,6 +312,8 @@ def main():
         description="RE Router — dispatch RE workers across Claude Code and Antigravity (agy)")
     parser.add_argument("--repo",    default=os.environ.get("RE_GITHUB_REPO"),
                         help="GitHub repo as owner/name")
+    parser.add_argument("--local",   default=None,
+                        help="Run autonomous triage on local target directory (e.g. targets/district-187)")
     parser.add_argument("--agent",   default=None,
                         help="Force a specific agent: claude | agy (default: round-robin)")
     parser.add_argument("--once",    action="store_true",
@@ -280,8 +322,12 @@ def main():
                         help="Print actions without calling GitHub or agents")
     args = parser.parse_args()
 
+    if args.local:
+        run_local_triage(args.local, args.agent or "claude", args.dry_run)
+        return
+
     if not args.repo:
-        print("Error: provide --repo owner/name or set RE_GITHUB_REPO", file=sys.stderr)
+        print("Error: provide --repo owner/name, set RE_GITHUB_REPO, or use --local <target>", file=sys.stderr)
         sys.exit(1)
 
     pool = resolve_pool(args.agent)

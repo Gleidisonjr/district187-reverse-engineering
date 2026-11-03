@@ -2,26 +2,27 @@
 
 ## Em andamento
 
-### [TARGET] District 187: Sin Streets — Servidor Privado & Ecossistema Próprio
+### [TARGET] District 187: Sin Streets (S2 Online / S2 Rebirth) — Motor Nativo LithTech
 - **Status:** em andamento (2026-11-02)
+- **Foco Absoluto:** Executável original (`TheRaw.exe`), motor nativo LithTech Jupiter EX e servidor oficial/emulador (arquitetura idêntica ao S2 Rebirth, sem engines externas).
 - **Fase atual:**
-  - **Fase 1 Concluída (Gráficos Ultra HD + Tradução):**
-    - Baixados e validados os 1.72 GB do pacote de texturas HD (`HD1.ResDt` a `HD6.ResDt`).
-    - `Default.archcfg` atualizado para montagem automática das texturas 2K/4K.
+  - **Fase 1 Concluída (Gráficos Ultra HD + Tradução no Motor Nativo):**
+    - Baixados e validados os 1.72 GB do pacote de texturas HD oficial (`HD1.ResDt` a `HD6.ResDt`).
+    - `Default.archcfg` atualizado para montagem automática das archives 2K/4K no motor LithTech.
     - `settings.cfg` e `autoexec.cfg` configurados com `GraphicQualityLevel 3`, `BindTexturesMipOffset 0` e `MaxFPS 0` (144+ FPS destravado).
-    - Idioma inglês verificado (3.923 strings).
-    - Criado launcher [`launch_game_ultra_hd.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_game_ultra_hd.bat).
+    - Idioma inglês nativo ativado (3.923 strings).
+    - Scripts de inicialização direta prontos:
+      - `launch_s2rebirth_online.bat` (servidor oficial da comunidade em `179.61.147.154:12000`)
+      - `launch_s2rebirth_direct.bat` (inicialização direta rápida)
+      - `launch_offline_emulator.bat` (ambiente com mock server local em `127.0.0.1:12000`)
   - **Fase 1.5 Concluída (Data Analytics & Telemetria Web Portal):**
-    - Criado pipeline ETL [`scripts/build_s2rebirth_dataset.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/build_s2rebirth_dataset.py) gerando `targets/district-187/data/s2rebirth.db` (185 armas com stats de combate, 750 itens, 58 patentes, 155 mapas, 1.524 itens de loja).
+    - Criado pipeline ETL [`scripts/build_s2rebirth_dataset.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/build_s2rebirth_dataset.py) gerando `targets/district-187/data/s2rebirth.db` (185 armas com stats reais de combate, 750 itens, 58 patentes, 155 mapas, 1.524 itens de loja).
     - Criado CLI Client [`scripts/s2rebirth_api_client.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/s2rebirth_api_client.py) para consulta em tempo real da telemetria de 1.140 jogadores, 73 clãs e histórico de partidas.
     - Documentada a arquitetura REST em [`notes/s2-rebirth-hd-pack-and-web-portal-architecture.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/s2-rebirth-hd-pack-and-web-portal-architecture.md).
-  - **Fase 2 Concluída (Motor de Bots Inteligentes & Sessão PvE Offline):**
-    - Implementados 3 níveis de dificuldade tática (`BotDifficulty`: Fácil, Médio, Difícil) em [`projects/godot-fps/scripts/bot_controller.gd`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/projects/godot-fps/scripts/bot_controller.gd) com ajuste dinâmico de dispersão, recuo e tempo de reação.
-    - Contabilização em tempo real de mortes, XP (+50 XP) e headshots críticos (+75 XP com multiplicador 2.5x) em [`projects/godot-fps/scripts/hud_manager.gd`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/projects/godot-fps/scripts/hud_manager.gd).
-    - Descoberta da cifra de rede `MD5` + `RC4` e seções customizadas do Rebirth (`.s2*`), documentada em [`notes/district-187-rc4-network-crypto-and-bot-ai-engine.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-rc4-network-crypto-and-bot-ai-engine.md).
-    - Mock server atualizado com suporte ao handshake de 20 bytes em [`scripts/d187-mock-server.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187-mock-server.py).
-  - **Próxima Fase (Fase 3):**
-    - Mapeamento e exportação de novos mapas clássicos (`twoway`, `deathharbor`) para o ambiente Godot 4.
+  - **Fase 2 (Em Andamento — Handshake & Conexão Nativa do TheRaw.exe):**
+    - Mapeada a CryptoAPI do Windows (`ADVAPI32.dll`) em `TheRaw.exe` (MD5 + RC4).
+    - Mapeadas as seções customizadas do Rebirth em `GameClient.dll` (`.s2*` e canal IPC `Local\ApexRing_`).
+    - Ajustar a recepção e despacho dos pacotes de handshake no mock server / emulador para o cliente original passar direto da tela de login para o lobby e entrar nas partidas nos mapas oficiais (`Worlds\twoway.World00p`, etc.) dentro do próprio executável original.
 - **Alvo:** `targets/district-187/`
 
 ### [SETUP] Configuração do ambiente RE
@@ -34,10 +35,18 @@
 - **Instaladas:** `evidence-driven-debugging`, `source-backed-research`, `validated-coding-loop`, `gauntlet-loop`, `agent-worktree-orchestration`
 - **Uso:** invocar via `/evidence-driven-debugging`, `/source-backed-research`, etc. durante análises RE
 
+### [TOOLING] Native Control Center & Analytics Suite
+- **Status:** concluído (2026-11-02)
+- **Entregas Realizadas:**
+  - `scripts/d187_control_center.py` — Launcher & Control Center nativo com alternador Online/Offline, toggle Ultra HD, destravamento de FPS e telemetria ao vivo.
+  - `scripts/generate_weapon_analytics.py` — Gerador do dashboard visual interativo de balanceamento (`targets/district-187/weapon_analytics_dashboard.html`).
+  - `scripts/extract_lithtech_cvars.py` — Extrator de 77 cvars nativas do motor e gerador do `autoexec_competitive.cfg`.
+  - `notes/lithtech-engine-cvars-and-competitive-tuning.md` — Documentação técnica das cvars e otimizações de taxa de quadros e latência.
+
 ### [ARCH] Autonomous RE Agent
-- **Status:** arquitetura esboçada (2026-11-02)
+- **Status:** implementado (2026-11-02)
 - **Referência:** `notes/autonomous-re-agent-architecture.md`
-- **Próximo:** implementar `scripts/re-router.py` + testar com primeiro alvo
+- **Script:** `scripts/re-router.py` atualizado com modo local offline (`--local <target>`) e suporte a GitHub issues.
 
 ---
 
