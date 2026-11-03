@@ -60,9 +60,24 @@
     - Extração e catalogação completa de 901 amostras de áudio dos 9 SoundBanks FMOD FSB5 via [`scripts/extract_fmod_audio.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/extract_fmod_audio.py) em `targets/district-187/extracted/audio/` e manifesto em `targets/district-187/data/audio_manifest.json`.
     - Biblioteca de protocolo mestre [`scripts/d187_protocol.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_protocol.py) estendida com os serializadores de combate em tempo real (`SN_Spawn`, `SN_Fire`, `SN_Hit`, `SN_Kill`, `SN_Bomb`, `SN_RoundEnd`).
     - Documentação técnica consolidada em [`notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md).
-  - **Fase 9 (Próximo Passo):**
-    - Testes e gameplay competitiva multi-mapas no cliente nativo original.
+  - **Fase 9 Concluída (Suíte de Desenvolvimento Profissional & Supervisor de Micro-serviços):**
+    - [`scripts/d187_web_panel.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_panel.py) transformado no Control Plane oficial com o `ServiceManager` gerenciando Start/Stop/Restart dos 4 daemons locais em `127.0.0.1` com detecção de portas abertas.
+    - Criado o cockpit unificado do Windows Terminal [`launch_workspace_wt.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_workspace_wt.bat) operando em grade 2x2 sem janelas soltas.
+  - **Fase 10 Concluída (Dedicated Server UDP Gateway 27888 & Suite de Heatmaps dos 25 Mapas):**
+    - Desenvolvido o Gateway UDP Autoritativo [`scripts/d187_dedicated_gateway.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_dedicated_gateway.py) escutando na porta UDP 27888, respondendo a pings LithTech, handshakes e heartbeats com 100% de sucesso nos testes de loopback.
+    - Gerados os 25 heatmaps de combate espacial 2D KDE com detecção de choke points via [`scripts/generate_match_heatmap.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/generate_match_heatmap.py) e o Portal Mestre [`targets/district-187/analytics/index.html`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/district-187/analytics/index.html).
+    - Documentação técnica em [`notes/district-187-spatial-analytics-and-heatmaps.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-spatial-analytics-and-heatmaps.md).
 - **Alvo:** `targets/district-187/`
+
+### [TARGET] Columnar Storage & Parquet Binary Format RE
+- **Status:** em andamento (2026-11-02)
+- **Foco:** Engenharia reversa e dissecação de baixo nível dos formatos binários de armazenamento colunar (Apache Parquet e Arrow IPC) usados em pipelines analíticos de alta escala (Meta, Presto, DuckDB).
+- **Entregas Concluídas:**
+  - Criado o README do alvo em [`targets/columnar-storage-re/README.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/columnar-storage-re/README.md).
+  - Implementado o dissector binário puro Python [`scripts/parse_parquet_binary.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/parse_parquet_binary.py) com deserializador do Thrift Compact Protocol (LEB128 varints, ZigZag, esquemas, row groups e offsets).
+  - Gerado dataset de telemetria analítica de teste em `targets/columnar-storage-re/data/telemetry_sample.parquet`.
+  - Documentação técnica em [`notes/parquet-columnar-binary-format-reverse-engineering.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/parquet-columnar-binary-format-reverse-engineering.md).
+- **Alvo:** `targets/columnar-storage-re/`
 
 ### [SETUP] Configuração do ambiente RE
 - **Status:** concluído

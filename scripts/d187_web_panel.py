@@ -48,6 +48,99 @@ def get_process_status(name="TheRaw.exe"):
         pass
     return {"running": False, "pids": []}
 
+class ServiceManager:
+    SERVICES = {
+        "mock_server": {
+            "name": "Hermit Mock Server",
+            "cmd": [sys.executable, "-u", os.path.join(BASE_DIR, "scripts", "d187-mock-server.py")],
+            "port": 12000,
+            "desc": "TCP Hermit Handshake & Scaleform Lobby",
+            "cwd": BASE_DIR
+        },
+        "dedicated_server": {
+            "name": "LithTech Dedicated Server",
+            "cmd": [sys.executable, "-u", os.path.join(BASE_DIR, "scripts", "d187_server_runner.py"), "--world", "twoway.World00p", "--port", "27888"],
+            "port": 27888,
+            "desc": "Jupiter EX Headless Combat Engine (UDP)",
+            "cwd": BASE_DIR
+        },
+        "apexguard": {
+            "name": "ApexGuard Anti-Cheat Stub",
+            "cmd": [sys.executable, "-u", os.path.join(BASE_DIR, "scripts", "apexguard_stub.py")],
+            "port": None,
+            "desc": "Shared Memory Heartbeat (Local\\ApexRing_)",
+            "cwd": BASE_DIR
+        },
+        "sniffer": {
+            "name": "Hermit MITM Packet Sniffer",
+            "cmd": [sys.executable, "-u", os.path.join(BASE_DIR, "scripts", "d187_proxy_sniffer.py")],
+            "port": None,
+            "desc": "Decodes real-time client/server opcodes",
+            "cwd": BASE_DIR
+        }
+    }
+    
+    _procs = {}
+
+    @classmethod
+    def start_service(cls, svc_id: str) -> bool:
+        if svc_id not in cls.SERVICES:
+            return False
+        if cls.is_running(svc_id):
+            return True
+        info = cls.SERVICES[svc_id]
+        try:
+            p = subprocess.Popen(info["cmd"], cwd=info.get("cwd", BASE_DIR))
+            cls._procs[svc_id] = p
+            return True
+        except Exception as e:
+            print(f"[-] Failed to start {svc_id}: {e}")
+            return False
+
+    @classmethod
+    def stop_service(cls, svc_id: str) -> bool:
+        if svc_id in cls._procs:
+            p = cls._procs[svc_id]
+            if p.poll() is None:
+                try:
+                    p.terminate()
+                    p.wait(timeout=1.0)
+                except Exception:
+                    p.kill()
+            del cls._procs[svc_id]
+            return True
+        return False
+
+    @classmethod
+    def is_running(cls, svc_id: str) -> bool:
+        if svc_id in cls._procs:
+            p = cls._procs[svc_id]
+            if p.poll() is None:
+                return True
+            else:
+                del cls._procs[svc_id]
+        port = cls.SERVICES.get(svc_id, {}).get("port")
+        if port and check_port_open("127.0.0.1", port):
+            return True
+        return False
+
+    @classmethod
+    def get_status_all(cls):
+        res = {}
+        for svc_id, info in cls.SERVICES.items():
+            running = cls.is_running(svc_id)
+            pid = cls._procs[svc_id].pid if svc_id in cls._procs and cls._procs[svc_id].poll() is None else None
+            port_open = check_port_open("127.0.0.1", info["port"]) if info.get("port") else False
+            res[svc_id] = {
+                "name": info["name"],
+                "desc": info["desc"],
+                "running": running or port_open,
+                "pid": pid,
+                "port": info.get("port"),
+                "port_open": port_open
+            }
+        return res
+
 def get_weapons_list():
     if not os.path.exists(DB_PATH):
         return []
@@ -160,6 +253,31 @@ HTML_PAGE = """<!DOCTYPE html>
         </div>
         <span class="text-xs text-slate-500 group-hover:text-indigo-400 transition">&rarr;</span>
       </a>
+    </div>
+
+    <!-- Microservices Supervisor & Lifecycle Manager -->
+    <div class="glass-card rounded-2xl p-6">
+      <div class="flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            Microservices Supervisor & Lifecycle Manager
+          </h2>
+          <p class="text-xs text-slate-400">Isolated daemons running on loopback (127.0.0.1) without port collisions</p>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="controlAllServices('start')" class="px-3.5 py-1.5 bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/40 rounded-lg text-xs font-semibold transition">
+            Start All
+          </button>
+          <button onclick="controlAllServices('stop')" class="px-3.5 py-1.5 bg-rose-600/30 hover:bg-rose-600/50 text-rose-300 border border-rose-500/40 rounded-lg text-xs font-semibold transition">
+            Stop All
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4" id="services-grid">
+        <div class="col-span-4 text-center py-4 text-slate-500 text-xs">Loading services status...</div>
+      </div>
     </div>
 
     <!-- Maps & Tactical NavMesh Hub -->
@@ -396,8 +514,54 @@ HTML_PAGE = """<!DOCTYPE html>
       }
     }
 
-    setInterval(updateStatus, 2500);
+    async function loadServices() {
+      try {
+        const res = await fetch('/api/services');
+        const services = await res.json();
+        const grid = document.getElementById('services-grid');
+        grid.innerHTML = Object.entries(services).map(([id, s]) => {
+          const isRunning = s.running;
+          const portStr = s.port ? `<span class="text-[11px] font-mono text-cyan-300">:${s.port}</span>` : '';
+          return `
+            <div class="glass-card rounded-xl p-3 border border-slate-800">
+              <div class="flex justify-between items-start">
+                <span class="text-xs font-bold text-white">${s.name}</span>
+                <span class="w-2.5 h-2.5 rounded-full ${isRunning ? 'bg-emerald-400 shadow-md shadow-emerald-400/50' : 'bg-slate-600'}"></span>
+              </div>
+              <p class="text-[10px] text-slate-400 mt-1 truncate">${s.desc}</p>
+              <div class="flex justify-between items-center mt-3 pt-2 border-t border-slate-800/80">
+                <div class="text-[11px] text-slate-400">
+                  ${portStr} ${s.pid ? `<span class="text-slate-500 font-mono">PID ${s.pid}</span>` : ''}
+                </div>
+                <div>
+                  ${isRunning ? `
+                    <button onclick="toggleService('${id}', 'stop')" class="px-2.5 py-1 bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-white rounded text-[11px] font-semibold transition">Stop</button>
+                  ` : `
+                    <button onclick="toggleService('${id}', 'start')" class="px-2.5 py-1 bg-emerald-500/20 hover:bg-emerald-500 text-emerald-300 hover:text-white rounded text-[11px] font-semibold transition">Start</button>
+                  `}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    async function toggleService(svcId, action) {
+      await fetch(`/api/service/${action}?name=${svcId}`);
+      setTimeout(loadServices, 500);
+    }
+
+    async function controlAllServices(action) {
+      await fetch(`/api/service/${action}_all`);
+      setTimeout(loadServices, 1000);
+    }
+
+    setInterval(() => { updateStatus(); loadServices(); }, 2500);
     updateStatus();
+    loadServices();
     loadMatches();
   </script>
 </body>
@@ -427,6 +591,37 @@ class PanelHandler(BaseHTTPRequestHandler):
             self.send_header("Content-Type", "application/json")
             self.end_headers()
             self.wfile.write(json.dumps(payload).encode("utf-8"))
+
+        elif path == "/api/services":
+            status_data = ServiceManager.get_status_all()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps(status_data).encode("utf-8"))
+
+        elif path.startswith("/api/service/"):
+            action = path.replace("/api/service/", "")
+            params = parse_qs(url.query)
+            svc_name = params.get("name", [""])[0]
+
+            success = False
+            if action == "start":
+                success = ServiceManager.start_service(svc_name)
+            elif action == "stop":
+                success = ServiceManager.stop_service(svc_name)
+            elif action == "start_all":
+                for s_id in ServiceManager.SERVICES:
+                    ServiceManager.start_service(s_id)
+                success = True
+            elif action == "stop_all":
+                for s_id in ServiceManager.SERVICES:
+                    ServiceManager.stop_service(s_id)
+                success = True
+
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps({"success": success, "action": action, "service": svc_name}).encode("utf-8"))
 
         elif path == "/api/save_cvars":
             params = parse_qs(url.query)

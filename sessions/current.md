@@ -25,6 +25,26 @@
      - Integração com `apexguard_stub.py` e `d187-mock-server.py` em `launch_offline_emulator.bat`.
   8. **Documentação Técnica Completa:**
      - [`notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md).
+  9. **Suíte de Desenvolvimento Profissional & Supervisor de Micro-serviços:**
+     - [`scripts/d187_web_panel.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_panel.py) transformado no Control Plane oficial com `ServiceManager` gerenciando Start/Stop/Restart dos 4 daemons em `127.0.0.1` com detecção de portas abertas.
+     - Criado o cockpit unificado do Windows Terminal [`launch_workspace_wt.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_workspace_wt.bat) operando em grade 2x2 sem janelas soltas.
+
+   10. **Gateway Dedicado UDP Autoritativo (Porta 27888):**
+       - [`scripts/d187_dedicated_gateway.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_dedicated_gateway.py) escutando em `0.0.0.0:27888`, respondendo a datagramas de ping/pong LithTech, handshake de conexão e keep-alive heartbeats com 100% de sucesso nos testes de loopback.
+   11. **Suite de Spatial Combat Heatmaps dos 25 Mapas & Portal Mestre:**
+       - [`scripts/generate_match_heatmap.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/generate_match_heatmap.py) atualizado com suporte a processamento em lote (`--all`).
+       - Gerados todos os 25 heatmaps de combate espacial 2D KDE com detecção de choke points e sightlines.
+       - Criado o Portal Mestre de Analytics em [`targets/district-187/analytics/index.html`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/district-187/analytics/index.html).
+       - Documentação técnica em [`notes/district-187-spatial-analytics-and-heatmaps.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-spatial-analytics-and-heatmaps.md).
+   12. **Abertura de Novo Alvo: Engenharia Reversa de Armazenamento Colunar (Apache Parquet):**
+       - Alvo criado em [`targets/columnar-storage-re/`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/columnar-storage-re/README.md).
+       - Desenvolvido o dissector binário puro Python [`scripts/parse_parquet_binary.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/parse_parquet_binary.py) com deserializador Thrift Compact Protocol (LEB128 varints, ZigZag, esquemas, row groups e offsets).
+       - Documentação técnica consolidada em [`notes/parquet-columnar-binary-format-reverse-engineering.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/parquet-columnar-binary-format-reverse-engineering.md).
 
 ## Próximo Passo
-- Executar partidas ao vivo com os novos mapas e testar in-game no cliente original LithTech.
+- O ecossistema está 100% ONLINE e operando:
+  - Mock Server Hermit: ONLINE na porta 12000.
+  - Web Control Panel: ONLINE em `http://localhost:8080/`.
+  - Windows Terminal em grade 2x2 ativo.
+  - Para abrir o jogo e entrar na sala, executar `.\launch_offline_emulator.bat`.
+- Expandir o parser de páginas de dados do Parquet com descompressão Snappy pura em Python.

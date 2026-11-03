@@ -308,13 +308,149 @@ def generate_heatmap_for_map(map_name: str = "twoway"):
     with open(out_file, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"[+] Combat Heatmap successfully rendered: {out_file}")
+    return {
+        "map_name": map_name,
+        "total_kills": total_k,
+        "headshots": total_hs,
+        "hs_rate": round(hs_rate, 1),
+        "avg_dist": round(avg_dist, 1),
+        "top_weapon": top_weapons[0][0] if top_weapons else "N/A",
+        "top_weapon_kills": top_weapons[0][1] if top_weapons else 0,
+        "max_density": max_dens,
+        "out_file": f"{map_name}_combat_heatmap.html"
+    }
+
+def generate_analytics_portal(map_summaries: List[Dict[str, Any]]):
+    total_all_kills = sum(s["total_kills"] for s in map_summaries)
+    total_all_hs = sum(s["headshots"] for s in map_summaries)
+    global_hs_pct = (total_all_hs / total_all_kills * 100) if total_all_kills else 0
+
+    cards_html = ""
+    for s in sorted(map_summaries, key=lambda x: x["total_kills"], reverse=True):
+        cards_html += f"""
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS {s['hs_rate']}%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">{s['map_name']}</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">{s['total_kills']}</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">{s['top_weapon']}</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">{s['avg_dist']} u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">{s['max_density']} / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="{s['out_file']}" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        """
+
+    portal_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>District 187 - Master Spatial Analytics Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {{ background-color: #0b1120; color: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; }}
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-7xl mx-auto space-y-8">
+    <header class="border-b border-slate-800 pb-6 flex justify-between items-center">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="p-2.5 bg-rose-600 rounded-xl text-xl shadow-lg shadow-rose-900/40">🗺️</span>
+          <div>
+            <h1 class="text-3xl font-extrabold tracking-tight text-white">Spatial Telemetry & Combat Heatmaps Hub</h1>
+            <p class="text-slate-400 text-sm mt-0.5">District 187: Sin Streets &bull; LithTech Jupiter EX Map Telemetry & Choke Point Analytics</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="../tactical_map_arrival.html" class="text-xs text-cyan-400 hover:text-cyan-300 font-medium px-3 py-1.5 border border-cyan-800/60 bg-cyan-950/40 rounded-lg">Tactical Radar</a>
+        <a href="../weapon_analytics_dashboard.html" class="text-xs text-amber-400 hover:text-amber-300 font-medium px-3 py-1.5 border border-amber-800/60 bg-amber-950/40 rounded-lg">Arsenal Analytics</a>
+        <span class="px-3 py-1.5 bg-rose-950/80 text-rose-300 border border-rose-800 rounded-lg text-xs font-semibold">25 Maps Online</span>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-4 gap-4">
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl shadow-lg">
+        <span class="text-xs text-slate-400 font-semibold uppercase">Total Combat Events</span>
+        <p class="text-3xl font-extrabold text-white mt-1 font-mono">{total_all_kills:,}</p>
+        <p class="text-xs text-slate-500 mt-1">Cross-map kill telemetries</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl shadow-lg">
+        <span class="text-xs text-slate-400 font-semibold uppercase">Overall Headshot Rate</span>
+        <p class="text-3xl font-extrabold text-rose-400 mt-1 font-mono">{global_hs_pct:.1f}%</p>
+        <p class="text-xs text-slate-500 mt-1">{total_all_hs:,} lethal cranial hits</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl shadow-lg">
+        <span class="text-xs text-slate-400 font-semibold uppercase">Analyzed Worlds</span>
+        <p class="text-3xl font-extrabold text-cyan-400 mt-1 font-mono">{len(map_summaries)} Maps</p>
+        <p class="text-xs text-slate-500 mt-1">Extracted from Game.ResDt</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl shadow-lg">
+        <span class="text-xs text-slate-400 font-semibold uppercase">KDE Sightline Engine</span>
+        <p class="text-3xl font-extrabold text-emerald-400 mt-1 font-mono">Active</p>
+        <p class="text-xs text-slate-500 mt-1">2D Gaussian Kernel Density</p>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold text-white mb-4">Official World Heatmaps ({len(map_summaries)})</h2>
+      <div class="grid grid-cols-3 gap-6">
+        {cards_html}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+"""
+    portal_file = os.path.join(OUT_DIR, "index.html")
+    with open(portal_file, "w", encoding="utf-8") as f:
+        f.write(portal_html)
+    print(f"[+] Master Spatial Analytics Portal successfully generated: {portal_file}")
 
 def main():
     parser = argparse.ArgumentParser(description="District 187 Spatial Combat Heatmap Generator")
-    parser.add_argument("--map", default="twoway", help="Map name to generate heatmap for (e.g. twoway, Arrival, thebank)")
+    parser.add_argument("--map", default=None, help="Map name to generate heatmap for (e.g. twoway, Arrival, thebank)")
+    parser.add_argument("--all", action="store_true", help="Generate heatmaps for all 25 official maps and build master portal")
     args = parser.parse_args()
 
-    generate_heatmap_for_map(args.map)
+    if args.all or not args.map:
+        if args.map:
+            generate_heatmap_for_map(args.map)
+            return
+
+        map_files = [f for f in os.listdir(MAPS_DATA_DIR) if f.endswith(".json")]
+        print(f"[+] Found {len(map_files)} maps to process in batch...")
+        summaries = []
+        for mf in sorted(map_files):
+            mname = mf[:-5]
+            summary = generate_heatmap_for_map(mname)
+            if summary:
+                summaries.append(summary)
+        generate_analytics_portal(summaries)
+    else:
+        generate_heatmap_for_map(args.map)
 
 if __name__ == "__main__":
     main()

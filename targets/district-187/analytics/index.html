@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>District 187 - Master Spatial Analytics Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0b1120; color: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; }
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-7xl mx-auto space-y-8">
+    <header class="border-b border-slate-800 pb-6 flex justify-between items-center">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="p-2.5 bg-rose-600 rounded-xl text-xl shadow-lg shadow-rose-900/40">🗺️</span>
+          <div>
+            <h1 class="text-3xl font-extrabold tracking-tight text-white">Spatial Telemetry & Combat Heatmaps Hub</h1>
+            <p class="text-slate-400 text-sm mt-0.5">District 187: Sin Streets &bull; LithTech Jupiter EX Map Telemetry & Choke Point Analytics</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="../tactical_map_arrival.html" class="text-xs text-cyan-400 hover:text-cyan-300 font-medium px-3 py-1.5 border border-cyan-800/60 bg-cyan-950/40 rounded-lg">Tactical Radar</a>
+        <a href="../weapon_analytics_dashboard.html" class="text-xs text-amber-400 hover:text-amber-300 font-medium px-3 py-1.5 border border-amber-800/60 bg-amber-950/40 rounded-lg">Arsenal Analytics</a>
+        <span class="px-3 py-1.5 bg-rose-950/80 text-rose-300 border border-rose-800 rounded-lg text-xs font-semibold">25 Maps Online</span>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-4 gap-4">
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl shadow-lg">
+        <span class="text-xs text-slate-400 font-semibold uppercase">Total Combat Events</span>
+        <p class="text-3xl font-extrabold text-white mt-1 font-mono">5,949</p>
+        <p class="text-xs text-slate-500 mt-1">Cross-map kill telemetries</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl shadow-lg">
+        <span class="text-xs text-slate-400 font-semibold uppercase">Overall Headshot Rate</span>
+        <p class="text-3xl font-extrabold text-rose-400 mt-1 font-mono">36.0%</p>
+        <p class="text-xs text-slate-500 mt-1">2,140 lethal cranial hits</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl shadow-lg">
+        <span class="text-xs text-slate-400 font-semibold uppercase">Analyzed Worlds</span>
+        <p class="text-3xl font-extrabold text-cyan-400 mt-1 font-mono">25 Maps</p>
+        <p class="text-xs text-slate-500 mt-1">Extracted from Game.ResDt</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl shadow-lg">
+        <span class="text-xs text-slate-400 font-semibold uppercase">KDE Sightline Engine</span>
+        <p class="text-3xl font-extrabold text-emerald-400 mt-1 font-mono">Active</p>
+        <p class="text-xs text-slate-500 mt-1">2D Gaussian Kernel Density</p>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-bold text-white mb-4">Official World Heatmaps (25)</h2>
+      <div class="grid grid-cols-3 gap-6">
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 36.9%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10033_BlackOut</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">518</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300 Şirin</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">561.3 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">368 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10033_BlackOut_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 35.6%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10030_wolfandduck</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">458</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">719.8 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">220 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10030_wolfandduck_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 35.1%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">ghostcity</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">427</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300 Turkuaz</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">696.4 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">286 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="ghostcity_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 34.7%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">Kill_Port</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">375</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM Altın Sustrc</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">553.8 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">141 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="Kill_Port_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 32.8%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10034_TheMetro</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">296</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">DSR-E1</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">694.7 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">202 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10034_TheMetro_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 37.2%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">awm_lego_2</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">277</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">DSR-E1</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">580.5 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">129 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="awm_lego_2_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 34.1%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10036_WhiteNight</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">276</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300 Şirin</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">790.0 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">175 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10036_WhiteNight_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 41.3%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">lostland</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">247</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">641.4 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">112 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="lostland_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 39.0%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">thebank</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">246</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">DSR-E1</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">350.9 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">179 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="thebank_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 38.3%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">Ghost_Ship</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">243</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300 Altın</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">596.7 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">93 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="Ghost_Ship_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 29.3%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10023_GrandBazar</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">225</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">944.1 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">158 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10023_GrandBazar_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 30.0%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10025_Heaven</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">217</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">DSR-E1</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">631.6 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">109 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10025_Heaven_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 36.9%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">twoway_night</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">217</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">DSR-E1</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">951.3 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">86 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="twoway_night_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 34.2%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10026_UnderGround</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">199</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">845.7 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">135 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10026_UnderGround_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 34.5%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10035_HeadHunting</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">197</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">600.8 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">65 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10035_HeadHunting_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 37.6%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">aim_redline</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">194</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM Altın Sustrc</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">313.1 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">144 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="aim_redline_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 37.2%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">Arrival</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">188</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM Altın Sustrc</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">684.0 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">119 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="Arrival_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 37.6%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10016_underworld</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">170</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">528.2 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">43 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10016_underworld_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 36.3%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">twoway</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">157</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300 Şirin</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">813.8 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">107 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="twoway_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 36.5%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">oldtown</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">148</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">611.8 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">101 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="oldtown_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 41.1%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10039_UnderSiege</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">146</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300 Turkuaz</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">503.6 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">142 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10039_UnderSiege_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 39.3%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10029_DummyHouse</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">145</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM Altın Sustrc</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">505.9 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">80 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10029_DummyHouse_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 40.1%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">huntinghill</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">142</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300 Altın</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">604.6 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">83 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="huntinghill_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 36.4%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10031_Hospital</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">132</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">235.8 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">52 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10031_Hospital_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 transition-all rounded-xl p-5 flex flex-col justify-between shadow-lg group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono tracking-wider px-2 py-0.5 bg-slate-800 text-slate-300 rounded">LithTech Map</span>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-900/60 rounded">HS 31.2%</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mt-3 group-hover:text-rose-400 transition-colors font-mono">10018_moonnight</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Kills</span>
+                <span class="text-base font-bold text-white font-mono">109</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Top Weapon</span>
+                <span class="text-sm font-semibold text-cyan-400 truncate block">AWM 300 Turkuaz</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Avg Distance</span>
+                <span class="text-sm font-medium text-amber-300 font-mono">682.4 u</span>
+              </div>
+              <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
+                <span class="text-slate-400 block">Peak Choke</span>
+                <span class="text-sm font-medium text-rose-400 font-mono">30 / cell</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-800/80">
+            <a href="10018_moonnight_combat_heatmap.html" class="w-full block text-center py-2 px-3 bg-rose-600/90 hover:bg-rose-500 text-white font-medium text-sm rounded-lg transition-colors">
+              Inspect Spatial Heatmap &rarr;
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>
