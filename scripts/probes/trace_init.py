@@ -129,20 +129,16 @@ def main():
     breakpoints = {}
     orig_bytes = {}
 
+    the_raw_base = 0x400000
     points_to_set = {
-        0x23b0dd: "Call 0x100a6350 (Game Init)",
-        0x23b0e6: "FAIL after 0x100a6350 -> Exit 1",
-        0x23b114: "Call 0x102375f0",
-        0x23b11d: "FAIL after 0x102375f0 -> Exit 1",
-        0x23b15e: "Call 0x102299d0",
-        0x23b165: "FAIL after 0x102299d0 -> Exit 1",
-        0x23b177: "Call sub_1001b850->vtbl[1]",
-        0x23b17d: "FAIL after sub_1001b850 -> Exit 1",
-        0x23b1b7: "Call ILTClient->SetRenderMode",
-        0x23b1c0: "FAIL SetRenderMode -> Exit 1",
-        0x23b21e: "Call LoadDatabase (Database\\TheRaw.Gamdb00p)",
-        0x23b22f: "FAIL LoadDatabase -> Exit 1",
-        0x23b262: "SUCCESS CGameClientShell::Init -> Return 0!",
+        0x23b0dd: ("Call 0x100a6350 (Game Init)", "gc"),
+        0x23b1b7: ("Call ILTClient->SetRenderMode", "gc"),
+        0x23b1c0: ("FAIL SetRenderMode -> Exit 1", "gc"),
+        0xc0deb:  ("Call IDirect3D9::CreateDevice (Attempt 1)", "raw"),
+        0xc0df9:  ("CreateDevice Attempt 1 FAILED", "raw"),
+        0xc0e2b:  ("Call IDirect3D9::CreateDevice (Attempt 2)", "raw"),
+        0xc0e30:  ("CreateDevice Attempt 2 FAILED", "raw"),
+        0xc0e39:  ("CreateDevice SUCCESS!", "raw"),
     }
 
     de = DEBUG_EVENT()
@@ -189,8 +185,8 @@ def main():
                             game_client_base = base
                             print(f"[+] Loaded GameClient.dll at 0x{base:08x}")
                             # Set breakpoints!
-                            for rva, desc in points_to_set.items():
-                                bp_addr = base + rva
+                            for rva, (desc, target) in points_to_set.items():
+                                bp_addr = (game_client_base if target == "gc" else the_raw_base) + rva
                                 b_val = (ctypes.c_byte * 1)()
                                 kernel32.ReadProcessMemory(pi.hProcess, bp_addr, b_val, 1, ctypes.byref(read))
                                 orig_bytes[bp_addr] = bytes(b_val)[0]
@@ -233,12 +229,29 @@ def main():
                         ctx.ContextFlags = 0x10007 # WOW64_CONTEXT_FULL
                         if kernel32.Wow64GetThreadContext(h_thread, ctypes.byref(ctx)):
                             print(f"    EIP=0x{ctx.Eip:08x}, EAX=0x{ctx.Eax:08x}, ECX=0x{ctx.Ecx:08x}, EDX=0x{ctx.Edx:08x}, ESP=0x{ctx.Esp:08x}")
-                            if exc_addr == base + 0x23b1b7: # SetRenderMode
+                            if exc_addr == game_client_base + 0x23b1b7: # SetRenderMode
                                 rmode_buf = (ctypes.c_byte * 32)()
                                 read = ctypes.c_size_t()
                                 kernel32.ReadProcessMemory(pi.hProcess, ctx.Edx, rmode_buf, 32, ctypes.byref(read))
                                 vals = [int.from_bytes(bytes(rmode_buf)[i:i+4], 'little') for i in range(0, 32, 4)]
                                 print(f"    RenderMode struct at 0x{ctx.Edx:08x}: {vals}")
+                                fn_buf = (ctypes.c_byte * 4)()
+                                kernel32.ReadProcessMemory(pi.hProcess, 0x85ff10, fn_buf, 4, ctypes.byref(read))
+                                fn_val = int.from_bytes(bytes(fn_buf), 'little')
+                                print(f"    [0x85ff10] = 0x{fn_val:08x}")
+                            if exc_addr == the_raw_base + 0xc0deb: # CreateDevice
+                                stack_buf = (ctypes.c_byte * 28)()
+                                read = ctypes.c_size_t()
+                                kernel32.ReadProcessMemory(pi.hProcess, ctx.Esp, stack_buf, 28, ctypes.byref(read))
+                                args = [int.from_bytes(bytes(stack_buf)[i:i+4], 'little') for i in range(0, 28, 4)]
+                                print(f"    CreateDevice args [this, adapter, devtype, hwnd, flags, &d3dpp, &pDev]: {[hex(x) for x in args]}")
+                                # read d3dpp at args[5]
+                                d3dpp_buf = (ctypes.c_byte * 56)()
+                                kernel32.ReadProcessMemory(pi.hProcess, args[5], d3dpp_buf, 56, ctypes.byref(read))
+                                d3dpp = [int.from_bytes(bytes(d3dpp_buf)[i:i+4], 'little') for i in range(0, 56, 4)]
+                                print(f"    D3DPRESENT_PARAMETERS: Width={d3dpp[0]}, Height={d3dpp[1]}, Format={hex(d3dpp[2])}, Count={d3dpp[3]}, MSType={d3dpp[4]}, SwapEff={d3dpp[6]}, hWnd={hex(d3dpp[7])}, Windowed={d3dpp[8]}, AutoDS={d3dpp[9]}, DSFormat={hex(d3dpp[10])}, Flags={hex(d3dpp[11])}, Hz={d3dpp[12]}, Interval={hex(d3dpp[13])}")
+                            if exc_addr in (the_raw_base + 0xc0df9, the_raw_base + 0xc0e30):
+                                print(f"    CreateDevice FAILED with HRESULT: 0x{ctx.Eax:08x}")
                             ctx.Eip = exc_addr
                             kernel32.Wow64SetThreadContext(h_thread, ctypes.byref(ctx))
                         kernel32.CloseHandle(h_thread)
@@ -246,7 +259,29 @@ def main():
             elif exc_code in (0x80000004, 0x40000020): # STATUS_SINGLE_STEP or STATUS_WX86_SINGLE_STEP
                 pass
             else:
-                print(f"[!] Other exception: 0x{exc_code:08x} at 0x{exc_addr:08x}")
+                h_thread = kernel32.OpenThread(0x001F03FF, False, de.dwThreadId)
+                ret_addr = 0
+                if h_thread:
+                    class WOW64_CONTEXT(ctypes.Structure):
+                        _fields_ = [
+                            ('ContextFlags', wintypes.DWORD),
+                            ('Dr0', wintypes.DWORD), ('Dr1', wintypes.DWORD), ('Dr2', wintypes.DWORD), ('Dr3', wintypes.DWORD), ('Dr6', wintypes.DWORD), ('Dr7', wintypes.DWORD),
+                            ('FloatSave', ctypes.c_byte * 112),
+                            ('SegGs', wintypes.DWORD), ('SegFs', wintypes.DWORD), ('SegEs', wintypes.DWORD), ('SegDs', wintypes.DWORD),
+                            ('Edi', wintypes.DWORD), ('Esi', wintypes.DWORD), ('Ebx', wintypes.DWORD), ('Edx', wintypes.DWORD), ('Ecx', wintypes.DWORD), ('Eax', wintypes.DWORD),
+                            ('Ebp', wintypes.DWORD), ('Eip', wintypes.DWORD), ('SegCs', wintypes.DWORD), ('EFlags', wintypes.DWORD), ('Esp', wintypes.DWORD), ('SegSs', wintypes.DWORD),
+                            ('ExtendedRegisters', ctypes.c_byte * 512),
+                        ]
+                    ctx = WOW64_CONTEXT()
+                    ctx.ContextFlags = 0x10007 # WOW64_CONTEXT_FULL
+                    if kernel32.Wow64GetThreadContext(h_thread, ctypes.byref(ctx)):
+                        # Read stack frames (64 bytes = 16 dwords)
+                        ret_buf = (ctypes.c_byte * 64)()
+                        read = ctypes.c_size_t()
+                        kernel32.ReadProcessMemory(pi.hProcess, ctx.Esp, ret_buf, 64, ctypes.byref(read))
+                        ret_addrs = [hex(int.from_bytes(bytes(ret_buf)[i:i+4], 'little')) for i in range(0, 64, 4)]
+                        print(f"[!] Other exception: 0x{exc_code:08x} at 0x{exc_addr:08x}, Thread EIP=0x{ctx.Eip:08x}, Stack={ret_addrs}")
+                    kernel32.CloseHandle(h_thread)
                 continue_status = DBG_EXCEPTION_NOT_HANDLED
 
         elif code == EXIT_PROCESS_DEBUG_EVENT:

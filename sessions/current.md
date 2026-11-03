@@ -12,10 +12,11 @@
      - As 3 DLLs-proxy de injecao do anticheat foram substituidas pelas versoes limpas e originais (`dxbase.dll` 1.99MB Microsoft DirectX 9 como `D3DX9_43.dll`, `strbase.dll` 23KB e `dbbase.dll` 138KB). `ApexGuard.dll` foi desativada e renomeada para `.disabled`.
      - Neutralizado o hook de anel `.s2kl` em `targets/district-187/client-rebirth/Game/GameClient.dll` (offset `0x54D0A0` / `0x1058c0a0`) com `0xC3` (`RET`).
      - Erros `S2-320` e crash `R6025` completamente extintos.
-  2. **Resolucao de `LT_ERRORCOPYINGFILE  DLL Error : 0`:**
-     - Causa raiz: `TheRaw.exe`'s `InitClientShellDE` (`0x492fc0`) busca `GameClient.dll` no diretorio raiz do cliente. Como estava apenas dentro de `Game/`, a chamada de montagem `0x423019` falhava com erro 0.
-     - Correcao: `GameClient.dll` copiada para a raiz de `client-rebirth` e configurado explicitamente `-archcfg Default.archcfg +clientdll Game\GameClient.dll` em [`launch_game.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_game.bat) e [`scripts/d187_launcher.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_launcher.py).
-  3. **Bypass Cirurgico de `CApexMgr::Start` (Carregamento Infinito Eliminado):**
+  2. **Resolucao Definitiva de `LT_ERRORCOPYINGFILE` (Erros 0 e 123):**
+     - Causa raiz do Erro 123 (`ERROR_INVALID_NAME`): Ao passar `+clientdll Game\GameClient.dll` na linha de comando, `TheRaw.exe` repassava a string como prefixo para `GetTempFileNameA`, violando as regras da Win32 API que proíbe barras/contrabarras no prefixo de arquivos temporários.
+     - Causa raiz do Erro 0: Sem `-arch game`, a pasta `Game/` não era montada no VFS (Type 1 Directory Provider). O motor buscava `GameClient.dll` apenas dentro dos arquivos `.Res00` (Type 0 Archive Provider), onde a DLL solta não reside.
+     - Correção canônica: Restaurada a sintaxe canônica do motor LithTech Jupiter EX (`TheRaw.exe -arch game -windowtitle ...`) em [`launch_game.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_game.bat), [`targets/district-187/client-rebirth/launch_game_ultra_hd.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/district-187/client-rebirth/launch_game_ultra_hd.bat) e [`scripts/d187_launcher.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_launcher.py). O VFS monta `Game/` diretamente e carrega `GameClient.dll` sem criar arquivos temporários e sem erro.
+  3. **Bypass Cirúrgico de `CApexMgr::Start` (Carregamento Infinito Eliminado):**
      - Descoberto que na transicao de cena (`SN_LockEnd` `0x210121`), `GameClient.dll` (`0x10032f7f`) chama `CApexMgr::Start()` (`0x10010750`). Sem o ApexGuard, a thread ficava presa tentando conectar no pipe, congelando o Scaleform no loop de "Please Wait / Loading".
      - Patcheado `0x10010750` (offset `0xfb50` em `GameClient.dll`) com `\xb0\x01\xc3` (`mov al, 1; ret`). A funcao agora retorna `TRUE` instantaneamente e nao inicia threads secundarias.
   4. **Resolucao da Maquina de Estados e Pacotes do Mock Server (`d187-mock-server.py`):**

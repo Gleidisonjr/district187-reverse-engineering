@@ -311,8 +311,7 @@ class D187Launcher(tk.Tk):
 
         cmd = [
             THE_RAW_EXE,
-            "-archcfg", "Default.archcfg",
-            "+clientdll", r"Game\GameClient.dll",
+            "-arch", "game",
             "-windowtitle", "District 187: Sin Streets",
             "+gs_ip", target_ip,
             "+gs_port", target_port,
