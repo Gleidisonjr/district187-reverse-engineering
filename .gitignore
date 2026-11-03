@@ -45,3 +45,8 @@ targets/*/extracted/converted/
 targets/*/extracted/converted_weapons/
 .aider*
 *.exe
+
+# Standalone projects and external targets
+projects/ddtank-server/
+targets/dd-classico/
+dist/
