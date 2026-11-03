@@ -133,6 +133,10 @@ def run_smoke_test(host="127.0.0.1", port=12000):
     print("  [OK] SN_ItemList (0x210111) verified -> 27B/item VIP arsenal delivered!")
     assert 0x210103 in received_opcodes, "Missing SN_Record (0x210103)"
     print("  [OK] SN_Record (0x210103) verified -> 224B stats record delivered!")
+    assert 0x220107 in received_opcodes, "Missing SN_GroupList (0x220107)"
+    print("  [OK] SN_GroupList (0x220107) verified -> 66B Group entry delivered!")
+    assert 0x220108 in received_opcodes, "Missing SN_ServerList (0x220108)"
+    print("  [OK] SN_ServerList (0x220108) verified -> 20B Server entry delivered!")
     assert 0x210121 in received_opcodes, "Missing SN_LockEnd (0x210121)"
     print("  [OK] SN_LockEnd (0x210121) verified -> Calls ChangeScene(0) out of LoginScene!")
     assert 0x220101 in received_opcodes, "Missing SN_ServerInfo (0x220101)"
@@ -162,13 +166,13 @@ def run_smoke_test(host="127.0.0.1", port=12000):
                 ops.append(op_code)
         return ops
 
-    # 4. Channel Navigation (CQ_EnterUser 0x220111 -> SA_EnterUser 0x220112 + SA_RoomList 0x220104)
+    # 4. Channel Navigation (CQ_EnterUser 0x220111 -> SA_EnterUser 0x220112 + SN_RoomList 0x220204)
     enter_ch = build_pkt(0x220111, session_id, struct.pack("<B", 1))
     sock.sendall(enter_ch)
     print("\n  [->] Sent CQ_EnterUser (0x220111) to enter Channel 1")
     ch_ops = recv_opcodes(sock, min_count=2)
     assert 0x220112 in ch_ops, f"Expected SA_EnterUser 0x220112 in {ch_ops}"
-    print(f"  [<-] Received SA_EnterUser (0x220112) & SA_RoomList (0x220104) -> ChangeScene(2) into CLobbyScene!")
+    print(f"  [<-] Received SA_EnterUser (0x220112) & SN_RoomList (0x220204) -> ChangeScene(2) into CLobbyScene!")
 
     # 5. Create Room
     create_room = build_pkt(0x220201, session_id, b"Arrival 8v8\x00".ljust(32, b"\x00"))

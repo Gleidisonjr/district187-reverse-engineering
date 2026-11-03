@@ -303,7 +303,7 @@ class D187Launcher(tk.Tk):
 
         cmd = [
             THE_RAW_EXE,
-            "-arch", "game",
+            "-arch", "Default.archcfg",
             "-windowtitle", "District 187: Sin Streets (Ultra HD)",
             "+gs_ip", target_ip,
             "+gs_port", target_port

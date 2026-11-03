@@ -43,3 +43,5 @@ targets/*/extracted/materials/
 targets/*/extracted/weapons/
 targets/*/extracted/converted/
 targets/*/extracted/converted_weapons/
+.aider*
+*.exe

@@ -75,8 +75,15 @@ PACKET_SN_SERVER_LIST = 0x220108
 PACKET_CQ_ENTER_USER = 0x220111
 PACKET_SA_ENTER_USER = 0x220112
 PACKET_SN_USER_LIST = 0x220113
+PACKET_CQ_MOVE_SERVER = 0x220131
+PACKET_SA_MOVE_SERVER = 0x220132
+PACKET_CQ_QUICK_JOIN = 0x220161
+PACKET_SA_QUICK_JOIN = 0x220162
 PACKET_CQ_CREATE_ROOM = 0x220201
 PACKET_SA_CREATE_ROOM = 0x220202
+PACKET_SN_ROOM_LIST = 0x220204
+PACKET_CQ_ENTER_ROOM = 0x220231
+PACKET_SA_ENTER_ROOM = 0x220232
 PACKET_CN_START_BUTTON = 0x220301
 
 # NHosting / NBattle Family
@@ -353,28 +360,64 @@ def build_lock_end_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
     """
     return build_hermit_packet(PACKET_SN_LOCK_END, session_id, b"\x00" * 16, key_byte)
 
+def build_group_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
+    """
+    SN_GroupList (0x220107): Handler at 0x100326F0.
+    - Offset 0x10 (payload +0): uint8 unk = 0
+    - Offset 0x11 (payload +1): uint8 group_count = 1
+    - Offset 0x12 (payload +2): count entries of 66 bytes (0x42):
+      +0..4 (5B): group ID ("G1\x00\x00\x00")
+      +5..9 (5B): group code ("G1\x00\x00\x00")
+      +10..65 (56B): group name ("District 187 Official\x00...")
+    """
+    entry = bytearray(66)
+    entry[0:5] = b"G1\x00\x00\x00"
+    entry[5:10] = b"G1\x00\x00\x00"
+    name = b"District 187 Official\x00"
+    entry[10:10+len(name)] = name
+    payload = bytearray(struct.pack("<BB", 0, 1)) + entry
+    return build_hermit_packet(PACKET_SN_GROUP_LIST, session_id, bytes(payload), key_byte)
+
+def build_server_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
+    """
+    SN_ServerList (0x220108): Handler at 0x10032810.
+    - Offset 0x10 (payload +0): uint8 unk = 0
+    - Offset 0x11 (payload +1): uint8 server_count = 1
+    - Offset 0x12 (payload +2): count entries of 20 bytes (0x14):
+      +0..4 (5B): server ID ("S2\x00\x00\x00")
+      +5..9 (5B): group code ("G1\x00\x00\x00") - matches group_code of 0x220107!
+      +10..19 (10B): server code ("S2\x00...") - matches server_code of 0x220101!
+    """
+    entry = bytearray(20)
+    entry[0:5] = b"S2\x00\x00\x00"
+    entry[5:10] = b"G1\x00\x00\x00"
+    entry[10:12] = b"S2"
+    payload = bytearray(struct.pack("<BB", 0, 1)) + entry
+    return build_hermit_packet(PACKET_SN_SERVER_LIST, session_id, bytes(payload), key_byte)
+
 def build_server_info_hermit(session_id: int, port: int = 12000, key_byte: int = 0x0F) -> bytes:
     """
-    SN_ServerInfo (0x220101): Handler at 0x1011EB80 -> 0x10074F30.
+    SN_ServerInfo (0x220101): Handler at 0x1011EB80 -> 0x10074F30 -> 0x100735F0.
     - Offset 0x10 (payload +0): uint8 flag = 0
     - Offset 0x11 (payload +1): uint8 server_count = 1
     - Offset 0x12 (payload +2): 98-byte (0x62) server entry:
-      +0..4: 5B header
-      +5..9: 5B group/region tag ("S2\x00")
-      +10..25 (0x0A): 16B IP string ("127.0.0.1\x00")
-      +26..80 (0x1A): 55B Server Name ("S2 Rebirth Dedicated\x00")
+      +0..4: 5B ID ("S2\x00\x00\x00")
+      +5..9: 5B server_code ("S2\x00\x00\x00") - matched against SN_ServerList!
+      +16..31: 16B IP string ("127.0.0.1\x00")
+      +26..79: 54B Server Name ("District 187 Dedicated [BR]\x00")
       +81..84 (0x51): uint32 server_id (1)
       +85..86 (0x55): uint16 port (12000)
       +87..88 (0x57): uint16 cur_users (12)
       +89..90 (0x59): uint16 max_users (200)
-      +91 (0x5B): uint8 skip_flag (0 = active/visible; 1 = skipped!)
+      +91 (0x5B): uint8 skip_flag (0 = active/visible)
       +92 (0x5C): uint8 server_type (1 = normal)
     """
     entry = bytearray(98)
-    entry[5:8] = b"S2\x00"
+    entry[0:5] = b"S2\x00\x00\x00"
+    entry[5:10] = b"S2\x00\x00\x00"
     ip_b = b"127.0.0.1\x00"
-    entry[10:10+len(ip_b)] = ip_b
-    name_b = b"S2 Rebirth Dedicated [BR]\x00"
+    entry[16:16+len(ip_b)] = ip_b
+    name_b = b"District 187 Dedicated [BR]\x00"
     entry[26:26+len(name_b)] = name_b
     struct.pack_into("<IHHHBB", entry, 81, 1, port, 12, 200, 0, 1)
 
@@ -386,21 +429,21 @@ def build_channel_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
     SN_ChannelList (0x220102): Handler at 0x100BA790 -> 0x100743A0 -> 0x100742C0 -> 0x10073BF0.
     - Offset 0x10 (payload +0): uint8 flag = 0
     - Offset 0x11 (payload +1): uint8 channel_count
-    - Offset 0x12..0x16 (payload +2..+6): 5B header (uint32 server_id = 1, uint8 = 0)
+    - Offset 0x12..0x16 (payload +2..+6): 5-byte null-terminated server_code: b"S2\x00\x00\x00"
     - Offset 0x17 (payload +7): 57-byte (0x39) channel entries:
       +0: uint8 channel_id
       +1: uint16 cur_users
       +3: uint16 max_users
       +5: uint8 channel_type
-      +10 (0x0A): uint32 status_flag (0)
+      +10..13 (0x0A): uint32 status_flag (0)
       +14 (0x0E): 43-byte null-terminated channel name
     """
     channels = [
-        (1, 12, 100, b"Channel 1 - Free [All Players]\x00"),
+        (1, 12, 100, b"Channel 1 - Free [Bots & LAN]\x00"),
         (2, 8, 100, b"Channel 2 - Competitive [8v8]\x00"),
         (3, 4, 100, b"Channel 3 - Clan Match [VIP]\x00"),
     ]
-    payload = bytearray(struct.pack("<BBIB", 0, len(channels), 1, 0))
+    payload = bytearray(struct.pack("<BB5s", 0, len(channels), b"S2\x00\x00\x00"))
     for cid, cur_u, max_u, cname in channels:
         entry = bytearray(57)
         struct.pack_into("<BHHBI", entry, 0, cid, cur_u, max_u, 0, 0)
@@ -421,21 +464,33 @@ def build_enter_channel_response(session_id: int, channel_id: int = 1, key_byte:
     payload[8] = channel_id & 0xFF
     return build_hermit_packet(PACKET_SA_ENTER_USER, session_id, bytes(payload), key_byte)
 
+def build_move_server_response(session_id: int, key_byte: int = 0x0F) -> bytes:
+    """
+    SA_MoveServer (0x220132): Handler at 0x100324C0.
+    - payload[0:2]: uint16 origin = 0
+    - payload[2:6]: uint32 err = 0 (Success)
+    - payload[6:10]: uint32 token1 = 1
+    - payload[10:14]: uint32 token2 = 1
+    """
+    payload = struct.pack("<HIII", 0, 0, 1, 1)
+    return build_hermit_packet(PACKET_SA_MOVE_SERVER, session_id, payload, key_byte)
+
 def build_room_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
-    """SA_RoomList (0x220104): Lists available rooms with different maps."""
-    rooms = [
-        (1, "Arrival 8v8 [Bots & VIP]", "Arrival", 1, 8, 16, 0),
-        (2, "TwoWay Demolition A/B", "twoway", 2, 10, 16, 0),
-        (3, "The Bank Gold Heist", "thebank", 3, 12, 16, 0),
-        (4, "Old Town TDM Clássico", "oldtown", 1, 6, 16, 0),
-        (5, "Heaven Search & Destroy", "10025_Heaven", 2, 4, 16, 0)
-    ]
-    payload = bytearray(struct.pack("<I", len(rooms)))
-    for rid, rname, rmap, mode, players, max_p, state in rooms:
-        rname_b = rname.encode("utf-8")[:31].ljust(32, b"\x00")
-        rmap_b = rmap.encode("utf-8")[:19].ljust(20, b"\x00")
-        payload += struct.pack("<I32s20sBBBB", rid, rname_b, rmap_b, mode, players, max_p, state)
-    return build_hermit_packet(PACKET_SA_ROOM_LIST, session_id, bytes(payload), key_byte)
+    """
+    SN_RoomList (0x220204): Handler at 0x100D59F0 -> 0x100D3580.
+    - Offset 0x10 (payload +0): uint8 unk = 0
+    - Offset 0x11 (payload +1): uint16 room_count
+    - Offset 0x13 (payload +3): 7-byte room entries (with bitmask = 0):
+      +0: uint16 room_id
+      +2: uint8 cmd = 1 (Add/Active)
+      +3: uint16 unk = 0
+      +5: uint16 bitmask = 0
+    """
+    room_ids = [1, 2, 3, 4, 5]
+    payload = bytearray(struct.pack("<BH", 0, len(room_ids)))
+    for rid in room_ids:
+        payload += struct.pack("<HBH H", rid, 1, 0, 0)
+    return build_hermit_packet(PACKET_SN_ROOM_LIST, session_id, bytes(payload), key_byte)
 
 def build_create_room_response(session_id: int, room_id: int = 1, room_name: str = "Arrival 8v8 [Bots & VIP]", key_byte: int = 0x0F) -> bytes:
     """SA_CreateRoom (0x220202): Response to CQ_CreateRoom."""
@@ -604,19 +659,25 @@ class HermitClientSession:
             self.sock.sendall(rec)
             print(f"[+] Dispatched SN_Record 0x210103 ({user_data['kills']} Kills, {user_data['headshots']} Headshots, {user_data['wins']} Wins)!")
 
-            # 6. Pre-populate Server Info (0x220101) & Channel List (0x220102) in global manager
+            # 6. Pre-populate Groups, Servers and Channels in global manager
+            glist = build_group_list_hermit(self.session_id, key_byte=self.key_byte)
+            self.sock.sendall(glist)
+            slist = build_server_list_hermit(self.session_id, key_byte=self.key_byte)
+            self.sock.sendall(slist)
             sinfo = build_server_info_hermit(self.session_id, port=12000, key_byte=self.key_byte)
             self.sock.sendall(sinfo)
             clist = build_channel_list_hermit(self.session_id, key_byte=self.key_byte)
             self.sock.sendall(clist)
-            print(f"[+] Dispatched SN_ServerInfo 0x220101 & SN_ChannelList 0x220102!")
+            print(f"[+] Dispatched SN_GroupList 0x220107, SN_ServerList 0x220108, SN_ServerInfo 0x220101 & SN_ChannelList 0x220102!")
 
             # 7. Dispatch LockEnd (0x210121: Calls ChangeScene(0) out of LoginScene!)
             lend = build_lock_end_hermit(self.session_id, key_byte=self.key_byte)
             self.sock.sendall(lend)
             print(f"[+] Dispatched SN_LockEnd 0x210121 -> Client transitioned out of LoginScene to ServerList (Scene[0])!")
 
-            # 8. Re-send SN_ServerInfo & SN_ChannelList now that CServerListScene is active
+            # 8. Re-send Group, Server & Channel lists now that CServerListScene is active
+            self.sock.sendall(glist)
+            self.sock.sendall(slist)
             self.sock.sendall(sinfo)
             self.sock.sendall(clist)
 
@@ -631,22 +692,29 @@ class HermitClientSession:
             self.sock.sendall(lend)
             print(f"[+] Dispatched SA_Join 0x110125 + SN_ChannelList 0x220102 + SN_LockEnd 0x210121 -> ChannelList (Scene[1])!")
 
-        # 6. CQ_EnterUser (0x220111 or legacy 0x220101) -> SA_EnterUser (0x220112) [Channel Navigation]
-        elif pkt_id == PACKET_CQ_ENTER_USER or pkt_id == PACKET_SN_SERVER_INFO:
+        # 5c. CQ_MoveServer (0x220131) -> SA_MoveServer (0x220132)
+        elif pkt_id == PACKET_CQ_MOVE_SERVER:
+            print(f"[+] CQ_MoveServer (0x220131) received! Sending SA_MoveServer...")
+            resp = build_move_server_response(self.session_id, key_byte=self.key_byte)
+            self.sock.sendall(resp)
+            print(f"[+] Dispatched SA_MoveServer 0x220132!")
+
+        # 6. CQ_EnterUser (0x220111) -> SA_EnterUser (0x220112) [Channel Navigation]
+        elif pkt_id == PACKET_CQ_ENTER_USER:
             channel_id = plain_packet[16] if len(plain_packet) > 16 else 1
             print(f"[+] CQ_EnterUser (0x{pkt_id:X}) received for Channel {channel_id}! Entering Lobby (Scene[2])...")
             resp = build_enter_channel_response(self.session_id, channel_id=channel_id, key_byte=self.key_byte)
             self.sock.sendall(resp)
             rlist = build_room_list_hermit(self.session_id, key_byte=self.key_byte)
             self.sock.sendall(rlist)
-            print(f"[+] Dispatched SA_EnterUser 0x220112 (Channel {channel_id}) + SA_RoomList 0x220104!")
+            print(f"[+] Dispatched SA_EnterUser 0x220112 (Channel {channel_id}) + SN_RoomList 0x220204!")
 
-        # CQ_RoomList (0x220103) -> SA_RoomList (0x220104) [Lobby Browser]
+        # CQ_RoomList (0x220103) -> SN_RoomList (0x220204) [Lobby Browser]
         elif pkt_id == PACKET_CQ_ROOM_LIST:
             print(f"[+] CQ_RoomList (0x220103) received! Sending available rooms...")
             resp = build_room_list_hermit(self.session_id, key_byte=self.key_byte)
             self.sock.sendall(resp)
-            print(f"[+] Dispatched SA_RoomList (5 active multi-map rooms)!")
+            print(f"[+] Dispatched SN_RoomList 0x220204 (5 active multi-map rooms)!")
 
         # 7. CQ_CreateRoom (0x220201) -> SA_CreateRoom (0x220202) [Room Creation]
         elif pkt_id == PACKET_CQ_CREATE_ROOM:
@@ -654,6 +722,23 @@ class HermitClientSession:
             resp = build_create_room_response(self.session_id, room_id=1, room_name=f"{self.active_map} 8v8 [Bots & VIP]", key_byte=self.key_byte)
             self.sock.sendall(resp)
             print(f"[+] Dispatched SA_CreateRoom (Room 1: {self.active_map} 8v8 [Bots & VIP])!")
+
+        # 7b. CQ_EnterRoom (0x220231) -> SA_EnterRoom (0x220232)
+        elif pkt_id == PACKET_CQ_ENTER_ROOM:
+            room_id = struct.unpack('<H', plain_packet[16:18])[0] if len(plain_packet) >= 18 else 1
+            print(f"[+] CQ_EnterRoom (0x220231) received for Room {room_id}!")
+            payload = struct.pack("<HIH", 0, 0, room_id)
+            resp = build_hermit_packet(PACKET_SA_ENTER_ROOM, self.session_id, payload, key_byte=self.key_byte)
+            self.sock.sendall(resp)
+            print(f"[+] Dispatched SA_EnterRoom 0x220232 for Room {room_id}!")
+
+        # 7c. CQ_QuickJoin (0x220161) -> SA_QuickJoin (0x220162)
+        elif pkt_id == PACKET_CQ_QUICK_JOIN:
+            print(f"[+] CQ_QuickJoin (0x220161) received! Directing to Room 1...")
+            payload = struct.pack("<HIH", 0, 0, 1)
+            resp = build_hermit_packet(PACKET_SA_QUICK_JOIN, self.session_id, payload, key_byte=self.key_byte)
+            self.sock.sendall(resp)
+            print(f"[+] Dispatched SA_QuickJoin 0x220162 (Room 1)!")
 
         # 8. CN_StartButton (0x220301) -> SN_BattleStart (0x420310) [Match Trigger]
         elif pkt_id == PACKET_CN_START_BUTTON:

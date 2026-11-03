@@ -36,7 +36,7 @@ if not exist "%CLIENT_DIR%\TheRaw.exe" (
 
 echo [*] Inicializando TheRaw.exe em modo Ultra HD...
 cd /d "%CLIENT_DIR%"
-start "" "TheRaw.exe" -arch game -windowtitle "District 187: Sin Streets (Ultra HD)" +gs_ip 127.0.0.1 +gs_port 12000
+start "" "TheRaw.exe" -arch Default.archcfg -windowtitle "District 187: Sin Streets (Ultra HD)" +gs_ip 127.0.0.1 +gs_port 12000
 
 echo [+] Jogo disparado com sucesso!
 echo =====================================================================

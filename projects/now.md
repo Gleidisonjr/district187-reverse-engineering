@@ -48,6 +48,13 @@
     - Criado o simulador autoritativo universal [`scripts/d187_match_simulator.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_match_simulator.py) com gravação contínua em SQLite (`match_history`) e suporte a qualquer mapa (`--map twoway`, `--map thebank`, etc.).
     - Atualizado o painel [`scripts/d187_web_panel.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_panel.py) com seletor de radares, visualizador de NavMesh, simulação 8v8 com 1 clique e feed de histórico.
     - Criado o orquestrador multi-processo [`launch_4_terminals.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_4_terminals.bat) para subir toda a stack conectada sem conflitos de arquivo.
+  - **Fase 7 Concluída (Teardown do ApexGuard & Transição 100% Autêntica Login -> Lobby):**
+    - Desmontado o launcher C#/.NET `S2Launcher.exe` e confirmada a independência do fluxo de login (a tela in-game Scaleform conecta diretamente na porta 12000).
+    - Removido o anticheat `ApexGuard.dll` da versão privada, restaurando as 3 DLLs originais limpas (`D3DX9_43.dll` 1.99MB DirectX 9, `StringEditRuntime.dll` e `GameDatabase.dll`), eliminando pop-ups `S2-320` e crashes `R6025`.
+    - Neutralizado o hook de anel `.s2kl` em `GameClient.dll` com patch `0xC3` (`RET`) preservando os hacks de taxa de quadros 144+ FPS (`.s2fp`) e zoom (`.s2zm`).
+    - Descobertos e implementados os pacotes `SN_GroupList` (`0x220107`, 66B) e `SN_ServerList` (`0x220108`, 20B) integrados ao `SN_ServerInfo` (`0x220101`, 98B) e `SN_ChannelList` (`0x220102`, 57B) com código de servidor `S2`.
+    - Validado o ciclo de vida completo de 16 pacotes (Login -> ServerList -> ChannelList -> Lobby -> Room -> Match Trigger) no [`scripts/test_client_handshake_smoke.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/test_client_handshake_smoke.py) com 100% de sucesso.
+    - Documentação em [`notes/d187-apexguard-removal-and-server-state-machine.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/d187-apexguard-removal-and-server-state-machine.md).
   - **Fase 7 Concluída (Resolução Definitiva do Login Scaleform, Launcher Próprio & Web Portal):**
     - Desmontada a função `0x10191740` em `GameClient.dll` descobrindo a instrução `0x10191bd0: cmp edi, 0xa40221`: comprovado que o offset 18 de `SA_JoyGameLogin` DEVE ser `0x00A40221` (10748449) para zerar o overlay `"please wait"` em `0x100d752b: mov dword ptr [eax + 0x64], 0`.
     - Implementados os handlers dos pacotes `0x20084` (Keepalive Ping) e `0x5A0101` (S2Rebirth ApexGuard Heartbeat) respondendo com `0x5A0102` (48 bytes).
