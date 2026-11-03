@@ -123,41 +123,76 @@ def run_smoke_test(host="127.0.0.1", port=12000):
             break
 
     print(f"\n[+] Total Packets Received: {len(received_opcodes)}")
-    if 0x110112 in received_opcodes:
-        print("  [OK] SA_JoyGameLogin (0x110112) verified -> Scaleform spinner released!")
-    if 0x210101 in received_opcodes:
-        print("  [OK] SN_UserInfo (0x210101) verified -> Rank 58, 9.99M Gold/Cash delivered!")
-    if 0x210201 in received_opcodes:
-        print("  [OK] SN_ItemList (0x210201) verified -> Full VIP arsenal delivered!")
-    if 0x210202 in received_opcodes:
-        print("  [OK] SN_LockEnd (0x210202) verified -> UI unlocked into Lobby!")
+    assert 0x110112 in received_opcodes, "Missing SA_JoyGameLogin (0x110112)"
+    print("  [OK] SA_JoyGameLogin (0x110112) verified -> IsPacketerrorMessage(0, 0) = No Error!")
+    assert 0x210101 in received_opcodes, "Missing SN_UserInfo (0x210101)"
+    print("  [OK] SN_UserInfo (0x210101) verified -> 25B Nickname & 25B ClanName delivered!")
+    assert 0x210105 in received_opcodes, "Missing SN_RankingInfo (0x210105)"
+    print("  [OK] SN_RankingInfo (0x210105) verified -> Rank 58 & Exp delivered!")
+    assert 0x210111 in received_opcodes, "Missing SN_ItemList (0x210111)"
+    print("  [OK] SN_ItemList (0x210111) verified -> 27B/item VIP arsenal delivered!")
+    assert 0x210103 in received_opcodes, "Missing SN_Record (0x210103)"
+    print("  [OK] SN_Record (0x210103) verified -> 224B stats record delivered!")
+    assert 0x210121 in received_opcodes, "Missing SN_LockEnd (0x210121)"
+    print("  [OK] SN_LockEnd (0x210121) verified -> Calls ChangeScene(0) out of LoginScene!")
+    assert 0x220101 in received_opcodes, "Missing SN_ServerInfo (0x220101)"
+    print("  [OK] SN_ServerInfo (0x220101) verified -> 98B Server entry (127.0.0.1:12000) delivered!")
+    assert 0x220102 in received_opcodes, "Missing SN_ChannelList (0x220102)"
+    print("  [OK] SN_ChannelList (0x220102) verified -> 57B Channel entries delivered!")
 
-    # 4. Channel Navigation
-    enter_ch = build_pkt(0x220101, session_id, struct.pack("<I", 1))
+    def recv_opcodes(sock, min_count=1):
+        buf = bytearray()
+        ops = []
+        deadline = time.time() + 2.0
+        while len(ops) < min_count and time.time() < deadline:
+            chunk = sock.recv(4096)
+            if not chunk:
+                break
+            buf.extend(chunk)
+            while len(buf) >= 16:
+                len_b6 = buf[6] ^ (CRC_TABLE[6] & 0xFF) ^ 0x0F
+                len_b7 = buf[7] ^ (CRC_TABLE[7] & 0xFF) ^ 0x0F
+                plen = (len_b6 << 8) | len_b7
+                if plen < 16 or len(buf) < plen:
+                    break
+                raw_p = bytes(buf[:plen])
+                buf = buf[plen:]
+                dec_p = decrypt(raw_p)
+                _, _, _, _, op_code = struct.unpack('>IHHII', dec_p[:16])
+                ops.append(op_code)
+        return ops
+
+    # 4. Channel Navigation (CQ_EnterUser 0x220111 -> SA_EnterUser 0x220112 + SA_RoomList 0x220104)
+    enter_ch = build_pkt(0x220111, session_id, struct.pack("<B", 1))
     sock.sendall(enter_ch)
-    print("\n  [->] Sent CQ_EnterUser (0x220101) to enter Channel 1")
-    resp = sock.recv(4096)
-    dec_ch = decrypt(resp)
-    _, _, _, _, op = struct.unpack('>IHHII', dec_ch[:16])
-    print(f"  [<-] Received SA_EnterUser (0x{op:X}) -> Entered Channel 1 [Competitivo]!")
+    print("\n  [->] Sent CQ_EnterUser (0x220111) to enter Channel 1")
+    ch_ops = recv_opcodes(sock, min_count=2)
+    assert 0x220112 in ch_ops, f"Expected SA_EnterUser 0x220112 in {ch_ops}"
+    print(f"  [<-] Received SA_EnterUser (0x220112) & SA_RoomList (0x220104) -> ChangeScene(2) into CLobbyScene!")
 
     # 5. Create Room
     create_room = build_pkt(0x220201, session_id, b"Arrival 8v8\x00".ljust(32, b"\x00"))
     sock.sendall(create_room)
     print("  [->] Sent CQ_CreateRoom (0x220201)")
-    resp = sock.recv(4096)
-    dec_room = decrypt(resp)
-    _, _, _, _, op = struct.unpack('>IHHII', dec_room[:16])
-    print(f"  [<-] Received SA_CreateRoom (0x{op:X}) -> Match Room Created!")
+    room_ops = recv_opcodes(sock, min_count=1)
+    assert 0x220202 in room_ops, f"Expected SA_CreateRoom 0x220202 in {room_ops}"
+    print(f"  [<-] Received SA_CreateRoom (0x220202) -> Match Room Created!")
 
     # 6. Start Match
     start_btn = build_pkt(0x220301, session_id, b"")
     sock.sendall(start_btn)
     print("  [->] Sent CN_StartButton (0x220301)")
-    resp = sock.recv(4096)
-    dec_battle = decrypt(resp)
-    _, _, _, _, op = struct.unpack('>IHHII', dec_battle[:16])
-    print(f"  [<-] Received SN_BattleStart (0x{op:X}) -> Connecting to combat UDP server 127.0.0.1:27888!")
+    battle_ops = recv_opcodes(sock, min_count=1)
+    assert 0x420310 in battle_ops, f"Expected SN_BattleStart 0x420310 in {battle_ops}"
+    print(f"  [<-] Received SN_BattleStart (0x420310) -> Connecting to combat UDP server 127.0.0.1:27888!")
+
+    # 7. Test In-Game Chat Slash Command (/mmr)
+    chat_cmd = build_pkt(0x210151, session_id, b"/mmr\x00".ljust(64, b"\x00"))
+    sock.sendall(chat_cmd)
+    print("  [->] Sent CQ_Chat (0x210151) with '/mmr'")
+    chat_ops = recv_opcodes(sock, min_count=1)
+    assert 0x210152 in chat_ops, f"Expected SN_Chat 0x210152 in {chat_ops}"
+    print(f"  [<-] Received SN_Chat (0x210152) with MMR & DDA Bot Profile!")
 
     sock.close()
     print("\n=====================================================================")

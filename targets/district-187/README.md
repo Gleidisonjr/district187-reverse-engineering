@@ -28,6 +28,10 @@
   - Gerador de Heatmaps 2D KDE: [`scripts/generate_match_heatmap.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/generate_match_heatmap.py)
   - Extrator de Áudio FMOD FSB5: [`scripts/extract_fmod_audio.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/extract_fmod_audio.py)
   - Biblioteca serializadora de protocolo NBattle: [`scripts/d187_protocol.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_protocol.py)
+  - Compilador/Repacker HBEK `.Res00`/`.ResDt` & Tradução PT-BR: [`scripts/pack_lithtech_res.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/pack_lithtech_res.py)
+  - Motor MMR (Elo/DDA), Loadouts, Clãs & Replay 2D (HLTV): [`scripts/d187_mmr_engine.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_mmr_engine.py)
+  - Comandos In-Game via Chat (`/map`, `/bots`, `/give`, `/mmr`): [`scripts/d187_lobby_extensions.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_lobby_extensions.py)
+  - Otimizador QoL Windows 11 (Borderless Windowed, FOV 95°, Raw Mouse): [`scripts/d187_qol_optimizer.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_qol_optimizer.py)
   - Sincronizador de updates: [`scripts/sync-district-187-updates.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/sync-district-187-updates.py)
 - **Antivírus:** Kaspersky CLI 21.26 (`avp.com`)
 
@@ -49,6 +53,7 @@
 - [`notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-multi-map-geometry-navmesh-and-audio-manifest.md) — Extração dos 29 mapas compilados, NavMeshes A*, Heatmaps 2D de telemetria e extração dos 9 SoundBanks FMOD FSB5 (901 amostras)
 - [`notes/d187-login-scaleform-unlock.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/d187-login-scaleform-unlock.md) — Engenharia reversa no assembly de `GameClient.dll` (0x10191bd0), desbloqueio do login com `0x00A40221`, Keepalive `0x20084` e Heartbeat `0x5A0101`
 - [`notes/d187-apexguard-s2-320-dx-proxy.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/d187-apexguard-s2-320-dx-proxy.md) — Causa raiz do erro `ApexGuard S2-320` e crash `R6025` (cadeia de DLLs-proxy `D3DX9_43.dll` -> `dxbase.dll` no `client-rebirth`)
+- [`notes/district-187-modding-mmr-replay-and-qol-suite.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-modding-mmr-replay-and-qol-suite.md) — Compilador HBEK `.Res00`/`.ResDt` (PT-BR), Motor MMR/DDA, Replay 2D (HLTV), Comandos Slash In-Game e QoL Windows 11
 - [`D187_Launcher.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/D187_Launcher.bat) — Launcher gráfico próprio em Python/Tkinter com suporte a partidas Solo contra Bots de IA (Fácil/Médio/Difícil, 1v1 a 8v8, mapas oficiais) e partidas Online/LAN com amigos
 - [`launch_game.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_game.bat) — Inicializador direto em 1 clique com verificação automática do servidor Hermit na porta 12000
 - [`scripts/d187_web_portal.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_portal.py) — Portal Web Standalone bilíngue (Português & English) com Arsenal de 185 armas, ranking de operativos (58 patentes) e cadastro de novas contas em SQLite

@@ -75,6 +75,41 @@ def api_leaderboard():
     conn.close()
     return {"leaderboard": users}
 
+@app.get("/api/mmr")
+def api_mmr():
+    conn = get_db()
+    c = conn.cursor()
+    c.execute("SELECT * FROM player_mmr ORDER BY elo_rating DESC")
+    rows = [dict(r) for r in c.fetchall()]
+    conn.close()
+    return {"mmr": rows}
+
+@app.get("/api/clans")
+def api_clans():
+    conn = get_db()
+    c = conn.cursor()
+    c.execute("SELECT * FROM clans ORDER BY clan_elo DESC")
+    rows = [dict(r) for r in c.fetchall()]
+    conn.close()
+    return {"clans": rows}
+
+@app.get("/api/loadouts")
+def api_loadouts(account_id: int = 1):
+    conn = get_db()
+    c = conn.cursor()
+    c.execute("SELECT * FROM player_loadouts WHERE account_id = ? ORDER BY slot_index ASC", (account_id,))
+    rows = [dict(r) for r in c.fetchall()]
+    conn.close()
+    return {"loadouts": rows}
+
+@app.get("/replay", response_class=HTMLResponse)
+def replay_viewer():
+    replay_path = os.path.join(BASE_DIR, "targets", "district-187", "analytics", "match_replay.html")
+    if os.path.exists(replay_path):
+        with open(replay_path, "r", encoding="utf-8") as f:
+            return HTMLResponse(content=f.read())
+    return HTMLResponse(content="<h1>Replay file not generated yet.</h1>", status_code=404)
+
 @app.post("/api/register")
 def api_register(username: str = Form(...), password: str = Form(...), nickname: str = Form(...)):
     conn = get_db()
@@ -164,6 +199,7 @@ def index_page():
                 <a href="#weapons" class="text-zinc-300 hover:text-amber-400 transition" data-pt="Arsenal VIP" data-en="VIP Armory">Arsenal VIP</a>
                 <a href="#leaderboard" class="text-zinc-300 hover:text-amber-400 transition" data-pt="Classificação" data-en="Leaderboard">Classificação</a>
                 <a href="#maps" class="text-zinc-300 hover:text-amber-400 transition" data-pt="Mapas Oficiais" data-en="Official Maps">Mapas Oficiais</a>
+                <a href="/replay" target="_blank" class="text-amber-400 font-semibold hover:text-amber-300 transition" data-pt="🎬 Replay 2D (HLTV)" data-en="🎬 2D Replay (HLTV)">🎬 Replay 2D (HLTV)</a>
                 <a href="#register" class="text-zinc-300 hover:text-amber-400 transition" data-pt="Criar Conta" data-en="Create Account">Criar Conta</a>
             </nav>
 

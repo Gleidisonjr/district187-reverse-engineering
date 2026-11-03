@@ -120,6 +120,9 @@ class D187Launcher(tk.Tk):
         btn_portal = tk.Button(status_right, text="Abrir Web Portal", font=("Segoe UI", 9, "bold"), bg="#F59E0B", fg="#000000", activebackground="#D97706", activeforeground="#000000", border=0, padx=12, pady=4, cursor="hand2", command=self.open_portal)
         btn_portal.pack(side="left", padx=4)
 
+        btn_replay = tk.Button(status_right, text="🎬 Replay 2D", font=("Segoe UI", 9, "bold"), bg="#1f2230", fg="#38bdf8", activebackground="#2a2d40", activeforeground="#ffffff", border=0, padx=10, pady=4, cursor="hand2", command=self.open_replay)
+        btn_replay.pack(side="left", padx=4)
+
         # Main Tabs / Modes Panel
         content_frame = tk.Frame(self, bg=self.c_bg)
         content_frame.pack(fill="both", expand=True, padx=24, pady=8)
@@ -194,7 +197,21 @@ class D187Launcher(tk.Tk):
         perf_frame = tk.Frame(self, bg=self.c_bg)
         perf_frame.pack(fill="x", padx=24, pady=4)
 
-        lbl_perf = tk.Label(perf_frame, text="⚡ Display: Ultra HD Textures (HD1-HD6)  |  Taxa: 144Hz+ Uncapped  |  Idioma: English (Interface & Áudio)", font=("Segoe UI", 8), fg=self.c_muted, bg=self.c_bg)
+        self.borderless_var = tk.BooleanVar(value=True)
+        chk_borderless = tk.Checkbutton(
+            perf_frame,
+            text="Janela Sem Bordas (Win11 Instant Alt+Tab)",
+            variable=self.borderless_var,
+            font=("Segoe UI", 8, "bold"),
+            fg=self.c_gold,
+            bg=self.c_bg,
+            selectcolor=self.c_panel,
+            activebackground=self.c_bg,
+            activeforeground=self.c_gold,
+        )
+        chk_borderless.pack(side="left", padx=(0, 12))
+
+        lbl_perf = tk.Label(perf_frame, text="⚡ Ultra HD (HD1-HD6) | 144Hz+ Raw Mouse | FOV 95° | Mod PT-BR/EN", font=("Segoe UI", 8), fg=self.c_muted, bg=self.c_bg)
         lbl_perf.pack(side="left")
 
         # Giant Launch Button
@@ -252,6 +269,13 @@ class D187Launcher(tk.Tk):
             time.sleep(1)
         webbrowser.open("http://localhost:8080")
 
+    def open_replay(self):
+        replay_html = os.path.join(PROJECT_DIR, "targets", "district-187", "analytics", "match_replay.html")
+        if os.path.exists(replay_html):
+            webbrowser.open(f"file:///{replay_html.replace(os.sep, '/')}")
+        else:
+            self.open_portal()
+
     def launch_game(self):
         if not os.path.exists(THE_RAW_EXE):
             messagebox.showerror("Erro", f"TheRaw.exe não encontrado em:\n{THE_RAW_EXE}")
@@ -269,8 +293,13 @@ class D187Launcher(tk.Tk):
             subprocess.Popen([sys.executable, SERVER_SCRIPT], creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
             time.sleep(1.5)
 
-        # Set environment compatibility flag
+        # Set environment compatibility flag & apply Windows 11 QoL profile
         os.environ["__COMPAT_LAYER"] = "RunAsInvoker"
+        try:
+            from d187_qol_optimizer import apply_qol_profile, enforce_borderless_window
+            apply_qol_profile(fov=95, raw_mouse=True, borderless=self.borderless_var.get())
+        except Exception:
+            pass
 
         cmd = [
             THE_RAW_EXE,
@@ -282,6 +311,8 @@ class D187Launcher(tk.Tk):
 
         try:
             subprocess.Popen(cmd, cwd=CLIENT_DIR)
+            if self.borderless_var.get():
+                threading.Thread(target=enforce_borderless_window, kwargs={"timeout_sec": 12.0}, daemon=True).start()
             messagebox.showinfo("District 187", "Jogo inicializado com sucesso!\n\nNa tela de login dentro do jogo:\n- Digite seu Usuário (ex: gleidison)\n- Digite sua Senha (qualquer senha)\n- Clique em OK!")
         except Exception as e:
             messagebox.showerror("Erro ao disparar", f"Falha ao iniciar TheRaw.exe:\n{e}")
