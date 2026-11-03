@@ -311,14 +311,14 @@ class D187Launcher(tk.Tk):
 
         cmd = [
             THE_RAW_EXE,
-            "-arch", "game",
+            "-archcfg", "Default.archcfg",
+            "+clientdll", r"Game\GameClient.dll",
             "-windowtitle", "District 187: Sin Streets",
             "+gs_ip", target_ip,
             "+gs_port", target_port,
             "+windowed", "1",
             "+ScreenWidth", "1920",
-            "+ScreenHeight", "1080",
-            "+ShowLog", "1"
+            "+ScreenHeight", "1080"
         ]
 
         try:
