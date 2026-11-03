@@ -11,10 +11,10 @@
     - `Default.archcfg` atualizado para montagem automática das archives 2K/4K no motor LithTech.
     - `settings.cfg` e `autoexec.cfg` configurados com `GraphicQualityLevel 3`, `BindTexturesMipOffset 0` e `MaxFPS 0` (144+ FPS destravado).
     - Idioma inglês nativo ativado (3.923 strings).
-    - Scripts de inicialização direta prontos:
-      - `launch_s2rebirth_online.bat` (servidor oficial da comunidade em `179.61.147.154:12000`)
-      - `launch_s2rebirth_direct.bat` (inicialização direta rápida)
-      - `launch_offline_emulator.bat` (ambiente com mock server local em `127.0.0.1:12000`)
+    - Scripts de inicialização oficiais na raiz:
+      - [`D187_Launcher.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/D187_Launcher.bat) (Launcher Gráfico oficial em Tkinter [`scripts/d187_launcher.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_launcher.py))
+      - [`launch_game.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_game.bat) (Inicialização direta com verificação/subida automática do servidor Hermit local em `127.0.0.1:12000`)
+      - Launchers `.bat`/`.ps1` antigos arquivados em `scripts/legacy_launchers/`
   - **Fase 1.5 Concluída (Data Analytics & Telemetria Web Portal):**
     - Criado pipeline ETL [`scripts/build_s2rebirth_dataset.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/build_s2rebirth_dataset.py) gerando `targets/district-187/data/s2rebirth.db` (185 armas com stats reais de combate, 750 itens, 58 patentes, 155 mapas, 1.524 itens de loja).
     - Criado CLI Client [`scripts/s2rebirth_api_client.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/s2rebirth_api_client.py) para consulta em tempo real da telemetria de 1.140 jogadores, 73 clãs e histórico de partidas.
@@ -52,7 +52,7 @@
     - Desmontada a função `0x10191740` em `GameClient.dll` descobrindo a instrução `0x10191bd0: cmp edi, 0xa40221`: comprovado que o offset 18 de `SA_JoyGameLogin` DEVE ser `0x00A40221` (10748449) para zerar o overlay `"please wait"` em `0x100d752b: mov dword ptr [eax + 0x64], 0`.
     - Implementados os handlers dos pacotes `0x20084` (Keepalive Ping) e `0x5A0101` (S2Rebirth ApexGuard Heartbeat) respondendo com `0x5A0102` (48 bytes).
     - Conectada autenticação dinâmica ao banco de dados `targets/district-187/data/s2rebirth.db` (`users` com 58 patentes, EXP, Gold/Cash, Kills, Deaths, Headshots).
-    - Desenvolvido o **Launcher Gráfico Próprio** [`scripts/d187_launcher.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_launcher.py) / [`iniciar_launcher.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/iniciar_launcher.bat) em Tkinter com tema Dark/Amber, seleção de mapas e dificuldade de bots, modo online com amigos e inicialização do servidor em 1 clique.
+    - Desenvolvido o **Launcher Gráfico Próprio** [`scripts/d187_launcher.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_launcher.py) / [`D187_Launcher.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/D187_Launcher.bat) em Tkinter com tema Dark/Amber, seleção de mapas e dificuldade de bots, modo online com amigos e inicialização do servidor em 1 clique.
     - Desenvolvido o **Web Portal Standalone** [`scripts/d187_web_portal.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_web_portal.py) (FastAPI na porta 8080) com alternância instantânea PT-BR / EN, arsenal de 185 armas com stats de balística, tabela de classificação e registro de novas contas.
   - **Fase 8 Concluída (Telemetria Espacial 2D KDE, Extração FMOD Audio FSB5 & Protocolo NBattle):**
     - Desenvolvido o pipeline de telemetria espacial e gerador de heatmaps 2D com Kernel Density Estimation (KDE) [`scripts/generate_match_heatmap.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/generate_match_heatmap.py) sobreposto aos radares de `twoway`, `thebank` e `Arrival`.
@@ -67,6 +67,10 @@
     - Desenvolvido o Gateway UDP Autoritativo [`scripts/d187_dedicated_gateway.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_dedicated_gateway.py) escutando na porta UDP 27888, respondendo a pings LithTech, handshakes e heartbeats com 100% de sucesso nos testes de loopback.
     - Gerados os 25 heatmaps de combate espacial 2D KDE com detecção de choke points via [`scripts/generate_match_heatmap.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/generate_match_heatmap.py) e o Portal Mestre [`targets/district-187/analytics/index.html`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/district-187/analytics/index.html).
     - Documentação técnica em [`notes/district-187-spatial-analytics-and-heatmaps.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-spatial-analytics-and-heatmaps.md).
+  - **Fase 11 Concluída (Correção ApexGuard S2-320 / R6025, Bind Exclusivo 12000 & Reorganização):**
+    - Identificada e corrigida a causa raiz do erro `S2-320` e do crash `R6025 - pure virtual function call` ([`notes/d187-apexguard-s2-320-dx-proxy.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/d187-apexguard-s2-320-dx-proxy.md)): restaurada a proxy `targets/district-187/client-rebirth/D3DX9_43.dll` (119.864 bytes) que carrega `dxbase.dll`, exigida em memória pelo `ApexGuard.dll`.
+    - Aplicado `SO_EXCLUSIVEADDRUSE` em [`scripts/d187-mock-server.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187-mock-server.py) na porta 12000 para impedir instâncias fantasma de responderem com código de login antigo.
+    - Reorganizado o repositório: 80 scripts de probe movidos para `scripts/probes/`, launchers `.bat` legados movidos para `scripts/legacy_launchers/`, e separadas as portas do Web Portal (`8080`) e Web Control Panel (`8081`).
 - **Alvo:** `targets/district-187/`
 
 ### [TARGET] Columnar Storage & Parquet Binary Format RE

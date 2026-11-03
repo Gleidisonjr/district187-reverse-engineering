@@ -33,3 +33,5 @@
 | 2026-11-02 | Descoberta do código mágico de login 0x00A40221 e Heartbeats 0x20084 / 0x5A0102 | A instrução `0x10191bd0` em `GameClient.dll` exige `0x00A40221` para desativar a flag de bloqueio e entrar no Lobby |
 | 2026-11-02 | Criação de Web Portal Standalone bilíngue (FastAPI + Tailwind na porta 8080) | Reproduz o portal do S2 Rebirth de forma independente com alternância instantânea PT-BR/EN, 185 armas, Leaderboard e cadastro |
 | 2026-11-02 | Arquivamento de 80 scripts de probe em `scripts/probes/` e `.bat` legados em `legacy_launchers/` | Mantém a raiz do projeto e a pasta de scripts limpas, organizadas e com documentação estruturada |
+| 2026-11-02 | Preservar proxy `D3DX9_43.dll` (119 KB) em `client-rebirth` (diferente de `client/S2`) | Em `client-rebirth`, `D3DX9_43.dll` carrega `dxbase.dll`, que `ApexGuard.dll` exige na memória; trocá-la pela DLL do SysWOW64 causava `S2-320` e crash `R6025` |
+| 2026-11-02 | Forçar `SO_EXCLUSIVEADDRUSE` na porta 12000 em `d187-mock-server.py` | Evita que processos Python antigos compartilhem a porta 12000 no Windows e respondam ao cliente com código de login desatualizado |

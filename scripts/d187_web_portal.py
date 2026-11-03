@@ -18,7 +18,8 @@ from fastapi.responses import HTMLResponse, JSONResponse
 
 app = FastAPI(title="District 187 Web Portal")
 
-DB_PATH = os.path.join(r"targets\district-187\data\s2rebirth.db")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(BASE_DIR, "targets", "district-187", "data", "s2rebirth.db")
 
 def check_server_status(host="127.0.0.1", port=12000, timeout=0.5):
     try:

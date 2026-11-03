@@ -1,4 +1,5 @@
-import re, subprocess, psutil
+import re, subprocess, sys, psutil
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 LOG = r"C:\Users\dopamine\.gemini\antigravity-cli\brain\e317532f-f08a-492b-8467-49f769504e7f\.system_generated\tasks\task-4269.log"
 print("TheRaw:", [(p.pid, p.status()) for p in psutil.process_iter(['name']) if p.info['name'] == 'TheRaw.exe'])

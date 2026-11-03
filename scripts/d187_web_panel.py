@@ -58,10 +58,10 @@ class ServiceManager:
             "cwd": BASE_DIR
         },
         "dedicated_server": {
-            "name": "LithTech Dedicated Server",
-            "cmd": [sys.executable, "-u", os.path.join(BASE_DIR, "scripts", "d187_server_runner.py"), "--world", "twoway.World00p", "--port", "27888"],
+            "name": "LithTech Dedicated Gateway",
+            "cmd": [sys.executable, "-u", os.path.join(BASE_DIR, "scripts", "d187_dedicated_gateway.py"), "--port", "27888"],
             "port": 27888,
-            "desc": "Jupiter EX Headless Combat Engine (UDP)",
+            "desc": "Jupiter EX Combat UDP Gateway (27888)",
             "cwd": BASE_DIR
         },
         "apexguard": {
@@ -648,9 +648,9 @@ ShowFrameRate 1
             params = parse_qs(url.query)
             target = params.get("target", ["client"])[0]
             if target == "client":
-                bat_path = os.path.join(CLIENT_DIR, "launch_offline_emulator.bat")
+                bat_path = os.path.join(BASE_DIR, "launch_game.bat")
                 if os.path.exists(bat_path):
-                    subprocess.Popen(["cmd.exe", "/c", bat_path], cwd=CLIENT_DIR)
+                    subprocess.Popen(["cmd.exe", "/c", bat_path], cwd=BASE_DIR)
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
@@ -748,9 +748,9 @@ ShowFrameRate 1
         else:
             self.send_error(404)
 
-def run_panel(port=8080):
+def run_panel(port=8081):
     server = None
-    for p in (port, 8081, 8082, 8888):
+    for p in (port, 8082, 8888, 8080):
         try:
             server = HTTPServer(("127.0.0.1", p), PanelHandler)
             print(f"[+] District 187 Web Control Panel running at: http://127.0.0.1:{p}/")
@@ -765,5 +765,5 @@ def run_panel(port=8080):
             print("\n[-] Web panel stopped.")
 
 if __name__ == "__main__":
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
+    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8081
     run_panel(port)
