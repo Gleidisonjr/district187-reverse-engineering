@@ -1,0 +1,97 @@
+{
+  "map_name": "lostland",
+  "bounds": {
+    "min_x": -815.0,
+    "max_x": 5648.0,
+    "min_z": -4264.9,
+    "max_z": 2850.9,
+    "span_x": 6463.0,
+    "span_z": 7115.9
+  },
+  "waypoints": {
+    "SWAT_BASE": {
+      "name": "SWAT Spawn HQ",
+      "x": 2794.39625,
+      "z": 2420.785,
+      "type": "spawn_swat"
+    },
+    "SWAT_FORWARD": {
+      "name": "SWAT Forward Line",
+      "x": 2663.90553125,
+      "z": 1279.2893125,
+      "type": "corridor"
+    },
+    "FLANK_LEFT": {
+      "name": "Left Flank Corridor",
+      "x": 4704.557,
+      "z": -1101.6126874999998,
+      "type": "tunnel"
+    },
+    "MID_CHOKE": {
+      "name": "Central Choke Point",
+      "x": 2421.565625,
+      "z": -840.6312499999999,
+      "type": "choke"
+    },
+    "FLANK_RIGHT": {
+      "name": "Right Flank Corridor",
+      "x": 138.57425000000057,
+      "z": -579.6498125,
+      "type": "corridor"
+    },
+    "GANG_FORWARD": {
+      "name": "Gangster Forward Line",
+      "x": 2179.22571875,
+      "z": -2960.5518125,
+      "type": "corridor"
+    },
+    "GANG_BASE": {
+      "name": "Gangster Spawn HQ",
+      "x": 2048.735,
+      "z": -4102.0475,
+      "type": "spawn_gang"
+    }
+  },
+  "edges": [
+    {
+      "from": "SWAT_BASE",
+      "to": "SWAT_FORWARD",
+      "cover": 0.75
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "FLANK_LEFT",
+      "cover": 0.8
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "MID_CHOKE",
+      "cover": 0.45
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "FLANK_RIGHT",
+      "cover": 0.8
+    },
+    {
+      "from": "FLANK_LEFT",
+      "to": "GANG_FORWARD",
+      "cover": 0.85
+    },
+    {
+      "from": "MID_CHOKE",
+      "to": "GANG_FORWARD",
+      "cover": 0.5
+    },
+    {
+      "from": "FLANK_RIGHT",
+      "to": "GANG_FORWARD",
+      "cover": 0.8
+    },
+    {
+      "from": "GANG_FORWARD",
+      "to": "GANG_BASE",
+      "cover": 0.75
+    }
+  ]
+}

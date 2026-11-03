@@ -24,7 +24,7 @@ if %errorlevel% equ 0 (
 )
 
 :: 3. Client Directory
-set "CLIENT_DIR=%~dp0targets\district-187\client\S2"
+set "CLIENT_DIR=%~dp0targets\district-187\client-rebirth"
 if not exist "%CLIENT_DIR%\TheRaw.exe" (
     echo [ERRO] Executavel nao encontrado em %CLIENT_DIR%
     pause

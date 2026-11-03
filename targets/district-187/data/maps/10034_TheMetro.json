@@ -1,0 +1,160 @@
+{
+  "map_name": "10034_TheMetro",
+  "engine_version": 113,
+  "file_size": 17461887,
+  "game_mode": "Team Deathmatch (TDM)",
+  "bounds": {
+    "min_x": -4923.0,
+    "max_x": 4941.6,
+    "min_z": -2149.9,
+    "max_z": 3742.5,
+    "span_x": 9864.6,
+    "span_z": 5892.4
+  },
+  "base_to_base_distance": 5514.3,
+  "choke_point_mid": {
+    "x": 2620.9,
+    "z": 2253.9
+  },
+  "spawns_team0": 15,
+  "spawns_team1": 0,
+  "spawns": [
+    {
+      "name": "GameStartPoint00",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 0,
+      "x": 4361.75,
+      "y": 753.0,
+      "z": -52.8
+    },
+    {
+      "name": "GameStartPoint01",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 1,
+      "x": 4941.65,
+      "y": 753.0,
+      "z": 3.63
+    },
+    {
+      "name": "GameStartPoint02",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 2,
+      "x": 4790.85,
+      "y": 743.0,
+      "z": 3602.15
+    },
+    {
+      "name": "GameStartPoint03",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 3,
+      "x": 4918.89,
+      "y": 743.0,
+      "z": 3575.55
+    },
+    {
+      "name": "GameStartPoint04",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 4,
+      "x": 4875.59,
+      "y": 743.0,
+      "z": 3742.51
+    },
+    {
+      "name": "GameStartPoint05",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 5,
+      "x": 4722.29,
+      "y": 743.0,
+      "z": 3728.23
+    },
+    {
+      "name": "GameStartPoint06",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 6,
+      "x": 4764.5,
+      "y": 753.0,
+      "z": 22.82
+    },
+    {
+      "name": "GameStartPoint07",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 7,
+      "x": 4549.33,
+      "y": 753.0,
+      "z": 10.14
+    },
+    {
+      "name": "GameStartPoint09",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 9,
+      "x": -4626.43,
+      "y": 733.0,
+      "z": 1663.95
+    },
+    {
+      "name": "GameStartPoint10",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 10,
+      "x": -4767.0,
+      "y": 733.0,
+      "z": -2149.93
+    },
+    {
+      "name": "GameStartPoint11",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 11,
+      "x": -4765.04,
+      "y": 733.0,
+      "z": -2033.32
+    },
+    {
+      "name": "GameStartPoint12",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 12,
+      "x": -4922.99,
+      "y": 733.0,
+      "z": -1939.76
+    },
+    {
+      "name": "GameStartPoint13",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 13,
+      "x": -4720.43,
+      "y": 733.0,
+      "z": 1628.41
+    },
+    {
+      "name": "GameStartPoint14",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 14,
+      "x": -4816.33,
+      "y": 733.0,
+      "z": 1561.3
+    },
+    {
+      "name": "GameStartPoint15",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 15,
+      "x": -4805.4,
+      "y": 733.0,
+      "z": -1883.42
+    }
+  ],
+  "bomb_sites": [],
+  "carry_sites": []
+}

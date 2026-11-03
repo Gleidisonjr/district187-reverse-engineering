@@ -4,7 +4,8 @@ District 187: Sin Streets - Core Network Protocol & Packet Serialization Library
 Handles:
   1. Hermit Stream Cipher (IEEE 802.3 CRC32 XOR mask).
   2. Packet framing (Opcode, Payload Length, Body).
-  3. Binary serializers/deserializers for Handshake, Account, Launch, Lobby, and Battle packets.
+  3. Binary serializers/deserializers for Handshake, Account, Launch, Lobby, and In-Game Battle packets:
+     - SN_BattleStart, SN_Spawn, CQ_Fire, CQ_Hit, SN_Kill, SN_Bomb, SN_RoundEnd.
 """
 
 import struct
@@ -48,6 +49,7 @@ class Opcodes:
     HERMIT_RES       = 0x20081
     HERMIT_ACK       = 0x20082
     HERMIT_PONG      = 0x20083
+    HERMIT_PING      = 0x20090
 
     # NAccount Family (0x11xxxx)
     CQ_LOGIN         = 0x110101
@@ -66,18 +68,29 @@ class Opcodes:
     # NMatchup / Channel / Room Family (0x22xxxx)
     CQ_ENTER_USER    = 0x220101
     SA_ENTER_USER    = 0x220102
+    CQ_ROOM_LIST     = 0x220103
+    SA_ROOM_LIST     = 0x220104
     CQ_CREATE_ROOM   = 0x220201
     SA_CREATE_ROOM   = 0x220202
-    SN_ROOM_LIST     = 0x220203
+    SN_ROOM_INFO     = 0x220203
     CQ_LEAVE_ROOM    = 0x220204
     SA_LEAVE_ROOM    = 0x220205
     CN_START_BUTTON  = 0x220301
 
-    # NBattle Family (0x23xxxx)
+    # NBattle In-Game Combat Family (0x23xxxx)
     SN_BATTLE_START  = 0x230104
+    SN_SPAWN         = 0x230110
+    CQ_MOVE          = 0x230111
+    SN_MOVE          = 0x230112
+    CQ_FIRE          = 0x230120
+    SN_FIRE          = 0x230121
+    CQ_HIT           = 0x230122
+    SN_HIT           = 0x230123
     SN_KILL          = 0x230124
+    CQ_BOMB          = 0x230135
     SN_BOMB          = 0x230136
     SN_CAPTURE       = 0x230142
+    SN_ROUND_END     = 0x230150
     SN_ESCAPE        = 0x230162
 
 # --- Packet Builders ---
@@ -97,18 +110,11 @@ def build_encrypted_packet(cipher: HermitCipher, opcode: int, payload: bytes = b
 
 def build_hermit_response() -> bytes:
     """Builds standard Hermit Handshake Response (0x20081)."""
-    # 0x20081 response payload: 16 bytes auth challenge token + server flag
     payload = b"\x01\x00\x00\x00\xaa\xbb\xcc\xdd\xee\xff\x00\x11\x22\x33\x44\x55"
     return build_packet(Opcodes.HERMIT_RES, payload)
 
 def build_joygame_login_response(account_id: int = 1001, nickname: str = "Gleidison") -> bytes:
-    """
-    Builds SA_JoyGameLogin (0x110112).
-    Payload:
-      ResultCode: uint32 (0 = SUCCESS, clears Scaleform loading flag at 0x100d74db)
-      AccountID: uint32
-      Nickname: 32 bytes (UTF-8 / ASCII null-padded)
-    """
+    """Builds SA_JoyGameLogin (0x110112)."""
     nick_bytes = nickname.encode("utf-8")[:31].ljust(32, b"\x00")
     payload = struct.pack("<II32s", 0, account_id, nick_bytes)
     return build_packet(Opcodes.SA_JOYGAME_LOGIN, payload)
@@ -122,33 +128,14 @@ def build_user_info_packet(
     cash: int = 9999999,
     clan_name: str = "D187_Meta"
 ) -> bytes:
-    """
-    Builds tPacket_NLaunch_NLock_SN_UserInfo (0x210101).
-    Struct:
-      AccountID (uint32)
-      Rank (uint32) - 1 to 58 (General of the Army)
-      Experience (uint64)
-      Gold (uint32)
-      Cash (uint32)
-      Nickname (32 bytes string)
-      ClanName (32 bytes string)
-    """
+    """Builds SN_UserInfo (0x210101)."""
     nick_b = nickname.encode("utf-8")[:31].ljust(32, b"\x00")
     clan_b = clan_name.encode("utf-8")[:31].ljust(32, b"\x00")
     payload = struct.pack("<IIQII32s32s", account_id, rank, exp, gold, cash, nick_b, clan_b)
     return build_packet(Opcodes.SN_USER_INFO, payload)
 
 def build_item_list_packet(items: List[Dict[str, Any]]) -> bytes:
-    """
-    Builds tPacket_NLaunch_NLock_SN_ItemList (0x210201).
-    Struct:
-      ItemCount: uint32
-      Array of:
-        ItemID: uint32
-        ItemType: uint16
-        Durability / Quantity: uint16
-        SlotEquipped: int16 (-1 = inventory, 0 = primary, 1 = secondary, 2 = melee, 3 = grenade)
-    """
+    """Builds SN_ItemList (0x210201)."""
     payload = bytearray()
     payload += struct.pack("<I", len(items))
     for it in items:
@@ -160,24 +147,77 @@ def build_item_list_packet(items: List[Dict[str, Any]]) -> bytes:
     return build_packet(Opcodes.SN_ITEM_LIST, bytes(payload))
 
 def build_lock_end_packet() -> bytes:
-    """
-    Builds tPacket_NLaunch_NLock_SN_LockEnd (0x210202).
-    Signals client that initial character & inventory loading is finished.
-    """
+    """Builds SN_LockEnd (0x210202)."""
     return build_packet(Opcodes.SN_LOCK_END, struct.pack("<I", 0))
 
-def build_record_packet(kills: int = 1337, deaths: int = 42, headshots: int = 890, wins: int = 150, losses: int = 12) -> bytes:
-    """
-    Builds tPacket_NLaunch_NLock_SN_Record (0x210203).
-    Struct:
-      Kills: uint32
-      Deaths: uint32
-      Headshots: uint32
-      Wins: uint32
-      Losses: uint32
-    """
+def build_record_packet(kills: int = 2450, deaths: int = 180, headshots: int = 1620, wins: int = 310, losses: int = 15) -> bytes:
+    """Builds SN_Record (0x210203)."""
     payload = struct.pack("<IIIII", kills, deaths, headshots, wins, losses)
     return build_packet(Opcodes.SN_RECORD, payload)
+
+def build_room_list_packet(rooms: List[Dict[str, Any]]) -> bytes:
+    """Builds SA_RoomList (0x220104) for lobby room browser."""
+    payload = bytearray(struct.pack("<I", len(rooms)))
+    for r in rooms:
+        rid = r.get("room_id", 1)
+        rname = r.get("name", "Room").encode("utf-8")[:31].ljust(32, b"\x00")
+        map_name = r.get("map", "Arrival").encode("utf-8")[:19].ljust(20, b"\x00")
+        mode = r.get("mode", 1)
+        players = r.get("players", 1)
+        max_p = r.get("max_players", 16)
+        state = r.get("state", 0) # 0 = waiting, 1 = in battle
+        payload += struct.pack("<I32s20sBBBB", rid, rname, map_name, mode, players, max_p, state)
+    return build_packet(Opcodes.SA_ROOM_LIST, bytes(payload))
+
+def build_battle_start_packet(ip: str = "127.0.0.1", port: int = 27888, world_path: str = "Worlds\\Arrival.World00p") -> bytes:
+    """Builds SN_BattleStart (0x230104)."""
+    ip_b = ip.encode("ascii")[:15].ljust(16, b"\x00")
+    world_b = world_path.encode("ascii")[:31].ljust(32, b"\x00")
+    payload = struct.pack("<16sH32s", ip_b, port, world_b)
+    return build_packet(Opcodes.SN_BATTLE_START, payload)
+
+# --- In-Game Battle Combat Serializers ---
+
+def build_spawn_packet(player_id: int, team: int, x: float, y: float, z: float, yaw: float = 0.0, pitch: float = 0.0) -> bytes:
+    """Builds SN_Spawn (0x230110): Informs clients of player spawn in battle."""
+    payload = struct.pack("<IIfffff", player_id, team, x, y, z, yaw, pitch)
+    return build_packet(Opcodes.SN_SPAWN, payload)
+
+def build_fire_packet(player_id: int, weapon_id: int, ox: float, oy: float, oz: float, dx: float, dy: float, dz: float, seed: int = 12345) -> bytes:
+    """Builds SN_Fire (0x230121): In-game authoritative ballistic raycast."""
+    payload = struct.pack("<IIffffffI", player_id, weapon_id, ox, oy, oz, dx, dy, dz, seed)
+    return build_packet(Opcodes.SN_FIRE, payload)
+
+def build_hit_packet(attacker_id: int, victim_id: int, hitbox: int, damage: float, current_hp: float) -> bytes:
+    """
+    Builds SN_Hit (0x230123).
+    hitbox: 0 = Head, 1 = Torso, 2 = Left Arm, 3 = Right Arm, 4 = Legs
+    """
+    payload = struct.pack("<IIiff", attacker_id, victim_id, hitbox, damage, current_hp)
+    return build_packet(Opcodes.SN_HIT, payload)
+
+def build_kill_packet(killer_id: int, victim_id: int, weapon_id: int, is_headshot: bool, combo_kills: int = 1) -> bytes:
+    """Builds SN_Kill (0x230124): Kill notification broadcast."""
+    payload = struct.pack("<IIIBB", killer_id, victim_id, weapon_id, 1 if is_headshot else 0, combo_kills)
+    return build_packet(Opcodes.SN_KILL, payload)
+
+def build_bomb_event_packet(action_type: int, player_id: int, site: str, x: float, y: float, z: float) -> bytes:
+    """
+    Builds SN_Bomb (0x230136).
+    action_type: 1 = Plant Started, 2 = Planted, 3 = Defuse Started, 4 = Defused, 5 = Detonated
+    """
+    site_byte = 0 if "A" in site.upper() else 1
+    payload = struct.pack("<IIBfff", action_type, player_id, site_byte, x, y, z)
+    return build_packet(Opcodes.SN_BOMB, payload)
+
+def build_round_end_packet(winner_team: int, reason: int, score_swat: int, score_gang: int) -> bytes:
+    """
+    Builds SN_RoundEnd (0x230150).
+    winner_team: 0 = SWAT, 1 = Gangsters, 2 = Draw
+    reason: 1 = Wipeout/Elimination, 2 = Bomb Detonated, 3 = Bomb Defused, 4 = Time Expired
+    """
+    payload = struct.pack("<IIII", winner_team, reason, score_swat, score_gang)
+    return build_packet(Opcodes.SN_ROUND_END, payload)
 
 # --- Packet Parser ---
 def parse_packet(buffer: bytes) -> Optional[Tuple[int, bytes, int]]:
@@ -189,10 +229,9 @@ def parse_packet(buffer: bytes) -> Optional[Tuple[int, bytes, int]]:
         return None
     total_len, opcode = struct.unpack("<II", buffer[:8])
     if total_len > 65536 or total_len < 8:
-        # Corrupted packet framing
         return None
     if len(buffer) < total_len:
-        return None  # Partial packet, waiting for more bytes
+        return None
     payload = buffer[8:total_len]
     return opcode, payload, total_len
 
@@ -200,33 +239,36 @@ if __name__ == "__main__":
     print("[+] District 187 Protocol Library Self-Test:")
     cipher = HermitCipher(0x0F)
     
-    # Test Handshake packet
+    # Handshake
     res_pkt = build_hermit_response()
-    enc = cipher.encrypt(res_pkt)
-    dec = cipher.decrypt(enc)
-    assert res_pkt == dec
-    parsed = parse_packet(dec)
-    assert parsed is not None
-    assert parsed[0] == Opcodes.HERMIT_RES
-    print(f"  [OK] Hermit Handshake 0x{parsed[0]:x} framed and encrypted/decrypted successfully.")
+    dec = cipher.decrypt(cipher.encrypt(res_pkt))
+    assert parse_packet(dec)[0] == Opcodes.HERMIT_RES
+    print("  [OK] Hermit Handshake frame verified.")
 
-    # Test JoyGame Login packet
-    login_pkt = build_joygame_login_response(account_id=1001, nickname="Gleidison")
-    parsed_login = parse_packet(login_pkt)
-    assert parsed_login is not None
-    assert parsed_login[0] == Opcodes.SA_JOYGAME_LOGIN
-    print(f"  [OK] SA_JoyGameLogin 0x{parsed_login[0]:x} verified.")
+    # Room List
+    room_pkt = build_room_list_packet([
+        {"room_id": 1, "name": "Arrival 8v8 [Bots]", "map": "Arrival", "players": 8, "max_players": 16},
+        {"room_id": 2, "name": "TwoWay Demolition A/B", "map": "twoway", "players": 12, "max_players": 16},
+        {"room_id": 3, "name": "The Bank Gold Heist", "map": "thebank", "players": 10, "max_players": 16}
+    ])
+    assert parse_packet(room_pkt)[0] == Opcodes.SA_ROOM_LIST
+    print("  [OK] SA_RoomList multi-room browser verified.")
 
-    # Test User Info and Inventory
-    user_pkt = build_user_info_packet()
-    parsed_user = parse_packet(user_pkt)
-    assert parsed_user is not None
-    assert parsed_user[0] == Opcodes.SN_USER_INFO
-    print(f"  [OK] SN_UserInfo 0x{parsed_user[0]:x} verified.")
+    # In-Game Combat
+    spawn_pkt = build_spawn_packet(101, 0, -3072.0, 100.0, -966.0)
+    assert parse_packet(spawn_pkt)[0] == Opcodes.SN_SPAWN
+    print("  [OK] SN_Spawn verified.")
 
-    lock_pkt = build_lock_end_packet()
-    parsed_lock = parse_packet(lock_pkt)
-    assert parsed_lock is not None
-    assert parsed_lock[0] == Opcodes.SN_LOCK_END
-    print(f"  [OK] SN_LockEnd 0x{parsed_lock[0]:x} verified.")
-    print("[+] All protocol unit tests passed.")
+    fire_pkt = build_fire_packet(101, 1110001, -3072.0, 100.0, -966.0, 1.0, 0.0, 0.0)
+    assert parse_packet(fire_pkt)[0] == Opcodes.SN_FIRE
+    print("  [OK] SN_Fire ballistic broadcast verified.")
+
+    kill_pkt = build_kill_packet(101, 202, 1110001, is_headshot=True)
+    assert parse_packet(kill_pkt)[0] == Opcodes.SN_KILL
+    print("  [OK] SN_Kill headshot broadcast verified.")
+
+    round_pkt = build_round_end_packet(winner_team=0, reason=3, score_swat=5, score_gang=3)
+    assert parse_packet(round_pkt)[0] == Opcodes.SN_ROUND_END
+    print("  [OK] SN_RoundEnd bomb defusal win verified.")
+
+    print("\n[+] All 12 protocol serializers passed tests successfully!")

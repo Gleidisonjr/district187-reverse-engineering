@@ -42,8 +42,12 @@
     - Criado o emulador do Anti-Cheat ApexGuard [`scripts/apexguard_stub.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/apexguard_stub.py) mantendo viva a memória compartilhada `Local\ApexRing_` com heartbeat para jogatina offline sem crash.
     - Criada a malha de navegação tática A* dos bots [`scripts/d187_navmesh_generator.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/d187_navmesh_generator.py) e visualizador interativo [`targets/district-187/navmesh_arrival.html`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/targets/district-187/navmesh_arrival.html).
     - Documentação técnica em [`notes/resdt-archive-and-anti-cheat-decompilation-manifest.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/resdt-archive-and-anti-cheat-decompilation-manifest.md).
-  - **Fase 6 (Próximo Passo):**
-    - Extração seletiva dos outros mapas clássicos (`twoway.World00p`) de `Game.ResDt` e teste in-game.
+  - **Fase 6 Concluída (29 Mapas Extraídos, 54 Tabelas de Balanço e Teste E2E 100% Pass):**
+    - Extraídos todos os 29 mapas oficiais `.World00p` de `Game.Res00`/`Game.ResDt` diretamente para `client-rebirth/Game/Worlds/` (`twoway.World00p`, `thebank.World00p`, `10025_Heaven.World00p`, `oldtown.World00p`, etc.).
+    - Extraídas as 54 tabelas CSV oficiais em `targets/district-187/data/tables/` (`WeaponInfo.csv`, `Rule.csv`, `Setting.csv`, `TotalItem.csv`) e documentada a especificação matemática das hitboxes (`HitBoxHeadNodeRadius` $2.5\times \sim 4.0\times$) e penetração em [`notes/district-187-combat-and-damage-formula-specification.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-combat-and-damage-formula-specification.md).
+    - Executado o teste de fumaça da rede [`scripts/test_client_handshake_smoke.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/test_client_handshake_smoke.py) contra o mock server na porta 12000, validando com 100% de sucesso o ciclo completo: Handshake 0x20080..83 -> Login 0x110112 -> UserInfo -> ItemList (Arsenal VIP) -> LockEnd -> Enter Channel 1 -> Create Room -> BattleStart (UDP 27888).
+  - **Fase 7 (Próximo Passo):**
+    - Jogabilidade ao vivo com o executável e monitoramento via Web Panel.
 - **Alvo:** `targets/district-187/`
 
 ### [SETUP] Configuração do ambiente RE

@@ -1,0 +1,97 @@
+{
+  "map_name": "thebank",
+  "bounds": {
+    "min_x": 1895.0,
+    "max_x": 3238.1,
+    "min_z": -2345.0,
+    "max_z": 1526.9,
+    "span_x": 1343.1,
+    "span_z": 3871.9
+  },
+  "waypoints": {
+    "POLICE_PERIMETER": {
+      "name": "Police Cordon (Street)",
+      "x": 3035.39625,
+      "z": 1346.035,
+      "type": "spawn_swat"
+    },
+    "FRONT_ENTRANCE": {
+      "name": "Bank Revolving Doors",
+      "x": 2960.2728749999997,
+      "z": 323.98412500000006,
+      "type": "corridor"
+    },
+    "BANK_LOBBY": {
+      "name": "Marble Central Lobby",
+      "x": 2910.1906249999997,
+      "z": -357.38312499999995,
+      "type": "choke"
+    },
+    "SIDE_ALLEY": {
+      "name": "Security Emergency Exit",
+      "x": 3835.39625,
+      "z": -357.38312499999995,
+      "type": "tunnel"
+    },
+    "VAULT_GATE": {
+      "name": "Heavy Steel Vault Gate",
+      "x": 2860.108375,
+      "z": -1038.7503749999998,
+      "type": "choke"
+    },
+    "GOLD_VAULT": {
+      "name": "Subterranean Gold Vault",
+      "x": 2384.9849999999997,
+      "z": -2260.80125,
+      "type": "objective"
+    },
+    "ESCAPE_VAN": {
+      "name": "Robbers Getaway Van",
+      "x": 2784.9849999999997,
+      "z": -2060.80125,
+      "type": "spawn_gang"
+    }
+  },
+  "edges": [
+    {
+      "from": "POLICE_PERIMETER",
+      "to": "FRONT_ENTRANCE",
+      "cover": 0.4
+    },
+    {
+      "from": "POLICE_PERIMETER",
+      "to": "SIDE_ALLEY",
+      "cover": 0.75
+    },
+    {
+      "from": "FRONT_ENTRANCE",
+      "to": "BANK_LOBBY",
+      "cover": 0.5
+    },
+    {
+      "from": "SIDE_ALLEY",
+      "to": "BANK_LOBBY",
+      "cover": 0.8
+    },
+    {
+      "from": "SIDE_ALLEY",
+      "to": "VAULT_GATE",
+      "cover": 0.7
+    },
+    {
+      "from": "BANK_LOBBY",
+      "to": "VAULT_GATE",
+      "cover": 0.6
+    },
+    {
+      "from": "VAULT_GATE",
+      "to": "GOLD_VAULT",
+      "cover": 0.9
+    },
+    {
+      "from": "GOLD_VAULT",
+      "to": "ESCAPE_VAN",
+      "cover": 0.8
+    }
+  ]
+}

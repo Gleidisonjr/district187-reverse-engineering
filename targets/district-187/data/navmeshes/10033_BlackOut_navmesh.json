@@ -1,0 +1,97 @@
+{
+  "map_name": "10033_BlackOut",
+  "bounds": {
+    "min_x": -1281.0,
+    "max_x": -269.0,
+    "min_z": -2584.0,
+    "max_z": 3024.0,
+    "span_x": 1012.0,
+    "span_z": 5608.0
+  },
+  "waypoints": {
+    "SWAT_BASE": {
+      "name": "SWAT Spawn HQ",
+      "x": -734.125,
+      "z": -2427.0,
+      "type": "spawn_swat"
+    },
+    "SWAT_FORWARD": {
+      "name": "SWAT Forward Line",
+      "x": -743.9468750000001,
+      "z": -1501.966625,
+      "type": "corridor"
+    },
+    "FLANK_LEFT": {
+      "name": "Left Flank Corridor",
+      "x": -2612.25425,
+      "z": 196.30874999999986,
+      "type": "tunnel"
+    },
+    "MID_CHOKE": {
+      "name": "Central Choke Point",
+      "x": -762.1875,
+      "z": 215.95249999999987,
+      "type": "choke"
+    },
+    "FLANK_RIGHT": {
+      "name": "Right Flank Corridor",
+      "x": 1087.8792499999997,
+      "z": 235.59624999999988,
+      "type": "corridor"
+    },
+    "GANG_FORWARD": {
+      "name": "Gangster Forward Line",
+      "x": -780.428125,
+      "z": 1933.8716249999998,
+      "type": "corridor"
+    },
+    "GANG_BASE": {
+      "name": "Gangster Spawn HQ",
+      "x": -790.25,
+      "z": 2858.9049999999997,
+      "type": "spawn_gang"
+    }
+  },
+  "edges": [
+    {
+      "from": "SWAT_BASE",
+      "to": "SWAT_FORWARD",
+      "cover": 0.75
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "FLANK_LEFT",
+      "cover": 0.8
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "MID_CHOKE",
+      "cover": 0.45
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "FLANK_RIGHT",
+      "cover": 0.8
+    },
+    {
+      "from": "FLANK_LEFT",
+      "to": "GANG_FORWARD",
+      "cover": 0.85
+    },
+    {
+      "from": "MID_CHOKE",
+      "to": "GANG_FORWARD",
+      "cover": 0.5
+    },
+    {
+      "from": "FLANK_RIGHT",
+      "to": "GANG_FORWARD",
+      "cover": 0.8
+    },
+    {
+      "from": "GANG_FORWARD",
+      "to": "GANG_BASE",
+      "cover": 0.75
+    }
+  ]
+}

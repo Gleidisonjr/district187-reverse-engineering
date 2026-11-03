@@ -1,0 +1,97 @@
+{
+  "map_name": "aim_redline",
+  "bounds": {
+    "min_x": -5076.0,
+    "max_x": -1996.0,
+    "min_z": -302.0,
+    "max_z": 2679.0,
+    "span_x": 3080.0,
+    "span_z": 2981.0
+  },
+  "waypoints": {
+    "SWAT_BASE": {
+      "name": "SWAT Spawn HQ",
+      "x": -3736.5714285714284,
+      "z": 1028.7142857142858,
+      "type": "spawn_swat"
+    },
+    "SWAT_FORWARD": {
+      "name": "SWAT Forward Line",
+      "x": -3431.9714285714285,
+      "z": 1317.514285714286,
+      "type": "corridor"
+    },
+    "FLANK_LEFT": {
+      "name": "Left Flank Corridor",
+      "x": -3443.885714285714,
+      "z": 2463.057142857143,
+      "type": "tunnel"
+    },
+    "MID_CHOKE": {
+      "name": "Central Choke Point",
+      "x": -2866.285714285714,
+      "z": 1853.857142857143,
+      "type": "choke"
+    },
+    "FLANK_RIGHT": {
+      "name": "Right Flank Corridor",
+      "x": -2288.6857142857143,
+      "z": 1244.6571428571428,
+      "type": "corridor"
+    },
+    "GANG_FORWARD": {
+      "name": "Gangster Forward Line",
+      "x": -2300.6,
+      "z": 2390.2000000000003,
+      "type": "corridor"
+    },
+    "GANG_BASE": {
+      "name": "Gangster Spawn HQ",
+      "x": -1996.0,
+      "z": 2679.0,
+      "type": "spawn_gang"
+    }
+  },
+  "edges": [
+    {
+      "from": "SWAT_BASE",
+      "to": "SWAT_FORWARD",
+      "cover": 0.75
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "FLANK_LEFT",
+      "cover": 0.8
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "MID_CHOKE",
+      "cover": 0.45
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "FLANK_RIGHT",
+      "cover": 0.8
+    },
+    {
+      "from": "FLANK_LEFT",
+      "to": "GANG_FORWARD",
+      "cover": 0.85
+    },
+    {
+      "from": "MID_CHOKE",
+      "to": "GANG_FORWARD",
+      "cover": 0.5
+    },
+    {
+      "from": "FLANK_RIGHT",
+      "to": "GANG_FORWARD",
+      "cover": 0.8
+    },
+    {
+      "from": "GANG_FORWARD",
+      "to": "GANG_BASE",
+      "cover": 0.75
+    }
+  ]
+}

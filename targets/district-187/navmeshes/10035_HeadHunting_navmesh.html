@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>D187 A* NavMesh Inspector: 10035_HeadHunting</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0b1120; color: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; }
+    .wp-node:hover circle { r: 16; filter: drop-shadow(0 0 10px rgba(255,255,255,0.9)); cursor: pointer; }
+  </style>
+</head>
+<body class="p-6">
+  <div class="max-w-7xl mx-auto space-y-6">
+    <header class="border-b border-slate-800 pb-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+          <span class="p-2 bg-emerald-600 rounded-lg text-lg">A*</span>
+          Tactical NavMesh & Bot Routes: <span class="text-emerald-400 font-mono">10035_HeadHunting</span>
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">Autonomous Graph Pathfinding & Cover Analysis</p>
+      </div>
+      <div class="flex gap-3">
+        <span class="px-3 py-1.5 bg-cyan-950 text-cyan-400 border border-cyan-800 rounded-md text-xs font-semibold">Direct Assault Route (5 Waypoints)</span>
+        <span class="px-3 py-1.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded-md text-xs font-semibold">Stealth Flank Route (5 Waypoints)</span>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-4 gap-4">
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Total Graph Nodes</p>
+        <p class="text-2xl font-bold text-white mt-1">7 Waypoints</p>
+        <p class="text-xs text-slate-500 mt-1">8 Connected Lanes</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Direct Assault Cost</p>
+        <p class="text-2xl font-bold text-cyan-400 mt-1">6102 u</p>
+        <p class="text-xs text-slate-500 mt-1">Shortest Path Metric</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Stealth Flank Cost</p>
+        <p class="text-2xl font-bold text-emerald-400 mt-1">9919 u</p>
+        <p class="text-xs text-slate-500 mt-1">Weighted by Cover Quality</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Algorithm</p>
+        <p class="text-2xl font-bold text-purple-400 mt-1">A* Heuristic</p>
+        <p class="text-xs text-slate-500 mt-1">Euclidean Admissible Search</p>
+      </div>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl relative">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-semibold text-white">NavMesh Navigation Graph & Optimal Paths</h2>
+        <div class="text-xs text-slate-400 flex gap-4">
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-cyan-500 inline-block"></span> Direct Route</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> Stealth Flank</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span> Objective</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-950 rounded-lg p-2 border border-slate-800/80 flex justify-center">
+        <svg viewBox="0 0 900 600" class="w-full h-auto max-h-[580px]">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.8"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+          <line x1="70.0" y1="272.2" x2="203.0" y2="279.7" stroke="#334155" stroke-width="2.5" />
+<line x1="203.0" y1="279.7" x2="457.6" y2="-232.6" stroke="#334155" stroke-width="2.5" />
+<line x1="203.0" y1="279.7" x2="450.0" y2="293.5" stroke="#334155" stroke-width="2.5" />
+<line x1="203.0" y1="279.7" x2="442.4" y2="819.6" stroke="#334155" stroke-width="2.5" />
+<line x1="457.6" y1="-232.6" x2="697.0" y2="307.4" stroke="#334155" stroke-width="2.5" />
+<line x1="450.0" y1="293.5" x2="697.0" y2="307.4" stroke="#334155" stroke-width="2.5" />
+<line x1="442.4" y1="819.6" x2="697.0" y2="307.4" stroke="#334155" stroke-width="2.5" />
+<line x1="697.0" y1="307.4" x2="830.0" y2="314.9" stroke="#334155" stroke-width="2.5" />
+<polyline points="70.0,272.2 203.0,279.7 450.0,293.5 697.0,307.4 830.0,314.9" fill="none" stroke="#06b6d4" stroke-width="4.5" stroke-dasharray="8,6" opacity="0.85" />
+<polyline points="70.0,272.2 203.0,279.7 457.6,-232.6 697.0,307.4 830.0,314.9" fill="none" stroke="#10b981" stroke-width="4.5" stroke-dasharray="4,4" opacity="0.85" />
+<g class="wp-node" data-name="SWAT Spawn HQ" data-type="spawn_swat"><circle cx="70.0" cy="272.2" r="12" fill="#3b82f6" stroke="#ffffff" stroke-width="2" /><text x="70.0" y="256.2" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">SWAT Spawn HQ</text></g>
+<g class="wp-node" data-name="SWAT Forward Line" data-type="corridor"><circle cx="203.0" cy="279.7" r="12" fill="#a855f7" stroke="#ffffff" stroke-width="2" /><text x="203.0" y="263.7" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">SWAT Forward Line</text></g>
+<g class="wp-node" data-name="Left Flank Corridor" data-type="tunnel"><circle cx="457.6" cy="-232.6" r="12" fill="#a855f7" stroke="#ffffff" stroke-width="2" /><text x="457.6" y="-248.6" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Left Flank Corridor</text></g>
+<g class="wp-node" data-name="Central Choke Point" data-type="choke"><circle cx="450.0" cy="293.5" r="12" fill="#a855f7" stroke="#ffffff" stroke-width="2" /><text x="450.0" y="277.5" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Central Choke Point</text></g>
+<g class="wp-node" data-name="Right Flank Corridor" data-type="corridor"><circle cx="442.4" cy="819.6" r="12" fill="#a855f7" stroke="#ffffff" stroke-width="2" /><text x="442.4" y="803.6" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Right Flank Corridor</text></g>
+<g class="wp-node" data-name="Gangster Forward Line" data-type="corridor"><circle cx="697.0" cy="307.4" r="12" fill="#a855f7" stroke="#ffffff" stroke-width="2" /><text x="697.0" y="291.4" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Gangster Forward Line</text></g>
+<g class="wp-node" data-name="Gangster Spawn HQ" data-type="spawn_gang"><circle cx="830.0" cy="314.9" r="12" fill="#ef4444" stroke="#ffffff" stroke-width="2" /><text x="830.0" y="298.9" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Gangster Spawn HQ</text></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

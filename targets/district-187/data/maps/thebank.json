@@ -1,0 +1,182 @@
+{
+  "map_name": "thebank",
+  "engine_version": 113,
+  "file_size": 14839837,
+  "game_mode": "Heist / Bank Robbery (Carry Loot)",
+  "bounds": {
+    "min_x": 1895.0,
+    "max_x": 3238.1,
+    "min_z": -2345.0,
+    "max_z": 1526.9,
+    "span_x": 1343.1,
+    "span_z": 3871.9
+  },
+  "base_to_base_distance": 3416.0,
+  "choke_point_mid": {
+    "x": 2910.2,
+    "z": -357.4
+  },
+  "spawns_team0": 8,
+  "spawns_team1": 8,
+  "spawns": [
+    {
+      "name": "GameStartPoint_0_08",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 8,
+      "x": 2820.73,
+      "y": 401.0,
+      "z": 1515.91
+    },
+    {
+      "name": "GameStartPoint_0_09",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 9,
+      "x": 3194.96,
+      "y": 401.0,
+      "z": 1338.91
+    },
+    {
+      "name": "GameStartPoint_0_10",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 10,
+      "x": 3024.18,
+      "y": 401.0,
+      "z": 1325.91
+    },
+    {
+      "name": "GameStartPoint_0_11",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 11,
+      "x": 3189.79,
+      "y": 401.0,
+      "z": 1126.91
+    },
+    {
+      "name": "GameStartPoint_0_12",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 12,
+      "x": 2841.74,
+      "y": 401.0,
+      "z": 1324.91
+    },
+    {
+      "name": "GameStartPoint_0_13",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 13,
+      "x": 3238.06,
+      "y": 401.0,
+      "z": 1499.91
+    },
+    {
+      "name": "GameStartPoint_0_14",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 14,
+      "x": 3019.8,
+      "y": 401.0,
+      "z": 1526.91
+    },
+    {
+      "name": "GameStartPoint_0_15",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 15,
+      "x": 2953.91,
+      "y": 401.0,
+      "z": 1108.91
+    },
+    {
+      "name": "GameStartPoint_1_08",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 8,
+      "x": 2832.81,
+      "y": 252.5,
+      "z": -2090.0
+    },
+    {
+      "name": "GameStartPoint_1_09",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 9,
+      "x": 2748.81,
+      "y": 252.5,
+      "z": -2250.48
+    },
+    {
+      "name": "GameStartPoint_1_10",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 10,
+      "x": 2976.81,
+      "y": 252.5,
+      "z": -1887.89
+    },
+    {
+      "name": "GameStartPoint_1_11",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 11,
+      "x": 2984.81,
+      "y": 252.5,
+      "z": -2102.36
+    },
+    {
+      "name": "GameStartPoint_1_12",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 12,
+      "x": 2834.66,
+      "y": 252.5,
+      "z": -1937.89
+    },
+    {
+      "name": "GameStartPoint_1_13",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 13,
+      "x": 2670.66,
+      "y": 252.5,
+      "z": -1883.35
+    },
+    {
+      "name": "GameStartPoint_1_14",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 14,
+      "x": 2570.66,
+      "y": 252.5,
+      "z": -2256.95
+    },
+    {
+      "name": "GameStartPoint_1_15",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 15,
+      "x": 2660.66,
+      "y": 252.5,
+      "z": -2077.49
+    }
+  ],
+  "bomb_sites": [],
+  "carry_sites": [
+    {
+      "name": "CarryObjectArea01",
+      "x": 1895.0,
+      "y": 195.0,
+      "z": 1398.15
+    },
+    {
+      "name": "CarryObjectArea00",
+      "x": 2925.0,
+      "y": 169.5,
+      "z": -2345.0
+    }
+  ]
+}

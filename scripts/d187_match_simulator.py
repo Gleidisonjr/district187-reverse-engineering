@@ -15,13 +15,15 @@ import sqlite3
 import random
 import math
 import time
-from typing import List, Dict, Any
+import argparse
+from typing import List, Dict, Any, Optional
 
 # Ensure UTF-8 output
 sys.stdout.reconfigure(encoding='utf-8')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TARGET_DIR = os.path.join(BASE_DIR, "targets", "district-187")
+MAPS_DATA_DIR = os.path.join(TARGET_DIR, "data", "maps")
 SPAWNS_JSON = os.path.join(TARGET_DIR, "data", "arrival_spawns.json")
 DB_PATH = os.path.join(TARGET_DIR, "data", "s2rebirth.db")
 
@@ -75,23 +77,118 @@ def load_weapons_from_db() -> List[Weapon]:
     conn.close()
     return [Weapon(r["name"], r["damage"], r["recoil"], r["fire_delay"], r["slot"]) for r in rows]
 
-def load_spawns() -> Dict[int, List[Dict[str, float]]]:
-    with open(SPAWNS_JSON, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    spawns_by_team = {0: [], 1: []}
-    for s in data["spawns"]:
-        spawns_by_team[s["team"]].append({"x": s["x"], "y": s["y"], "z": s["z"]})
-    return spawns_by_team
+def load_map_data(map_name: str = "twoway"):
+    json_path = os.path.join(MAPS_DATA_DIR, f"{map_name}.json")
+    if not os.path.exists(json_path):
+        if os.path.exists(SPAWNS_JSON):
+            with open(SPAWNS_JSON, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            spawns_by_team = {0: [], 1: []}
+            for s in data["spawns"]:
+                spawns_by_team[s["team"]].append({"x": s["x"], "y": s["y"], "z": s["z"]})
+            return "Arrival", spawns_by_team, 336.0, 477.0, ["Site Alpha"]
+        else:
+            return "Default", {0: [{"x": -100, "y": 0, "z": -100}], 1: [{"x": 100, "y": 0, "z": 100}]}, 0.0, 0.0, ["Site Alpha"]
 
-def run_match(rounds_to_win=3, team_size=8):
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    spawns_by_team = {0: [], 1: []}
+    for s in data.get("spawns", []):
+        team = s.get("team", 0)
+        spawns_by_team[team].append({"x": s["x"], "y": s["y"], "z": s["z"]})
+
+    if not spawns_by_team[1] and len(spawns_by_team[0]) > 1:
+        half = len(spawns_by_team[0]) // 2
+        spawns_by_team[1] = spawns_by_team[0][half:]
+        spawns_by_team[0] = spawns_by_team[0][:half]
+
+    mid = data.get("choke_point_mid", {"x": 0.0, "z": 0.0})
+    bomb_sites = [b["site"] for b in data.get("bomb_sites", [])]
+    if not bomb_sites:
+        bomb_sites = ["Site Alpha"]
+
+    return data.get("map_name", map_name), spawns_by_team, mid["x"], mid["z"], bomb_sites
+
+def log_match_to_db(map_name: str, winner: str, swat_score: int, gang_score: int, mvp: str, total_kills: int, kill_events: List[Dict[str, Any]]) -> int:
+    if not os.path.exists(DB_PATH):
+        return -1
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        c = conn.cursor()
+        c.execute("""
+            CREATE TABLE IF NOT EXISTS match_history (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                map_name TEXT,
+                winner TEXT,
+                swat_score INTEGER,
+                gang_score INTEGER,
+                mvp TEXT,
+                total_kills INTEGER
+            )
+        """)
+        c.execute("""
+            CREATE TABLE IF NOT EXISTS match_kills (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                match_id INTEGER,
+                round_num INTEGER,
+                round_time REAL,
+                map_name TEXT,
+                killer_name TEXT,
+                killer_team INTEGER,
+                killer_x REAL,
+                killer_z REAL,
+                victim_name TEXT,
+                victim_team INTEGER,
+                victim_x REAL,
+                victim_z REAL,
+                weapon_name TEXT,
+                is_headshot INTEGER,
+                distance REAL,
+                damage INTEGER,
+                FOREIGN KEY (match_id) REFERENCES match_history (id)
+            )
+        """)
+        c.execute("""
+            INSERT INTO match_history (map_name, winner, swat_score, gang_score, mvp, total_kills)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (map_name, winner, swat_score, gang_score, mvp, total_kills))
+        match_id = c.lastrowid
+
+        for k in kill_events:
+            c.execute("""
+                INSERT INTO match_kills (
+                    match_id, round_num, round_time, map_name,
+                    killer_name, killer_team, killer_x, killer_z,
+                    victim_name, victim_team, victim_x, victim_z,
+                    weapon_name, is_headshot, distance, damage
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                match_id, k["round_num"], k["round_time"], map_name,
+                k["killer_name"], k["killer_team"], k["killer_x"], k["killer_z"],
+                k["victim_name"], k["victim_team"], k["victim_x"], k["victim_z"],
+                k["weapon_name"], 1 if k["is_headshot"] else 0, k["distance"], k["damage"]
+            ))
+
+        conn.commit()
+        conn.close()
+        return match_id
+    except Exception as e:
+        print(f"[-] Failed to log match to DB: {e}")
+        return -1
+
+def run_match(map_name="twoway", rounds_to_win=3, team_size=8):
+    map_id, spawns, mid_x, mid_z, bomb_sites = load_map_data(map_name)
+
     print("=====================================================================")
     print("  District 187: Sin Streets — Authoritative Bot Match Simulator")
-    print("  Map: Arrival (LithTech Jupiter EX World00p)")
+    print(f"  Map: {map_id} (LithTech Jupiter EX World00p)")
     print(f"  Format: {team_size}v{team_size} Competitive Bomb Defusal (Best of {rounds_to_win*2 - 1})")
+    print(f"  Active Objectives: {', '.join(bomb_sites)}")
     print("=====================================================================\n")
 
     weapons = load_weapons_from_db()
-    spawns = load_spawns()
 
     swat_names = ["Ghost", "Vanguard", "Sentinel", "Delta", "Alpha", "Bravo", "Echo", "Recon"]
     gang_names = ["Apex", "Cobra", "Havoc", "Viper", "Rogue", "Bane", "Zero", "Sin"]
@@ -110,6 +207,7 @@ def run_match(rounds_to_win=3, team_size=8):
     swat_score = 0
     gang_score = 0
     round_num = 1
+    kill_events: List[Dict[str, Any]] = []
 
     # Mid Choke Point coordinates from inspect_world00p
     mid_x, mid_z = 336.0, 477.0
@@ -173,6 +271,22 @@ def run_match(rounds_to_win=3, team_size=8):
                         if is_headshot:
                             attacker.headshots += 1
                         print(f"  [KILL] {attacker.name} eliminated {target.name} with {attacker.weapon.name}{hs_str} ({dmg} dmg)")
+                        kill_events.append({
+                            "round_num": round_num,
+                            "round_time": round_time,
+                            "killer_name": attacker.name,
+                            "killer_team": attacker.team,
+                            "killer_x": round(attacker.x, 2),
+                            "killer_z": round(attacker.z, 2),
+                            "victim_name": target.name,
+                            "victim_team": target.team,
+                            "victim_x": round(target.x, 2),
+                            "victim_z": round(target.z, 2),
+                            "weapon_name": attacker.weapon.name,
+                            "is_headshot": is_headshot,
+                            "distance": round(dist, 2),
+                            "damage": dmg
+                        })
 
             # Check bomb defusal if planted and SWAT in vicinity
             if bomb_planted and not bomb_defused:
@@ -217,7 +331,11 @@ def run_match(rounds_to_win=3, team_size=8):
     for b in all_bots:
         print(f"  {b.name:<18} {b.team_name:<10} {b.kills:<6} {b.deaths:<8} {b.headshots:<10} {b.damage_dealt:<8} {b.weapon.name:<14}")
 
+    # Log match to SQLite DB
+    log_match_to_db(map_id, winner, swat_score, gang_score, mvp.name, sum(b.kills for b in all_bots), kill_events)
+
     return {
+        "map_name": map_id,
         "winner": winner,
         "swat_score": swat_score,
         "gang_score": gang_score,
@@ -225,5 +343,14 @@ def run_match(rounds_to_win=3, team_size=8):
         "total_kills": sum(b.kills for b in all_bots)
     }
 
+def main():
+    parser = argparse.ArgumentParser(description="Authoritative Tactical Bot Match Simulator")
+    parser.add_argument("--map", default="twoway", help="Map name to simulate (e.g. twoway, Arrival, thebank, 10025_Heaven)")
+    parser.add_argument("--rounds", type=int, default=3, help="Rounds to win (e.g. 3, 5, 7)")
+    parser.add_argument("--team-size", type=int, default=8, help="Players per team (e.g. 4, 8, 16)")
+    args = parser.parse_args()
+
+    run_match(map_name=args.map, rounds_to_win=args.rounds, team_size=args.team_size)
+
 if __name__ == "__main__":
-    run_match()
+    main()

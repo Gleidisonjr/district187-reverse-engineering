@@ -6,10 +6,10 @@
 - **Engine:** LithTech Jupiter EX (C++ / DirectX 9)
 - **Tipo de alvo:** Jogo tático multiplayer online (cliente desktop Windows x86)
 - **Objetivo:** 
-  1. Analisar a integridade e segurança dos arquivos recuperados (`S2.rar`).
+  1. Analisar a integridade e segurança dos binários e bibliotecas nativas.
   2. Extrair assets (modelos 3D de armas, mapas, áudio, tabelas de balanço).
   3. Mapear o protocolo de rede e pacotes do cliente para viabilizar um emulador de servidor local em Python.
-  4. Apoiar a base de um FPS próprio moderno (Godot 4 / Unreal Engine 5).
+  4. Executar e preservar o jogo em seu motor original nativo LithTech Jupiter EX (idêntico ao S2 Rebirth).
 
 ## Status
 - **Status:** Em progresso (extração concluída, formato de arquivos revertido, modelos 3D convertidos para OBJ, protocolo Hermit mapeado, mock server implementado e meta de balanceamento analisado)
@@ -33,7 +33,7 @@
 - `extracted/models/` — 585 modelos 3D (.Model00p)
 - `extracted/weapons/` — 1.014 assets completos de armas extraídos com estrutura de pastas canônica original
 - `extracted/converted/` — 526 modelos convertidos para Wavefront OBJ acompanhados de arquivos de material `.mtl` e texturas `.png`
-- `../../projects/godot-fps/` — Base jogável em Godot 4 integrando as armas, texturas e balanceamento calibrado
+- `client-rebirth/` — Cliente nativo oficial configurado com gráficos Ultra HD 4K e emulador de servidor local
 - [`notes/district-187-security-scan.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-security-scan.md) — Relatório de varredura antivírus e integridade de hashes
 - [`notes/lithtech-hbek-archive-format.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/lithtech-hbek-archive-format.md) — Engenharia reversa completa do formato LithTech Jupiter EX HBEK (.Res00 / .ResDt)
 - [`notes/lithtech-directory-tree-structure.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/lithtech-directory-tree-structure.md) — Engenharia reversa da tabela de 2.305 diretórios e mapeamento 1:1 de caminhos

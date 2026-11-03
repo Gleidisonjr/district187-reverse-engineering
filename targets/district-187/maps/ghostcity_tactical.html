@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>D187 Tactical Radar - ghostcity</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0b1120; color: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; }
+    .spawn-node:hover circle, .bomb-site:hover rect { filter: drop-shadow(0 0 10px rgba(255,255,255,0.9)); cursor: pointer; }
+  </style>
+</head>
+<body class="p-6">
+  <div class="max-w-7xl mx-auto space-y-6">
+    <header class="border-b border-slate-800 pb-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+          <span class="p-2 bg-indigo-600 rounded-lg text-lg">D187</span>
+          Tactical Map Radar: <span class="text-indigo-400 font-mono">ghostcity</span>
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">Engine: LithTech Jupiter EX v113 | Mode: <strong class="text-emerald-400">Demolition (Bomb Defusal / Search & Destroy)</strong></p>
+      </div>
+      <div class="flex gap-3">
+        <span class="px-3 py-1.5 bg-blue-900/40 text-blue-400 border border-blue-700/50 rounded-md text-xs font-semibold">SWAT: 8 Spawns</span>
+        <span class="px-3 py-1.5 bg-red-900/40 text-red-400 border border-red-700/50 rounded-md text-xs font-semibold">Gangsters: 8 Spawns</span>
+        <span class="px-3 py-1.5 bg-purple-900/40 text-purple-400 border border-purple-700/50 rounded-md text-xs font-semibold">2 Bomb Sites</span>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-4 gap-4">
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Combat Arena Span</p>
+        <p class="text-2xl font-bold text-white mt-1">7284 &times; 4152</p>
+        <p class="text-xs text-slate-500 mt-1">Units (X &times; Z extents)</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Base-to-Base Distance</p>
+        <p class="text-2xl font-bold text-amber-400 mt-1">6975 u</p>
+        <p class="text-xs text-slate-500 mt-1">~139.5 meters combat corridor</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Lobby Capacity</p>
+        <p class="text-2xl font-bold text-emerald-400 mt-1">16 Slots</p>
+        <p class="text-xs text-slate-500 mt-1">Full 8v8 or 16v16 Match</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Objectives</p>
+        <p class="text-2xl font-bold text-cyan-400 mt-1">2 Zones</p>
+        <p class="text-xs text-slate-500 mt-1">Target Plant / Heist vaults</p>
+      </div>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl relative">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-semibold text-white">Top-Down Vector Radar (XZ Coordinate Plane)</h2>
+        <div class="text-xs text-slate-400 flex gap-4">
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-blue-500 inline-block"></span> Team 0: SWAT</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span> Team 1: Gangsters</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-red-500/80 inline-block"></span> Bomb Site A</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-orange-500/80 inline-block"></span> Bomb Site B</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-950 rounded-lg p-2 border border-slate-800/80 flex justify-center">
+        <svg viewBox="0 0 900 600" class="w-full h-auto max-h-[580px]">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.8"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+          <line x1="81.4" y1="318.5" x2="808.7" y2="345.1" stroke="#334155" stroke-width="2" stroke-dasharray="6,4" />
+<circle cx="445.1" cy="331.8" r="14" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="2" /><text x="445.1" y="313.8" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">MID CHOKE POINT</text>
+<g class="bomb-site" data-name="BombZoneTrigger00" data-coord="(2275.0, 542.5, -3883.5)"><rect x="739.6" y="50.0" width="40" height="40" fill="#ef4444" fill-opacity="0.25" stroke="#ef4444" stroke-width="2.5" rx="6" /><text x="759.6" y="75.0" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">Site A</text></g>
+<g class="bomb-site" data-name="BombZoneTrigger01" data-coord="(2535.0, 320.0, -8035.0)"><rect x="766.7" y="510.0" width="40" height="40" fill="#f97316" fill-opacity="0.25" stroke="#f97316" stroke-width="2.5" rx="6" /><text x="786.7" y="535.0" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">Site B</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_0_00" data-coord="(-4206.09, 233.93, -6868.83)"><circle cx="83.3" cy="400.8" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="83.3" y="404.3" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">00</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_0_01" data-coord="(-4333.93, 233.93, -6679.13)"><circle cx="70.0" cy="379.8" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="70.0" y="383.3" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">01</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_0_02" data-coord="(-4323.97, 233.93, -7037.2)"><circle cx="71.0" cy="419.4" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="71.0" y="422.9" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">02</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_0_03" data-coord="(-4131.15, 233.93, -6704.64)"><circle cx="91.2" cy="382.6" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="91.2" y="386.1" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">03</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_0_04" data-coord="(-4265.38, 233.93, -5617.99)"><circle cx="77.1" cy="262.2" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="77.1" y="265.7" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">04</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_0_05" data-coord="(-4089.36, 233.93, -5500.8)"><circle cx="95.5" cy="249.2" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="95.5" y="252.7" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">05</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_0_06" data-coord="(-4147.27, 233.93, -5244.32)"><circle cx="89.5" cy="220.8" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="89.5" y="224.3" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">06</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_0_07" data-coord="(-4300.35, 233.93, -5359.73)"><circle cx="73.5" cy="233.6" r="9" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" /><text x="73.5" y="237.1" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">07</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_1_00" data-coord="(2938.46, 245.4, -6027.58)"><circle cx="828.8" cy="307.6" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="828.8" y="311.1" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">00</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_1_01" data-coord="(2543.38, 245.4, -6645.79)"><circle cx="787.6" cy="376.1" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="787.6" y="379.6" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">01</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_1_02" data-coord="(2949.56, 245.4, -6501.63)"><circle cx="830.0" cy="360.1" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="830.0" y="363.6" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">02</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_1_03" data-coord="(2597.9, 245.4, -6144.2)"><circle cx="793.3" cy="320.5" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="793.3" y="324.0" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">03</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_1_04" data-coord="(2739.69, 245.4, -6275.58)"><circle cx="808.1" cy="335.1" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="808.1" y="338.6" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">04</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_1_05" data-coord="(2711.38, 245.4, -6557.56)"><circle cx="805.1" cy="366.3" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="805.1" y="369.8" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">05</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_1_06" data-coord="(2595.35, 245.4, -6413.82)"><circle cx="793.0" cy="350.4" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="793.0" y="353.9" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">06</text></g>
+<g class="spawn-node" data-name="GameStartPointTeam_1_07" data-coord="(2890.71, 245.4, -6365.6)"><circle cx="823.9" cy="345.0" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" /><text x="823.9" y="348.5" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">07</text></g>
+        </svg>
+      </div>
+
+      <div id="inspector-bar" class="mt-4 p-3 bg-slate-950 border border-slate-800 rounded text-xs text-slate-300 flex justify-between items-center">
+        <span id="inspect-label"><strong>Live Entity Inspector:</strong> Hover any node on the radar above.</span>
+        <span class="text-slate-500">LithTech Engine World Space</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const label = document.getElementById('inspect-label');
+    document.querySelectorAll('.spawn-node, .bomb-site, .carry-site').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        const name = el.getAttribute('data-name');
+        const coord = el.getAttribute('data-coord');
+        label.innerHTML = `<strong class="text-emerald-400">${name}</strong> &mdash; Coordinates: <span class="font-mono text-cyan-300">${coord}</span>`;
+      });
+      el.addEventListener('mouseleave', () => {
+        label.innerHTML = '<strong>Live Entity Inspector:</strong> Hover any node on the radar above.';
+      });
+    });
+  </script>
+</body>
+</html>

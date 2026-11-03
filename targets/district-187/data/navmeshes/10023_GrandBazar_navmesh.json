@@ -1,0 +1,97 @@
+{
+  "map_name": "10023_GrandBazar",
+  "bounds": {
+    "min_x": -5071.1,
+    "max_x": 5305.6,
+    "min_z": -306.9,
+    "max_z": 276.9,
+    "span_x": 10376.7,
+    "span_z": 583.9
+  },
+  "waypoints": {
+    "SWAT_BASE": {
+      "name": "SWAT Spawn HQ",
+      "x": -4893.4087500000005,
+      "z": 52.987500000000004,
+      "type": "spawn_swat"
+    },
+    "SWAT_FORWARD": {
+      "name": "SWAT Forward Line",
+      "x": -3129.856750000001,
+      "z": 40.919281250000004,
+      "type": "corridor"
+    },
+    "FLANK_LEFT": {
+      "name": "Left Flank Corridor",
+      "x": 169.44768749999974,
+      "z": 3545.610875,
+      "type": "tunnel"
+    },
+    "MID_CHOKE": {
+      "name": "Central Choke Point",
+      "x": 145.31124999999975,
+      "z": 18.506875,
+      "type": "choke"
+    },
+    "FLANK_RIGHT": {
+      "name": "Right Flank Corridor",
+      "x": 121.17481249999975,
+      "z": -3508.597125,
+      "type": "corridor"
+    },
+    "GANG_FORWARD": {
+      "name": "Gangster Forward Line",
+      "x": 3420.4792500000003,
+      "z": -3.9055312499999992,
+      "type": "corridor"
+    },
+    "GANG_BASE": {
+      "name": "Gangster Spawn HQ",
+      "x": 5184.03125,
+      "z": -15.973749999999999,
+      "type": "spawn_gang"
+    }
+  },
+  "edges": [
+    {
+      "from": "SWAT_BASE",
+      "to": "SWAT_FORWARD",
+      "cover": 0.75
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "FLANK_LEFT",
+      "cover": 0.8
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "MID_CHOKE",
+      "cover": 0.45
+    },
+    {
+      "from": "SWAT_FORWARD",
+      "to": "FLANK_RIGHT",
+      "cover": 0.8
+    },
+    {
+      "from": "FLANK_LEFT",
+      "to": "GANG_FORWARD",
+      "cover": 0.85
+    },
+    {
+      "from": "MID_CHOKE",
+      "to": "GANG_FORWARD",
+      "cover": 0.5
+    },
+    {
+      "from": "FLANK_RIGHT",
+      "to": "GANG_FORWARD",
+      "cover": 0.8
+    },
+    {
+      "from": "GANG_FORWARD",
+      "to": "GANG_BASE",
+      "cover": 0.75
+    }
+  ]
+}

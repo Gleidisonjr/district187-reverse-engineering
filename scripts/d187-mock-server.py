@@ -31,12 +31,22 @@ PACKET_HERMIT_HANDSHAKE_REQ = 0x20080
 PACKET_HERMIT_HANDSHAKE_RES = 0x20081
 PACKET_HERMIT_HANDSHAKE_ACK = 0x20082
 PACKET_HERMIT_HANDSHAKE_PONG = 0x20083
+PACKET_HERMIT_PING_KEEPALIVE = 0x20084
 PACKET_HERMIT_PING = 0x20090
+PACKET_HERMIT_DISCONNECT = 0x200A0
 
 PACKET_CQ_LOGIN = 0x110101
 PACKET_SA_LOGIN = 0x110102
 PACKET_CQ_JOYGAME_LOGIN = 0x110111
 PACKET_SA_JOYGAME_LOGIN = 0x110112
+
+# ApexGuard / S2Rebirth Anti-Cheat Heartbeat
+PACKET_APEX_HEARTBEAT_REQ = 0x5A0101
+PACKET_APEX_HEARTBEAT_RES = 0x5A0102
+
+# Magic Success Code required by GameClient.dll at VA 0x10191bd0:
+# cmp edi, 0x00A40221 (10748449) -> je 0x10191cbd (Clears Scaleform "please wait" overlay)
+ACCOUNT_ID_SUCCESS = 0x00A40221
 
 # NLaunch Family
 PACKET_SN_USER_INFO = 0x210101
@@ -47,6 +57,8 @@ PACKET_SN_RECORD = 0x210203
 # NMatchup Family
 PACKET_CQ_ENTER_USER = 0x220101
 PACKET_SA_ENTER_USER = 0x220102
+PACKET_CQ_ROOM_LIST = 0x220103
+PACKET_SA_ROOM_LIST = 0x220104
 PACKET_CQ_CREATE_ROOM = 0x220201
 PACKET_SA_CREATE_ROOM = 0x220202
 PACKET_CN_START_BUTTON = 0x220301
@@ -158,24 +170,37 @@ def build_handshake_pong_83(session_id: int, key_byte: int = 0x0F) -> bytes:
     plain = b'\x00\x00\x00\x00' + header + payload
     return encrypt_hermit_packet(plain, key_byte)
 
-def build_login_success_response(packet_id: int, session_id: int, account_id: int = 1001, key_byte: int = 0x0F) -> bytes:
+def build_apex_heartbeat_response(session_id: int, payload_data: bytes = b"", key_byte: int = 0x0F) -> bytes:
+    """
+    Constructs Apex / S2Rebirth Heartbeat Response 0x5A0102 (48 bytes: 16 header + 32 payload).
+    GameClient.dll at 0x1058c310 copies 32 bytes (rep movsd with ecx=8) to shared memory [edi + 0x50]
+    and increments the heartbeat counter at [edi + 0x40].
+    """
+    payload = bytearray(32)
+    if payload_data:
+        payload[:min(32, len(payload_data))] = payload_data[:32]
+    header = struct.pack('>HHII', 0, 48, session_id, PACKET_APEX_HEARTBEAT_RES)
+    plain = b'\x00\x00\x00\x00' + header + bytes(payload)
+    return encrypt_hermit_packet(plain, key_byte)
+
+def build_login_success_response(packet_id: int, session_id: int, account_id: int = ACCOUNT_ID_SUCCESS, key_byte: int = 0x0F) -> bytes:
     """
     Constructs an authentic SA_JoyGameLogin or SA_Login packet (80 bytes).
-    Scaleform handler at 0x100d74a0 expects:
+    Scaleform handler at 0x100d74a0 / 0x100d74f0 and 0x10191740 expects:
     - Offset 0x10 (16): ResultCode = 0 (uint16 LE, 0 = SUCCESS)
-    - Offset 0x12 (18): AccountID != 0 (uint32 LE, e.g. 1001)
+    - Offset 0x12 (18): Status = 0x00A40221 (uint32 LE, magic success code required by 0x10191bd0)
     - Offset 0x16 (22): ServerPort = 12000 (uint16 LE)
     - Offset 0x18 (24): Session Token (32 bytes)
     """
     total_len = 80
     payload = bytearray(64)
     struct.pack_into('<H', payload, 0, 0)          # ResultCode = 0 (Success)
-    struct.pack_into('<I', payload, 2, account_id) # AccountID = 1001
+    struct.pack_into('<I', payload, 2, account_id) # Offset 18: 0x00A40221 (Success branch at 0x10191bd0)
     struct.pack_into('<H', payload, 6, 12000)      # Server Port = 12000
     token = b"D187_HERMIT_OFFLINE_SESSION_TOKEN_2026\x00"
     payload[8:8+len(token)] = token
     # Extra user details in payload
-    nickname = b"Operativo\x00"
+    nickname = b"Gleidison\x00"
     payload[40:40+len(nickname)] = nickname
 
     header = struct.pack('>HHII', 0, total_len, session_id, packet_id)
@@ -188,7 +213,7 @@ def build_hermit_packet(packet_id: int, session_id: int, payload: bytes, key_byt
     plain = b'\x00\x00\x00\x00' + header + payload
     return encrypt_hermit_packet(plain, key_byte)
 
-def build_user_info_hermit(session_id: int, account_id: int = 1001, nickname: str = "Gleidison", key_byte: int = 0x0F) -> bytes:
+def build_user_info_hermit(session_id: int, account_id: int = ACCOUNT_ID_SUCCESS, nickname: str = "Gleidison", key_byte: int = 0x0F) -> bytes:
     """SN_UserInfo (0x210101): Rank 58, 50M Exp, 9.99M Gold/Cash, Nickname, Clan."""
     nick_b = nickname.encode("utf-8")[:31].ljust(32, b"\x00")
     clan_b = b"D187_Meta\x00".ljust(32, b"\x00")
@@ -246,27 +271,46 @@ def build_enter_channel_response(session_id: int, channel_id: int = 1, key_byte:
     payload = struct.pack("<II32s", 0, channel_id, cname)
     return build_hermit_packet(PACKET_SA_ENTER_USER, session_id, payload, key_byte)
 
-def build_create_room_response(session_id: int, room_id: int = 1, key_byte: int = 0x0F) -> bytes:
+def build_room_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
+    """SA_RoomList (0x220104): Lists available rooms with different maps."""
+    rooms = [
+        (1, "Arrival 8v8 [Bots & VIP]", "Arrival", 1, 8, 16, 0),
+        (2, "TwoWay Demolition A/B", "twoway", 2, 10, 16, 0),
+        (3, "The Bank Gold Heist", "thebank", 3, 12, 16, 0),
+        (4, "Old Town TDM Clássico", "oldtown", 1, 6, 16, 0),
+        (5, "Heaven Search & Destroy", "10025_Heaven", 2, 4, 16, 0)
+    ]
+    payload = bytearray(struct.pack("<I", len(rooms)))
+    for rid, rname, rmap, mode, players, max_p, state in rooms:
+        rname_b = rname.encode("utf-8")[:31].ljust(32, b"\x00")
+        rmap_b = rmap.encode("utf-8")[:19].ljust(20, b"\x00")
+        payload += struct.pack("<I32s20sBBBB", rid, rname_b, rmap_b, mode, players, max_p, state)
+    return build_hermit_packet(PACKET_SA_ROOM_LIST, session_id, bytes(payload), key_byte)
+
+def build_create_room_response(session_id: int, room_id: int = 1, room_name: str = "Arrival 8v8 [Bots & VIP]", key_byte: int = 0x0F) -> bytes:
     """SA_CreateRoom (0x220202): Response to CQ_CreateRoom."""
-    rname = b"Arrival 8v8 [Bots & VIP]\x00".ljust(32, b"\x00")
+    rname = room_name.encode("utf-8")[:31].ljust(32, b"\x00")
     payload = struct.pack("<II32sI", 0, room_id, rname, 1)
     return build_hermit_packet(PACKET_SA_CREATE_ROOM, session_id, payload, key_byte)
 
-def build_battle_start_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
+def build_battle_start_hermit(session_id: int, map_name: str = "Arrival.World00p", port: int = 27888, key_byte: int = 0x0F) -> bytes:
     """SN_BattleStart (0x230104): Directs client to connect to combat server."""
+    if not map_name.endswith(".World00p"):
+        map_name = f"{map_name}.World00p"
     ip_b = b"127.0.0.1\x00".ljust(16, b"\x00")
-    map_b = b"Worlds\\Arrival.World00p\x00".ljust(32, b"\x00")
-    payload = struct.pack("<16sH32s", ip_b, 27888, map_b)
+    map_rel = f"Worlds\\{map_name}".encode("ascii")[:31].ljust(32, b"\x00")
+    payload = struct.pack("<16sH32s", ip_b, port, map_rel)
     return build_hermit_packet(PACKET_SN_BATTLE_START, session_id, payload, key_byte)
 
 class HermitClientSession:
-    def __init__(self, sock, addr):
+    def __init__(self, sock, addr, active_map: str = "Arrival.World00p"):
         self.sock = sock
         self.addr = addr
         self.session_id = 0x04034992
         self.key_byte = 0x0F
         self.recv_buf = bytearray()
         self.state = "HANDSHAKE"
+        self.active_map = active_map
 
     def handle(self):
         print(f"[+] Client connected from {self.addr}")
@@ -346,25 +390,32 @@ class HermitClientSession:
             self.sock.sendall(resp)
             print(f"[+] Dispatched Handshake Pong 0x20083 ({len(resp)} bytes). Session ESTABLISHED!")
 
-        # 3. Hermit Ping (0x20090 -> Pong 0x20083)
-        elif pkt_id == PACKET_HERMIT_PING:
-            print(f"[+] Hermit Ping (0x20090) received. Sending Pong 0x20083...")
+        # 3. Hermit Ping (0x20090 or 0x20084 -> Pong 0x20083)
+        elif pkt_id == PACKET_HERMIT_PING or pkt_id == PACKET_HERMIT_PING_KEEPALIVE:
+            print(f"[+] Hermit Keepalive Ping (0x{pkt_id:X}) received. Sending Pong 0x20083...")
             resp = build_handshake_pong_83(self.session_id, self.key_byte)
             self.sock.sendall(resp)
 
-        # 4. CQ_JoyGameLogin (0x110111) -> SA_JoyGameLogin + Full VIP Lobby Packets
+        # 4. Apex / S2Rebirth Heartbeat (0x5A0101 -> 0x5A0102)
+        elif pkt_id == PACKET_APEX_HEARTBEAT_REQ:
+            payload_data = plain_packet[16:]
+            resp = build_apex_heartbeat_response(self.session_id, payload_data, self.key_byte)
+            self.sock.sendall(resp)
+            print(f"[+] Dispatched Apex Heartbeat Pong 0x5A0102 ({len(resp)} bytes)")
+
+        # 5. CQ_JoyGameLogin (0x110111) -> SA_JoyGameLogin + Full VIP Lobby Packets
         elif pkt_id == PACKET_CQ_JOYGAME_LOGIN or pkt_id == PACKET_CQ_LOGIN:
             login_type = "CQ_JoyGameLogin" if pkt_id == PACKET_CQ_JOYGAME_LOGIN else "CQ_Login"
             resp_pkt_id = PACKET_SA_JOYGAME_LOGIN if pkt_id == PACKET_CQ_JOYGAME_LOGIN else PACKET_SA_LOGIN
             print(f"[+] {login_type} (0x{pkt_id:X}) received! Authenticating user and preparing VIP Lobby...")
             
             # 1. Login Response (clears 'please wait' at 0x100d74db)
-            resp = build_login_success_response(resp_pkt_id, self.session_id, account_id=1001, key_byte=self.key_byte)
+            resp = build_login_success_response(resp_pkt_id, self.session_id, account_id=ACCOUNT_ID_SUCCESS, key_byte=self.key_byte)
             self.sock.sendall(resp)
-            print(f"[+] Dispatched SA_JoyGameLogin ({len(resp)} bytes, ResultCode=0, AccountID=1001)!")
+            print(f"[+] Dispatched SA_JoyGameLogin ({len(resp)} bytes, ResultCode=0, AccountID=0x{ACCOUNT_ID_SUCCESS:X})!")
 
             # 2. Dispatch User Info (Rank 58, 50M Exp, 9.99M Gold/Cash)
-            uinfo = build_user_info_hermit(self.session_id, account_id=1001, nickname="Gleidison", key_byte=self.key_byte)
+            uinfo = build_user_info_hermit(self.session_id, account_id=ACCOUNT_ID_SUCCESS, nickname="Gleidison", key_byte=self.key_byte)
             self.sock.sendall(uinfo)
             print(f"[+] Dispatched SN_UserInfo (Rank 58, 9.99M Gold/Cash)!")
 
@@ -390,19 +441,26 @@ class HermitClientSession:
             self.sock.sendall(resp)
             print(f"[+] Dispatched SA_EnterUser (Channel 1 [Competitivo])!")
 
+        # CQ_RoomList (0x220103) -> SA_RoomList (0x220104) [Lobby Browser]
+        elif pkt_id == PACKET_CQ_ROOM_LIST:
+            print(f"[+] CQ_RoomList (0x220103) received! Sending available rooms...")
+            resp = build_room_list_hermit(self.session_id, key_byte=self.key_byte)
+            self.sock.sendall(resp)
+            print(f"[+] Dispatched SA_RoomList (5 active multi-map rooms)!")
+
         # 7. CQ_CreateRoom (0x220201) -> SA_CreateRoom (0x220202) [Room Creation]
         elif pkt_id == PACKET_CQ_CREATE_ROOM:
             print(f"[+] CQ_CreateRoom (0x220201) received! Creating Match Room...")
-            resp = build_create_room_response(self.session_id, room_id=1, key_byte=self.key_byte)
+            resp = build_create_room_response(self.session_id, room_id=1, room_name=f"{self.active_map} 8v8 [Bots & VIP]", key_byte=self.key_byte)
             self.sock.sendall(resp)
-            print(f"[+] Dispatched SA_CreateRoom (Room 1: Arrival 8v8 [Bots & VIP])!")
+            print(f"[+] Dispatched SA_CreateRoom (Room 1: {self.active_map} 8v8 [Bots & VIP])!")
 
         # 8. CN_StartButton (0x220301) -> SN_BattleStart (0x230104) [Match Trigger]
         elif pkt_id == PACKET_CN_START_BUTTON:
-            print(f"[+] CN_StartButton (0x220301) received! Launching Battle...")
-            resp = build_battle_start_hermit(self.session_id, key_byte=self.key_byte)
+            print(f"[+] CN_StartButton (0x220301) received! Launching Battle on {self.active_map}...")
+            resp = build_battle_start_hermit(self.session_id, map_name=self.active_map, key_byte=self.key_byte)
             self.sock.sendall(resp)
-            print(f"[+] Dispatched SN_BattleStart -> Directing client to 127.0.0.1:27888 (Arrival.World00p)!")
+            print(f"[+] Dispatched SN_BattleStart -> Directing client to 127.0.0.1:27888 ({self.active_map})!")
 
         else:
             print(f"[?] Unknown / Unhandled Hermit Packet ID: 0x{pkt_id:X}")
@@ -413,7 +471,7 @@ class HermitClientSession:
             except Exception:
                 pass
 
-def start_tcp_server(port=12000):
+def start_tcp_server(port=12000, active_map="Arrival.World00p"):
     server_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server_sock.bind(("0.0.0.0", port))
@@ -421,12 +479,13 @@ def start_tcp_server(port=12000):
     print(f"=====================================================================")
     print(f"  District 187: Sin Streets — Hermit Dedicated Server Emulator")
     print(f"  Listening on TCP 0.0.0.0:{port}")
+    print(f"  Active Battle Map: {active_map}")
     print(f"  Protocol: Hermit Jupiter EX (CRC32 Stream Cipher, Key=0x0F)")
     print(f"=====================================================================")
     while True:
         try:
             client_sock, client_addr = server_sock.accept()
-            session = HermitClientSession(client_sock, client_addr)
+            session = HermitClientSession(client_sock, client_addr, active_map=active_map)
             thread = threading.Thread(target=session.handle, daemon=True)
             thread.start()
         except Exception as e:
@@ -446,10 +505,16 @@ def start_udp_listener(port=12000):
             break
 
 def main():
-    port = 12000
-    udp_thread = threading.Thread(target=start_udp_listener, args=(port,), daemon=True)
+    import argparse
+    parser = argparse.ArgumentParser(description="District 187 Hermit Protocol Dedicated Server")
+    parser.add_argument("--port", type=int, default=12000, help="Server port (default: 12000)")
+    parser.add_argument("--map", default="Arrival.World00p", help="Active battle map (default: Arrival.World00p)")
+    args = parser.parse_args()
+
+    active_map = args.map if args.map.endswith(".World00p") else f"{args.map}.World00p"
+    udp_thread = threading.Thread(target=start_udp_listener, args=(args.port,), daemon=True)
     udp_thread.start()
-    start_tcp_server(port)
+    start_tcp_server(args.port, active_map=active_map)
 
 if __name__ == "__main__":
     main()

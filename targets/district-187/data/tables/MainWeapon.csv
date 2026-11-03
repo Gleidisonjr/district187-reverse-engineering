@@ -1,0 +1,12 @@
+Event,Index,key
+Select,0,4
+Fire,1,6
+SilencedFire,2,8
+ClipChange,3,1
+ClipFix,4,2
+BoltPull,5,3
+MISC1,6,11
+MISC2,7,12
+MISC3,8,13
+MISC4,9,14
+MISC5,10,15

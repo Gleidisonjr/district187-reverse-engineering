@@ -1,0 +1,210 @@
+﻿Index,Text
+1,<Rütbe> Çaylak rütbesi ödülü
+2,<Rütbe> Çavuş rütbesi ödülü
+3,<Rütbe> Bıçkın rütbesi ödülü
+4,<Rütbe> Tayfa rütbesi ödülü
+5,<Rütbe> Gedikli rütbesi ödülü
+6,<Rütbe> Kulağı Kesik rütbesi ödülü
+7,<Rütbe> Fedai rütbesi ödülü
+8,<Rütbe> Tetikçi rütbesi ödülü
+9,<Rütbe> Kaptan rütbesi ödülü
+10,<Rütbe> Afili rütbesi ödülü
+11,<Rütbe> Jilet rütbesi ödülü
+12,<Rütbe> Çakal rütbesi ödülü
+13,<Rütbe> Haydut rütbesi ödülü
+14,<Rütbe> Beylerbeyi rütbesi ödülü
+15,<Rütbe> Kabadayı rütbesi ödülü
+16,<Rütbe> Baba rütbesi ödülü
+17,<Rütbe> Mareşal rütbesi ödülü
+1000001,<Savaş> Rekor Svy 1 Ödülü
+1000002,<Savaş> Rekor Svy 2 Ödülü
+1000003,<Savaş> Rekor Svy 3 Ödülü
+1000004,<Savaş> Rekor Svy 4 Ödülü
+1000005,<Savaş> Rekor Svy 5 Ödülü
+1000006,<Savaş> Rekortmen Ödülü
+1000101,<Savaş> Galibiyet Svy 1 Ödülü
+1000102,<Savaş> Galibiyet Svy 2 Ödülü
+1000103,<Savaş> Galibiyet Svy 3 Ödülü
+1000104,<Savaş> Galibiyet Svy 4 Ödülü
+1000105,<Savaş> Galibiyet Svy 5 Ödülü
+1000106,<Savaş> Galibiyet Ustası Ödülü
+1000201,<Savaş> Mağlubiyet Svy 1 Ödülü
+1000202,<Savaş> Mağlubiyet Svy 2 Ödülü
+1000203,<Savaş> Mağlubiyet Svy 3 Ödülü
+1000204,<Savaş> Mağlubiyet Svy 4 Ödülü
+1000205,<Savaş> Mağlubiyet Svy 5 Ödülü
+1000206,<Savaş> Mağlubiyet Ustası Ödülü
+1000301,<Savaş> Berabere Ödülü Svy 1
+1000302,<Savaş> Berabere Ödülü Svy 2
+1000303,<Savaş> Berabere Ödülü Svy 3
+1000304,<Savaş> Berabere Ödülü Svy 4
+1000305,<Savaş> Berabere Ödülü Svy 5
+1000306,<Savaş> Beraberlik Ustası Ödülü
+1000401,<Savaş> Öldürme Ödülü Svy 1
+1000402,<Savaş> Öldürme Ödülü Svy 2
+1000403,<Savaş> Öldürme Ödülü Svy 3
+1000404,<Savaş> Öldürme Ödülü Svy 4
+1000405,<Savaş> Öldürme Ödülü Svy 5
+1000406,<Savaş> Öldürme Başarısı Ödülü 
+1000501,<Savaş> Ölü Usta Ödülü Svy 1
+1000502,<Savaş> Ölü Usta Ödülü Svy 2
+1000503,<Savaş> Ölü Usta Ödülü Svy 3
+1000504,<Savaş> Ölü Usta Ödülü Svy 4
+1000505,<Savaş> Ölü Usta Ödülü Svy 5
+1000506,<Savaş> Ölü Usta Ödülü
+1000601,<Savaş> Kafadar Ödülü Svy 1
+1000602,<Savaş> Kafadar Ödülü Svy 2
+1000603,<Savaş> Kafadar Ödülü Svy 3
+1000604,<Savaş> Kafadar Ödülü Svy 4
+1000605,<Savaş> Kafadar Ödülü Svy 5
+1000606,<Savaş> Kafadar Başarısı Ödülü
+1000701,<Savaş> Süre Ödülü Svy 1
+1000702,<Savaş> Süre Ödülü Svy 2
+1000703,<Savaş> Süre Ödülü Svy 3
+1000704,<Savaş> Süre Ödülü Svy 4
+1000705,<Savaş> Süre Ödülü Svy 5
+1000706,<Savaş> Süre Ustası Ödülü
+1000801,<Savaş> Görev Ustası Svy 1
+1000802,<Savaş> Görev Ustası Svy 2
+1000803,<Savaş> Görev Ustası Svy 3
+1000804,<Savaş> Görev Ustası Svy 4
+1000805,<Savaş> Görev Ustası Svy 5
+1000806,<Savaş> Görev Ustası Başarı Ödülü
+1000901,<Savaş> İntihar Ödülü Svy 1
+1000902,<Savaş> İntihar Ödülü Svy 2
+1000903,<Savaş> İntihar Ödülü Svy 3
+1000904,<Savaş> İntihar Ödülü Svy 4
+1000905,<Savaş> İntihar Ödülü Svy 5
+1000906,<Savaş> İntihar Ustası Ödülü 
+1001001,<Savaş> Cani Ödülü Svy 1
+1001002,<Savaş> Cani Ödülü Svy 2
+1001003,<Savaş> Cani Ödülü Svy 3
+1001004,<Savaş> Cani Ödülü Svy 4
+1001005,<Savaş> Cani Ödülü Svy 5
+1001006,<Savaş> Cani Usta Ödülü
+1001101,<Savaş> Raund Ustası Ödülü Svy 1
+1001102,<Savaş> Raund Ustası Ödülü Svy 2
+1001103,<Savaş> Raund Ustası Ödülü Svy 3
+1001104,<Savaş> Raund Ustası Ödülü Svy 4
+1001105,<Savaş> Raund Ustası Ödülü Svy 5
+1001106,<Savaş> Raund Ustası Başarı Ödülü
+1001201,<Savaş> Raund Kaybetme Ödülü Svy 1
+1001202,<Savaş> Raund Kaybetme Ödülü Svy 2
+1001203,<Savaş> Raund Kaybetme Ödülü Svy 3
+1001204,<Savaş> Raund Kaybetme Ödülü Svy 4
+1001205,<Savaş> Raund Kaybetme Ödülü Svy 5
+1001206,<Savaş> Raund Kaybetme Ustası Ödülü
+2010101,<Silah> MAR ödülü Svy 1
+2010102,<Silah> MAR ödülü Svy 2
+2010103,<Silah> MAR ödülü Svy 3
+2010104,<Silah> MAR ödülü Svy 4
+2010105,<Silah> MAR ödülü Svy 5
+2010106,<Silah> MAR Ustası ödülü
+2010201,<Silah> AR Ödülü Svy 1
+2010202,<Silah> AR Ödülü Svy 2
+2010203,<Silah> AR Ödülü Svy 3
+2010204,<Silah> AR Ödülü Svy 4
+2010205,<Silah> AR Ödülü Svy 5
+2010206,<Silah> AR Ustası Ödülü
+2010301,<Silah> Pompalı Ödülü Svy 1
+2010302,<Silah> Pompalı Ödülü Svy 2
+2010303,<Silah> Pompalı Ödülü Svy 3
+2010304,<Silah> Pompalı Ödülü Svy 4
+2010305,<Silah> Pompalı Ödülü Svy 5
+2010306,<Silah> Pompalı Ustası Ödülü
+2010401,<Silah> Dürbünlü Ödülü Svy 1
+2010402,<Silah> Dürbünlü Ödülü Svy 2
+2010403,<Silah> Dürbünlü Ödülü Svy 3
+2010404,<Silah> Dürbünlü Ödülü Svy 4
+2010405,<Silah> Dürbünlü Ödülü Svy 5
+2010406,<Silah> Dürbünlü Ustası Ödülü
+2010501,<Silah> Y Makineli Ödülü Svy 1
+2010502,<Silah> Y Makineli Ödülü Svy 2
+2010503,<Silah> Y Makineli Ödülü Svy 3
+2010504,<Silah> Y Makineli Ödülü Svy 4
+2010505,<Silah> Y Makineli Ödülü Svy 5
+2010506,<Silah> Y Makineli Ustası Ödülü
+2020101,<Silah> Tabanca Ödülü Svy 1
+2020102,<Silah> Tabanca Ödülü Svy 2
+2020103,<Silah> Tabanca Ödülü Svy 3
+2020104,<Silah> Tabanca Ödülü Svy 4
+2020105,<Silah> Tabanca Ödülü Svy 5
+2020106,<Silah> Tabanca Ustası Ödülü
+2030101,<Silah> Bıçakçı Ödülü Svy 1
+2030102,<Silah> Bıçakçı Ödülü Svy 2
+2030103,<Silah> Bıçakçı Ödülü Svy 3
+2030104,<Silah> Bıçakçı Ödülü Svy 4
+2030105,<Silah> Bıçakçı Ödülü Svy 5
+2030106,<Silah> Bıçak Ustası Ödülü
+2030201,<Silah> Baltacı Ödülü Svy 1
+2030202,<Silah> Baltacı Ödülü Svy 2
+2030203,<Silah> Baltacı Ödülü Svy 3
+2030204,<Silah> Baltacı Ödülü Svy 4
+2030205,<Silah> Baltacı Ödülü Svy 5
+2030206,<Silah> Balta Ustası Ödülü
+2030301,<Silah> Sopacı Ödülü Svy 1
+2030302,<Silah> Sopacı Ödülü Svy 2
+2030303,<Silah> Sopacı Ödülü Svy 3
+2030304,<Silah> Sopacı Ödülü Svy 4
+2030305,<Silah> Sopacı Ödülü Svy 5
+2030306,<Silah> Sopa Ustası Ödülü
+2040101,<Silah> Bomba Ustası Ödülü Svy 1
+2040102,<Silah> Bomba Ustası Ödülü Svy 2
+2040103,<Silah> Bomba Ustası Ödülü Svy 3
+2040104,<Silah> Bomba Ustası Ödülü Svy 4
+2040105,<Silah> Bomba Ustası Ödülü Svy 5
+2040106,<Silah> Bomba Ustası Başarı Ödülü
+3000301,<Görev> Yakalama Ödülü Svy 1
+3000302,<Görev> Yakalama Ödülü Svy 2
+3000303,<Görev> Yakalama Ödülü Svy 3
+3000304,<Görev> Yakalama Ödülü Svy 4
+3000305,<Görev> Yakalama Ödülü Svy 5
+3000306,<Görev> Yakalama Ustası Ödülü
+3000501,<Görev> Bomba Kurma Ödülü Svy 1
+3000502,<Görev> Bomba Kurma Ödülü Svy 2
+3000503,<Görev> Bomba Kurma Ödülü Svy 3
+3000504,<Görev> Bomba Kurma Ödülü Svy 4
+3000505,<Görev> Bomba Kurma Ödülü Svy 5
+3000506,<Görev> Bomba Kurma Ustası Ödülü
+3000901,<Görev> Patron Öldürme Ödülü Svy 1
+3000902,<Görev> Patron Öldürme Ödülü Svy 2
+3000903,<Görev> Patron Öldürme Ödülü Svy 3
+3000904,<Görev> Patron Öldürme Ödülü Svy 4
+3000905,<Görev> Patron Öldürme Ödülü Svy 5
+3000906,<Görev> Patron Öldürme Ustası Ödülü
+4000101,<Macera> Ölüm Oyunu Ödülü Svy 1
+4000102,<Macera> Ölüm Oyunu Ödülü Svy 2
+4000103,<Macera> Ölüm Oyunu Ödülü Svy 3
+4000104,<Macera> Ölüm Oyunu Ödülü Svy 4
+4000105,<Macera> Ölüm Oyunu Ödülü Svy 5
+4000106,<Macera> Ölüm Oyunu Ustası Ödülü
+4000301,<Macera> Karambol Ödülü Svy 1 
+4000302,<Macera> Karambol Ödülü Svy 2
+4000303,<Macera> Karambol Ödülü Svy 3
+4000304,<Macera> Karambol Ödülü Svy 4
+4000305,<Macera> Karambol Ödülü Svy 5
+4000306,<Macera> Karambol Ustası Ödülü
+4000501,<Macera> Bomba Görevi Ödülü Svy 1
+4000502,<Macera> Bomba Görevi Ödülü Svy 2
+4000503,<Macera> Bomba Görevi Ödülü Svy 3
+4000504,<Macera> Bomba Görevi Ödülü Svy 4
+4000505,<Macera> Bomba Görevi Ödülü Svy 5
+4000506,<Macera> Bomba Görevi Ustası Ödülü
+4000601,<Macera> Raund Ödülü Svy 1
+4000602,<Macera> Raund Ödülü Svy 2
+4000603,<Macera> Raund Ödülü Svy 3
+4000604,<Macera> Raund Ödülü Svy 4
+4000605,<Macera> Raund Ödülü Svy 5
+4000606,<Macera> Raund Ustası Ödülü
+4000901,<Macera> Patron Maçı Ödülü Svy 1
+4000902,<Macera> Patron Maçı Ödülü Svy 2
+4000903,<Macera> Patron Maçı Ödülü Svy 3
+4000904,<Macera> Patron Maçı Ödülü Svy 4
+4000905,<Macera> Patron Maçı Ödülü Svy 5
+4000906,<Macera> Patron Maçı Ustası Ödülü
+6000001,Başarı Skoru Ödülü Svy 1
+6000002,Başarı Skoru Ödülü Svy 2
+6000003,Başarı Skoru Ödülü Svy 3
+6000004,Başarı Skoru Ödülü Svy 4
+6000005,Başarı Skoru Ödülü Svy 5
+6000006,Başarı Skoru Ödülü Svy 6

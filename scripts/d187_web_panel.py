@@ -162,6 +162,84 @@ HTML_PAGE = """<!DOCTYPE html>
       </a>
     </div>
 
+    <!-- Maps & Tactical NavMesh Hub -->
+    <div class="glass-card rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-white mb-4 flex items-center justify-between">
+        <span class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+          LithTech Jupiter EX Tactical Radar & NavMesh Hub (25 Maps)
+        </span>
+        <span class="text-xs bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full border border-cyan-500/30">Extracted from Game.ResDt</span>
+      </h2>
+      <div class="grid grid-cols-3 gap-4 items-end">
+        <div class="col-span-1">
+          <label class="block text-xs font-semibold text-slate-400 mb-1">Select Map</label>
+          <select id="selected-map" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white">
+            <option value="twoway">TwoWay (Demolition - Bomb A/B)</option>
+            <option value="thebank">TheBank (Heist - Robbery)</option>
+            <option value="10025_Heaven">10025 Heaven (Demolition)</option>
+            <option value="Arrival">Arrival (16v16 TDM)</option>
+            <option value="ghostcity">GhostCity (Demolition)</option>
+            <option value="lostland">LostLand (Demolition)</option>
+            <option value="10034_TheMetro">10034 TheMetro (TDM)</option>
+            <option value="oldtown">OldTown (TDM)</option>
+            <option value="10016_underworld">10016 UnderWorld (TDM)</option>
+            <option value="10023_GrandBazar">10023 GrandBazar (TDM)</option>
+            <option value="10029_DummyHouse">10029 DummyHouse (TDM)</option>
+            <option value="10031_Hospital">10031 Hospital (TDM)</option>
+            <option value="huntinghill">HuntingHill (TDM)</option>
+            <option value="Ghost_Ship">Ghost Ship (TDM)</option>
+          </select>
+        </div>
+        <div class="flex gap-3 col-span-2">
+          <button onclick="openTacticalRadar()" class="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 font-semibold text-xs text-white rounded-lg transition flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            Open 2D Tactical Vector Radar
+          </button>
+          <button onclick="openNavmeshRadar()" class="flex-1 px-4 py-2.5 bg-purple-600 hover:bg-purple-700 font-semibold text-xs text-white rounded-lg transition flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Open A* NavMesh Radar (Bots)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Bot Combat Simulation & Telemetry -->
+    <div class="glass-card rounded-2xl p-6">
+      <div class="flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Authoritative Bot Match Simulator & Match History
+          </h2>
+          <p class="text-xs text-slate-400">Simulates 8v8 tactical combat using real SQLite stats & authentic spawns</p>
+        </div>
+        <button id="btn-sim" onclick="runSimulation()" class="px-5 py-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 font-bold text-xs text-white rounded-xl shadow-lg shadow-emerald-500/25 transition">
+          Simulate 8v8 Match
+        </button>
+      </div>
+
+      <div id="sim-result" class="hidden mb-4 p-4 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs"></div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead class="text-slate-400 border-b border-slate-700">
+            <tr>
+              <th class="py-2.5">Time</th>
+              <th>Map</th>
+              <th>Winner</th>
+              <th>Score</th>
+              <th>MVP</th>
+              <th>Total Kills</th>
+            </tr>
+          </thead>
+          <tbody id="matches-body" class="divide-y divide-slate-800 text-slate-200">
+            <tr><td colspan="6" class="py-3 text-center text-slate-500">Loading match history...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- Competitive CVar Tuning -->
     <div class="glass-card rounded-2xl p-6">
       <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
@@ -256,8 +334,71 @@ HTML_PAGE = """<!DOCTYPE html>
       }
     }
 
+    function openTacticalRadar() {
+      const map = document.getElementById('selected-map').value;
+      window.open(`/maps/${map}_tactical.html`, '_blank');
+    }
+
+    function openNavmeshRadar() {
+      const map = document.getElementById('selected-map').value;
+      window.open(`/navmeshes/${map}_navmesh.html`, '_blank');
+    }
+
+    async function loadMatches() {
+      try {
+        const res = await fetch('/api/matches');
+        const matches = await res.json();
+        const tbody = document.getElementById('matches-body');
+        if (!matches || matches.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" class="py-3 text-center text-slate-500">No match records found in database.</td></tr>';
+          return;
+        }
+        tbody.innerHTML = matches.map(m => `
+          <tr class="hover:bg-slate-800/40">
+            <td class="py-2.5 font-mono text-slate-400">${m.timestamp || '-'}</td>
+            <td class="font-bold text-cyan-400">${m.map_name}</td>
+            <td class="${m.winner.includes('SWAT') ? 'text-blue-400' : 'text-rose-400'} font-semibold">${m.winner}</td>
+            <td class="font-mono">${m.swat_score} - ${m.gang_score}</td>
+            <td class="text-amber-300">${m.mvp}</td>
+            <td class="font-mono text-slate-300">${m.total_kills}</td>
+          </tr>
+        `).join('');
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    async function runSimulation() {
+      const map = document.getElementById('selected-map').value;
+      const btn = document.getElementById('btn-sim');
+      const box = document.getElementById('sim-result');
+      btn.disabled = true;
+      btn.innerText = 'Simulating Combat...';
+      try {
+        const res = await fetch(`/api/simulate?map=${map}&rounds=3`);
+        const data = await res.json();
+        box.classList.remove('hidden');
+        box.innerHTML = `
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-emerald-400">Match Completed on ${data.map_name}</span>
+            <span class="text-slate-400">Total Kills: ${data.total_kills}</span>
+          </div>
+          <div class="mt-2 text-sm">
+            Winner: <strong class="${data.winner.includes('SWAT') ? 'text-blue-400' : 'text-rose-400'}">${data.winner}</strong> (${data.swat_score} x ${data.gang_score}) &bull; MVP: <strong class="text-amber-300">${data.mvp}</strong>
+          </div>
+        `;
+        loadMatches();
+      } catch (e) {
+        alert('Simulation error: ' + e);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'Simulate 8v8 Match';
+      }
+    }
+
     setInterval(updateStatus, 2500);
     updateStatus();
+    loadMatches();
   </script>
 </body>
 </html>
@@ -319,6 +460,61 @@ ShowFrameRate 1
             self.send_header("Content-Type", "application/json")
             self.end_headers()
             self.wfile.write(json.dumps({"launched": target}).encode("utf-8"))
+
+        elif path.startswith("/maps/"):
+            map_file = os.path.basename(path)
+            full_path = os.path.join(TARGET_DIR, "maps", map_file)
+            if os.path.exists(full_path):
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.end_headers()
+                with open(full_path, "rb") as f:
+                    self.wfile.write(f.read())
+            else:
+                self.send_error(404)
+
+        elif path.startswith("/navmeshes/"):
+            nav_file = os.path.basename(path)
+            full_path = os.path.join(TARGET_DIR, "navmeshes", nav_file)
+            if os.path.exists(full_path):
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.end_headers()
+                with open(full_path, "rb") as f:
+                    self.wfile.write(f.read())
+            else:
+                self.send_error(404)
+
+        elif path == "/api/matches":
+            matches = []
+            if os.path.exists(DB_PATH):
+                try:
+                    conn = sqlite3.connect(DB_PATH)
+                    conn.row_factory = sqlite3.Row
+                    c = conn.cursor()
+                    c.execute("SELECT * FROM match_history ORDER BY id DESC LIMIT 10")
+                    matches = [dict(r) for r in c.fetchall()]
+                    conn.close()
+                except:
+                    pass
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps(matches).encode("utf-8"))
+
+        elif path == "/api/simulate":
+            params = parse_qs(url.query)
+            sim_map = params.get("map", ["twoway"])[0]
+            rounds = int(params.get("rounds", ["3"])[0])
+            try:
+                from scripts.d187_match_simulator import run_match
+                res = run_match(map_name=sim_map, rounds_to_win=rounds, team_size=8)
+            except Exception as e:
+                res = {"error": str(e), "winner": "Error", "swat_score": 0, "gang_score": 0, "mvp": "None", "total_kills": 0, "map_name": sim_map}
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps(res).encode("utf-8"))
 
         elif path == "/map":
             map_path = os.path.join(TARGET_DIR, "tactical_map_arrival.html")

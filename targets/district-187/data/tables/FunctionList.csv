@@ -1,0 +1,41 @@
+FunctionIndex,FunctionName,Description,ImagePath,StringID
+1001,ChangeNickName,닉네임 변경,0,0
+1002,ChangeClanName,클랜 이름 변경권,0,0
+1003,IncreaseMaxMember,클랜원 확장 아이템,0,0
+1004,ChangeClanMark,클랜 마크 변경권,0,0
+1005,ResetGameRecord,게임전적초기화,0,0
+1006,ResetGameKillDeath,게임킬데스초기화,0,0
+1007,ResetGameKillDeathRecord,게임 전적 + 킬데스 초기화(새출발),0,0
+1008,ResetClanRecord,클랜전적초기화,0,0
+1009,ImmediatelyRespawn,즉시리스폰,0,0
+1010,Penalty,패널티 무효,0,0
+1011,LostPenalty,패배 무효,0,0
+1012,PenaltyPlus,패널티 + 패배 무효,0,0
+1013,AddGold,골드 상품권,0,0
+1014,ExpUpPercent,경험치증가%,0,FunctionName_1014
+1015,PointUpPercent,골드증가%,0,FunctionName_1015
+1016,BuildReduceSecond,설치/해제 시간 단축,0,0
+1017,AddMagazine,추가탄창,0,0
+1018,RespawnReduceSecond,리스폰시간단축,0,0
+1019,TicketGold,겜블티켓,0,0
+1020,PoisongasDefenseSecond,독가스탄 방어 시간,0,FunctionName_1020
+1021,PoisongasReduceDamage,독가스탄 방어 데미지,0,0
+1022,UnderWaterSpeedUP,수중이동속도증가,0,FunctionName_1022
+1023,BreathAddSecond,호흡시간증가,0,FunctionName_1023
+1024,IndicatorShowSecond,수류탄인디케이터,4,FunctionName_1024
+1025,IndicatorType,수류탄인디케이터 타입,0,0
+1026,EnemyHPScan,적 HP 확인,0,FunctionName_1026
+1027,FootStepSound,발소리,6,FunctionName_1027
+1028,ColorNickname,칼라닉네임,0,0
+1029,ReloadUpPercent,재장전속도비율,7,FunctionName_1029
+1030,SwapUpPercent,무기교체속도비율,8,FunctionName_1030
+1031,AmmoRegeneration,탄약재생,9,FunctionName_1031
+1032,DeathDropGrenade,사망시수류탄드롭,10,FunctionName_1032
+1033,RecoveryHP,HP회복(5초마다),0,FunctionName_1033
+1034,HeadShotBlock,일정확률로 헤드샷 피격시 생존,12,FunctionName_1034
+1035,FallDamageReduce,낙하데미지 감소,13,FunctionName_1035
+1036,StillHP,흡혈(적을 처치시HP회복),14,FunctionName_1036
+1037,ScanEnemyCycle,적군감지가 발동되는 주기,0,0
+1038,ScanEnemyViewTime,적군감지 표시될 시간,0,0
+1039,AddGrenade,추가수류탄,0,FunctionName_1039
+1040,Taunt,도발,0,FunctionName_1040

@@ -1,0 +1,169 @@
+{
+  "map_name": "oldtown",
+  "engine_version": 113,
+  "file_size": 9311305,
+  "game_mode": "Team Deathmatch (TDM)",
+  "bounds": {
+    "min_x": -3225.1,
+    "max_x": 2881.9,
+    "min_z": -2748.0,
+    "max_z": 1220.1,
+    "span_x": 6107.0,
+    "span_z": 3968.1
+  },
+  "base_to_base_distance": 6577.0,
+  "choke_point_mid": {
+    "x": -175.6,
+    "z": -741.6
+  },
+  "spawns_team0": 8,
+  "spawns_team1": 8,
+  "spawns": [
+    {
+      "name": "GameStartPoint_0_08",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 8,
+      "x": -3203.82,
+      "y": 209.98,
+      "z": -2221.28
+    },
+    {
+      "name": "GameStartPoint_0_09",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 9,
+      "x": -3202.5,
+      "y": 209.98,
+      "z": -2420.49
+    },
+    {
+      "name": "GameStartPoint_0_10",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 10,
+      "x": -2959.41,
+      "y": 209.98,
+      "z": -2277.58
+    },
+    {
+      "name": "GameStartPoint_0_11",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 11,
+      "x": -2549.92,
+      "y": 209.98,
+      "z": -2581.93
+    },
+    {
+      "name": "GameStartPoint_0_12",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 12,
+      "x": -3225.06,
+      "y": 209.98,
+      "z": -2625.22
+    },
+    {
+      "name": "GameStartPoint_0_13",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 13,
+      "x": -2671.59,
+      "y": 209.98,
+      "z": -2444.14
+    },
+    {
+      "name": "GameStartPoint_0_14",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 14,
+      "x": -2967.29,
+      "y": 209.98,
+      "z": -2748.01
+    },
+    {
+      "name": "GameStartPoint_0_15",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 15,
+      "x": -2970.39,
+      "y": 209.98,
+      "z": -2499.59
+    },
+    {
+      "name": "GameStartPoint_1_08",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 8,
+      "x": 2449.18,
+      "y": 209.98,
+      "z": 1168.08
+    },
+    {
+      "name": "GameStartPoint_1_09",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 9,
+      "x": 2669.22,
+      "y": 209.98,
+      "z": 1220.12
+    },
+    {
+      "name": "GameStartPoint_1_10",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 10,
+      "x": 2426.55,
+      "y": 209.98,
+      "z": 952.88
+    },
+    {
+      "name": "GameStartPoint_1_11",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 11,
+      "x": 2686.37,
+      "y": 209.98,
+      "z": 914.7
+    },
+    {
+      "name": "GameStartPoint_1_12",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 12,
+      "x": 2396.99,
+      "y": 209.98,
+      "z": 745.11
+    },
+    {
+      "name": "GameStartPoint_1_13",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 13,
+      "x": 2678.61,
+      "y": 209.98,
+      "z": 735.58
+    },
+    {
+      "name": "GameStartPoint_1_14",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 14,
+      "x": 2881.91,
+      "y": 209.98,
+      "z": 1159.46
+    },
+    {
+      "name": "GameStartPoint_1_15",
+      "team": 1,
+      "team_name": "Gangsters (Crime)",
+      "index": 15,
+      "x": 2751.1,
+      "y": 209.98,
+      "z": 1057.2
+    }
+  ],
+  "bomb_sites": [],
+  "carry_sites": []
+}

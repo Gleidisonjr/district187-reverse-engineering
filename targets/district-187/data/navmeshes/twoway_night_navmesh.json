@@ -1,0 +1,134 @@
+{
+  "map_name": "twoway",
+  "bounds": {
+    "min_x": -6411.4,
+    "max_x": 4099.5,
+    "min_z": -2360.0,
+    "max_z": 715.0,
+    "span_x": 10510.8,
+    "span_z": 3075.0
+  },
+  "waypoints": {
+    "SWAT_BASE": {
+      "name": "SWAT Deployment Base",
+      "x": -6250.1875,
+      "z": -300.58,
+      "type": "spawn_swat"
+    },
+    "SWAT_SNIPER": {
+      "name": "Overpass Sniper Post",
+      "x": -5750.1875,
+      "z": -700.5799999999999,
+      "type": "vantage"
+    },
+    "ALLEY_A": {
+      "name": "Narrow Alley to Site A",
+      "x": -2142.59375,
+      "z": -2060.0,
+      "type": "corridor"
+    },
+    "BOMB_SITE_A": {
+      "name": "Bomb Site A (Lower Warehouse)",
+      "x": 1965.0,
+      "z": -2360.0,
+      "type": "objective"
+    },
+    "MID_STREET": {
+      "name": "Central Boulevard Choke",
+      "x": -1212.566875,
+      "z": -983.4625,
+      "type": "choke"
+    },
+    "TUNNEL_B": {
+      "name": "Underground Passage to B",
+      "x": -1212.59375,
+      "z": 7.210000000000008,
+      "type": "tunnel"
+    },
+    "BOMB_SITE_B": {
+      "name": "Bomb Site B (Upper Plaza)",
+      "x": 3825.0,
+      "z": 715.0,
+      "type": "objective"
+    },
+    "GANG_SNIPER": {
+      "name": "Rooftop Overlook",
+      "x": 3425.05375,
+      "z": -1366.345,
+      "type": "vantage"
+    },
+    "GANG_BASE": {
+      "name": "Gangsters Deployment Base",
+      "x": 3825.05375,
+      "z": -1666.345,
+      "type": "spawn_gang"
+    }
+  },
+  "edges": [
+    {
+      "from": "SWAT_BASE",
+      "to": "SWAT_SNIPER",
+      "cover": 0.8
+    },
+    {
+      "from": "SWAT_BASE",
+      "to": "ALLEY_A",
+      "cover": 0.7
+    },
+    {
+      "from": "SWAT_BASE",
+      "to": "TUNNEL_B",
+      "cover": 0.9
+    },
+    {
+      "from": "SWAT_SNIPER",
+      "to": "MID_STREET",
+      "cover": 0.4
+    },
+    {
+      "from": "ALLEY_A",
+      "to": "BOMB_SITE_A",
+      "cover": 0.7
+    },
+    {
+      "from": "ALLEY_A",
+      "to": "MID_STREET",
+      "cover": 0.5
+    },
+    {
+      "from": "BOMB_SITE_A",
+      "to": "MID_STREET",
+      "cover": 0.6
+    },
+    {
+      "from": "BOMB_SITE_A",
+      "to": "GANG_BASE",
+      "cover": 0.6
+    },
+    {
+      "from": "TUNNEL_B",
+      "to": "BOMB_SITE_B",
+      "cover": 0.8
+    },
+    {
+      "from": "MID_STREET",
+      "to": "BOMB_SITE_B",
+      "cover": 0.5
+    },
+    {
+      "from": "BOMB_SITE_B",
+      "to": "GANG_SNIPER",
+      "cover": 0.7
+    },
+    {
+      "from": "BOMB_SITE_B",
+      "to": "GANG_BASE",
+      "cover": 0.8
+    },
+    {
+      "from": "GANG_SNIPER",
+      "to": "GANG_BASE",
+      "cover": 0.85
+    }
+  ]
+}

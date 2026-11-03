@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>D187 A* NavMesh Inspector: thebank</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0b1120; color: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; }
+    .wp-node:hover circle { r: 16; filter: drop-shadow(0 0 10px rgba(255,255,255,0.9)); cursor: pointer; }
+  </style>
+</head>
+<body class="p-6">
+  <div class="max-w-7xl mx-auto space-y-6">
+    <header class="border-b border-slate-800 pb-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+          <span class="p-2 bg-emerald-600 rounded-lg text-lg">A*</span>
+          Tactical NavMesh & Bot Routes: <span class="text-emerald-400 font-mono">thebank</span>
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">Autonomous Graph Pathfinding & Cover Analysis</p>
+      </div>
+      <div class="flex gap-3">
+        <span class="px-3 py-1.5 bg-cyan-950 text-cyan-400 border border-cyan-800 rounded-md text-xs font-semibold">Direct Assault Route (0 Waypoints)</span>
+        <span class="px-3 py-1.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded-md text-xs font-semibold">Stealth Flank Route (0 Waypoints)</span>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-4 gap-4">
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Total Graph Nodes</p>
+        <p class="text-2xl font-bold text-white mt-1">7 Waypoints</p>
+        <p class="text-xs text-slate-500 mt-1">8 Connected Lanes</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Direct Assault Cost</p>
+        <p class="text-2xl font-bold text-cyan-400 mt-1">inf u</p>
+        <p class="text-xs text-slate-500 mt-1">Shortest Path Metric</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Stealth Flank Cost</p>
+        <p class="text-2xl font-bold text-emerald-400 mt-1">inf u</p>
+        <p class="text-xs text-slate-500 mt-1">Weighted by Cover Quality</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Algorithm</p>
+        <p class="text-2xl font-bold text-purple-400 mt-1">A* Heuristic</p>
+        <p class="text-xs text-slate-500 mt-1">Euclidean Admissible Search</p>
+      </div>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl relative">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-semibold text-white">NavMesh Navigation Graph & Optimal Paths</h2>
+        <div class="text-xs text-slate-400 flex gap-4">
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-cyan-500 inline-block"></span> Direct Route</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> Stealth Flank</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span> Objective</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-950 rounded-lg p-2 border border-slate-800/80 flex justify-center">
+        <svg viewBox="0 0 900 600" class="w-full h-auto max-h-[580px]">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.8"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+          <line x1="715.3" y1="91.5" x2="672.8" y2="212.9" stroke="#334155" stroke-width="2.5" />
+<line x1="715.3" y1="91.5" x2="1168.0" y2="293.9" stroke="#334155" stroke-width="2.5" />
+<line x1="672.8" y1="212.9" x2="644.5" y2="293.9" stroke="#334155" stroke-width="2.5" />
+<line x1="1168.0" y1="293.9" x2="644.5" y2="293.9" stroke="#334155" stroke-width="2.5" />
+<line x1="1168.0" y1="293.9" x2="616.1" y2="374.8" stroke="#334155" stroke-width="2.5" />
+<line x1="644.5" y1="293.9" x2="616.1" y2="374.8" stroke="#334155" stroke-width="2.5" />
+<line x1="616.1" y1="374.8" x2="347.3" y2="520.0" stroke="#334155" stroke-width="2.5" />
+<line x1="347.3" y1="520.0" x2="573.6" y2="496.2" stroke="#334155" stroke-width="2.5" />
+<g class="wp-node" data-name="Police Cordon (Street)" data-type="spawn_swat"><circle cx="715.3" cy="91.5" r="12" fill="#3b82f6" stroke="#ffffff" stroke-width="2" /><text x="715.3" y="75.5" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Police Cordon (Street)</text></g>
+<g class="wp-node" data-name="Bank Revolving Doors" data-type="corridor"><circle cx="672.8" cy="212.9" r="12" fill="#a855f7" stroke="#ffffff" stroke-width="2" /><text x="672.8" y="196.9" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Bank Revolving Doors</text></g>
+<g class="wp-node" data-name="Marble Central Lobby" data-type="choke"><circle cx="644.5" cy="293.9" r="12" fill="#a855f7" stroke="#ffffff" stroke-width="2" /><text x="644.5" y="277.9" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Marble Central Lobby</text></g>
+<g class="wp-node" data-name="Security Emergency Exit" data-type="tunnel"><circle cx="1168.0" cy="293.9" r="12" fill="#a855f7" stroke="#ffffff" stroke-width="2" /><text x="1168.0" y="277.9" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Security Emergency Exit</text></g>
+<g class="wp-node" data-name="Heavy Steel Vault Gate" data-type="choke"><circle cx="616.1" cy="374.8" r="12" fill="#a855f7" stroke="#ffffff" stroke-width="2" /><text x="616.1" y="358.8" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Heavy Steel Vault Gate</text></g>
+<g class="wp-node" data-name="Subterranean Gold Vault" data-type="objective"><circle cx="347.3" cy="520.0" r="12" fill="#f59e0b" stroke="#ffffff" stroke-width="2" /><text x="347.3" y="504.0" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Subterranean Gold Vault</text></g>
+<g class="wp-node" data-name="Robbers Getaway Van" data-type="spawn_gang"><circle cx="573.6" cy="496.2" r="12" fill="#ef4444" stroke="#ffffff" stroke-width="2" /><text x="573.6" y="480.2" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">Robbers Getaway Van</text></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

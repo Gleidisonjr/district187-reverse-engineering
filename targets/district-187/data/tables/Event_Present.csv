@@ -1,0 +1,2 @@
+EventIndex,PresentType,PresentItem,,"PresentType : 0 없음, 1 골드, 2 아이템"
+1000,1,1000,,"PresentItem : PresentType타입이 1이면 골드, 2일 경우는 세로로 늘어나면서 아이템인덱스를 등록하여 증가시켜준다"

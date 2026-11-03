@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-District 187: Sin Streets - Tactical NavMesh & A* Route Generator
-Builds the tactical navigation graph for Arrival.World00p:
-  - Connects SWAT and Gangster spawn clusters to Bomb Sites A & B and Mid Choke Points.
-  - Implements A* pathfinding (Direct Assault vs Stealth Flanking).
-  - Exports interactive tactical visualization (navmesh_arrival.html) and JSON navigation graph.
+District 187: Sin Streets - Universal Tactical NavMesh & A* Pathfinding Generator
+Synthesizes waypoint graphs, cover heuristics, and A* routing (Direct Assault vs Stealth Flanking)
+for all competitive scenarios (Arrival, TwoWay, TheBank, OldTown, Heaven).
+Outputs:
+  - targets/district-187/data/navmeshes/<map_name>_navmesh.json
+  - targets/district-187/navmeshes/<map_name>_navmesh.html
 """
 
 import os
@@ -12,185 +13,269 @@ import sys
 import json
 import math
 import heapq
-from typing import Dict, List, Tuple, Any
+import argparse
+from typing import Dict, List, Tuple, Any, Optional
 
 # Ensure UTF-8 output
 sys.stdout.reconfigure(encoding='utf-8')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TARGET_DIR = os.path.join(BASE_DIR, "targets", "district-187")
-SPAWNS_JSON = os.path.join(TARGET_DIR, "data", "arrival_spawns.json")
-OUTPUT_JSON = os.path.join(TARGET_DIR, "data", "arrival_navmesh.json")
-OUTPUT_HTML = os.path.join(TARGET_DIR, "navmesh_arrival.html")
+MAPS_DATA_DIR = os.path.join(TARGET_DIR, "data", "maps")
+NAVMESH_DATA_DIR = os.path.join(TARGET_DIR, "data", "navmeshes")
+NAVMESH_HTML_DIR = os.path.join(TARGET_DIR, "navmeshes")
 
-# Defined Tactical Landmarks in Arrival.World00p space
-WAYPOINTS = {
-    "SWAT_BASE": {"name": "SWAT Base Spawn", "x": -3072.0, "z": -966.0, "type": "spawn_swat"},
-    "SWAT_SNIPER": {"name": "SWAT Sniper Overlook", "x": -2400.0, "z": -1200.0, "type": "vantage"},
-    "LONG_A_WEST": {"name": "Long A Entrance", "x": -1800.0, "z": -400.0, "type": "corridor"},
-    "BOMB_SITE_A": {"name": "Bomb Site Alpha (Warehouse)", "x": -450.0, "z": 850.0, "type": "objective"},
-    "MID_CHOKE": {"name": "Courtyard Central Choke", "x": 336.0, "z": 477.0, "type": "choke"},
-    "UNDERPASS": {"name": "Underpass Flank Tunnel", "x": 100.0, "z": -600.0, "type": "tunnel"},
-    "BOMB_SITE_B": {"name": "Bomb Site Bravo (Containers)", "x": 1600.0, "z": 1200.0, "type": "objective"},
-    "LONG_B_EAST": {"name": "Long B Approach", "x": 2400.0, "z": 600.0, "type": "corridor"},
-    "GANG_SNIPER": {"name": "Gangster Vantage Tower", "x": 3100.0, "z": 1400.0, "type": "vantage"},
-    "GANG_BASE": {"name": "Gangsters Base Spawn", "x": 3744.0, "z": 1920.0, "type": "spawn_gang"}
-}
+os.makedirs(NAVMESH_DATA_DIR, exist_ok=True)
+os.makedirs(NAVMESH_HTML_DIR, exist_ok=True)
 
-# Graph Edges (Node A, Node B, Cover Quality 0.1 to 1.0)
-EDGES = [
-    ("SWAT_BASE", "SWAT_SNIPER", 0.8),
-    ("SWAT_BASE", "LONG_A_WEST", 0.6),
-    ("SWAT_BASE", "UNDERPASS", 0.7),
-    ("SWAT_SNIPER", "MID_CHOKE", 0.4),
-    ("LONG_A_WEST", "BOMB_SITE_A", 0.7),
-    ("LONG_A_WEST", "MID_CHOKE", 0.5),
-    ("BOMB_SITE_A", "MID_CHOKE", 0.6),
-    ("UNDERPASS", "MID_CHOKE", 0.9),
-    ("UNDERPASS", "LONG_B_EAST", 0.8),
-    ("MID_CHOKE", "BOMB_SITE_B", 0.5),
-    ("MID_CHOKE", "LONG_B_EAST", 0.6),
-    ("BOMB_SITE_B", "LONG_B_EAST", 0.7),
-    ("BOMB_SITE_B", "GANG_SNIPER", 0.6),
-    ("LONG_B_EAST", "GANG_BASE", 0.7),
-    ("GANG_SNIPER", "GANG_BASE", 0.8)
-]
-
-def euclidean_dist(p1, p2):
+def euclidean_dist(p1: Dict[str, float], p2: Dict[str, float]) -> float:
     return math.sqrt((p1["x"] - p2["x"])**2 + (p1["z"] - p2["z"])**2)
 
-def build_adjacency_graph():
-    graph = {k: [] for k in WAYPOINTS}
-    for u, v, cover in EDGES:
-        dist = euclidean_dist(WAYPOINTS[u], WAYPOINTS[v])
-        # Direct assault weight = distance
-        # Stealth flank weight = distance / cover_quality (favors high cover)
-        graph[u].append({"node": v, "dist": dist, "cover": cover})
-        graph[v].append({"node": u, "dist": dist, "cover": cover})
-    return graph
+class TacticalNavMesh:
+    def __init__(self, map_name: str, waypoints: Dict[str, Any], edges: List[Tuple[str, str, float]], bounds: Dict[str, float]):
+        self.map_name = map_name
+        self.waypoints = waypoints
+        self.edges = edges
+        self.bounds = bounds
+        self.graph = self._build_graph()
 
-def a_star(start_key: str, goal_key: str, route_type="direct"):
-    graph = build_adjacency_graph()
-    frontier = []
-    heapq.heappush(frontier, (0.0, start_key, [start_key]))
-    cost_so_far = {start_key: 0.0}
+    def _build_graph(self) -> Dict[str, List[Dict[str, Any]]]:
+        g = {k: [] for k in self.waypoints}
+        for u, v, cover in self.edges:
+            if u in self.waypoints and v in self.waypoints:
+                dist = euclidean_dist(self.waypoints[u], self.waypoints[v])
+                g[u].append({"node": v, "dist": dist, "cover": cover})
+                g[v].append({"node": u, "dist": dist, "cover": cover})
+        return g
 
-    while frontier:
-        current_cost, current_node, path = heapq.heappop(frontier)
+    def a_star(self, start_key: str, goal_key: str, route_type: str = "direct") -> Tuple[Optional[List[str]], float]:
+        if start_key not in self.waypoints or goal_key not in self.waypoints:
+            return None, float('inf')
 
-        if current_node == goal_key:
-            return path, current_cost
+        frontier = []
+        heapq.heappush(frontier, (0.0, start_key, [start_key]))
+        cost_so_far = {start_key: 0.0}
 
-        for edge in graph[current_node]:
-            next_node = edge["node"]
-            dist = edge["dist"]
-            cover = edge["cover"]
+        while frontier:
+            current_cost, current_node, path = heapq.heappop(frontier)
 
-            weight = dist if route_type == "direct" else (dist / cover)
-            new_cost = cost_so_far[current_node] + weight
+            if current_node == goal_key:
+                return path, current_cost
 
-            if next_node not in cost_so_far or new_cost < cost_so_far[next_node]:
-                cost_so_far[next_node] = new_cost
-                priority = new_cost + euclidean_dist(WAYPOINTS[next_node], WAYPOINTS[goal_key])
-                heapq.heappush(frontier, (priority, next_node, path + [next_node]))
+            for edge in self.graph.get(current_node, []):
+                next_node = edge["node"]
+                dist = edge["dist"]
+                cover = edge["cover"]
 
-    return None, float('inf')
+                # Direct uses raw distance; stealth divides distance by cover factor (favors high cover)
+                weight = dist if route_type == "direct" else (dist / max(cover, 0.1))
+                new_cost = cost_so_far[current_node] + weight
 
-def generate_navmesh():
-    print("[+] Building Tactical NavMesh for Arrival.World00p...")
-    graph = build_adjacency_graph()
+                if next_node not in cost_so_far or new_cost < cost_so_far[next_node]:
+                    cost_so_far[next_node] = new_cost
+                    priority = new_cost + euclidean_dist(self.waypoints[next_node], self.waypoints[goal_key])
+                    heapq.heappush(frontier, (priority, next_node, path + [next_node]))
 
-    # Pre-calculate standard tactical routes
-    swat_to_site_a, _ = a_star("SWAT_BASE", "BOMB_SITE_A", "direct")
-    swat_to_site_b_flank, _ = a_star("SWAT_BASE", "BOMB_SITE_B", "flank")
-    gang_to_site_a_flank, _ = a_star("GANG_BASE", "BOMB_SITE_A", "flank")
-    gang_to_site_b, _ = a_star("GANG_BASE", "BOMB_SITE_B", "direct")
+        return None, float('inf')
 
-    print(f"  SWAT Direct Route to Site Alpha:  {' -> '.join(swat_to_site_a)}")
-    print(f"  SWAT Stealth Route to Site Bravo: {' -> '.join(swat_to_site_b_flank)}")
-    print(f"  Gangster Rush Route to Site Bravo: {' -> '.join(gang_to_site_b)}")
-    print(f"  Gangster Flank Route to Site Alpha: {' -> '.join(gang_to_site_a_flank)}")
+    def to_json(self) -> Dict[str, Any]:
+        return {
+            "map_name": self.map_name,
+            "bounds": self.bounds,
+            "waypoints": self.waypoints,
+            "edges": [{"from": u, "to": v, "cover": c} for u, v, c in self.edges]
+        }
 
-    # Export JSON
-    os.makedirs(os.path.dirname(OUTPUT_JSON), exist_ok=True)
-    with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
-        json.dump({
-            "map": "Arrival",
-            "waypoints": WAYPOINTS,
-            "edges": EDGES,
-            "sample_routes": {
-                "swat_site_a": swat_to_site_a,
-                "swat_site_b_flank": swat_to_site_b_flank,
-                "gangster_site_b": gang_to_site_b,
-                "gangster_site_a_flank": gang_to_site_a_flank
-            }
-        }, f, indent=2)
-    print(f"[+] NavMesh graph exported to: {OUTPUT_JSON}")
+def build_twoway_navmesh(map_data: Dict[str, Any]) -> TacticalNavMesh:
+    # TwoWay Demolition NavMesh
+    b = map_data["bounds"]
+    t0_spawns = [s for s in map_data["spawns"] if s["team"] == 0]
+    t1_spawns = [s for s in map_data["spawns"] if s["team"] == 1]
+    
+    t0_cx = sum(s["x"] for s in t0_spawns) / len(t0_spawns)
+    t0_cz = sum(s["z"] for s in t0_spawns) / len(t0_spawns)
+    t1_cx = sum(s["x"] for s in t1_spawns) / len(t1_spawns)
+    t1_cz = sum(s["z"] for s in t1_spawns) / len(t1_spawns)
 
-    # Generate Tactical HTML Visualization
-    min_x = min(w["x"] for w in WAYPOINTS.values()) - 500
-    max_x = max(w["x"] for w in WAYPOINTS.values()) + 500
-    min_z = min(w["z"] for w in WAYPOINTS.values()) - 500
-    max_z = max(w["z"] for w in WAYPOINTS.values()) + 500
+    bomb_a = next((b for b in map_data["bomb_sites"] if "A" in b["site"]), {"x": 1965.0, "z": -2375.0})
+    bomb_b = next((b for b in map_data["bomb_sites"] if "B" in b["site"]), {"x": 3825.0, "z": 765.0})
 
-    svg_w, svg_h = 1000, 750
-    pad = 80
-    span_x = max_x - min_x
-    span_z = max_z - min_z
+    waypoints = {
+        "SWAT_BASE": {"name": "SWAT Deployment Base", "x": t0_cx, "z": t0_cz, "type": "spawn_swat"},
+        "SWAT_SNIPER": {"name": "Overpass Sniper Post", "x": t0_cx + 500.0, "z": t0_cz - 400.0, "type": "vantage"},
+        "ALLEY_A": {"name": "Narrow Alley to Site A", "x": (t0_cx + bomb_a["x"]) / 2, "z": bomb_a["z"] + 300.0, "type": "corridor"},
+        "BOMB_SITE_A": {"name": "Bomb Site A (Lower Warehouse)", "x": bomb_a["x"], "z": bomb_a["z"], "type": "objective"},
+        "MID_STREET": {"name": "Central Boulevard Choke", "x": (t0_cx + t1_cx) / 2, "z": (t0_cz + t1_cz) / 2, "type": "choke"},
+        "TUNNEL_B": {"name": "Underground Passage to B", "x": (t0_cx + bomb_b["x"]) / 2, "z": (t0_cz + bomb_b["z"]) / 2 - 200.0, "type": "tunnel"},
+        "BOMB_SITE_B": {"name": "Bomb Site B (Upper Plaza)", "x": bomb_b["x"], "z": bomb_b["z"], "type": "objective"},
+        "GANG_SNIPER": {"name": "Rooftop Overlook", "x": t1_cx - 400.0, "z": t1_cz + 300.0, "type": "vantage"},
+        "GANG_BASE": {"name": "Gangsters Deployment Base", "x": t1_cx, "z": t1_cz, "type": "spawn_gang"}
+    }
 
-    def to_svg(x, z):
-        sx = pad + ((x - min_x) / span_x) * (svg_w - 2 * pad)
-        sy = (svg_h - pad) - ((z - min_z) / span_z) * (svg_h - 2 * pad)
-        return round(sx, 1), round(sy, 1)
+    edges = [
+        ("SWAT_BASE", "SWAT_SNIPER", 0.8),
+        ("SWAT_BASE", "ALLEY_A", 0.7),
+        ("SWAT_BASE", "TUNNEL_B", 0.9),
+        ("SWAT_SNIPER", "MID_STREET", 0.4),
+        ("ALLEY_A", "BOMB_SITE_A", 0.7),
+        ("ALLEY_A", "MID_STREET", 0.5),
+        ("BOMB_SITE_A", "MID_STREET", 0.6),
+        ("BOMB_SITE_A", "GANG_BASE", 0.6),
+        ("TUNNEL_B", "BOMB_SITE_B", 0.8),
+        ("MID_STREET", "BOMB_SITE_B", 0.5),
+        ("BOMB_SITE_B", "GANG_SNIPER", 0.7),
+        ("BOMB_SITE_B", "GANG_BASE", 0.8),
+        ("GANG_SNIPER", "GANG_BASE", 0.85)
+    ]
 
-    # SVG Edges
-    edge_svg = []
-    for u, v, cover in EDGES:
-        x1, y1 = to_svg(WAYPOINTS[u]["x"], WAYPOINTS[u]["z"])
-        x2, y2 = to_svg(WAYPOINTS[v]["x"], WAYPOINTS[v]["z"])
-        stroke_color = "#334155" if cover < 0.6 else "#3b82f6" if cover < 0.8 else "#10b981"
-        edge_svg.append(
-            f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{stroke_color}" stroke-width="3" stroke-linecap="round" opacity="0.6"/>'
+    return TacticalNavMesh("twoway", waypoints, edges, b)
+
+def build_thebank_navmesh(map_data: Dict[str, Any]) -> TacticalNavMesh:
+    b = map_data["bounds"]
+    t0_spawns = [s for s in map_data["spawns"] if s["team"] == 0]
+    t1_spawns = [s for s in map_data["spawns"] if s["team"] == 1]
+    
+    t0_cx = sum(s["x"] for s in t0_spawns) / len(t0_spawns)
+    t0_cz = sum(s["z"] for s in t0_spawns) / len(t0_spawns)
+    t1_cx = sum(s["x"] for s in t1_spawns) / len(t1_spawns)
+    t1_cz = sum(s["z"] for s in t1_spawns) / len(t1_spawns)
+
+    waypoints = {
+        "POLICE_PERIMETER": {"name": "Police Cordon (Street)", "x": t0_cx, "z": t0_cz, "type": "spawn_swat"},
+        "FRONT_ENTRANCE": {"name": "Bank Revolving Doors", "x": t0_cx * 0.7 + t1_cx * 0.3, "z": t0_cz * 0.7 + t1_cz * 0.3, "type": "corridor"},
+        "BANK_LOBBY": {"name": "Marble Central Lobby", "x": (t0_cx + t1_cx) / 2, "z": (t0_cz + t1_cz) / 2, "type": "choke"},
+        "SIDE_ALLEY": {"name": "Security Emergency Exit", "x": t0_cx + 800.0, "z": (t0_cz + t1_cz) / 2, "type": "tunnel"},
+        "VAULT_GATE": {"name": "Heavy Steel Vault Gate", "x": t1_cx * 0.7 + t0_cx * 0.3, "z": t1_cz * 0.7 + t0_cz * 0.3, "type": "choke"},
+        "GOLD_VAULT": {"name": "Subterranean Gold Vault", "x": t1_cx - 400.0, "z": t1_cz - 200.0, "type": "objective"},
+        "ESCAPE_VAN": {"name": "Robbers Getaway Van", "x": t1_cx, "z": t1_cz, "type": "spawn_gang"}
+    }
+
+    edges = [
+        ("POLICE_PERIMETER", "FRONT_ENTRANCE", 0.4),
+        ("POLICE_PERIMETER", "SIDE_ALLEY", 0.75),
+        ("FRONT_ENTRANCE", "BANK_LOBBY", 0.5),
+        ("SIDE_ALLEY", "BANK_LOBBY", 0.8),
+        ("SIDE_ALLEY", "VAULT_GATE", 0.7),
+        ("BANK_LOBBY", "VAULT_GATE", 0.6),
+        ("VAULT_GATE", "GOLD_VAULT", 0.9),
+        ("GOLD_VAULT", "ESCAPE_VAN", 0.8)
+    ]
+
+    return TacticalNavMesh("thebank", waypoints, edges, b)
+
+def build_universal_navmesh(map_data: Dict[str, Any]) -> TacticalNavMesh:
+    map_name = map_data["map_name"]
+    b = map_data["bounds"]
+    spawns = map_data["spawns"]
+
+    t0_spawns = [s for s in spawns if s["team"] == 0]
+    t1_spawns = [s for s in spawns if s["team"] == 1]
+
+    t0_cx = sum(s["x"] for s in t0_spawns) / len(t0_spawns) if t0_spawns else b["min_x"]
+    t0_cz = sum(s["z"] for s in t0_spawns) / len(t0_spawns) if t0_spawns else b["min_z"]
+    t1_cx = sum(s["x"] for s in t1_spawns) / len(t1_spawns) if t1_spawns else b["max_x"]
+    t1_cz = sum(s["z"] for s in t1_spawns) / len(t1_spawns) if t1_spawns else b["max_z"]
+
+    mid_x = (t0_cx + t1_cx) / 2
+    mid_z = (t0_cz + t1_cz) / 2
+    delta_x = t1_cx - t0_cx
+    delta_z = t1_cz - t0_cz
+    perp_x = -delta_z * 0.35
+    perp_z = delta_x * 0.35
+
+    waypoints = {
+        "SWAT_BASE": {"name": "SWAT Spawn HQ", "x": t0_cx, "z": t0_cz, "type": "spawn_swat"},
+        "SWAT_FORWARD": {"name": "SWAT Forward Line", "x": t0_cx * 0.65 + mid_x * 0.35, "z": t0_cz * 0.65 + mid_z * 0.35, "type": "corridor"},
+        "FLANK_LEFT": {"name": "Left Flank Corridor", "x": mid_x + perp_x, "z": mid_z + perp_z, "type": "tunnel"},
+        "MID_CHOKE": {"name": "Central Choke Point", "x": mid_x, "z": mid_z, "type": "choke"},
+        "FLANK_RIGHT": {"name": "Right Flank Corridor", "x": mid_x - perp_x, "z": mid_z - perp_z, "type": "corridor"},
+        "GANG_FORWARD": {"name": "Gangster Forward Line", "x": t1_cx * 0.65 + mid_x * 0.35, "z": t1_cz * 0.65 + mid_z * 0.35, "type": "corridor"},
+        "GANG_BASE": {"name": "Gangster Spawn HQ", "x": t1_cx, "z": t1_cz, "type": "spawn_gang"}
+    }
+
+    edges = [
+        ("SWAT_BASE", "SWAT_FORWARD", 0.75),
+        ("SWAT_FORWARD", "FLANK_LEFT", 0.8),
+        ("SWAT_FORWARD", "MID_CHOKE", 0.45),
+        ("SWAT_FORWARD", "FLANK_RIGHT", 0.8),
+        ("FLANK_LEFT", "GANG_FORWARD", 0.85),
+        ("MID_CHOKE", "GANG_FORWARD", 0.5),
+        ("FLANK_RIGHT", "GANG_FORWARD", 0.8),
+        ("GANG_FORWARD", "GANG_BASE", 0.75)
+    ]
+
+    return TacticalNavMesh(map_name, waypoints, edges, b)
+
+def render_navmesh_html(navmesh: TacticalNavMesh):
+    map_name = navmesh.map_name
+    wps = navmesh.waypoints
+    b = navmesh.bounds
+
+    svg_w = 900
+    svg_h = 600
+    pad = 70
+
+    span_x = max(b["span_x"], 100.0)
+    span_z = max(b["span_z"], 100.0)
+
+    def tx(x):
+        return pad + ((x - b["min_x"]) / span_x) * (svg_w - 2 * pad)
+
+    def ty(z):
+        return svg_h - pad - ((z - b["min_z"]) / span_z) * (svg_h - 2 * pad)
+
+    # Compute A* routes: direct vs stealth
+    direct_path, direct_cost = navmesh.a_star("SWAT_BASE", list(wps.keys())[-1], "direct")
+    stealth_path, stealth_cost = navmesh.a_star("SWAT_BASE", list(wps.keys())[-1], "stealth")
+
+    svg_elements = []
+
+    # Edges
+    for u, v, cover in navmesh.edges:
+        if u in wps and v in wps:
+            x1, y1 = tx(wps[u]["x"]), ty(wps[u]["z"])
+            x2, y2 = tx(wps[v]["x"]), ty(wps[v]["z"])
+            svg_elements.append(
+                f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" '
+                f'stroke="#334155" stroke-width="2.5" />'
+            )
+
+    # Direct Route overlay (Cyan)
+    if direct_path:
+        pts = " ".join([f"{tx(wps[n]['x']):.1f},{ty(wps[n]['z']):.1f}" for n in direct_path])
+        svg_elements.append(
+            f'<polyline points="{pts}" fill="none" stroke="#06b6d4" stroke-width="4.5" stroke-dasharray="8,6" opacity="0.85" />'
         )
 
-    # Route Highlights (SWAT Blue, Gangster Red)
-    def route_to_svg(route_nodes, stroke_color, dash="none"):
-        lines = []
-        for i in range(len(route_nodes) - 1):
-            n1 = WAYPOINTS[route_nodes[i]]
-            n2 = WAYPOINTS[route_nodes[i+1]]
-            x1, y1 = to_svg(n1["x"], n1["z"])
-            x2, y2 = to_svg(n2["x"], n2["z"])
-            lines.append(
-                f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{stroke_color}" stroke-width="4" stroke-dasharray="{dash}" stroke-linecap="round"/>'
-            )
-        return "\n".join(lines)
+    # Stealth Route overlay (Emerald)
+    if stealth_path and stealth_path != direct_path:
+        pts = " ".join([f"{tx(wps[n]['x']):.1f},{ty(wps[n]['z']):.1f}" for n in stealth_path])
+        svg_elements.append(
+            f'<polyline points="{pts}" fill="none" stroke="#10b981" stroke-width="4.5" stroke-dasharray="4,4" opacity="0.85" />'
+        )
 
-    swat_line_svg = route_to_svg(swat_to_site_a, "#60a5fa")
-    gang_line_svg = route_to_svg(gang_to_site_a_flank, "#f87171", dash="8 6")
-
-    # SVG Nodes
-    node_svg = []
-    for k, w in WAYPOINTS.items():
-        sx, sy = to_svg(w["x"], w["z"])
-        color = "#3b82f6" if "swat" in w["type"] else "#ef4444" if "gang" in w["type"] else "#f59e0b" if "objective" in w["type"] else "#10b981" if "tunnel" in w["type"] else "#64748b"
-        radius = 16 if "objective" in w["type"] or "spawn" in w["type"] else 12
-        node_svg.append(
-            f'<g class="waypoint-node" data-name="{w["name"]}" data-coord="({w["x"]}, {w["z"]})">'
-            f'<circle cx="{sx}" cy="{sy}" r="{radius}" fill="{color}" stroke="#ffffff" stroke-width="2"/>'
-            f'<text x="{sx}" y="{sy+32}" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">{w["name"]}</text>'
+    # Waypoints
+    for k, wp in wps.items():
+        wx, wy = tx(wp["x"]), ty(wp["z"])
+        col = "#3b82f6" if "swat" in wp["type"] else "#ef4444" if "gang" in wp["type"] else "#f59e0b" if "objective" in wp["type"] else "#a855f7"
+        svg_elements.append(
+            f'<g class="wp-node" data-name="{wp["name"]}" data-type="{wp["type"]}">'
+            f'<circle cx="{wx:.1f}" cy="{wy:.1f}" r="12" fill="{col}" stroke="#ffffff" stroke-width="2" />'
+            f'<text x="{wx:.1f}" y="{wy-16:.1f}" fill="#cbd5e1" font-size="10" font-weight="bold" text-anchor="middle">{wp["name"]}</text>'
             f'</g>'
         )
+
+    svg_content = "\n".join(svg_elements)
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>District 187 - Tactical NavMesh & A* Pathfinding (Arrival)</title>
+  <title>D187 A* NavMesh Inspector: {map_name}</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {{ background-color: #0b0f19; color: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; }}
-    .waypoint-node:hover circle {{ r: 20; filter: drop-shadow(0 0 10px #38bdf8); cursor: pointer; }}
+    body {{ background-color: #0b1120; color: #f8fafc; font-family: ui-sans-serif, system-ui, sans-serif; }}
+    .wp-node:hover circle {{ r: 16; filter: drop-shadow(0 0 10px rgba(255,255,255,0.9)); cursor: pointer; }}
   </style>
 </head>
 <body class="p-6">
@@ -198,58 +283,112 @@ def generate_navmesh():
     <header class="border-b border-slate-800 pb-4 flex justify-between items-center">
       <div>
         <h1 class="text-3xl font-bold tracking-tight text-white flex items-center gap-3">
-          <span class="p-2 bg-indigo-600 rounded-lg text-lg">AI</span>
-          Tactical NavMesh & Pathfinding: Arrival (<code class="text-emerald-400">Arrival.World00p</code>)
+          <span class="p-2 bg-emerald-600 rounded-lg text-lg">A*</span>
+          Tactical NavMesh & Bot Routes: <span class="text-emerald-400 font-mono">{map_name}</span>
         </h1>
-        <p class="text-slate-400 text-sm mt-1">Autonomous A* Graph Topology & Bot Flanking Routes</p>
+        <p class="text-slate-400 text-sm mt-1">Autonomous Graph Pathfinding & Cover Analysis</p>
       </div>
-      <div class="flex gap-3 text-xs font-semibold">
-        <span class="px-3 py-1.5 bg-blue-900/50 text-blue-400 border border-blue-700/50 rounded-md">SWAT Rush (Direct)</span>
-        <span class="px-3 py-1.5 bg-red-900/50 text-red-400 border border-red-700/50 rounded-md">Gangster Flank (Cover)</span>
+      <div class="flex gap-3">
+        <span class="px-3 py-1.5 bg-cyan-950 text-cyan-400 border border-cyan-800 rounded-md text-xs font-semibold">Direct Assault Route ({len(direct_path or [])} Waypoints)</span>
+        <span class="px-3 py-1.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded-md text-xs font-semibold">Stealth Flank Route ({len(stealth_path or [])} Waypoints)</span>
       </div>
     </header>
 
-    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl">
-      <div class="bg-slate-950 rounded-lg p-2 border border-slate-800 flex justify-center">
-        <svg viewBox="0 0 {svg_w} {svg_h}" class="w-full h-auto max-h-[600px]">
+    <div class="grid grid-cols-4 gap-4">
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Total Graph Nodes</p>
+        <p class="text-2xl font-bold text-white mt-1">{len(wps)} Waypoints</p>
+        <p class="text-xs text-slate-500 mt-1">{len(navmesh.edges)} Connected Lanes</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Direct Assault Cost</p>
+        <p class="text-2xl font-bold text-cyan-400 mt-1">{direct_cost:.0f} u</p>
+        <p class="text-xs text-slate-500 mt-1">Shortest Path Metric</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Stealth Flank Cost</p>
+        <p class="text-2xl font-bold text-emerald-400 mt-1">{stealth_cost:.0f} u</p>
+        <p class="text-xs text-slate-500 mt-1">Weighted by Cover Quality</p>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+        <p class="text-xs text-slate-400 uppercase font-semibold">Algorithm</p>
+        <p class="text-2xl font-bold text-purple-400 mt-1">A* Heuristic</p>
+        <p class="text-xs text-slate-500 mt-1">Euclidean Admissible Search</p>
+      </div>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl relative">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-semibold text-white">NavMesh Navigation Graph & Optimal Paths</h2>
+        <div class="text-xs text-slate-400 flex gap-4">
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-cyan-500 inline-block"></span> Direct Route</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> Stealth Flank</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span> Objective</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-950 rounded-lg p-2 border border-slate-800/80 flex justify-center">
+        <svg viewBox="0 0 {svg_w} {svg_h}" class="w-full h-auto max-h-[580px]">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
               <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.8"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#grid)"/>
-
-          <!-- Adjacency Edges -->
-          {''.join(edge_svg)}
-
-          <!-- Active Path Highlights -->
-          {swat_line_svg}
-          {gang_line_svg}
-
-          <!-- Waypoints -->
-          {''.join(node_svg)}
+          <rect width="100%" height="100%" fill="url(#grid)" />
+          {svg_content}
         </svg>
-      </div>
-
-      <div class="mt-4 p-4 bg-slate-950 border border-slate-800 rounded-lg text-xs flex justify-between text-slate-300">
-        <div>
-          <span class="text-blue-400 font-bold">Solid Blue Line:</span> SWAT Direct Assault Route to Bomb Site Alpha
-        </div>
-        <div>
-          <span class="text-red-400 font-bold">Dashed Red Line:</span> Gangster Stealth Flank via Underpass to Alpha
-        </div>
-        <div class="text-slate-500">
-          LithTech Coordinates $(X, Z)$
-        </div>
       </div>
     </div>
   </div>
 </body>
 </html>
 """
-    with open(OUTPUT_HTML, "w", encoding="utf-8") as f:
+    out_html = os.path.join(NAVMESH_HTML_DIR, f"{map_name}_navmesh.html")
+    with open(out_html, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"[+] Interactive NavMesh HTML visualizer generated: {OUTPUT_HTML}")
+    print(f"[+] Generated NavMesh Radar HTML: {os.path.basename(out_html)}")
+
+def process_map(map_name: str):
+    json_path = os.path.join(MAPS_DATA_DIR, f"{map_name}.json")
+    if not os.path.exists(json_path):
+        print(f"[-] Map metadata not found for: {map_name}")
+        return
+
+    with open(json_path, "r", encoding="utf-8") as f:
+        map_data = json.load(f)
+
+    if map_name == "twoway" or map_name == "twoway_night":
+        nav = build_twoway_navmesh(map_data)
+    elif map_name == "thebank":
+        nav = build_thebank_navmesh(map_data)
+    else:
+        nav = build_universal_navmesh(map_data)
+
+    # Save NavMesh JSON
+    nav_json_path = os.path.join(NAVMESH_DATA_DIR, f"{map_name}_navmesh.json")
+    with open(nav_json_path, "w", encoding="utf-8") as f:
+        json.dump(nav.to_json(), f, indent=2)
+
+    # Render HTML
+    render_navmesh_html(nav)
+    print(f"[+] NavMesh synthesized: {map_name:20s} | Waypoints: {len(nav.waypoints)} | Lanes: {len(nav.edges)}")
+
+def main():
+    parser = argparse.ArgumentParser(description="Universal Tactical NavMesh & A* Route Generator")
+    parser.add_argument("--map", help="Map name to generate (e.g. twoway, thebank, Arrival, oldtown)")
+    parser.add_argument("--all", action="store_true", help="Generate NavMeshes for all parsed maps")
+    args = parser.parse_args()
+
+    if args.all:
+        import glob
+        maps = [os.path.splitext(os.path.basename(p))[0] for p in glob.glob(os.path.join(MAPS_DATA_DIR, "*.json"))]
+        for m in sorted(maps):
+            process_map(m)
+    elif args.map:
+        process_map(args.map)
+    else:
+        for m in ["twoway", "thebank", "oldtown", "Arrival", "10025_Heaven"]:
+            process_map(m)
 
 if __name__ == "__main__":
-    generate_navmesh()
+    main()

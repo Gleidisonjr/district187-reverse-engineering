@@ -1,0 +1,79 @@
+{
+  "map_name": "awm_lego_2",
+  "engine_version": 113,
+  "file_size": 3321506,
+  "game_mode": "Team Deathmatch (TDM)",
+  "bounds": {
+    "min_x": -2430.0,
+    "max_x": 2580.0,
+    "min_z": -740.0,
+    "max_z": 980.0,
+    "span_x": 5010.0,
+    "span_z": 1720.0
+  },
+  "base_to_base_distance": 2644.2,
+  "choke_point_mid": {
+    "x": 1327.5,
+    "z": 556.7
+  },
+  "spawns_team0": 6,
+  "spawns_team1": 0,
+  "spawns": [
+    {
+      "name": "GameStartPoint00",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 0,
+      "x": 2580.0,
+      "y": -680.0,
+      "z": -660.0
+    },
+    {
+      "name": "GameStartPoint01",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 1,
+      "x": 2580.0,
+      "y": -680.0,
+      "z": -30.0
+    },
+    {
+      "name": "GameStartPoint02",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 2,
+      "x": 2560.0,
+      "y": -680.0,
+      "z": 920.0
+    },
+    {
+      "name": "GameStartPoint03",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 3,
+      "x": -2410.0,
+      "y": -680.0,
+      "z": 980.0
+    },
+    {
+      "name": "GameStartPoint04",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 4,
+      "x": -2430.0,
+      "y": -680.0,
+      "z": 330.0
+    },
+    {
+      "name": "GameStartPoint05",
+      "team": 0,
+      "team_name": "SWAT (Law)",
+      "index": 5,
+      "x": -2430.0,
+      "y": -680.0,
+      "z": -740.0
+    }
+  ],
+  "bomb_sites": [],
+  "carry_sites": []
+}
