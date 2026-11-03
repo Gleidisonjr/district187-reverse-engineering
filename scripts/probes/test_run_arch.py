@@ -13,6 +13,7 @@ time.sleep(0.5)
 cmd = [
     raw_exe,
     '-arch', 'game',
+    '-archcfg', 'Default.archcfg',
     '-windowtitle', 'District 187: Sin Streets',
     '+gs_ip', '127.0.0.1',
     '+gs_port', '12000',
@@ -34,7 +35,7 @@ found_error = False
 for i in range(12):
     time.sleep(0.5)
     ret = p.poll()
-    err_hwnd = FindWindowA(None, b'Error')
+    err_hwnd = FindWindowA(None, b'Error') or FindWindowA(None, b'Message Error')
     if err_hwnd:
         print(f"[{i*0.5:.1f}s] Error window detected! HWND: {err_hwnd}")
         found_error = True

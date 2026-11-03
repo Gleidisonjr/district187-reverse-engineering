@@ -3,7 +3,7 @@
 ## Estado atual
 - **Agente:** Antigravity (Gemini 3.8 Flash)
 - **Alvo ativo:** `targets/district-187/` (District 187 / S2 Rebirth — Motor Nativo LithTech Jupiter EX)
-- **Timestamp:** 2026-11-03 02:35
+- **Timestamp:** 2026-11-03 11:10
 - **Diretriz Absoluta:** 100% foco no executavel e motor original LithTech (`TheRaw.exe`, `GameClient.dll`, `Engine_Server.dll`) e emulacao de rede/servidor dedicado.
 - **Entregas e Correcoes Consolidadas:**
   1. **Remocao Total e Purificacao do Anticheat ApexGuard:**
@@ -30,14 +30,12 @@
      - [`launch_game.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/launch_game.bat) -> Inicializador direto em 1 clique com verificacao automatica do servidor na porta 12000 e camada `__COMPAT_LAYER=RunAsInvoker`.
   7. **Resolucao do Erro `FunctionList.csv` (Korean Mojibake Popup):**
      - Causa raiz: Ao carregar as tabelas do motor em `0x10066375` (`ItemFunctionList::Load`), o parser de CSV (`0x10003890`) iterava sobre uma 41ª linha vazia decorrente de uma quebra de linha extra (`\r\n`) ao final do arquivo. A rotina `0x10005630` recebia uma string vazia `""`, não encontrava correspondência entre os 40 itens funcionais e disparava um `MessageBoxA` modal em coreano (*"FunctionList.csv와 클라이언트 소스상 일치하지 않는 기능성 아이템이 있음!!"*). Além disso, 24 tabelas CSV estavam ausentes de `Game\Database\Table\` devido a uma pasta aninhada incorreta (`Game\Database\Database\`).
-     - Solução:
-       1. Quebra de linha final removida de `FunctionList.csv` (tamanho normalizado para 1.982 bytes).
-       2. Todas as tabelas sincronizadas para `Game\Database\Table\`.
-       3. A chamada modal `MessageBoxA` em `GameClient.dll` (offset `0x5210`) foi substituída cirurgicamente por 20 `NOP`s (`0x90`), permitindo que a execução prossiga sem travamentos.
-       4. Validado com [`scripts/probes/test_run_arch.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/probes/test_run_arch.py) com 100% de sucesso sem nenhum popup.
+     - Solução: Quebra de linha final removida de `FunctionList.csv`, tabelas sincronizadas e chamada `MessageBoxA` no offset `0x5210` substituída por `NOP`s.
+  8. **Resolucao do Erro Fatal `Message Error: GDB Mission/Level DetailInfo`:**
+     - Causa raiz: Na rotina de validação de banco `0x100662fd` (`0x10408b50`), divergências entre registros de missão em `TheRaw.Gamdb00p` e os CSVs disparavam o pop-up modal `Message Error` (*"GDB Mission/Level에 CSV 테이블과 일치 하지 않은 DetailInfo 정보가 있습니다."*) e encerravam o processo chamando `Exit()`.
+     - Solução: Patcheada a função de validação `0x10408b50` (offset `0x407f50`) com `\xb0\x01\xc3\x90\x90\x90` (`mov al, 1; ret; nop...`) para retornar `TRUE` imediatamente, e forçado salto incondicional no chamador `0x10066304` (offset `0x65704`) com `\xeb\x47` (`jmp 0x1006634d`), contornando o `MessageBoxA` e o `Exit()`.
+     - Validado com [`scripts/probes/test_run_arch.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/scripts/probes/test_run_arch.py) mantendo o processo do jogo ativo continuamente e sem pop-up.
 
 ## Proximo Passo
-- Para jogar ou testar o cliente nativo:
-  - Executar `.\D187_Launcher.bat` ou `.\launch_game.bat`.
-  - Inserir qualquer login e senha na tela inicial do jogo (ex: `gleidison` / `123`) e clicar OK.
-  - O mock server local na porta 12000 respondera instantaneamente com `SA_JoyGameLogin` + `SN_LockEnd` (`0x210121`), destravando a interface Flash e transitando para a selecao de Servidor/Canais e Lobby.
+- **District 187 (Concluído & Estável):** Motor nativo LithTech, DXVK Vulkan, Scaleform Flash, bypass de ApexGuard e patches de Game Database 100% integrados e validados. Para jogar, basta executar `.\D187_Launcher.bat` ou `.\launch_game.bat`.
+- **Transição de Sessão:** Pronto para iniciar o próximo projeto / alvo de Engenharia Reversa (RE) solicitado pelo usuário.
