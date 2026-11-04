@@ -2,31 +2,6 @@
 
 ## Em andamento
 
-### [TARGET] DDTank Clássico (DDClassico.com / 7Road v2.0.5) — Servidor Local Privado & Engenharia Reversa
-- **Status:** em andamento (2026-11-03)
-- **Repositório GitHub:** `https://github.com/Gleidisonjr/ddtank-reverse-engineering` (branch `main`)
-- **Foco Absoluto:** Engenharia reversa completa do cliente Flash e emulação autoritativa em Python/Tailscale para execução local e multiplayer entre amigos.
-- **Entregas Concluídas:**
-  - **Fase 1 Concluída (Ambiente Standalone & Triplo Daemon):**
-    - Criado o sub-projeto isolado em `projects/ddtank-server/` com Git independente.
-    - Implementados os 3 daemons: CDN Local HTTP 8080 (`src/ddt_local_cdn.py`), Game Core Socket Server TCP 9200 (`src/ddt_server.py`) e Flash Socket Policy Server TCP 843 (`src/ddt_policy_server.py`).
-    - Banco de dados SQLite de inventário e contas (`data/ddtank.db`).
-    - Launcher integrado em 1 clique [`DDTank_Launcher.bat`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/projects/ddtank-server/DDTank_Launcher.bat).
-  - **Fase 2 Concluída (Resolução de Tela Preta no Splash):**
-    - Bytecode AVM2 descompilado em `Loading.swf`: identificada a query E4X `this._config..config[0].REQUEST_PATH.@value`.
-    - Corrigido `config.xml` com hierarquia aninhada `<config><config>...</config></config>`.
-  - **Fase 3 Concluída (Bypass de 33% & Descoberta do Arquivo ZIP FZip xml.png):**
-    - Bytecode AVM2 descompilado em `UIModuleLoader`: comprovado que `xml.png` é um ZIP com `core.xml` do `ComponentFactory`.
-    - Criado gerador [`generate_ui_xml_png.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/projects/ddtank-server/tools/generate_ui_xml_png.py) e roteamento de barras duplas (`//`) no CDN.
-  - **Fase 4 Concluída (Bypass de 70%, Eliminação de 404s e Inicialização do Core 2.png):**
-    - Bytecode AVM2 descompilado em `1.swf` (`MainFigureView.tryEnter`): diagnosticado que `<TRAINER_STANDALONE value="true">` forçava `enterTrain()` que tentava executar `3.png` (Trainer) que retornava imagem PNG inválida.
-    - Desativado `TRAINER_STANDALONE` para `false` no `config.xml`, roteando diretamente para `GameLuncher.loadCore()` e `2.png` (núcleo real de 3.23 MB).
-    - Gerados SWFs AS3 válidos de 31 bytes via [`generate_dummy_swfs.py`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/projects/ddtank-server/tools/generate_dummy_swfs.py) para `choicefigure.swf`, `roadcomponent.swf` e `3.png`.
-    - Fallback dinâmico implementado no CDN para fornecer SWFs válidos sob demanda para qualquer módulo de interface não mapeado.
-    - Explicitado `IP="127.0.0.1"` em `ServerList.xml` para conexão direta no Game Server local TCP 9200.
-    - Documentação técnica em [`notes/ddtank-70-percent-preloader-and-trainer-standalone-bypass.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/ddtank-70-percent-preloader-and-trainer-standalone-bypass.md).
-- **Alvo:** `projects/ddtank-server/`
-
 ### [TARGET] District 187: Sin Streets (S2 Online / S2 Rebirth) — Motor Nativo LithTech
 - **Status:** em andamento (2026-11-02)
 - **Foco Absoluto:** Executável original (`TheRaw.exe`), motor nativo LithTech Jupiter EX e servidor oficial/emulador (arquitetura idêntica ao S2 Rebirth, sem engines externas).
