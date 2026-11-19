@@ -1,0 +1,427 @@
+{
+  "total_mat00_files": 301,
+  "unique_shaders": 18,
+  "unique_referenced_textures": 225,
+  "top_shaders": {
+    "shaders\\skeletal\\Solid\\PVdiffuse_weapon.fx": 82,
+    "shaders\\skeletal\\Solid\\HHdiffuse_weapon.fx": 73,
+    "shaders\\skeletal\\Solid\\HHdiffuse_weapon_decal.fx": 25,
+    "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx": 19,
+    "shaders\\skeletal\\Solid\\PVdiffuse_weapon_decal.fx": 16,
+    "shaders\\skeletal\\Solid\\PVdiffuse_weapon_env.fx": 14,
+    "shaders\\skeletal\\Translucent\\DotLens.fx": 13,
+    "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx": 11,
+    "shaders\\skeletal\\Solid\\HHdiffuse_weapon_decal_mask.fx": 10,
+    "shaders\\skeletal\\Solid\\PVdiffuse_weapon_decal_mask.fx": 8,
+    "shaders\\skeletal\\Solid\\PVdiffuse_weapon_SpecColor_golden.fx": 8,
+    "shaders\\skeletal\\Solid\\HHdiffuse_weapon_env.fx": 7,
+    "shaders\\skeletal\\Translucent\\DotLens_Part.fx": 6,
+    "shaders\\skeletal\\Solid\\PVdiffuse_weapon_goldensilver.fx": 4,
+    "shaders\\skeletal\\Translucent\\PVdiffuse_weapon_Translucent.fx": 2,
+    "shaders\\rigid\\Solid\\diffuse_Emissive.fx": 1,
+    "shaders\\skeletal\\Solid\\PVdiffuse_weapon_SpecColor_goldensilver.fx": 1,
+    "shaders\\skeletal\\Solid\\PVdiffuse_weapon_golden.fx": 1
+  },
+  "sample_materials": [
+    {
+      "file": "materials/Avatar_G_M_2113001.Mat00",
+      "size": 280,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\head\\textures\\Avatar_G_M_2113001_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Avatar_G_M_2113002.Mat00",
+      "size": 280,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\head\\textures\\Avatar_G_M_2113002_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Avatar_G_M_2113003.Mat00",
+      "size": 280,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\head\\textures\\Avatar_G_M_2113003_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Avatar_G_W_2114001.Mat00",
+      "size": 245,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\head\\textures\\Avatar_G_W_2114001_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Avatar_G_W_2114005.Mat00",
+      "size": 280,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\head\\textures\\Avatar_G_W_2114005_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Avatar_P_W_2112001.Mat00",
+      "size": 245,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\head\\textures\\Avatar_P_W_2112001_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Avatar_P_W_2112005.Mat00",
+      "size": 280,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\head\\textures\\Avatar_P_W_2112005_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Body_Race_Asian_M.Mat00",
+      "size": 279,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\body\\textures\\Body_Race_Asian_M_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Body_Race_Black_M.Mat00",
+      "size": 279,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\body\\textures\\Body_Race_Black_M_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Body_Race_Latin2_M.Mat00",
+      "size": 279,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\body\\textures\\Body_Race_Latin_M_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Body_Race_Latin_M.Mat00",
+      "size": 279,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\body\\textures\\Body_Race_Latin_M_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Body_Race_Latin_W.Mat00",
+      "size": 244,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\body\\textures\\Body_Race_Latin_W_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Body_Race_Russia2_M.Mat00",
+      "size": 281,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\body\\textures\\Body_Race_Russia2_M_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Body_Race_Russia2_W.Mat00",
+      "size": 245,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\body\\textures\\Body_Race_Russia_W_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Body_Race_Russia_M.Mat00",
+      "size": 280,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\body\\textures\\Body_Race_Russia_M_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Body_Race_Russia_W.Mat00",
+      "size": 245,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\body\\textures\\Body_Race_Russia_W_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Leg_Race_Latin_W.Mat00",
+      "size": 278,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\legs\\textures\\Leg_Race_Latin_W_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Leg_Race_Russia2_W.Mat00",
+      "size": 279,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\legs\\textures\\Leg_Race_Russia_W_D.dds"
+      ]
+    },
+    {
+      "file": "materials/Leg_Race_Russia_W.Mat00",
+      "size": 279,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\HHdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\legs\\textures\\Leg_Race_Russia_W_D.dds"
+      ]
+    },
+    {
+      "file": "materials/PV_Body_Race_Asian_M.Mat00",
+      "size": 247,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\arms\\textures\\PV_Body_Race_Asian_M_D.dds"
+      ]
+    },
+    {
+      "file": "materials/PV_Body_Race_Asian_W.Mat00",
+      "size": 247,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\arms\\textures\\PV_Body_Race_Asian_W_D.dds"
+      ]
+    },
+    {
+      "file": "materials/PV_Body_Race_Black_M.Mat00",
+      "size": 247,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\arms\\textures\\PV_Body_Race_Black_M_D.dds"
+      ]
+    },
+    {
+      "file": "materials/PV_Body_Race_Black_W.Mat00",
+      "size": 247,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\arms\\textures\\PV_Body_Race_Black_W_D.dds"
+      ]
+    },
+    {
+      "file": "materials/PV_Body_Race_Latin.Mat00",
+      "size": 247,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\arms\\textures\\PV_Body_Race_Latin_W_D.dds"
+      ]
+    },
+    {
+      "file": "materials/PV_Body_Race_Latin2_M.Mat00",
+      "size": 247,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\arms\\textures\\PV_Body_Race_Latin_M_D.dds"
+      ]
+    },
+    {
+      "file": "materials/PV_Body_Race_Latin_M.Mat00",
+      "size": 247,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\arms\\textures\\PV_Body_Race_Latin_M_D.dds"
+      ]
+    },
+    {
+      "file": "materials/PV_Body_Race_Russia.Mat00",
+      "size": 248,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\arms\\textures\\PV_Body_Race_Russia_W_D.dds"
+      ]
+    },
+    {
+      "file": "materials/PV_Body_Race_Russia2.Mat00",
+      "size": 248,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_f\\arms\\textures\\PV_Body_Race_Russia_W_D.dds"
+      ]
+    },
+    {
+      "file": "materials/PV_Body_Race_Russia2_M.Mat00",
+      "size": 249,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\arms\\textures\\PV_Body_Race_Russia2_M_D.dds"
+      ]
+    },
+    {
+      "file": "materials/PV_Body_Race_Russia_M.Mat00",
+      "size": 248,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_Cha.fx"
+      ],
+      "textures": [
+        "characters_m\\arms\\textures\\PV_Body_Race_Russia_M_D.dds"
+      ]
+    },
+    {
+      "file": "weapons/Materials/BG_Materials/object/WeaponBox_hd_01.Mat00",
+      "size": 188,
+      "shaders": [
+        "shaders\\rigid\\Solid\\diffuse_Emissive.fx"
+      ],
+      "textures": [
+        "Materials\\BG_Materials\\object\\WeaponBox_hd_01.dds"
+      ]
+    },
+    {
+      "file": "weapons/weapons/0_parts/attache/Attach_Down/materials/ad_wr01.Mat00",
+      "size": 255,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_weapon.fx"
+      ],
+      "textures": [
+        "weapons\\0_parts\\attache\\Attach_Down\\textures\\wr-m01_Di.dds"
+      ]
+    },
+    {
+      "file": "weapons/weapons/0_parts/attache/Attach_Down/materials/ad_wr02-Aqua.Mat00",
+      "size": 259,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_weapon.fx"
+      ],
+      "textures": [
+        "weapons\\0_parts\\attache\\Attach_Down\\textures\\WR_02-Aqua_Di.dds"
+      ]
+    },
+    {
+      "file": "weapons/weapons/0_parts/attache/Attach_Down/materials/ad_wr02-Cute.Mat00",
+      "size": 259,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_weapon.fx"
+      ],
+      "textures": [
+        "weapons\\0_parts\\attache\\Attach_Down\\textures\\WR_02-Cute_Di.dds"
+      ]
+    },
+    {
+      "file": "weapons/weapons/0_parts/attache/Attach_Down/materials/ad_wr02-gold.Mat00",
+      "size": 259,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_weapon.fx"
+      ],
+      "textures": [
+        "weapons\\0_parts\\attache\\Attach_Down\\textures\\WR_02-gold_Di.dds"
+      ]
+    },
+    {
+      "file": "weapons/weapons/0_parts/attache/Attach_Down/materials/ad_wr02.Mat00",
+      "size": 254,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_weapon.fx"
+      ],
+      "textures": [
+        "weapons\\0_parts\\attache\\Attach_Down\\textures\\WR_02_Di.dds"
+      ]
+    },
+    {
+      "file": "weapons/weapons/0_parts/attache/Attach_Down/materials/ad_wr03.Mat00",
+      "size": 254,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_weapon.fx"
+      ],
+      "textures": [
+        "weapons\\0_parts\\attache\\Attach_Down\\textures\\wr-03_Di.dds"
+      ]
+    },
+    {
+      "file": "weapons/weapons/0_parts/attache/Attach_Down/materials/ad_wr04.Mat00",
+      "size": 254,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_weapon.fx"
+      ],
+      "textures": [
+        "weapons\\0_parts\\attache\\Attach_Down\\textures\\WR_04_Di.dds"
+      ]
+    },
+    {
+      "file": "weapons/weapons/0_parts/attache/Attach_Front/materials/af_AS-Chick.Mat00",
+      "size": 258,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_weapon.fx"
+      ],
+      "textures": [
+        "weapons\\0_parts\\attache\\Attach_Front\\textures\\af_AS-Chick.dds"
+      ]
+    },
+    {
+      "file": "weapons/weapons/0_parts/attache/Attach_Front/materials/af_snipesilence01.Mat00",
+      "size": 268,
+      "shaders": [
+        "shaders\\skeletal\\Solid\\PVdiffuse_weapon.fx"
+      ],
+      "textures": [
+        "weapons\\0_parts\\attache\\Attach_Front\\textures\\af_snipesilence01_dif.dds"
+      ]
+    }
+  ]
+}

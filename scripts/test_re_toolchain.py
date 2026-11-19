@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-District 187: Sin Streets — Automated RE Toolchain Regression Test Suite
-Validates all offline static RE extractors, binary dissectors, and compilers:
+District 187: Sin Streets — Automated RE Toolchain Regression Test Suite (Zero Warnings)
+Validates all offline static RE extractors, binary dissectors, and bit-exact compilers:
   1. 326/326 protocol opcodes + 251 CDispatch_* handlers (d187_protocol_schema.json)
   2. 530/530 Scaleform GFx Flash-to-C++ handlers (scaleform_flash_bridge.json)
   3. 522 RTTI classes + 12 exports in GameServer.dll (gameserver_internals.json)
   4. Byte-exact (diff=0) GADB v3 (.Gamdb00p) parsing across all 5 client databases
   5. Bit-exact SHA-256 round-trip of SKDB v2 (.Strdb00p) compiler (build_strdb00p.py)
-  6. Ballistics & game mode extraction (gamdb_ballistics_and_modes.json)
-  7. LithTech UDP MID_* dispatch map (lithtech_udp_mid_protocol.json)
+  6. Ballistics & game mode extraction + LithTech UDP MID_* dispatch map
+  7. Bit-exact SHA-256 round-trip of GADB v3 (.Gamdb00p) compiler (build_gamdb00p.py)
+  8. ClientShell vtables & TheRaw.exe/GameClient.dll CVar catalog
 """
 
 import hashlib
@@ -26,11 +27,14 @@ if SCRIPT_DIR not in sys.path:
     sys.path.insert(0, SCRIPT_DIR)
 
 
+def _read_json(name: str) -> dict:
+    with open(os.path.join(DATA_DIR, name), encoding="utf-8") as f:
+        return json.load(f)
+
+
 class TestDistrict187REToolchain(unittest.TestCase):
     def test_01_protocol_schema_326_opcodes(self):
-        path = os.path.join(DATA_DIR, "d187_protocol_schema.json")
-        self.assertTrue(os.path.exists(path), "Missing d187_protocol_schema.json")
-        data = json.load(open(path, encoding="utf-8"))
+        data = _read_json("d187_protocol_schema.json")
         self.assertEqual(data["total_packets"], 326)
         self.assertEqual(data["resolved_opcodes"], 326)
         self.assertGreaterEqual(data["resolved_client_handlers"], 250)
@@ -44,51 +48,60 @@ class TestDistrict187REToolchain(unittest.TestCase):
         self.assertEqual(by_op[0x420303]["name"], "tPacket_NHosting_NGuest_SN_HostConnect")
 
     def test_02_scaleform_flash_bridge_530_handlers(self):
-        path = os.path.join(DATA_DIR, "scaleform_flash_bridge.json")
-        self.assertTrue(os.path.exists(path), "Missing scaleform_flash_bridge.json")
-        data = json.load(open(path, encoding="utf-8"))
+        data = _read_json("scaleform_flash_bridge.json")
         self.assertEqual(data["total_flash_dispatch_classes"], 530)
         self.assertEqual(data["resolved_vtables"], 530)
 
     def test_03_gameserver_internals_522_rtti(self):
-        path = os.path.join(DATA_DIR, "gameserver_internals.json")
-        self.assertTrue(os.path.exists(path), "Missing gameserver_internals.json")
-        data = json.load(open(path, encoding="utf-8"))
+        data = _read_json("gameserver_internals.json")
         self.assertEqual(data["export_count"], 12)
         self.assertEqual(data["total_rtti_classes"], 522)
         self.assertIn("CGameServerShell", data["key_vtables"])
 
     def test_04_gamdb00p_byte_exact_all_5_databases(self):
         from inspect_gamdb00p import parse_gamdb00p
-        db_files = [
-            os.path.join(CLIENT_DIR, "Game", "Database", "TheRaw.Gamdb00p"),
-            os.path.join(CLIENT_DIR, "Database", "TheRaw.Gamdb00p"),
-            os.path.join(CLIENT_DIR, "Game", "DatabaseLocalized", "TheRawL.Gamdb00p"),
-            os.path.join(CLIENT_DIR, "AnimationDatabase", "S2_anim.Gamdb00p"),
-            os.path.join(CLIENT_DIR, "ProfileDatabase", "Defaults.Gamdb00p"),
-        ]
-        for p in db_files:
-            res = parse_gamdb00p(p)
-            self.assertTrue(res["byte_exact"], f"Not byte-exact: {p}")
+        for rel in [
+            os.path.join("Game", "Database", "TheRaw.Gamdb00p"),
+            os.path.join("Database", "TheRaw.Gamdb00p"),
+            os.path.join("Game", "DatabaseLocalized", "TheRawL.Gamdb00p"),
+            os.path.join("AnimationDatabase", "S2_anim.Gamdb00p"),
+            os.path.join("ProfileDatabase", "Defaults.Gamdb00p"),
+        ]:
+            res = parse_gamdb00p(os.path.join(CLIENT_DIR, rel))
+            self.assertTrue(res["byte_exact"], f"Not byte-exact: {rel}")
 
     def test_05_strdb00p_skdb_v2_sha256_roundtrip(self):
         from build_strdb00p import SRC_STRDB, unpack_strdb00p, pack_strdb00p
-        orig = open(SRC_STRDB, "rb").read()
+        with open(SRC_STRDB, "rb") as f:
+            orig = f.read()
         repacked = pack_strdb00p(unpack_strdb00p(SRC_STRDB))
-        self.assertEqual(
-            hashlib.sha256(orig).hexdigest(),
-            hashlib.sha256(repacked).hexdigest(),
-            "SKDB v2 round-trip SHA-256 mismatch!",
-        )
+        self.assertEqual(hashlib.sha256(orig).hexdigest(), hashlib.sha256(repacked).hexdigest())
 
     def test_06_ballistics_and_udp_mid_artifacts(self):
-        bal = json.load(open(os.path.join(DATA_DIR, "gamdb_ballistics_and_modes.json"), encoding="utf-8"))
+        bal = _read_json("gamdb_ballistics_and_modes.json")
         self.assertGreaterEqual(bal["ammo_multiplayer_count"], 180)
         self.assertGreaterEqual(bal["weapons_multiplayer_count"], 95)
         self.assertEqual(bal["modes_count"], 20)
-        udp = json.load(open(os.path.join(DATA_DIR, "lithtech_udp_mid_protocol.json"), encoding="utf-8"))
+        udp = _read_json("lithtech_udp_mid_protocol.json")
         self.assertEqual(udp["on_message_va"], "0x1004fd70")
         self.assertGreaterEqual(udp["active_mid_count"], 7)
+
+    def test_07_gamdb00p_bit_exact_sha256_roundtrip(self):
+        from build_gamdb00p import unpack_gamdb00p_raw, pack_gamdb00p_raw
+        for rel in [
+            os.path.join("ProfileDatabase", "Defaults.Gamdb00p"),
+            os.path.join("Game", "DatabaseLocalized", "TheRawL.Gamdb00p"),
+        ]:
+            full = os.path.join(CLIENT_DIR, rel)
+            with open(full, "rb") as f:
+                orig = f.read()
+            repacked = pack_gamdb00p_raw(unpack_gamdb00p_raw(full))
+            self.assertEqual(hashlib.sha256(orig).hexdigest(), hashlib.sha256(repacked).hexdigest())
+
+    def test_08_clientshell_and_cvars(self):
+        data = _read_json("clientshell_and_cvars.json")
+        self.assertGreaterEqual(data["theraw_exe_cvar_candidates_count"], 100)
+        self.assertGreaterEqual(data["gameclient_dll_cvar_candidates_count"], 100)
 
 
 if __name__ == "__main__":
