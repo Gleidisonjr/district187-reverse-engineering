@@ -9,6 +9,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <cwchar>
+#include <cstdarg>
 #pragma comment(lib, "ws2_32.lib")
 
 // LithTech Jupiter EX ABI structures (verified empirically against Engine_Server.dll)
@@ -84,6 +85,22 @@ struct StartGameRequest {
 };
 #pragma pack(pop)
 
+static FILE* g_LogFile = nullptr;
+
+static void LogLine(const char* fmt, ...) {
+    char buf[1024];
+    va_list ap;
+    va_start(ap, fmt);
+    vsnprintf(buf, sizeof(buf), fmt, ap);
+    va_end(ap);
+    printf("%s", buf);
+    fflush(stdout);
+    if (g_LogFile) {
+        fprintf(g_LogFile, "%s", buf);
+        fflush(g_LogFile);
+    }
+}
+
 // ServerAppHandler callback interface (LithTech Jupiter EX)
 class ServerAppHandler {
 public:
@@ -93,17 +110,17 @@ public:
         return 0;
     }
     virtual LTRESULT ConsoleOutputFn(const char* pMsg) {
-        if (pMsg) printf("[Engine] %s\n", pMsg);
-        fflush(stdout);
+        if (pMsg) LogLine("[Engine] %s\n", pMsg);
         return 0;
     }
     virtual LTRESULT OutOfMemory() {
-        printf("[Engine][ERR] Out of memory!\n");
-        fflush(stdout);
+        LogLine("[Engine][ERR] Out of memory!\n");
         return 0;
     }
     virtual LTRESULT ProcessPacket(void* pMsg, uint8_t senderAddr[4], uint16_t senderPort) {
-        (void)pMsg; (void)senderAddr; (void)senderPort;
+        LogLine("[Engine][PKT] Unconnected packet from %u.%u.%u.%u:%u\n",
+                senderAddr[0], senderAddr[1], senderAddr[2], senderAddr[3], (unsigned)senderPort);
+        (void)pMsg;
         return 0;
     }
 };
@@ -170,12 +187,12 @@ int main(int argc, char** argv) {
     }
 
     SetConsoleCtrlHandler(ConsoleCtrlHandler, TRUE);
+    g_LogFile = fopen("..\\traffic\\server_host.log", "w");
 
-    printf("=====================================================================\n");
-    printf("  District 187: Sin Streets - Native LithTech Dedicated Server Host\n");
-    printf("  Target World: %s | UDP Port: %u\n", worldName, (unsigned)port);
-    printf("=====================================================================\n");
-    fflush(stdout);
+    LogLine("=====================================================================\n");
+    LogLine("  District 187: Sin Streets - Native LithTech Dedicated Server Host\n");
+    LogLine("  Target World: %s | UDP Port: %u\n", worldName, (unsigned)port);
+    LogLine("=====================================================================\n");
 
     HMODULE hEngine = LoadLibraryA("Engine_Server.dll");
     if (!hEngine) {
@@ -302,22 +319,28 @@ int main(int argc, char** argv) {
     fflush(stdout);
 
     // 7. Main server update loop
-    printf("[*] Entering server tick loop (timeout=%ds)...\n", maxSeconds);
-    fflush(stdout);
+    LogLine("[*] Entering server tick loop (timeout=%ds)...\n", maxSeconds);
     DWORD startTick = GetTickCount();
     int ticks = 0;
+    int lastClients = -1;
     while (g_Running) {
         pServer->Update(0);
+        int curClients = pServer->GetNumClients();
+        if (curClients != lastClients) {
+            LogLine("[*] Active UDP Clients: %d (tick=%d)\n", curClients, ticks);
+            lastClients = curClients;
+        }
         ticks++;
         Sleep(16); // ~60Hz
         if (maxSeconds > 0 && (int)((GetTickCount() - startTick) / 1000) >= maxSeconds) {
-            printf("[*] Timeout reached (%ds, %d ticks). Shutting down cleanly...\n", maxSeconds, ticks);
+            LogLine("[*] Timeout reached (%ds, %d ticks). Shutting down cleanly...\n", maxSeconds, ticks);
             break;
         }
     }
 
     pDeleteServer();
     FreeLibrary(hEngine);
-    printf("[+] Server shut down gracefully.\n");
+    LogLine("[+] Server shut down gracefully.\n");
+    if (g_LogFile) fclose(g_LogFile);
     return 0;
 }
