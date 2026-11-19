@@ -85,10 +85,34 @@ PACKET_CQ_CREATE_ROOM = 0x220201
 PACKET_SA_CREATE_ROOM = 0x220202
 PACKET_SN_ROOM_INFO = 0x220203
 PACKET_SN_ROOM_LIST = 0x220204
+PACKET_CQ_CHANGE_BOUNDARY = 0x220211
+PACKET_SA_CHANGE_BOUNDARY = 0x220212
+PACKET_SN_CHANGE_BOUNDARY = 0x220213
+PACKET_CQ_CHANGE_OPTION = 0x220215
+PACKET_SA_CHANGE_OPTION = 0x220216
+PACKET_SN_CHANGE_OPTION = 0x220217
+PACKET_CQ_CHANGE_NAME = 0x220218
+PACKET_SA_CHANGE_NAME = 0x220219
+PACKET_SN_CHANGE_NAME = 0x22021A
+PACKET_CQ_CHANGE_MAP_INFO = 0x220221
+PACKET_SA_CHANGE_MAP_INFO = 0x220222
+PACKET_SN_CHANGE_MAP_INFO = 0x220223
 PACKET_CQ_ENTER_ROOM = 0x220231
 PACKET_SA_ENTER_ROOM = 0x220232
 PACKET_SN_ROOM_USER_LIST = 0x220233   # CDispatch_NMatchup_NRoom_SN_UserList   -> 0x101394F0 -> 0x100720C0
+PACKET_CQ_LEAVE_ROOM = 0x220234       # Send_ExitRoom @ 0x1013B670
+PACKET_SA_LEAVE_ROOM = 0x220235       # CDispatch_NMatchup_NRoom_SA_LeaveUser  -> 0x101392A0 (ChangeScene(2))
+PACKET_SN_LEAVE_ROOM = 0x220236       # CDispatch_NMatchup_NRoom_SN_LeaveUser  -> 0x10139E40
+PACKET_CN_START_BUTTON = 0x220301
+PACKET_CQ_CHANGE_TEAM = 0x220311      # Send_CQ_ChangeTeam @ 0x1013B970
+PACKET_SA_CHANGE_TEAM = 0x220312      # CDispatch_NMatchup_NTeam_SA_Change     -> 0x10138B80
+PACKET_SN_CHANGE_TEAM = 0x220313      # CDispatch_NMatchup_NTeam_SN_Change     -> 0x10138CB0
+PACKET_CQ_START_GAME = 0x220314
+PACKET_CQ_CHANGE_LEADER = 0x220317    # HostDelegateBtnClick @ 0x101381A2
 PACKET_SN_CHANGE_LEADER = 0x220319    # CDispatch_NMatchup_NRoom_SN_ChangeLeader -> 0x101396C0
+PACKET_SN_USER_STATE = 0x220401       # CDispatch_NMatchup_NUser_SN_State      -> 0x10138D50
+PACKET_CN_PLAY_READY_BUTTON = 0x222101 # ReadyBtnClick (non-leader) @ 0x1013B6E0
+PACKET_CN_PLAY_START_BUTTON = 0x222103 # ReadyBtnClick (leader F5 Basla) @ 0x1013B779
 PACKET_SN_BASE_USER_LIST = 0x222112   # CDispatch_NMatchup_NPlay_SN_BaseUserList -> 0x100CB7B0
 
 # Team indices written to SN_Info +0x6A/+0x6C/+0x6E (ParseRoomInfo 0x10072640 -> TeamMgr+0x30/+0x31/+0x32).
@@ -96,10 +120,22 @@ PACKET_SN_BASE_USER_LIST = 0x222112   # CDispatch_NMatchup_NPlay_SN_BaseUserList
 ROOM_TEAM_A = 0
 ROOM_TEAM_B = 1
 ROOM_TEAM_OBSERVER = 2
-PACKET_CN_START_BUTTON = 0x220301
-PACKET_CQ_START_GAME = 0x220314
-PACKET_CQ_EQUIP_OPEN = 0x240101
-PACKET_SA_EQUIP_OPEN = 0x240102
+
+# NHangar / NEquipment / NPurchase Family
+PACKET_CQ_EQUIP_OPEN = 0x240101       # Send_CQ_EquipOpen @ 0x1011D610
+PACKET_SA_EQUIP_OPEN = 0x240102       # CDispatch_TCP_NEquipment_SA_Open       -> 0x10031770
+PACKET_CQ_EQUIP_CLOSE = 0x240103      # Send_CQ_EquipClose @ 0x1011D772
+PACKET_SA_EQUIP_CLOSE = 0x240104      # CDispatch_TCP_NEquipment_SA_Close      -> 0x10031890
+PACKET_CQ_CHANGE_PART = 0x240107
+PACKET_SA_CHANGE_PART = 0x240108      # CDispatch_NHangar_NEquipment_SA_ChangePart -> 0x10030F80
+PACKET_CQ_ACTIVE_ITEM = 0x240121
+PACKET_SA_ACTIVE_ITEM = 0x240122      # CDispatch_TCP_SA_ActiveItem            -> 0x1003D880
+PACKET_CQ_USE_ITEM = 0x240125         # Send_CQ_UseItem @ 0x10043C04
+PACKET_SA_USE_ITEM = 0x240126         # CDispatch_TCP_SA_UseItem               -> 0x100420B0
+PACKET_CQ_BUY_ITEM = 0x240201         # Send_CQ_BuyItem @ 0x1011180A
+PACKET_SA_BUY_ITEM = 0x240202         # CDispatch_TCP_SA_BuyItem               -> 0x10148DF0
+PACKET_CQ_BUY_CASH_ITEM = 0x240203
+PACKET_SA_BUY_CASH_ITEM = 0x240204    # CDispatch_TCP_SA_BuyCashItem           -> 0x10149290
 
 # NHosting / NBattle Family
 PACKET_SN_HOST_CONNECT = 0x420303
@@ -530,12 +566,13 @@ def build_room_info_hermit(session_id: int, room_id: int = 1, room_name: str = "
     payload = bytearray(224)
     struct.pack_into("<H", payload, 0, room_id)
     payload[6] = mode & 0xFF          # +0x16: 2 = TDM -> ChangeScene(3)!
-    payload[9] = max_players & 0xFF   # +0x19: max_players
-    payload[10] = 1                   # +0x1A: cur_players
+    payload[9] = 1                    # +0x19 ([room+0]): cur_players (confirmed by SN_ChangeBoundary @ 0x10139312)
+    payload[10] = max_players & 0xFF  # +0x1A ([room+1]): max_players (0x1013DDCC: al>>1 = open slots per team!)
     payload[25] = mode & 0xFF         # +0x29: mode
     rname_b = room_name.encode("ascii", "ignore")[:31] + b"\x00"
     payload[29 : 29 + len(rname_b)] = rname_b
-    struct.pack_into("<HHHHHH", payload, 90, ROOM_TEAM_A, ROOM_TEAM_B, ROOM_TEAM_OBSERVER, 0, 0, 0)
+    half_slots = max(1, (max_players & 0xFF) // 2)
+    struct.pack_into("<HHHHHH", payload, 90, ROOM_TEAM_A, ROOM_TEAM_B, ROOM_TEAM_OBSERVER, half_slots, half_slots, 0)
     return build_hermit_packet(PACKET_SN_ROOM_INFO, session_id, bytes(payload), key_byte)
 
 def build_room_user_list_hermit(session_id: int, users: list, key_byte: int = 0x0F) -> bytes:
@@ -544,10 +581,10 @@ def build_room_user_list_hermit(session_id: int, users: list, key_byte: int = 0x
     - Offset 0x11 (payload +1): uint8 count; entries start at 0x12 (payload +2), stride 0x31 (49 bytes, max 1006B).
     Entry layout:
       +0x00 uint16 user_id   (CRoomUser+0x00; key used by SN_ChangeLeader / SN_State lookups 0x10070AA0)
-      +0x02 uint32 unk_a     (CRoomUser+0x04)
+      +0x02 uint32 rank      (CRoomUser+0x04; passed to GDB table 0x17 @ 0x1013E236 for rank icon!)
       +0x06 uint32 unk_b     (CRoomUser+0x3C; forwarded to in-game player creation)
       +0x0A uint16 team      (CRoomUser+0x08; must equal a ROOM_TEAM_* index)
-      +0x0C uint32 state     (CRoomUser::SetState 0x1006F9F0: 0,1,2,3 kept; 6->4, 8->5, 9->6)
+      +0x0C uint32 state     (CRoomUser::SetState 0x1006F9F0: 1=Waiting [required by TeamChange/Ready], 2=Ready, 3=Play, 6->4=Shop)
       +0x10 uint32 unk_c     (CRoomUser+0x10)
       +0x14 uint32 unk_d     (CRoomUser+0x40)
       +0x18 char[25] nickname (ASCII; compared to own SN_UserInfo nickname to detect the local player)
@@ -556,21 +593,67 @@ def build_room_user_list_hermit(session_id: int, users: list, key_byte: int = 0x
     payload[1] = len(users) & 0xFF
     for u in users:
         entry = bytearray(49)
-        struct.pack_into("<HIIHIII", entry, 0, u["user_id"], 0, 0, u.get("team", ROOM_TEAM_A), u.get("state", 0), 0, 0)
+        struct.pack_into(
+            "<HIIHIII",
+            entry,
+            0,
+            u["user_id"],
+            u.get("rank", 58),
+            u.get("unk_b", 0),
+            u.get("team", ROOM_TEAM_A),
+            u.get("state", 1),
+            u.get("unk_c", 0),
+            u.get("unk_d", 0),
+        )
         nick = u["nickname"].encode("ascii", "ignore")[:24]
         entry[0x18:0x18 + len(nick)] = nick
         payload += entry
     return build_hermit_packet(PACKET_SN_ROOM_USER_LIST, session_id, bytes(payload), key_byte)
 
-def build_change_leader_hermit(session_id: int, leader_user_id: int, key_byte: int = 0x0F) -> bytes:
+def build_change_leader_hermit(session_id: int, leader_user_id: int, leader_state: int = 1, key_byte: int = 0x0F) -> bytes:
     """
     SN_ChangeLeader (0x220319): 0x101396C0.
     - Offset 0x10 (payload +0): uint16 leader user_id (stored at room+0x60, looked up via 0x10070AA0)
-    - Offset 0x12 (payload +2): uint32 (read into a local; 0)
+    - Offset 0x12 (payload +2): uint32 leader_state (passed to CRoomUser::SetState @ 0x10139718; 1 = Waiting)
     Outside scene 7 it refreshes the wait-room UI (0x1013DD80) and prints chat string 0x18D.
     """
-    payload = struct.pack("<HI", leader_user_id & 0xFFFF, 0)
+    payload = struct.pack("<HI", leader_user_id & 0xFFFF, leader_state & 0xFFFFFFFF)
     return build_hermit_packet(PACKET_SN_CHANGE_LEADER, session_id, payload, key_byte)
+
+def build_user_state_hermit(session_id: int, user_id: int, state: int = 2, key_byte: int = 0x0F) -> bytes:
+    """
+    NUser_SN_State (0x220401): 0x10138D50.
+    - Offset 0x11 (payload +1): uint8 count
+    - Offset 0x12.. (payload +2..): entries of 6 bytes (<HI: uint16 user_id, uint32 state)
+      state=1 (Waiting), state=2 (Ready -> plays sound 5 in scene 3), state=3 (Playing), state=6 (Shop/Inven).
+    """
+    payload = struct.pack("<BBHI", 0, 1, user_id & 0xFFFF, state & 0xFFFFFFFF)
+    return build_hermit_packet(PACKET_SN_USER_STATE, session_id, payload, key_byte)
+
+def build_change_team_hermit(session_id: int, user_id: int, new_team: int, key_byte: int = 0x0F) -> bytes:
+    """
+    NTeam_SN_Change (0x220313): 0x10138CB0.
+    - Offset 0x10 (payload +0): uint16 user_id
+    - Offset 0x12 (payload +2): uint16 new_team (ROOM_TEAM_A=0 or ROOM_TEAM_B=1)
+    Calls CRoomUserList::ChangeTeam (0x10071800) and refreshes WaitRoom UI (0x1013DD80).
+    """
+    payload = struct.pack("<HH", user_id & 0xFFFF, new_team & 0xFFFF)
+    return build_hermit_packet(PACKET_SN_CHANGE_TEAM, session_id, payload, key_byte)
+
+def build_equip_open_hermit(session_id: int, gold: int = 9999999, cash: int = 999999, target_mode: int = 1, key_byte: int = 0x0F) -> bytes:
+    """
+    NEquipment_SA_Open (0x240102): 0x10031770.
+    - Offset 0x10 (payload +0): uint16 origin (0)
+    - Offset 0x12 (payload +2): uint32 error_code (0)
+    - Offset 0x16 (payload +6): uint32 gold ([user + 0x80])
+    - Offset 0x1A (payload +10): uint32 cash ([user + 0x84])
+    - Offset 0x1E (payload +14): uint32 target_mode (1=Inven Weapons, 2=Inven Char, 3=Inven Items -> ChangeScene(4);
+      4=Shop -> ChangeScene(5); 5=LuckyShop -> ChangeScene(13)).
+    """
+    if target_mode not in (1, 2, 3, 4, 5):
+        target_mode = 1
+    payload = struct.pack("<HIIII", 0, 0, gold & 0xFFFFFFFF, cash & 0xFFFFFFFF, target_mode)
+    return build_hermit_packet(PACKET_SA_EQUIP_OPEN, session_id, payload, key_byte)
 
 def build_base_user_list_hermit(session_id: int, users: list, key_byte: int = 0x0F) -> bytes:
     """
@@ -874,36 +957,109 @@ class HermitClientSession:
             self.send_pkt(resp)
             rinfo = build_room_info_hermit(self.session_id, room_id=1, room_name=req_name, max_players=req_max, mode=req_mode, key_byte=self.key_byte)
             self.send_pkt(rinfo, pause=0.4)
-            # Populate wait-room slot 0 with the local player and make him leader (F5 Basla enabled).
+            # Populate wait-room slot 0 with the local player (state=1 Waiting, rank from DB) and make him leader (F5 Basla enabled).
             nick = self.user_data.get("nickname", "Gleidison") if self.user_data else "Gleidison"
-            self.room_users = [{"user_id": 1, "nickname": nick, "team": ROOM_TEAM_A, "state": 0}]
+            rank = int(self.user_data.get("rank", 58)) if self.user_data else 58
+            self.room_users = [{"user_id": 1, "nickname": nick, "rank": rank, "team": ROOM_TEAM_A, "state": 1}]
             self.send_pkt(build_room_user_list_hermit(self.session_id, self.room_users, key_byte=self.key_byte))
-            self.send_pkt(build_change_leader_hermit(self.session_id, 1, key_byte=self.key_byte))
-            print(f"[+] Dispatched SN_UserList (0x220233, '{nick}' slot 0) + SN_ChangeLeader (0x220319, user 1)!")
+            self.send_pkt(build_change_leader_hermit(self.session_id, 1, leader_state=1, key_byte=self.key_byte))
+            print(f"[+] Dispatched SN_UserList (0x220233, '{nick}' Rank {rank} slot 0) + SN_ChangeLeader (0x220319, user 1)!")
             # Auto-dispatch SN_HostConnect (0x420303) to connect directly to our native LithTech Dedicated Server (UDP 27888)!
             hconn = build_host_connect_hermit(self.session_id, ip="127.0.0.1", port=27888, key_byte=self.key_byte)
             self.send_pkt(hconn)
             print(f"[+] Dispatched SA_CreateRoom (0x220202) + SN_Info (0x220203) + SN_HostConnect (0x420303 -> 127.0.0.1:27888)!")
 
-        # 7b. CQ_EnterRoom (0x220231) -> SA_EnterRoom (0x220232)
+        # 7b. CQ_EnterRoom (0x220231) -> SA_EnterRoom (0x220232) + SN_Info + SN_UserList + SN_ChangeLeader
         elif pkt_id == PACKET_CQ_ENTER_ROOM:
             room_id = struct.unpack('<H', plain_packet[16:18])[0] if len(plain_packet) >= 18 else 1
             print(f"[+] CQ_EnterRoom (0x220231) received for Room {room_id}!")
             payload = struct.pack("<HIH", 0, 0, room_id)
             resp = build_hermit_packet(PACKET_SA_ENTER_ROOM, self.session_id, payload, key_byte=self.key_byte)
             self.send_pkt(resp)
-            print(f"[+] Dispatched SA_EnterRoom 0x220232 for Room {room_id}!")
+            nick = self.user_data.get("nickname", "Gleidison") if self.user_data else "Gleidison"
+            rank = int(self.user_data.get("rank", 58)) if self.user_data else 58
+            self.room_users = [{"user_id": 1, "nickname": nick, "rank": rank, "team": ROOM_TEAM_A, "state": 1}]
+            self.send_pkt(build_room_info_hermit(self.session_id, room_id=room_id, room_name=f"Room {room_id}", key_byte=self.key_byte), pause=0.2)
+            self.send_pkt(build_room_user_list_hermit(self.session_id, self.room_users, key_byte=self.key_byte))
+            self.send_pkt(build_change_leader_hermit(self.session_id, 1, leader_state=1, key_byte=self.key_byte))
+            print(f"[+] Dispatched SA_EnterRoom 0x220232 + SN_Info + SN_UserList + SN_ChangeLeader for Room {room_id}!")
 
-        # 7c. CQ_QuickJoin (0x220161) -> SA_QuickJoin (0x220162)
+        # 7c. CQ_QuickJoin (0x220161) -> SA_QuickJoin (0x220162) + SN_Info + SN_UserList + SN_ChangeLeader
         elif pkt_id == PACKET_CQ_QUICK_JOIN:
             print(f"[+] CQ_QuickJoin (0x220161) received! Directing to Room 1...")
             payload = struct.pack("<HIH", 0, 0, 1)
             resp = build_hermit_packet(PACKET_SA_QUICK_JOIN, self.session_id, payload, key_byte=self.key_byte)
             self.send_pkt(resp)
-            print(f"[+] Dispatched SA_QuickJoin 0x220162 (Room 1)!")
+            nick = self.user_data.get("nickname", "Gleidison") if self.user_data else "Gleidison"
+            rank = int(self.user_data.get("rank", 58)) if self.user_data else 58
+            self.room_users = [{"user_id": 1, "nickname": nick, "rank": rank, "team": ROOM_TEAM_A, "state": 1}]
+            self.send_pkt(build_room_info_hermit(self.session_id, room_id=1, room_name="Arrival 8v8", key_byte=self.key_byte), pause=0.2)
+            self.send_pkt(build_room_user_list_hermit(self.session_id, self.room_users, key_byte=self.key_byte))
+            self.send_pkt(build_change_leader_hermit(self.session_id, 1, leader_state=1, key_byte=self.key_byte))
+            print(f"[+] Dispatched SA_QuickJoin 0x220162 + SN_Info + SN_UserList + SN_ChangeLeader (Room 1)!")
 
-        # 8. CN_StartButton (0x220301) / CQ_StartGame (0x220314, F5 Basla) -> SN_HostConnect (0x420303) + SN_BattleStart (0x420310)
-        elif pkt_id in (PACKET_CN_START_BUTTON, PACKET_CQ_START_GAME):
+        # 7d. CQ_LeaveRoom (0x220234, Exit Room button @ 0x1013B670) -> SA_LeaveUser (0x220235 -> ChangeScene(2)) + SN_RoomList
+        elif pkt_id == PACKET_CQ_LEAVE_ROOM:
+            print(f"[+] CQ_LeaveRoom (0x220234) received! Returning player to Lobby (Scene[2])...")
+            self.send_pkt(build_hermit_packet(PACKET_SA_LEAVE_ROOM, self.session_id, struct.pack("<HI", 0, 0), self.key_byte))
+            self.send_pkt(build_hermit_packet(PACKET_SN_LEAVE_ROOM, self.session_id, struct.pack("<H", 1), self.key_byte))
+            self.send_pkt(build_room_list_hermit(self.session_id, key_byte=self.key_byte))
+            print(f"[+] Dispatched SA_LeaveUser (0x220235) + SN_LeaveUser (0x220236) + SN_RoomList (0x220204)!")
+
+        # 7e. CQ_ChangeTeam (0x220311, Red/Blue button @ 0x1013B970) -> SA_Change (0x220312) + SN_Change (0x220313)
+        elif pkt_id == PACKET_CQ_CHANGE_TEAM:
+            new_team = struct.unpack_from("<H", plain_packet, 16)[0] if len(plain_packet) >= 18 else ROOM_TEAM_B
+            if new_team not in (ROOM_TEAM_A, ROOM_TEAM_B, ROOM_TEAM_OBSERVER):
+                new_team = ROOM_TEAM_B
+            if self.room_users:
+                self.room_users[0]["team"] = new_team
+            self.send_pkt(build_hermit_packet(PACKET_SA_CHANGE_TEAM, self.session_id, struct.pack("<HI", 0, 0), self.key_byte))
+            self.send_pkt(build_change_team_hermit(self.session_id, user_id=1, new_team=new_team, key_byte=self.key_byte))
+            print(f"[+] CQ_ChangeTeam (0x220311) -> Dispatched SA_Change (0x220312) + SN_Change (0x220313, user=1 team={new_team})!")
+
+        # 7f. CQ_ChangeLeader (0x220317, Delegate Host @ 0x101381A2) -> SN_ChangeLeader (0x220319)
+        elif pkt_id == PACKET_CQ_CHANGE_LEADER:
+            new_leader = struct.unpack_from("<H", plain_packet, 16)[0] if len(plain_packet) >= 18 else 1
+            self.send_pkt(build_change_leader_hermit(self.session_id, new_leader, leader_state=1, key_byte=self.key_byte))
+            print(f"[+] CQ_ChangeLeader (0x220317) -> Dispatched SN_ChangeLeader (0x220319, leader={new_leader})!")
+
+        # 7g. CQ_ChangeMapInfo (0x220221) / CQ_ChangeBoundary (0x220211) / CQ_ChangeOption (0x220215) / CQ_ChangeName (0x220218)
+        elif pkt_id == PACKET_CQ_CHANGE_MAP_INFO:
+            req_body = plain_packet[16:30].ljust(14, b"\x00")
+            self.send_pkt(build_hermit_packet(PACKET_SA_CHANGE_MAP_INFO, self.session_id, struct.pack("<HI", 0, 0), self.key_byte))
+            self.send_pkt(build_hermit_packet(PACKET_SN_CHANGE_MAP_INFO, self.session_id, req_body, self.key_byte))
+            print(f"[+] CQ_ChangeMapInfo (0x220221) -> Dispatched SA_ChangeMapInfo (0x220222) + SN_ChangeMapInfo (0x220223)!")
+
+        elif pkt_id == PACKET_CQ_CHANGE_BOUNDARY:
+            new_max = plain_packet[16] if len(plain_packet) > 16 else 16
+            cur_cnt = max(1, len(self.room_users))
+            self.send_pkt(build_hermit_packet(PACKET_SA_CHANGE_BOUNDARY, self.session_id, struct.pack("<HI", 0, 0), self.key_byte))
+            self.send_pkt(build_hermit_packet(PACKET_SN_CHANGE_BOUNDARY, self.session_id, struct.pack("<BB", cur_cnt, new_max), self.key_byte))
+            print(f"[+] CQ_ChangeBoundary (0x220211) -> Dispatched SA_ChangeBoundary (0x220212) + SN_ChangeBoundary (0x220213, max={new_max})!")
+
+        elif pkt_id == PACKET_CQ_CHANGE_OPTION:
+            opt_body = plain_packet[16:].ljust(32, b"\x00")
+            self.send_pkt(build_hermit_packet(PACKET_SA_CHANGE_OPTION, self.session_id, struct.pack("<HI", 0, 0), self.key_byte))
+            self.send_pkt(build_hermit_packet(PACKET_SN_CHANGE_OPTION, self.session_id, opt_body, self.key_byte))
+            print(f"[+] CQ_ChangeOption (0x220215) -> Dispatched SA_ChangeOption (0x220216) + SN_ChangeOption (0x220217)!")
+
+        elif pkt_id == PACKET_CQ_CHANGE_NAME:
+            name_body = plain_packet[16:].ljust(32, b"\x00")
+            self.send_pkt(build_hermit_packet(PACKET_SA_CHANGE_NAME, self.session_id, struct.pack("<HI", 0, 0), self.key_byte))
+            self.send_pkt(build_hermit_packet(PACKET_SN_CHANGE_NAME, self.session_id, name_body, self.key_byte))
+            print(f"[+] CQ_ChangeName (0x220218) -> Dispatched SA_ChangeName (0x220219) + SN_ChangeName (0x22021A)!")
+
+        # 7h. CN_PlayReadyButton (0x222101, ReadyBtnClick non-leader @ 0x1013B6E0) -> NUser_SN_State (0x220401)
+        elif pkt_id == PACKET_CN_PLAY_READY_BUTTON:
+            cur_state = self.room_users[0].get("state", 1) if self.room_users else 1
+            new_state = 2 if cur_state != 2 else 1
+            if self.room_users:
+                self.room_users[0]["state"] = new_state
+            self.send_pkt(build_user_state_hermit(self.session_id, user_id=1, state=new_state, key_byte=self.key_byte))
+            print(f"[+] CN_PlayReadyButton (0x222101) -> Dispatched SN_UserState (0x220401, user=1 state={new_state})!")
+
+        # 8. CN_PlayStartButton (0x222103, F5 Basla @ 0x1013B779) / CN_StartButton (0x220301) / CQ_StartGame (0x220314)
+        elif pkt_id in (PACKET_CN_PLAY_START_BUTTON, PACKET_CN_START_BUTTON, PACKET_CQ_START_GAME):
             print(f"[+] Start Game (0x{pkt_id:X}) received! Launching 3D Battle on {self.active_map} (127.0.0.1:27888)...")
             hconn = build_host_connect_hermit(self.session_id, ip="127.0.0.1", port=27888, key_byte=self.key_byte)
             self.send_pkt(hconn)
@@ -911,13 +1067,43 @@ class HermitClientSession:
             self.send_pkt(resp)
             print(f"[+] Dispatched SN_HostConnect (0x420303 -> 127.0.0.1:27888) + SN_BattleStart (0x420310)!")
 
-        # 8b. CQ_EquipOpen (0x240101, Shop/Inventory) -> SA_EquipOpen (0x240102)
+        # 8b. CQ_EquipOpen (0x240101, Inventory/Shop/LuckyShop @ 0x1011D610) -> SA_EquipOpen (0x240102 @ 0x10031770)
         elif pkt_id == PACKET_CQ_EQUIP_OPEN:
-            print(f"[+] CQ_EquipOpen (0x240101) received! Opening Shop/Inventory...")
-            payload = struct.pack("<HI", 0, 0) + b"\x00" * 10
-            resp = build_hermit_packet(PACKET_SA_EQUIP_OPEN, self.session_id, payload, self.key_byte)
+            req_mode = struct.unpack_from("<I", plain_packet, 16)[0] if len(plain_packet) >= 20 else 1
+            gold = int(self.user_data.get("gold", 9999999)) if self.user_data else 9999999
+            cash = int(self.user_data.get("cash", 999999)) if self.user_data else 999999
+            resp = build_equip_open_hermit(self.session_id, gold=gold, cash=cash, target_mode=req_mode, key_byte=self.key_byte)
             self.send_pkt(resp)
-            print(f"[+] Dispatched SA_EquipOpen (0x240102)!")
+            print(f"[+] CQ_EquipOpen (0x240101, mode={req_mode}) -> Dispatched SA_EquipOpen (0x240102, gold={gold}, cash={cash})!")
+
+        # 8c. CQ_EquipClose (0x240103) -> SA_EquipClose (0x240104 @ 0x10031890 -> ChangeScene(3) or ChangeScene(2))
+        elif pkt_id == PACKET_CQ_EQUIP_CLOSE:
+            resp = build_hermit_packet(PACKET_SA_EQUIP_CLOSE, self.session_id, struct.pack("<HI", 0, 0), self.key_byte)
+            self.send_pkt(resp)
+            print(f"[+] CQ_EquipClose (0x240103) -> Dispatched SA_EquipClose (0x240104)!")
+
+        # 8d. CQ_ChangePart (0x240107) -> SA_ChangePart (0x240108 @ 0x10030F80)
+        elif pkt_id == PACKET_CQ_CHANGE_PART:
+            resp = build_hermit_packet(PACKET_SA_CHANGE_PART, self.session_id, struct.pack("<HI", 0, 0), self.key_byte)
+            self.send_pkt(resp)
+            print(f"[+] CQ_ChangePart (0x240107) -> Dispatched SA_ChangePart (0x240108)!")
+
+        # 8e. CQ_UseItem (0x240125) / CQ_ActiveItem (0x240121) -> SA_UseItem (0x240126) / SA_ActiveItem (0x240122)
+        elif pkt_id in (PACKET_CQ_USE_ITEM, PACKET_CQ_ACTIVE_ITEM):
+            item_uid = plain_packet[16:24].ljust(8, b"\x00")
+            resp_op = PACKET_SA_USE_ITEM if pkt_id == PACKET_CQ_USE_ITEM else PACKET_SA_ACTIVE_ITEM
+            payload = struct.pack("<HI", 0, 0) + item_uid + struct.pack("<I", 1)
+            self.send_pkt(build_hermit_packet(resp_op, self.session_id, payload, self.key_byte))
+            print(f"[+] Equip/Use Item (0x{pkt_id:X}) -> Dispatched 0x{resp_op:X}!")
+
+        # 8f. CQ_BuyItem (0x240201) / CQ_BuyCashItem (0x240203) -> SA_BuyItem (0x240202) / SA_BuyCashItem (0x240204)
+        elif pkt_id in (PACKET_CQ_BUY_ITEM, PACKET_CQ_BUY_CASH_ITEM):
+            gold = int(self.user_data.get("gold", 9999999)) if self.user_data else 9999999
+            cash = int(self.user_data.get("cash", 999999)) if self.user_data else 999999
+            resp_op = PACKET_SA_BUY_ITEM if pkt_id == PACKET_CQ_BUY_ITEM else PACKET_SA_BUY_CASH_ITEM
+            payload = struct.pack("<HIIIIB", 0, 0, gold, cash, 0, 0)
+            self.send_pkt(build_hermit_packet(resp_op, self.session_id, payload, self.key_byte))
+            print(f"[+] Buy Item (0x{pkt_id:X}) -> Dispatched 0x{resp_op:X} (gold={gold}, cash={cash})!")
 
         # 9. CQ_Chat (0x210151) -> Slash Command Processor (/map, /bots, /give, /mmr, /loadout, /clan) + SN_Chat (0x210152)
         elif pkt_id == PACKET_CQ_CHAT:
@@ -930,6 +1116,29 @@ class HermitClientSession:
                 cmd_res = self.lobby_ext.process_chat_command(nick, raw_msg)
                 if "active_map" in cmd_res:
                     self.active_map = cmd_res["active_map"]
+                if "bot_count" in cmd_res:
+                    bot_cnt = max(0, min(15, int(cmd_res["bot_count"])))
+                    rank = int(self.user_data.get("rank", 58)) if self.user_data else 58
+                    own_team = self.room_users[0].get("team", ROOM_TEAM_A) if self.room_users else ROOM_TEAM_A
+                    bot_names = [
+                        "Bot_Viper", "Bot_Ghost", "Bot_Reaper", "Bot_Shadow", "Bot_Frost",
+                        "Bot_Blaze", "Bot_Hawk", "Bot_Spectre", "Bot_Titan", "Bot_Cobra",
+                        "Bot_Raven", "Bot_Wolf", "Bot_Storm", "Bot_Apex", "Bot_Zero",
+                    ]
+                    users = [{"user_id": 1, "nickname": nick, "rank": rank, "team": own_team, "state": 1}]
+                    for b_idx in range(bot_cnt):
+                        b_team = ROOM_TEAM_B if (b_idx % 2 == 0) else ROOM_TEAM_A
+                        users.append({
+                            "user_id": b_idx + 2,
+                            "nickname": bot_names[b_idx],
+                            "rank": 35 + (b_idx % 22),
+                            "team": b_team,
+                            "state": 2,  # 2 = READY in CWaitRoomScene
+                        })
+                    self.room_users = users
+                    self.send_pkt(build_room_user_list_hermit(self.session_id, self.room_users, key_byte=self.key_byte))
+                    self.send_pkt(build_change_leader_hermit(self.session_id, 1, leader_state=1, key_byte=self.key_byte))
+                    print(f"[+] /bots -> Dispatched SN_UserList (0x220233) with 1 player + {bot_cnt} READY bots across Team A/B!")
                 chat_payload = self.lobby_ext.build_sn_chat_packet(cmd_res["sender"], cmd_res["reply"])
             except Exception:
                 chat_payload = f"[SISTEMA]: {raw_msg}".encode("utf-8")[:128].ljust(168, b"\x00")

@@ -193,32 +193,70 @@ def run_smoke_test(host="127.0.0.1", port=12000):
     # Validate layouts against the GameClient.dll parsers (offsets relative to packet start, incl. 16B header)
     info = room_pkts[0x220203]
     assert info[0x16] == 2, f"SN_Info room_type must be 2 (TDM -> ChangeScene(3)), got {info[0x16]}"
+    assert info[0x1A] == 16, f"SN_Info +0x1A ([room+1]) must be max_players=16 (8 open slots/team), got {info[0x1A]}"
     team_ids = set(struct.unpack_from('<HHH', info, 0x6A))  # -> TeamMgr+0x30/+0x31/+0x32
 
     ul = room_pkts[0x220233]
     count = ul[0x11]
     assert count >= 1 and len(ul) == 0x12 + count * 0x31, f"SN_UserList size mismatch: count={count} len={len(ul)}"
-    user_id, team, state = struct.unpack_from('<H8xHI', ul, 0x12)
+    user_id, rank, _, team, state = struct.unpack_from('<HIIHI', ul, 0x12)
     nick = ul[0x12 + 0x18:0x12 + 0x31].split(b"\x00")[0].decode("ascii")
     assert team in team_ids, f"Team {team} not in SN_Info team indices {team_ids} -> 'Missing nTeamIndex error!'"
-    assert state in (0, 1, 2, 3, 6, 8, 9), f"Invalid CRoomUser state {state}"
+    assert state == 1, f"CRoomUser state must be 1 (Waiting, required by TeamChange/Ready @ 0x101367F3), got {state}"
+    assert rank >= 1, f"CRoomUser rank (+0x02 -> GDB table 0x17 @ 0x1013E236) must be >= 1, got {rank}"
     assert nick == "Gleidison", f"Slot 0 nickname must match SN_UserInfo, got '{nick}'"
-    print(f"  [OK] SN_UserList slot 0 -> user_id={user_id} team={team} state={state} nick='{nick}'")
+    print(f"  [OK] SN_UserList slot 0 -> user_id={user_id} rank={rank} team={team} state={state} nick='{nick}'")
 
-    leader_id = struct.unpack_from('<H', room_pkts[0x220319], 0x10)[0]
-    assert leader_id == user_id, f"SN_ChangeLeader id {leader_id} != slot 0 user_id {user_id}"
-    print(f"  [OK] SN_ChangeLeader -> leader user_id={leader_id} (room+0x60)")
+    leader_id, leader_state = struct.unpack_from('<HI', room_pkts[0x220319], 0x10)
+    assert leader_id == user_id and leader_state == 1, f"SN_ChangeLeader mismatch: id={leader_id} state={leader_state}"
+    print(f"  [OK] SN_ChangeLeader -> leader user_id={leader_id} state={leader_state} (room+0x60)")
 
-    # 6. Start Match (F5 Basla 0x220314) -> SN_HostConnect + SN_BattleStart
-    start_btn = build_pkt(0x220314, session_id, b"")
+    # 5b. Waiting Room Interactions: Team Change (0x220311) & Map Change (0x220221) & Shop/Inven Open/Close (0x240101/0x240103)
+    sock.sendall(build_pkt(0x220311, session_id, struct.pack("<H", 1)))
+    team_pkts = dict(recv_packets(sock, min_count=2))
+    assert 0x220312 in team_pkts and 0x220313 in team_pkts, f"Expected 0x220312/0x220313 in {[hex(o) for o in team_pkts]}"
+    chg_uid, chg_team = struct.unpack_from("<HH", team_pkts[0x220313], 0x10)
+    assert chg_uid == 1 and chg_team == 1, f"SN_ChangeTeam mismatch: uid={chg_uid} team={chg_team}"
+    print("  [OK] CQ_ChangeTeam (0x220311) -> SA_Change (0x220312) + SN_Change (0x220313, team=1) verified!")
+
+    sock.sendall(build_pkt(0x220221, session_id, struct.pack("<BHHBHHBBBB", 0, 10002, 100, 10, 0, 0, 0, 0, 0, 0)))
+    map_ops = recv_opcodes(sock, min_count=2)
+    assert 0x220222 in map_ops and 0x220223 in map_ops, f"Expected 0x220222/0x220223 in {map_ops}"
+    print("  [OK] CQ_ChangeMapInfo (0x220221) -> SA_ChangeMapInfo (0x220222) + SN_ChangeMapInfo (0x220223) verified!")
+
+    sock.sendall(build_pkt(0x240101, session_id, struct.pack("<I", 4)))  # 4 = Shop (ChangeScene(5))
+    eq_pkts = dict(recv_packets(sock, min_count=1))
+    assert 0x240102 in eq_pkts, "Missing SA_EquipOpen (0x240102)"
+    _, _, eq_gold, eq_cash, eq_mode = struct.unpack_from("<HIIII", eq_pkts[0x240102], 0x10)
+    assert eq_mode == 4 and eq_gold > 0, f"SA_EquipOpen mismatch: mode={eq_mode} gold={eq_gold}"
+    sock.sendall(build_pkt(0x240103, session_id, b""))
+    assert 0x240104 in recv_opcodes(sock, min_count=1), "Missing SA_EquipClose (0x240104)"
+    print(f"  [OK] CQ_EquipOpen/Close (0x240101..0x240104) verified -> mode={eq_mode} (Shop), gold={eq_gold}, cash={eq_cash}!")
+
+    # 6. Start Match via authentic Leader F5 Basla opcode (CN_PlayStartButton 0x222103 @ 0x1013B779) -> SN_HostConnect + SN_BattleStart
+    start_btn = build_pkt(0x222103, session_id, struct.pack("<IB", 1, 0))
     sock.sendall(start_btn)
-    print("  [->] Sent CQ_StartGame (0x220314, F5 Basla)")
+    print("  [->] Sent CN_PlayStartButton (0x222103, authentic Leader F5 Basla @ 0x1013B779)")
     battle_ops = recv_opcodes(sock, min_count=2)
     assert 0x420303 in battle_ops, f"Expected SN_HostConnect 0x420303 in {battle_ops}"
     assert 0x420310 in battle_ops, f"Expected SN_BattleStart 0x420310 in {battle_ops}"
     print(f"  [<-] Received SN_HostConnect (0x420303) + SN_BattleStart (0x420310) -> UDP 127.0.0.1:27888!")
 
-    # 7. Test In-Game Chat Slash Command (/mmr)
+    # 6b. Exit Room (CQ_LeaveRoom 0x220234 @ 0x1013B670) -> SA_LeaveUser (0x220235) + SN_LeaveUser (0x220236) + SN_RoomList (0x220204)
+    sock.sendall(build_pkt(0x220234, session_id, b""))
+    leave_ops = recv_opcodes(sock, min_count=3)
+    assert 0x220235 in leave_ops and 0x220236 in leave_ops, f"Expected 0x220235/0x220236 in {leave_ops}"
+    print("  [OK] CQ_LeaveRoom (0x220234) -> SA_LeaveUser (0x220235 -> ChangeScene(2)) + SN_LeaveUser (0x220236) verified!")
+
+    # 7. Test In-Game Chat Slash Commands (/bots 3 -> populates room slots + /mmr)
+    bots_cmd = build_pkt(0x210151, session_id, b"/bots 3\x00".ljust(64, b"\x00"))
+    sock.sendall(bots_cmd)
+    print("  [->] Sent CQ_Chat (0x210151) with '/bots 3'")
+    bot_pkts = dict(recv_packets(sock, min_count=3))
+    assert 0x220233 in bot_pkts and 0x210152 in bot_pkts, f"Expected 0x220233/0x210152 in {[hex(o) for o in bot_pkts]}"
+    assert bot_pkts[0x220233][0x11] == 4, f"Expected 4 users (1 player + 3 bots) in SN_UserList, got {bot_pkts[0x220233][0x11]}"
+    print("  [OK] '/bots 3' populated SN_UserList (0x220233) with 1 player + 3 READY bots across Team A & Team B!")
+
     chat_cmd = build_pkt(0x210151, session_id, b"/mmr\x00".ljust(64, b"\x00"))
     sock.sendall(chat_cmd)
     print("  [->] Sent CQ_Chat (0x210151) with '/mmr'")
