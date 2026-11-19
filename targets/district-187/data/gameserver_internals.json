@@ -1,0 +1,455 @@
+{
+  "binary": "targets/district-187/client-rebirth/Game/GameServer.dll",
+  "file_size": 2064912,
+  "image_base": "0x10000000",
+  "export_count": 12,
+  "exports": [
+    {
+      "ordinal": 1,
+      "va": "0x101f37e4",
+      "name": "?_0x8e16a2c20x63660x4f150xb20xf90x480x160x6b0x430x930xff@@3HA"
+    },
+    {
+      "ordinal": 2,
+      "va": "0x1003b1c0",
+      "name": "DEditGetClassMessageDefs"
+    },
+    {
+      "ordinal": 3,
+      "va": "0x1003b170",
+      "name": "DEditGetCommandClassDefs"
+    },
+    {
+      "ordinal": 4,
+      "va": "0x1003b120",
+      "name": "DEditGetCommandDefs"
+    },
+    {
+      "ordinal": 5,
+      "va": "0x1003b970",
+      "name": "DEditGetOcclusionInfo"
+    },
+    {
+      "ordinal": 6,
+      "va": "0x1003bac0",
+      "name": "DEditLoadModule"
+    },
+    {
+      "ordinal": 7,
+      "va": "0x1003b0f0",
+      "name": "DEditUnloadModule"
+    },
+    {
+      "ordinal": 8,
+      "va": "0x1007fb10",
+      "name": "GatherResourcesPostObjects"
+    },
+    {
+      "ordinal": 9,
+      "va": "0x1007fac0",
+      "name": "GatherResourcesPreObjects"
+    },
+    {
+      "ordinal": 10,
+      "va": "0x1005a940",
+      "name": "GetIGameWorldEdit"
+    },
+    {
+      "ordinal": 11,
+      "va": "0x1005b9c0",
+      "name": "ObjectDLLSetup"
+    },
+    {
+      "ordinal": 12,
+      "va": "0x1005e630",
+      "name": "SetMasterDatabase"
+    }
+  ],
+  "total_rtti_classes": 522,
+  "rtti_categories": {
+    "MissionMgr_GameModes": {
+      "count": 19,
+      "classes": [
+        "C4MissionProperties",
+        "CServerMissionMgr",
+        "CServerMissionMgr_Assassin",
+        "CServerMissionMgr_C4",
+        "CServerMissionMgr_Captin",
+        "CServerMissionMgr_Carry",
+        "CServerMissionMgr_Conquest",
+        "CServerMissionMgr_Convoy",
+        "CServerMissionMgr_Escape",
+        "CServerMissionMgr_Extortion",
+        "CServerMissionMgr_FlexibleCapture",
+        "CServerMissionMgr_FreeForAll",
+        "CServerMissionMgr_Rescue",
+        "CServerMissionMgr_RescueKey",
+        "CServerMissionMgr_Single",
+        "CServerMissionMgr_SuddenDeath",
+        "CServerMissionMgr_TDM",
+        "CServerMissionMgr_TDMS",
+        "RescueKeyMissionProperties"
+      ]
+    },
+    "Bomb_Objectives": {
+      "count": 13,
+      "classes": [
+        "BombZoneTrigger",
+        "C4MissionProperties",
+        "CBombZoneTriggerPlugin",
+        "CMissionBomb",
+        "CServerMissionMgr_C4",
+        "CServerMissionMgr_Convoy",
+        "CServerMissionMgr_Escape",
+        "CServerMissionMgr_FlexibleCapture",
+        "EscapeArea",
+        "EscapeAreaPlugin",
+        "EscapeStart",
+        "EscapeStartPlugin",
+        "MissionBombTarget"
+      ]
+    },
+    "Player_Character": {
+      "count": 24,
+      "classes": [
+        "CCharacter",
+        "CCharacterDB",
+        "CCharacterHitBox",
+        "CDamageTypeDB",
+        "CItemBody@ITEM",
+        "CPlayerInventory",
+        "CPlayerObj",
+        "CharacterWorldModel",
+        "CharacterWorldModelPlugin",
+        "DamageTracker",
+        "DropInventoryEventEventCaster@CPlayerObj",
+        "IPlayerTrackerReceiver",
+        "KeyframeToRigidBody",
+        "PlayerBroadcastInfo",
+        "PlayerDB",
+        "PlayerSwitchedEventCaster@GameClientData",
+        "PlayerTracker",
+        "PositionalDamage",
+        "PositionalDamage_Plugin",
+        "_DatabaseCategory_DamageFxDB",
+        "_DatabaseCategory_GdbGangster_M_Body@ITEM",
+        "_DatabaseCategory_GdbGangster_W_Body@ITEM",
+        "_DatabaseCategory_GdbPolice_M_Body@ITEM",
+        "_DatabaseCategory_GdbPolice_W_Body@ITEM"
+      ]
+    },
+    "Weapons_Projectiles": {
+      "count": 28,
+      "classes": [
+        "?$Delegate@VCArsenal",
+        "?$Delegate@VCProjectile",
+        "AmmoBox",
+        "CAmmoBoxPlugin",
+        "CArsenal",
+        "CGrenade",
+        "CGrenadeProximity",
+        "CHHWeaponModel",
+        "CItemWeapon@ITEM",
+        "CItemWeaponPart@ITEM",
+        "CProjectile",
+        "CWeapon",
+        "CWeaponDB",
+        "CWeaponDBPlugin",
+        "CWeaponItemPlugin",
+        "CWeaponMgr",
+        "CWeaponPart",
+        "CWeaponPartModel",
+        "ProximityGrenade",
+        "RemoveProjectileEventCaster@CProjectile",
+        "WeaponBox",
+        "WeaponBoxPlugin",
+        "WeaponItem",
+        "_DatabaseCategory_GdbWeapon@ITEM",
+        "_DatabaseCategory_GdbWeapon_Decal@ITEM",
+        "_DatabaseCategory_GdbWeapon_Down@ITEM",
+        "_DatabaseCategory_GdbWeapon_Front@ITEM",
+        "_DatabaseCategory_GdbWeapon_Mount@ITEM"
+      ]
+    },
+    "World_Triggers_Spawners": {
+      "count": 41,
+      "classes": [
+        "ActiveWorldModel",
+        "BombZoneTrigger",
+        "CActiveWorldModelPlugin",
+        "CBombZoneTriggerPlugin",
+        "CDestructibleWorldModel",
+        "CDestructibleWorldModelPlugin",
+        "CGameBasePlugin",
+        "CGameStartPointPlugin",
+        "CGameWorldEditImpl",
+        "CLookAtTriggerPlugin",
+        "CSpawnerPlugin",
+        "CTriggerPlugin",
+        "CVolumePlugin",
+        "CWorldModelPlugin",
+        "CWorldPropertiesPlugin",
+        "CharacterWorldModel",
+        "CharacterWorldModelPlugin",
+        "GameBase",
+        "GameStartPoint",
+        "GameStartPointMgr",
+        "GameStartPoint_InGroupID",
+        "IGameWorldEdit",
+        "JumpVolume",
+        "LookAtTrigger",
+        "MainWorld",
+        "MinimapBoxVolume",
+        "RotatingWorldModel",
+        "ScatterVolume",
+        "SkySimpleWorldModel",
+        "SlidingWorldModel",
+        "SnowVolume",
+        "SoundZoneVolume",
+        "Spawner",
+        "SpinningWorldModel",
+        "StairVolume",
+        "Trigger",
+        "TriggerTypeDB",
+        "VolumeBrush",
+        "VolumeEffect",
+        "WorldModel",
+        "WorldProperties"
+      ]
+    },
+    "ServerShell_Network": {
+      "count": 18,
+      "classes": [
+        "?$CAPIHolder@VILTClient",
+        "?$Reader@USN_BaseUserList@NPlay@NMatchup@Packet@Share",
+        "CGameServerShell",
+        "DropInventoryEventEventCaster@CPlayerObj",
+        "EventCaster",
+        "GameClientData",
+        "IReader@ISection@Packet@Hermit",
+        "ISeeker@ISection@Packet@Hermit",
+        "IServerShell",
+        "IServerShellStub",
+        "PlayerSwitchedEventCaster@GameClientData",
+        "Reader@Section@Packet@Hermit",
+        "RemoveClientEventCaster@CGameServerShell",
+        "RemoveClientEventCaster@GameClientData",
+        "RemoveProjectileEventCaster@CProjectile",
+        "SafteyNet",
+        "ScmdConsoleCommandHandler_ListClients",
+        "_DatabaseCategory_TeamClientFX"
+      ]
+    }
+  },
+  "key_vtables": {
+    "CGameServerShell": {
+      "vtable_va": "0x1019220c",
+      "slot_count": 21,
+      "slots": [
+        "0x10055710",
+        "0x10056140",
+        "0x1004fd30",
+        "0x100575a0",
+        "0x100547d0",
+        "0x10053490",
+        "0x1004fd70",
+        "0x1004eba0",
+        "0x10057220",
+        "0x1004ebb0",
+        "0x10054dd0",
+        "0x100521b0",
+        "0x100521f0",
+        "0x10054610",
+        "0x100557c0",
+        "0x1004fd10",
+        "0x10052200",
+        "0x1004eee0",
+        "0x10055e20",
+        "0x100549a0",
+        "0x10054a70"
+      ]
+    },
+    "CServerMissionMgr_C4": {
+      "vtable_va": "0x1019dd14",
+      "slot_count": 40,
+      "slots": [
+        "0x100ddc30",
+        "0x100e0950",
+        "0x100e0940",
+        "0x10064c50",
+        "0x100e0a10",
+        "0x100e0160",
+        "0x100ddd40",
+        "0x100e08a0",
+        "0x100defc0",
+        "0x100e07b0",
+        "0x100e0830",
+        "0x100e0200",
+        "0x100e0a70",
+        "0x100e0110",
+        "0x100de4f0",
+        "0x101ac288",
+        "0x100ddc30",
+        "0x100e0c00",
+        "0x100e0b20",
+        "0x10064c50",
+        "0x100e0b40",
+        "0x100e0b60",
+        "0x100e0be0",
+        "0x100df8f0",
+        "0x100defc0",
+        "0x100e0b70",
+        "0x100ded20",
+        "0x100ddc40",
+        "0x100e0b80",
+        "0x100e0c30",
+        "0x100de4f0",
+        "0x101ac2d8",
+        "0x100ddc30",
+        "0x100e0e30",
+        "0x100e0c70",
+        "0x100e0da0",
+        "0x100e0c90",
+        "0x100e0cb0",
+        "0x100e0ce0",
+        "0x100df8f0"
+      ]
+    },
+    "CServerMissionMgr_Assassin": {
+      "vtable_va": "0x1019dcd4",
+      "slot_count": 40,
+      "slots": [
+        "0x100ddc30",
+        "0x100e0020",
+        "0x100e0010",
+        "0x10064c50",
+        "0x100e00c0",
+        "0x100dfdf0",
+        "0x100ddd40",
+        "0x100df8f0",
+        "0x100defc0",
+        "0x100dfed0",
+        "0x100ded20",
+        "0x100dfe00",
+        "0x100e00d0",
+        "0x100dff10",
+        "0x100de4f0",
+        "0x101ac238",
+        "0x100ddc30",
+        "0x100e0950",
+        "0x100e0940",
+        "0x10064c50",
+        "0x100e0a10",
+        "0x100e0160",
+        "0x100ddd40",
+        "0x100e08a0",
+        "0x100defc0",
+        "0x100e07b0",
+        "0x100e0830",
+        "0x100e0200",
+        "0x100e0a70",
+        "0x100e0110",
+        "0x100de4f0",
+        "0x101ac288",
+        "0x100ddc30",
+        "0x100e0c00",
+        "0x100e0b20",
+        "0x10064c50",
+        "0x100e0b40",
+        "0x100e0b60",
+        "0x100e0be0",
+        "0x100df8f0"
+      ]
+    },
+    "CServerMissionMgr_Conquest": {
+      "vtable_va": "0x1019ddd4",
+      "slot_count": 40,
+      "slots": [
+        "0x100ddc30",
+        "0x100e1250",
+        "0x100e11d0",
+        "0x10064c50",
+        "0x100e11f0",
+        "0x100dec80",
+        "0x100e1210",
+        "0x100df8f0",
+        "0x100defc0",
+        "0x100df9f0",
+        "0x100ded20",
+        "0x100ddc40",
+        "0x100df520",
+        "0x100e1280",
+        "0x100de4f0",
+        "0x101ac378",
+        "0x100ddc30",
+        "0x100e2200",
+        "0x100e20d0",
+        "0x100e1ec0",
+        "0x100e1350",
+        "0x100e2140",
+        "0x100e1380",
+        "0x100df8f0",
+        "0x100defc0",
+        "0x100e1370",
+        "0x100ded20",
+        "0x100e1af0",
+        "0x100e1a00",
+        "0x100e15f0",
+        "0x100de4f0",
+        "0x101ac3c8",
+        "0x100ddc30",
+        "0x100e2350",
+        "0x100e22c0",
+        "0x10064c50",
+        "0x100e22e0",
+        "0x100e22f0",
+        "0x100ddd40",
+        "0x100e2600"
+      ]
+    },
+    "BombZoneTrigger": {
+      "vtable_va": "0x1018766f",
+      "slot_count": 0,
+      "slots": []
+    },
+    "GameBase": {
+      "vtable_va": "0x1001d87f",
+      "slot_count": 0,
+      "slots": []
+    }
+  },
+  "security_checks_verified": {
+    "host_exe_name_check": {
+      "va": "0x10034b92",
+      "behavior": "Calls GetModuleFileNameA(NULL) and strstr(..., 'TheRawServer.exe'); kicks client with 'not found file, TheRawServer_xxx.exe' if host executable is named differently."
+    },
+    "gameclient_crc32_check": {
+      "va": "0x10034c13..0x10034cb2",
+      "behavior": "Computes CRC32 of <exeDir>\\Game\\GameClient.dll and compares against client-reported hash; disconnects with 'ErrorCode : 02' on mismatch or missing file."
+    }
+  },
+  "notable_strings": {
+    "TheRawServer": [
+      {
+        "va": "0x10190c0c",
+        "text": "not found file, TheRawServer_xxx.exe"
+      },
+      {
+        "va": "0x10190c34",
+        "text": "TheRawServer.exe"
+      }
+    ],
+    "GameClient.dll": [
+      {
+        "va": "0x10190bf4",
+        "text": "GameClient.dll"
+      }
+    ],
+    "ErrorCode": [
+      {
+        "va": "0x10190b4f",
+        "text": "Please retry to run the launcher. ErrorCode : 02"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4295 @@
+{
+  "binary": "targets/district-187/client-rebirth/Game/GameClient.dll",
+  "total_flash_dispatch_classes": 530,
+  "resolved_vtables": 530,
+  "scene_distribution": {
+    "CClanScene (Clan)": 113,
+    "Global / HUD / Misc UI": 94,
+    "COption / Moderation": 86,
+    "CWaitRoomScene (Room)": 32,
+    "CAchievement / Missions": 31,
+    "CInvenScene (Inventory/Loadout)": 28,
+    "CMessenger / MailBox": 27,
+    "CLuckyShopScene (Gacha/Marble)": 26,
+    "CRemodelingScene (Weapon Mods)": 25,
+    "CLobbyScene (Lobby)": 23,
+    "CServerList / CChannelListScene": 21,
+    "CShopScene (Shop)": 21,
+    "CLoginScene": 3
+  },
+  "handlers": [
+    {
+      "class_name": "CDispatch_Channel_Flash_AutoConnect",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x104a2db4",
+      "fn0_va": "0x10173e50",
+      "handler_va": "0x100ba580",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Channel_Flash_Banner",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x104a2d9c",
+      "fn0_va": "0x10173dd0",
+      "handler_va": "0x100ba9b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Channel_Flash_BannerSmall",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x104a2da8",
+      "fn0_va": "0x10173e10",
+      "handler_va": "0x100bab60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Channel_Flash_ChannelListEnterRoom",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x104a2dcc",
+      "fn0_va": "0x10173ed0",
+      "handler_va": "0x100ba600",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Channel_Flash_ChannelListOpen",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x104a2d78",
+      "fn0_va": "0x10173d10",
+      "handler_va": "0x100ba6e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Channel_Flash_ChannelList_RefreshBtnClick",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x104a2df0",
+      "fn0_va": "0x10173f90",
+      "handler_va": "0x100ba550",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Channel_Flash_ChannelScene_SendList",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x104a2d90",
+      "fn0_va": "0x10173d90",
+      "handler_va": "0x100bacf0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Channel_Flash_Exit",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x104a2e08",
+      "fn0_va": "0x10174010",
+      "handler_va": "0x100ba6c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Channel_Flash_SelectChannel",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x104a2dc0",
+      "fn0_va": "0x10173e90",
+      "handler_va": "0x100ba5b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementAlert_Close",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497ce4",
+      "fn0_va": "0x100b2a60",
+      "handler_va": "0x100b3390",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Combat_ListLength",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c24",
+      "fn0_va": "0x100b2660",
+      "handler_va": "0x100ba020",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Combat_Open_Left",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497bf4",
+      "fn0_va": "0x100b2560",
+      "handler_va": "0x100b5670",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Combat_Open_Right",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c0c",
+      "fn0_va": "0x100b25e0",
+      "handler_va": "0x100b3150",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Combat_SubTabChange",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c18",
+      "fn0_va": "0x100b2620",
+      "handler_va": "0x100b3e30",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Exploration_ListLength",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c9c",
+      "fn0_va": "0x100b28e0",
+      "handler_va": "0x100b8320",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Exploration_Open_Left",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c84",
+      "fn0_va": "0x100b2860",
+      "handler_va": "0x100b7fd0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Exploration_Open_Right",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c90",
+      "fn0_va": "0x100b28a0",
+      "handler_va": "0x100b4380",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Mission_ListLength",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c78",
+      "fn0_va": "0x100b2820",
+      "handler_va": "0x100b7760",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Mission_Open_Left",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c60",
+      "fn0_va": "0x100b27a0",
+      "handler_va": "0x100b7410",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Mission_Open_Right",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c6c",
+      "fn0_va": "0x100b27e0",
+      "handler_va": "0x100b42f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Rank_Open_Left",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497bd0",
+      "fn0_va": "0x100b24a0",
+      "handler_va": "0x100b3ab0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Rank_Open_Right",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497bdc",
+      "fn0_va": "0x100b24e0",
+      "handler_va": "0x100b3d90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Rank_RequestItemRange",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497be8",
+      "fn0_va": "0x100b2520",
+      "handler_va": "0x100b51f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Title_GroupX_Open",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497cb4",
+      "fn0_va": "0x100b2960",
+      "handler_va": "0x100b8b90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Title_ItemClick",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497ccc",
+      "fn0_va": "0x100b29e0",
+      "handler_va": "0x100b4850",
+      "direct_hermit_opcodes": [
+        "0x2A0112"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Title_Open_Left",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497ca8",
+      "fn0_va": "0x100b2920",
+      "handler_va": "0x100b3170",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Title_Open_Right",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497cc0",
+      "fn0_va": "0x100b29a0",
+      "handler_va": "0x100b4410",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Title_RequestItemRange",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497cd8",
+      "fn0_va": "0x100b2a20",
+      "handler_va": "0x100b8ee0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_ToolTip_Open",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c00",
+      "fn0_va": "0x100b25a0",
+      "handler_va": "0x100b4590",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Total_ListLength",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497bc4",
+      "fn0_va": "0x100b2460",
+      "handler_va": "0x100b4e60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Total_Open_Left",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497bac",
+      "fn0_va": "0x100b23e0",
+      "handler_va": "0x100b4a10",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Total_Open_Right",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497bb8",
+      "fn0_va": "0x100b2420",
+      "handler_va": "0x100b35e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Weapon_ListLength",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c54",
+      "fn0_va": "0x100b2760",
+      "handler_va": "0x100ba0a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Weapon_Open_Left",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c30",
+      "fn0_va": "0x100b26a0",
+      "handler_va": "0x100b6540",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Weapon_Open_Right",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c3c",
+      "fn0_va": "0x100b26e0",
+      "handler_va": "0x100b3160",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AchievementDialog_Weapon_SubTabChange",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497c48",
+      "fn0_va": "0x100b2720",
+      "handler_va": "0x100b4090",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Achievement_Button_Click",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x10497ba0",
+      "fn0_va": "0x100b23a0",
+      "handler_va": "0x100b3330",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_AsseptReplyMessage",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049d5f4",
+      "fn0_va": "0x1012f130",
+      "handler_va": "0x100e27b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_BttomNoticeOpen",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049c884",
+      "fn0_va": "0x1011d7f0",
+      "handler_va": "0x1011ed80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Button_Click",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a2f5c",
+      "fn0_va": "0x10174830",
+      "handler_va": "0x101747e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Button_Over",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a2f44",
+      "fn0_va": "0x101747b0",
+      "handler_va": "0x10174760",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CashChargeBtnClick",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a05fc",
+      "fn0_va": "0x10153930",
+      "handler_va": "0x10149990",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CashItemUseConfirm",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x10487388",
+      "fn0_va": "0x1003d840",
+      "handler_va": "0x1003f2b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CashWindowCancel",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a0614",
+      "fn0_va": "0x101539b0",
+      "handler_va": "0x10149850",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CashWindowOpen",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a0608",
+      "fn0_va": "0x10153970",
+      "handler_va": "0x10149840",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ChangeCharacter",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a1074",
+      "fn0_va": "0x1015b130",
+      "handler_va": "0x100fc390",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ChangeClanName",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1048774c",
+      "fn0_va": "0x10042af0",
+      "handler_va": "0x100431b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ChangeNickName",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104879b0",
+      "fn0_va": "0x10044a30",
+      "handler_va": "0x10044ef0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ChangeWeaponClose",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a32e0",
+      "fn0_va": "0x10177260",
+      "handler_va": "0x100ca420",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ChangeWeaponOpen",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a32d4",
+      "fn0_va": "0x10177220",
+      "handler_va": "0x100cb0c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ChangeWeapon_RequestItem_MainWeapon",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a3298",
+      "fn0_va": "0x101770e0",
+      "handler_va": "0x100cbd20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ChangeWeapon_RequestItem_MeleeWeapon",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a32b0",
+      "fn0_va": "0x10177160",
+      "handler_va": "0x100cbd80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ChangeWeapon_RequestItem_SubWeapon",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a32a4",
+      "fn0_va": "0x10177120",
+      "handler_va": "0x100cbd50",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ChangeWeapon_RequestItem_ThrowWeapon",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a32bc",
+      "fn0_va": "0x101771a0",
+      "handler_va": "0x100cbdb0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ChangeWeapon_Select_Notify",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a32c8",
+      "fn0_va": "0x101771e0",
+      "handler_va": "0x100ca390",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ChatWndOpen",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049e308",
+      "fn0_va": "0x10133b70",
+      "handler_va": "0x100bb5b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CheckNickName",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1048798c",
+      "fn0_va": "0x10044900",
+      "handler_va": "0x10044d20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanApply",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1310",
+      "fn0_va": "0x1015dbd0",
+      "handler_va": "0x10165e00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanApplyConfirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1328",
+      "fn0_va": "0x1015dc50",
+      "handler_va": "0x10168160",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanApplyPopup",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a131c",
+      "fn0_va": "0x1015dc10",
+      "handler_va": "0x10168020",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanBGRequestItemRange",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a13dc",
+      "fn0_va": "0x1015e010",
+      "handler_va": "0x10169ad0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMarkChange",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a13a0",
+      "fn0_va": "0x1015ded0",
+      "handler_va": "0x10165e40",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMarkChangeBGOpen",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a13d0",
+      "fn0_va": "0x1015dfd0",
+      "handler_va": "0x10166740",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMarkChangeBGSetIcon",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a13e8",
+      "fn0_va": "0x1015e050",
+      "handler_va": "0x10166de0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMarkChangeBg_SubTab",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a140c",
+      "fn0_va": "0x1015e110",
+      "handler_va": "0x101673d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMarkChangeMarkOpen",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a13ac",
+      "fn0_va": "0x1015df10",
+      "handler_va": "0x101660f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMarkChangeMark_SubTab",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1400",
+      "fn0_va": "0x1015e0d0",
+      "handler_va": "0x10167210",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMarkChangeSetIcon",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a13c4",
+      "fn0_va": "0x1015df90",
+      "handler_va": "0x101662f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMarkOpen",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a13f4",
+      "fn0_va": "0x1015e090",
+      "handler_va": "0x10165e70",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMarkRequestItemRange",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a13b8",
+      "fn0_va": "0x1015df50",
+      "handler_va": "0x10169900",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMark_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10487664",
+      "fn0_va": "0x10042500",
+      "handler_va": "0x100427b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMark_PreChangeBtnClick",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10487670",
+      "fn0_va": "0x10042560",
+      "handler_va": "0x10042730",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMasterChange",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1364",
+      "fn0_va": "0x1015dd90",
+      "handler_va": "0x101686e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMasterChange_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a137c",
+      "fn0_va": "0x1015de10",
+      "handler_va": "0x10168770",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMasterChange_Open",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1370",
+      "fn0_va": "0x1015ddd0",
+      "handler_va": "0x10169720",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanMatch_KindList",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049e35c",
+      "fn0_va": "0x10133d30",
+      "handler_va": "0x100bd8e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanNameChangeConfirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10487764",
+      "fn0_va": "0x10042bc0",
+      "handler_va": "0x10042d90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanNameTextModify",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10487758",
+      "fn0_va": "0x10042b50",
+      "handler_va": "0x10042b30",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanName_PreCheck",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1418",
+      "fn0_va": "0x1015e150",
+      "handler_va": "0x10168a10",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanSearch",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1424",
+      "fn0_va": "0x1015e190",
+      "handler_va": "0x10167800",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ClanSearchName",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1430",
+      "fn0_va": "0x1015e1d0",
+      "handler_va": "0x10168bf0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_ChatKindBGChange",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049e32c",
+      "fn0_va": "0x10133c30",
+      "handler_va": "0x100bb260",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Create",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1298",
+      "fn0_va": "0x1015d950",
+      "handler_va": "0x10167a60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Delete",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a12a4",
+      "fn0_va": "0x1015d990",
+      "handler_va": "0x10167cb0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_DetailView",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a12b0",
+      "fn0_va": "0x1015d9d0",
+      "handler_va": "0x10167dd0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Exit",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a12bc",
+      "fn0_va": "0x1015da10",
+      "handler_va": "0x10165bf0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_FindClan",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a12c8",
+      "fn0_va": "0x1015da50",
+      "handler_va": "0x10167f90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Info",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a12d4",
+      "fn0_va": "0x1015da90",
+      "handler_va": "0x10165c00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_KindList",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049e350",
+      "fn0_va": "0x10133cf0",
+      "handler_va": "0x100bd7e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_LeftPenel_Info",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a12e0",
+      "fn0_va": "0x1015dad0",
+      "handler_va": "0x10165c20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchDetailList_Cancel",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049893c",
+      "fn0_va": "0x100be0d0",
+      "handler_va": "0x100c0910",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchDetailList_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498930",
+      "fn0_va": "0x100be090",
+      "handler_va": "0x100c2e30",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchDetailList_Open",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049890c",
+      "fn0_va": "0x100bdfd0",
+      "handler_va": "0x100c0ee0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchDetailList_RequestItemRange",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498918",
+      "fn0_va": "0x100be010",
+      "handler_va": "0x100c4f80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchLeaderChange_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104989b4",
+      "fn0_va": "0x100be350",
+      "handler_va": "0x100c34c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchRequestList_Cancel",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498960",
+      "fn0_va": "0x100be190",
+      "handler_va": "0x100c10e0",
+      "direct_hermit_opcodes": [
+        "0x223134"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchRequestList_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498954",
+      "fn0_va": "0x100be150",
+      "handler_va": "0x100c1020",
+      "direct_hermit_opcodes": [
+        "0x223134"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchRequestList_Open",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498948",
+      "fn0_va": "0x100be110",
+      "handler_va": "0x100c0f80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchRequestList_RequestItemRange",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104989c0",
+      "fn0_va": "0x100be390",
+      "handler_va": "0x100c5bf0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchRewind_Cancel",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049899c",
+      "fn0_va": "0x100be2d0",
+      "handler_va": "0x100c1350",
+      "direct_hermit_opcodes": [
+        "0x223111"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchRewind_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498990",
+      "fn0_va": "0x100be290",
+      "handler_va": "0x100c12b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchRewind_Open",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104989a8",
+      "fn0_va": "0x100be310",
+      "handler_va": "0x100c0a20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchRoomStandByUserList_RequestItemRange",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498924",
+      "fn0_va": "0x100be050",
+      "handler_va": "0x100c4890",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchWaitList_Cancel",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104988e8",
+      "fn0_va": "0x100bdf10",
+      "handler_va": "0x100c08f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchWaitList_Detail",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498900",
+      "fn0_va": "0x100bdf90",
+      "handler_va": "0x100c2cc0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchWaitList_Open",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104988dc",
+      "fn0_va": "0x100bded0",
+      "handler_va": "0x100c04f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MatchWaitList_RequestItemRange",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104988f4",
+      "fn0_va": "0x100bdf50",
+      "handler_va": "0x100c6ee0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Match_ButtonClick",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049dad4",
+      "fn0_va": "0x10130cc0",
+      "handler_va": "0x100d4d50",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MemberKick",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a14cc",
+      "fn0_va": "0x1015e510",
+      "handler_va": "0x1016ac00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MemberList",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a12ec",
+      "fn0_va": "0x1015db10",
+      "handler_va": "0x10165c40",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MemberManagerList",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a12f8",
+      "fn0_va": "0x1015db50",
+      "handler_va": "0x10165cd0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MemberProperty",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a14d8",
+      "fn0_va": "0x1015e550",
+      "handler_va": "0x1016a020",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MemberSignupList",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1304",
+      "fn0_va": "0x1015db90",
+      "handler_va": "0x10165d60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MemberTogether",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a14e4",
+      "fn0_va": "0x1015e590",
+      "handler_va": "0x1016ae80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Member_DetailView",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1484",
+      "fn0_va": "0x1015e390",
+      "handler_va": "0x1016a270",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Member_NewMemberAccept",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1490",
+      "fn0_va": "0x1015e3d0",
+      "handler_va": "0x1016a440",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Member_NewMemberDecline",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a149c",
+      "fn0_va": "0x1015e410",
+      "handler_va": "0x1016a6d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Member_NewMemberDetailView",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a14a8",
+      "fn0_va": "0x1015e450",
+      "handler_va": "0x1016a890",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Member_NewMemberListRequest",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a14b4",
+      "fn0_va": "0x1015e490",
+      "handler_va": "0x1016a9e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Member_NewMemberList_DetailView",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a14c0",
+      "fn0_va": "0x1015e4d0",
+      "handler_va": "0x1016aab0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MessageBtnClick",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1778",
+      "fn0_va": "0x1015f370",
+      "handler_va": "0x10160d50",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MsgBoxOpen",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1784",
+      "fn0_va": "0x1015f3c0",
+      "handler_va": "0x1015f3a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_MsgBoxSend",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1790",
+      "fn0_va": "0x1015f410",
+      "handler_va": "0x10160ff0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_OriginMemberList",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a14f0",
+      "fn0_va": "0x1015e5d0",
+      "handler_va": "0x1016a130",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_PopupClanDelete_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1538",
+      "fn0_va": "0x1015e750",
+      "handler_va": "0x1016b650",
+      "direct_hermit_opcodes": [
+        "0x360231"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_ClanList_RequestItemRange",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498864",
+      "fn0_va": "0x100bdc50",
+      "handler_va": "0x100c4160",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_ExitButtonClick",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049896c",
+      "fn0_va": "0x100be1d0",
+      "handler_va": "0x100c0a10",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_GameModeSelected",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104988b8",
+      "fn0_va": "0x100bde10",
+      "handler_va": "0x100c0510",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_GameTypeSelected",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104988d0",
+      "fn0_va": "0x100bde90",
+      "handler_va": "0x100c09a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_Invitation",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498978",
+      "fn0_va": "0x100be210",
+      "handler_va": "0x100c30c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_InvitationAllCheck",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104988a0",
+      "fn0_va": "0x100bdd90",
+      "handler_va": "0x100c04e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_InvitationSelection",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498894",
+      "fn0_va": "0x100bdd50",
+      "handler_va": "0x100c2bc0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_LeaderDelegate",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498888",
+      "fn0_va": "0x100bdd10",
+      "handler_va": "0x100c2ac0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_LocationSelected",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104988ac",
+      "fn0_va": "0x100bddd0",
+      "handler_va": "0x100c72e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_MatchCancel",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498984",
+      "fn0_va": "0x100be250",
+      "handler_va": "0x100c1250",
+      "direct_hermit_opcodes": [
+        "0x223111"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_MatchStart",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498870",
+      "fn0_va": "0x100bdc90",
+      "handler_va": "0x100c0df0",
+      "direct_hermit_opcodes": [
+        "0x223101"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_Open",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10498858",
+      "fn0_va": "0x100bdc10",
+      "handler_va": "0x100c6d70",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_VS_Selected",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104988c4",
+      "fn0_va": "0x100bde50",
+      "handler_va": "0x100c0930",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_QuickMatch_WaitingClanList",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049887c",
+      "fn0_va": "0x100bdcd0",
+      "handler_va": "0x100c0e70",
+      "direct_hermit_opcodes": [
+        "0x223105"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_Retirement",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1520",
+      "fn0_va": "0x1015e6d0",
+      "handler_va": "0x1016b780",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_WriteIntroduction",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1544",
+      "fn0_va": "0x1015e790",
+      "handler_va": "0x1016bf10",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_WriteIntroductionOpen",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1550",
+      "fn0_va": "0x1015e7d0",
+      "handler_va": "0x1016c3b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_WriteIntroduction_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a155c",
+      "fn0_va": "0x1015e810",
+      "handler_va": "0x1016b8a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_WriteNotice",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1568",
+      "fn0_va": "0x1015e850",
+      "handler_va": "0x1016bb90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_WriteNoticeOpen",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1574",
+      "fn0_va": "0x1015e890",
+      "handler_va": "0x1016b5c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Clan_WriteNotice_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1580",
+      "fn0_va": "0x1015e8d0",
+      "handler_va": "0x1016bc20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CloseResult",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049c0f0",
+      "fn0_va": "0x10114860",
+      "handler_va": "0x101183c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CoinEventPopUp_Choice",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x10487854",
+      "fn0_va": "0x10043730",
+      "handler_va": "0x10043b70",
+      "direct_hermit_opcodes": [
+        "0x240125"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_CoinEventPopUp_Refresh",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x10487860",
+      "fn0_va": "0x10043780",
+      "handler_va": "0x10043c30",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CoinEvent_Sound",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1048786c",
+      "fn0_va": "0x10043840",
+      "handler_va": "0x100437f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedClanList_itemRangeReady",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a2850",
+      "fn0_va": "0x1016e530",
+      "handler_va": "0x100f8970",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedClanList_requestItemRange",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a285c",
+      "fn0_va": "0x1016e570",
+      "handler_va": "0x100faf70",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedClanUserList_RightClickMenu_Click",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a2cdc",
+      "fn0_va": "0x10173b50",
+      "handler_va": "0x100fb3f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedClanUserList_rightClickMenu",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a2cd0",
+      "fn0_va": "0x10173b10",
+      "handler_va": "0x100fb450",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedFriendList_RightClickMenu_Click",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a2be8",
+      "fn0_va": "0x10173710",
+      "handler_va": "0x100fb580",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedFriendList_itemRangeReady",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a2868",
+      "fn0_va": "0x1016e5b0",
+      "handler_va": "0x100f8a00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedFriendList_requestItemRange",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a2874",
+      "fn0_va": "0x1016e5f0",
+      "handler_va": "0x100fa400",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedFriendList_rightClickMenu",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a2bdc",
+      "fn0_va": "0x101736d0",
+      "handler_va": "0x100fb670",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedUserList_RightClickMenu_Click",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104ac018",
+      "fn0_va": "0x1023ce90",
+      "handler_va": "0x100fc1b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedUserList_itemRangeReady",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a2880",
+      "fn0_va": "0x1016e630",
+      "handler_va": "0x100f8a90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedUserList_requestItemRange",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a288c",
+      "fn0_va": "0x1016e670",
+      "handler_va": "0x100fa8e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ConnectedUserList_rightClickMenu",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104ac00c",
+      "fn0_va": "0x1023ce50",
+      "handler_va": "0x100fc210",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CreateChar",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a0e20",
+      "fn0_va": "0x10157d40",
+      "handler_va": "0x100c75c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CreateCharDialog",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a0e38",
+      "fn0_va": "0x10157dc0",
+      "handler_va": "0x100c7640",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CreateClanDialog_ChangeClanName",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1478",
+      "fn0_va": "0x1015e350",
+      "handler_va": "0x10165eb0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_CreateClanDialog_Open",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1454",
+      "fn0_va": "0x1015e290",
+      "handler_va": "0x10169c80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_DetailInfo_Achievement",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x104a0788",
+      "fn0_va": "0x10154170",
+      "handler_va": "0x10148580",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_DetailInfo_Clan",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a0758",
+      "fn0_va": "0x10154070",
+      "handler_va": "0x10148550",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_DetailInfo_GameMode",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a0770",
+      "fn0_va": "0x101540f0",
+      "handler_va": "0x10148590",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_DetailInfo_Single",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a074c",
+      "fn0_va": "0x10154030",
+      "handler_va": "0x10148540",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_DetailInfo_Weapon",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a0764",
+      "fn0_va": "0x101540b0",
+      "handler_va": "0x10148560",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_DetailUserInfo_Popup_Close",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a0794",
+      "fn0_va": "0x101541b0",
+      "handler_va": "0x10148680",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_DevResult_TapChange",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a0f2c",
+      "fn0_va": "0x10158b80",
+      "handler_va": "0x10118540",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_Inven_ItemDoubleClick",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x1049b750",
+      "fn0_va": "0x10107810",
+      "handler_va": "0x10105560",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_Inven_ItemOneClick",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x1049b75c",
+      "fn0_va": "0x10107850",
+      "handler_va": "0x10105c30",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_Inven_RequestItemList",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x1049b768",
+      "fn0_va": "0x10107890",
+      "handler_va": "0x10106670",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_Inven_Selected_Tab",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x1049b774",
+      "fn0_va": "0x101078d0",
+      "handler_va": "0x10104770",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_Inven_UseClick",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x1049b780",
+      "fn0_va": "0x10107910",
+      "handler_va": "0x10105880",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_LoadComplete",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049c63c",
+      "fn0_va": "0x1011c3d0",
+      "handler_va": "0x1011b240",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_RemodelingShopOpen",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049c6b4",
+      "fn0_va": "0x1011c650",
+      "handler_va": "0x1011b2a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_RoomScene_ChangeRule",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049c678",
+      "fn0_va": "0x1011c510",
+      "handler_va": "0x1011c240",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_RoomScene_Exit",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049c654",
+      "fn0_va": "0x1011c450",
+      "handler_va": "0x1011b1e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_RoomScene_InviteBtnClick",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049c6cc",
+      "fn0_va": "0x1011c6d0",
+      "handler_va": "0x1011b6f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_RoomScene_Open",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049c648",
+      "fn0_va": "0x1011c410",
+      "handler_va": "0x1011bde0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_RoomScene_ReadyBtnClick",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049c684",
+      "fn0_va": "0x1011c550",
+      "handler_va": "0x1011b4f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_RoomScene_RuleChange",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049c660",
+      "fn0_va": "0x1011c490",
+      "handler_va": "0x1011b2c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_RoomScene_RuleChangeOpen",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049c66c",
+      "fn0_va": "0x1011c4d0",
+      "handler_va": "0x1011b330",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_RoomScene_TeamChange_Blue",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049c69c",
+      "fn0_va": "0x1011c5d0",
+      "handler_va": "0x1011ba80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_RoomScene_TeamChange_Red",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049c690",
+      "fn0_va": "0x1011c590",
+      "handler_va": "0x1011b730",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_ShopOpen",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x1049c6a8",
+      "fn0_va": "0x1011c610",
+      "handler_va": "0x1011b280",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Dev_SubmitChat_Room",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049c6c0",
+      "fn0_va": "0x1011c690",
+      "handler_va": "0x1011b570",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_DuplicateBtnClick",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a0e44",
+      "fn0_va": "0x10157e00",
+      "handler_va": "0x100c76c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Exit",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049b744",
+      "fn0_va": "0x101077d0",
+      "handler_va": "0x10149970",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Gift_AsseptPresentConfirm",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x1049d600",
+      "fn0_va": "0x1012f170",
+      "handler_va": "0x100e2920",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_GoToShop_Confirm",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x1049db7c",
+      "fn0_va": "0x10131040",
+      "handler_va": "0x100d29e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_GradeChange",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a1340",
+      "fn0_va": "0x1015dcd0",
+      "handler_va": "0x101683e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_GradeChange_Confirm",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a1358",
+      "fn0_va": "0x1015dd50",
+      "handler_va": "0x101676e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_GradeChange_Open",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a134c",
+      "fn0_va": "0x1015dd10",
+      "handler_va": "0x10169350",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_HUDSubmitChat",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049e3ec",
+      "fn0_va": "0x10134030",
+      "handler_va": "0x100bcd60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InGameExit",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a3310",
+      "fn0_va": "0x10177360",
+      "handler_va": "0x100cc430",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InGameExitCancel",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a331c",
+      "fn0_va": "0x101773a0",
+      "handler_va": "0x100ca490",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InGameMissionComWindow_Close",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x104a337c",
+      "fn0_va": "0x101775a0",
+      "handler_va": "0x100ca5f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InGamePopNotFound",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a3340",
+      "fn0_va": "0x10177460",
+      "handler_va": "0x100ca4d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InGame_GuideMessage_EventComplete",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a32ec",
+      "fn0_va": "0x101772a0",
+      "handler_va": "0x100ca460",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InGame_Result_ArrayLength",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a32f8",
+      "fn0_va": "0x101772e0",
+      "handler_va": "0x100cb040",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InGame_Result_Open",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a3304",
+      "fn0_va": "0x10177320",
+      "handler_va": "0x100cbde0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InvateOpened",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a2560",
+      "fn0_va": "0x1016cb90",
+      "handler_va": "0x101093f0",
+      "direct_hermit_opcodes": [
+        "0x221101"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_InvateRecv_Cancel",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a25a8",
+      "fn0_va": "0x1016cd10",
+      "handler_va": "0x101094d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InvateRecv_Confirm",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a259c",
+      "fn0_va": "0x1016ccd0",
+      "handler_va": "0x10109d50",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InvateSend_Confirm",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a2590",
+      "fn0_va": "0x1016cc90",
+      "handler_va": "0x10109ae0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Inven_DeleteClick",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a0620",
+      "fn0_va": "0x101539f0",
+      "handler_va": "0x1014a060",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Inven_ItemDoubleClick",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a0638",
+      "fn0_va": "0x10153a70",
+      "handler_va": "0x1014a870",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Inven_ItemOneClick",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a0644",
+      "fn0_va": "0x10153ab0",
+      "handler_va": "0x1014a890",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Inven_MsgBox_AvatarChangeConfirm",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a062c",
+      "fn0_va": "0x10153a30",
+      "handler_va": "0x1014a030",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Inven_RequestItemDelete_Confirm",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a0674",
+      "fn0_va": "0x10153bb0",
+      "handler_va": "0x1014a5d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Inven_RequestItemList",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a0650",
+      "fn0_va": "0x10153af0",
+      "handler_va": "0x1014b130",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Inven_RequestItemReallyDelete_Confirm",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a0680",
+      "fn0_va": "0x10153bf0",
+      "handler_va": "0x1014a6d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Inven_Selected_Tab",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a065c",
+      "fn0_va": "0x10153b30",
+      "handler_va": "0x101499b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Inven_UseClick",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a0668",
+      "fn0_va": "0x10153b70",
+      "handler_va": "0x1014a850",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InviteClan_Cancel",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104989d8",
+      "fn0_va": "0x100be410",
+      "handler_va": "0x100c1d10",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_InviteClan_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104989cc",
+      "fn0_va": "0x100be3d0",
+      "handler_va": "0x100c3610",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ItemNickChangeConfirm",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104879a4",
+      "fn0_va": "0x100449e0",
+      "handler_va": "0x10044c20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ItemNickColorChangeConfirm",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x10487acc",
+      "fn0_va": "0x100456c0",
+      "handler_va": "0x100457a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_KickConfirm",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a143c",
+      "fn0_va": "0x1015e210",
+      "handler_va": "0x10167570",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LoadComplete",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049df18",
+      "fn0_va": "0x101329b0",
+      "handler_va": "0x100d7730",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LoadingDialog_Close",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a4544",
+      "fn0_va": "0x1018f200",
+      "handler_va": "0x100e5f20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LoadingDialog_Open",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a4538",
+      "fn0_va": "0x1018f1c0",
+      "handler_va": "0x100e5eb0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_Apply_Friend",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049daa4",
+      "fn0_va": "0x10130bc0",
+      "handler_va": "0x100d4a80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_CreateClanBtnClick",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049dabc",
+      "fn0_va": "0x10130c40",
+      "handler_va": "0x100d4bc0",
+      "direct_hermit_opcodes": [
+        "0x360111"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_CreateRoomBtnClick",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049d9e4",
+      "fn0_va": "0x101307c0",
+      "handler_va": "0x100d2e40",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_CreateRoomOpen",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049d9f0",
+      "fn0_va": "0x10130800",
+      "handler_va": "0x100d3ce0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_Exit",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049db88",
+      "fn0_va": "0x10131080",
+      "handler_va": "0x100d2a00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_HelpBtnClick",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049daf8",
+      "fn0_va": "0x10130d80",
+      "handler_va": "0x100d24d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_OnSearchFriend_ID",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049da80",
+      "fn0_va": "0x10130b00",
+      "handler_va": "0x100d4870",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_PasswordDig_Confirm",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049da08",
+      "fn0_va": "0x10130880",
+      "handler_va": "0x100d4400",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_QuickStartDialog_Open",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049da38",
+      "fn0_va": "0x10130980",
+      "handler_va": "0x100d6510",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_QuickStartSetting_Confirm",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049da50",
+      "fn0_va": "0x10130a00",
+      "handler_va": "0x100d46d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_RequestRoomlistScene",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049d9a8",
+      "fn0_va": "0x10130680",
+      "handler_va": "0x100d2b80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_RoomCreate",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049d9fc",
+      "fn0_va": "0x10130840",
+      "handler_va": "0x100d3ea0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_RoomEnter",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049da20",
+      "fn0_va": "0x10130900",
+      "handler_va": "0x100d2800",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_RoomEnter_Quick",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049da2c",
+      "fn0_va": "0x10130940",
+      "handler_va": "0x100d2880",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_RoomList_ItemRangeReady",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049d9b4",
+      "fn0_va": "0x101306c0",
+      "handler_va": "0x100d2c30",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_RoomList_RequestItemRange",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049d9cc",
+      "fn0_va": "0x10130740",
+      "handler_va": "0x100d5cc0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_SearchClanBtnClick",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049dac8",
+      "fn0_va": "0x10130c80",
+      "handler_va": "0x100d4cc0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_SearchFriend",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049da74",
+      "fn0_va": "0x10130ac0",
+      "handler_va": "0x100d2900",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_SortRoomList",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049d9d8",
+      "fn0_va": "0x10130780",
+      "handler_va": "0x100d2d70",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_TournamentBtnClick",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049db04",
+      "fn0_va": "0x10130dc0",
+      "handler_va": "0x100d3230",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_WeaponRemoBtnClick",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049dab0",
+      "fn0_va": "0x10130c00",
+      "handler_va": "0x100d2920",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyScene_With_Friend_Game",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049da98",
+      "fn0_va": "0x10130b80",
+      "handler_va": "0x100d4980",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyServerConnectFailed",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049df78",
+      "fn0_va": "0x10132bb0",
+      "handler_va": "0x100d73a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LobbyUi_LoadComplete",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049df90",
+      "fn0_va": "0x10132c30",
+      "handler_va": "0x100d73b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Lobby_ChatKindBGChange",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049e314",
+      "fn0_va": "0x10133bb0",
+      "handler_va": "0x100bb240",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Lobby_KindList",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049e338",
+      "fn0_va": "0x10133c70",
+      "handler_va": "0x100bd520",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LoginSceneExit",
+      "scene": "CLoginScene",
+      "vtable_va": "0x1049df84",
+      "fn0_va": "0x10132bf0",
+      "handler_va": "0x100d7be0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LoginScene_LoginClick",
+      "scene": "CLoginScene",
+      "vtable_va": "0x1049df30",
+      "fn0_va": "0x10132a30",
+      "handler_va": "0x100d7850",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LuckyShop_CashChargeBtnClicked",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049a0e0",
+      "fn0_va": "0x100d8070",
+      "handler_va": "0x100d9640",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LuckyShop_Exit",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049a080",
+      "fn0_va": "0x100d7e70",
+      "handler_va": "0x100d9620",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LuckyShop_MachineInfoRespond",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049a08c",
+      "fn0_va": "0x100d7eb0",
+      "handler_va": "0x100da930",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LuckyShop_MachineListRequest",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049a098",
+      "fn0_va": "0x100d7ef0",
+      "handler_va": "0x100d9a60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LuckyShop_MachinePlayEnd",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049a0d4",
+      "fn0_va": "0x100d8030",
+      "handler_va": "0x100db640",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LuckyShop_MachineRewardRespond",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049a0a4",
+      "fn0_va": "0x100d7f30",
+      "handler_va": "0x100dabe0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LuckyShop_Open",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049a074",
+      "fn0_va": "0x100d7e30",
+      "handler_va": "0x100d9600",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LuckyShop_PlayBtnClicked",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049a0c8",
+      "fn0_va": "0x100d7ff0",
+      "handler_va": "0x100d9d10",
+      "direct_hermit_opcodes": [
+        "0x240908",
+        "0x240910"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_LuckyShop_SelectedMachine",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049a0b0",
+      "fn0_va": "0x100d7f70",
+      "handler_va": "0x100dada0",
+      "direct_hermit_opcodes": [
+        "0x240906"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_LuckyShop_SelectedMachineTab",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049a0bc",
+      "fn0_va": "0x100d7fb0",
+      "handler_va": "0x100d9ba0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_LuckyShop_ToolTip",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049a0ec",
+      "fn0_va": "0x100d80b0",
+      "handler_va": "0x100db910",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxBtnClick",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d60c",
+      "fn0_va": "0x1012f1b0",
+      "handler_va": "0x100e0630",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxCancel",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d618",
+      "fn0_va": "0x1012f1f0",
+      "handler_va": "0x100e0070",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxDelete",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d624",
+      "fn0_va": "0x1012f230",
+      "handler_va": "0x100e46b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxMainTab",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d630",
+      "fn0_va": "0x1012f270",
+      "handler_va": "0x100e0640",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxMessage",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d63c",
+      "fn0_va": "0x1012f2b0",
+      "handler_va": "0x100e2e40",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxNextPage",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d6c0",
+      "fn0_va": "0x1012f570",
+      "handler_va": "0x100e1920",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxPageChange",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d648",
+      "fn0_va": "0x1012f2f0",
+      "handler_va": "0x100e06a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxPrevPage",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d6b4",
+      "fn0_va": "0x1012f530",
+      "handler_va": "0x100e1830",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxRead",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d654",
+      "fn0_va": "0x1012f330",
+      "handler_va": "0x100e2fa0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxRequestItemRange",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d660",
+      "fn0_va": "0x1012f370",
+      "handler_va": "0x100e5d70",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxSelected",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d66c",
+      "fn0_va": "0x1012f3b0",
+      "handler_va": "0x100e3670",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxSubTabGift",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x1049d678",
+      "fn0_va": "0x1012f3f0",
+      "handler_va": "0x100e1680",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBoxSubTabNote",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049d684",
+      "fn0_va": "0x1012f430",
+      "handler_va": "0x100e1750",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MailBtnClick",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a07b8",
+      "fn0_va": "0x10154270",
+      "handler_va": "0x101486a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_BuyMarble",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x10499480",
+      "fn0_va": "0x100c7b50",
+      "handler_va": "0x100c85f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_CreateRewards",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x10499450",
+      "fn0_va": "0x100c7a50",
+      "handler_va": "0x100c9720",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_CreateWinners",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049945c",
+      "fn0_va": "0x100c7a90",
+      "handler_va": "0x100c8b60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_Exit",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x10499438",
+      "fn0_va": "0x100c79d0",
+      "handler_va": "0x100c85b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_MachineRollOver",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x104994c8",
+      "fn0_va": "0x100c7cd0",
+      "handler_va": "0x100c8430",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_MachineSelected",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049948c",
+      "fn0_va": "0x100c7b90",
+      "handler_va": "0x100c8800",
+      "direct_hermit_opcodes": [
+        "0x240906"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_MachineStartSound",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x104994d4",
+      "fn0_va": "0x100c7d10",
+      "handler_va": "0x100c8460",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_Open",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x1049942c",
+      "fn0_va": "0x100c7990",
+      "handler_va": "0x100c8590",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_PlayMachine",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x10499474",
+      "fn0_va": "0x100c7b10",
+      "handler_va": "0x100c8c60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_Reflash",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x10499468",
+      "fn0_va": "0x100c7ad0",
+      "handler_va": "0x100c85d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_RreateMachines",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x10499444",
+      "fn0_va": "0x100c7a10",
+      "handler_va": "0x100c9360",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_ShineAllLamp",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x104994bc",
+      "fn0_va": "0x100c7c90",
+      "handler_va": "0x100c8400",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_WheelMachineLeverTik",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x104994a4",
+      "fn0_va": "0x100c7c10",
+      "handler_va": "0x100c86c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_WheelMachineTik",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x10499498",
+      "fn0_va": "0x100c7bd0",
+      "handler_va": "0x100c8660",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MarbleLand_wheelMachineResultShowed",
+      "scene": "CLuckyShopScene (Gacha/Marble)",
+      "vtable_va": "0x104994b0",
+      "fn0_va": "0x100c7c50",
+      "handler_va": "0x100c88f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MyClanMeDeleteMessageBox_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1448",
+      "fn0_va": "0x1015e250",
+      "handler_va": "0x10165e90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MyClanSubInfo_Whisper",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1460",
+      "fn0_va": "0x1015e2d0",
+      "handler_va": "0x10168f80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_MyClanSubInfo_WriteMessage",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a146c",
+      "fn0_va": "0x1015e310",
+      "handler_va": "0x10168d70",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_NickCreate_Exit",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a0e2c",
+      "fn0_va": "0x10157d80",
+      "handler_va": "0x100c7490",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_NickNameColorDialogOpen",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x10487aa0",
+      "fn0_va": "0x10045530",
+      "handler_va": "0x10045950",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_NickNameColorDialogSelected",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x10487ac0",
+      "fn0_va": "0x10045660",
+      "handler_va": "0x10045870",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_NickNameColorRequestItemRange",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x10487aac",
+      "fn0_va": "0x10045610",
+      "handler_va": "0x10045a50",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_NickTextModify",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x10487998",
+      "fn0_va": "0x10044970",
+      "handler_va": "0x10044950",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_NoticeBtnClick",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a07c4",
+      "fn0_va": "0x101542b0",
+      "handler_va": "0x101486b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_NoticeDialog_Open",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a4520",
+      "fn0_va": "0x1018f140",
+      "handler_va": "0x100e6380",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_NoticeDialog_PageChange",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a452c",
+      "fn0_va": "0x1018f180",
+      "handler_va": "0x100e66a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ObserverModeOpen",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a3328",
+      "fn0_va": "0x101773e0",
+      "handler_va": "0x100cadd0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OnAddRequestFriendFromTarget_cancel",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a28f8",
+      "fn0_va": "0x1016e8b0",
+      "handler_va": "0x100f97b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OnAddRequestFriendFromTarget_confirm",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a28ec",
+      "fn0_va": "0x1016e870",
+      "handler_va": "0x100f9690",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OnDeleteRequestFriend_confirm",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a28d4",
+      "fn0_va": "0x1016e7f0",
+      "handler_va": "0x100f9180",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OnRequestAddFriend_confirm",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a28e0",
+      "fn0_va": "0x1016e830",
+      "handler_va": "0x100f95c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OnRequestUserListSendPaper_confirm",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a28c8",
+      "fn0_va": "0x1016e7b0",
+      "handler_va": "0x100f94c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OnSubSence_Inven",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x1049b72c",
+      "fn0_va": "0x10107750",
+      "handler_va": "0x10149ba0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OnSubSence_LocalPlayerInfo",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049b738",
+      "fn0_va": "0x10107790",
+      "handler_va": "0x10149c60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OnSubSence_Shop",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x1049b720",
+      "fn0_va": "0x10107710",
+      "handler_va": "0x10149ae0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Open",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a05f0",
+      "fn0_va": "0x101538f0",
+      "handler_va": "0x10149950",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OpenGambleResult",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049c0d8",
+      "fn0_va": "0x101147e0",
+      "handler_va": "0x101182d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OpenResult",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a0f20",
+      "fn0_va": "0x10158b40",
+      "handler_va": "0x10118390",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionAudioOpen",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049eeb4",
+      "fn0_va": "0x10141880",
+      "handler_va": "0x100fd280",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionEnableHWMixBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049eec0",
+      "fn0_va": "0x101418c0",
+      "handler_va": "0x100fc4d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionMikeVolumeEraseSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049eecc",
+      "fn0_va": "0x10141900",
+      "handler_va": "0x100fc4e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionMikeVolumeSliderSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049eed8",
+      "fn0_va": "0x10141940",
+      "handler_va": "0x100fc4f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionMusicSoundEraseSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049eee4",
+      "fn0_va": "0x10141980",
+      "handler_va": "0x100fc500",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionMusicSoundSliderSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049eef0",
+      "fn0_va": "0x101419c0",
+      "handler_va": "0x100fc570",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionSfxSoundEraseSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049eefc",
+      "fn0_va": "0x10141a00",
+      "handler_va": "0x100fc510",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionSfxSoundSliderSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049ef08",
+      "fn0_va": "0x10141a40",
+      "handler_va": "0x100fc650",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionVoiceChatBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049ef14",
+      "fn0_va": "0x10141a80",
+      "handler_va": "0x100fc530",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionVoiceSoundEraseSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049ef20",
+      "fn0_va": "0x10141ac0",
+      "handler_va": "0x100fc540",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionVoiceSoundSliderSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049ef2c",
+      "fn0_va": "0x10141b00",
+      "handler_va": "0x100fc760",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionVoiceVolumeEraseSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049ef38",
+      "fn0_va": "0x10141b40",
+      "handler_va": "0x100fc550",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionAudio_OptionVoiceVolumeSliderSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049ef44",
+      "fn0_va": "0x10141b80",
+      "handler_va": "0x100fc560",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionBtnClick",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x104a07ac",
+      "fn0_va": "0x10154230",
+      "handler_va": "0x101486f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunityBinding",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f800",
+      "fn0_va": "0x10144120",
+      "handler_va": "0x101018e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunity_AddFriendSelected",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049fa1c",
+      "fn0_va": "0x10147070",
+      "handler_va": "0x100fd430",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunity_ChatOptionSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049fa34",
+      "fn0_va": "0x101470f0",
+      "handler_va": "0x100fd4b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunity_InviteSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049fa10",
+      "fn0_va": "0x10147030",
+      "handler_va": "0x100fd400",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunity_JoinClanSelected",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049fa28",
+      "fn0_va": "0x101470b0",
+      "handler_va": "0x100fd470",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunity_MacroChangeBtnClick",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f9d4",
+      "fn0_va": "0x10146ef0",
+      "handler_va": "0x100fd4e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunity_MacroOpen",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f9c8",
+      "fn0_va": "0x10146eb0",
+      "handler_va": "0x100fd340",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunity_MacroSubmit",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f9e0",
+      "fn0_va": "0x10146f30",
+      "handler_va": "0x100fd590",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunity_NoteSelected",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x1049fa04",
+      "fn0_va": "0x10146ff0",
+      "handler_va": "0x100fd3d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunity_Open",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049af84",
+      "fn0_va": "0x100fd6e0",
+      "handler_va": "0x100fd880",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunity_SendType",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f9ec",
+      "fn0_va": "0x10146f70",
+      "handler_va": "0x100fd350",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionCommunity_WhisperSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f9f8",
+      "fn0_va": "0x10146fb0",
+      "handler_va": "0x100fd3a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionETCBinding",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f818",
+      "fn0_va": "0x101441a0",
+      "handler_va": "0x10101910",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionEtc_BloodStainBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049fc00",
+      "fn0_va": "0x10147690",
+      "handler_va": "0x100feb20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionEtc_CrossHairBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049fbe8",
+      "fn0_va": "0x10147610",
+      "handler_va": "0x100feae0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionEtc_CrossHairColorSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049fbf4",
+      "fn0_va": "0x10147650",
+      "handler_va": "0x100fec00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionEtc_HandTypeBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049fc0c",
+      "fn0_va": "0x101476d0",
+      "handler_va": "0x100feb80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionEtc_Open",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049b0b4",
+      "fn0_va": "0x100febe0",
+      "handler_va": "0x100fefd0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionEtc_SelectLanguage",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049fc18",
+      "fn0_va": "0x10147710",
+      "handler_va": "0x100febb0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionAnisotropySelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f270",
+      "fn0_va": "0x101423f0",
+      "handler_va": "0x100ffed0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionAntiAliasSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f27c",
+      "fn0_va": "0x10142430",
+      "handler_va": "0x100ffee0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionBgShadowSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f288",
+      "fn0_va": "0x10142470",
+      "handler_va": "0x100ffef0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionBloomBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f294",
+      "fn0_va": "0x101424b0",
+      "handler_va": "0x100fff00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionBrightnessSliderSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f240",
+      "fn0_va": "0x10142280",
+      "handler_va": "0x100ff250",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionCharDecalBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f2a0",
+      "fn0_va": "0x101424f0",
+      "handler_va": "0x100fff10",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionCharShadowSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f2ac",
+      "fn0_va": "0x10142530",
+      "handler_va": "0x100fff20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionColorCurveBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f2b8",
+      "fn0_va": "0x10142570",
+      "handler_va": "0x101002b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionDecalBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f2c4",
+      "fn0_va": "0x101425b0",
+      "handler_va": "0x10100300",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionDynamicLightBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f2d0",
+      "fn0_va": "0x101425f0",
+      "handler_va": "0x10100350",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionEQualitySelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f2e8",
+      "fn0_va": "0x10142670",
+      "handler_va": "0x100fff30",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionEffectQualitySelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f2dc",
+      "fn0_va": "0x10142630",
+      "handler_va": "0x101003a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionFStabilityBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f300",
+      "fn0_va": "0x101426f0",
+      "handler_va": "0x100fff40",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionFogBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f2f4",
+      "fn0_va": "0x101426b0",
+      "handler_va": "0x10100420",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionGraphicAdvOpen",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f264",
+      "fn0_va": "0x101423b0",
+      "handler_va": "0x10101260",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionGraphicOpen",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f228",
+      "fn0_va": "0x10142200",
+      "handler_va": "0x100ffe70",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionGraphicQualitySelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f258",
+      "fn0_va": "0x10142300",
+      "handler_va": "0x100ff320",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionHudTxtFontBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f30c",
+      "fn0_va": "0x10142730",
+      "handler_va": "0x100fff50",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionModelLodSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f318",
+      "fn0_va": "0x10142770",
+      "handler_va": "0x10100470",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionResolutionSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f234",
+      "fn0_va": "0x10142240",
+      "handler_va": "0x100ff7f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionSelGlowBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f324",
+      "fn0_va": "0x101427b0",
+      "handler_va": "0x101004e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionShaderSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f330",
+      "fn0_va": "0x101427f0",
+      "handler_va": "0x100fff60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionShadowQualitySelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f33c",
+      "fn0_va": "0x10142830",
+      "handler_va": "0x10100530",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionShellCastingBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f348",
+      "fn0_va": "0x10142870",
+      "handler_va": "0x101005a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionSpotLightBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f354",
+      "fn0_va": "0x101428b0",
+      "handler_va": "0x101005f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionTQualitySelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f360",
+      "fn0_va": "0x101428f0",
+      "handler_va": "0x10100640",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionTResolutionBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f36c",
+      "fn0_va": "0x10142930",
+      "handler_va": "0x100fff70",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionGraphic_OptionVSyncBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f24c",
+      "fn0_va": "0x101422c0",
+      "handler_va": "0x100ff2f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionMoveBinding",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f830",
+      "fn0_va": "0x10144220",
+      "handler_va": "0x10101940",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionPlayCommunityOpen",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f80c",
+      "fn0_va": "0x10144160",
+      "handler_va": "0x10101bf0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionPlayETCOpen",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f824",
+      "fn0_va": "0x101441e0",
+      "handler_va": "0x10102210",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionPlayMoveOpen",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f83c",
+      "fn0_va": "0x10144260",
+      "handler_va": "0x101022c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionPlayWeaponOpen",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f854",
+      "fn0_va": "0x101442e0",
+      "handler_va": "0x10102660",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionPlay_OptionIngameHudBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f160",
+      "fn0_va": "0x10141fd0",
+      "handler_va": "0x10103f50",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionPlay_OptionInvertBtnSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f130",
+      "fn0_va": "0x10141ed0",
+      "handler_va": "0x10103ed0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionPlay_OptionMouseSenseSliderSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f13c",
+      "fn0_va": "0x10141f10",
+      "handler_va": "0x10103f00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionPlay_OptionMouseSpeedSliderSelected",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f148",
+      "fn0_va": "0x10141f50",
+      "handler_va": "0x10103ec0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionPlay_OptionPlayOpen",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f154",
+      "fn0_va": "0x10141f90",
+      "handler_va": "0x10104230",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_OptionWeaponBinding",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049f848",
+      "fn0_va": "0x101442a0",
+      "handler_va": "0x10101970",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Option_BtnClick",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049edbc",
+      "fn0_va": "0x10141120",
+      "handler_va": "0x10102ca0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Option_Close",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049ed74",
+      "fn0_va": "0x10140fa0",
+      "handler_va": "0x101028a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Option_OnRequestAcceptClanUser_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1508",
+      "fn0_va": "0x1015e650",
+      "handler_va": "0x1016b320",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Option_OnRequestDeclineClanUser_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1514",
+      "fn0_va": "0x1015e690",
+      "handler_va": "0x1016b450",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Option_OnRequestKickClanUser_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a14fc",
+      "fn0_va": "0x1015e610",
+      "handler_va": "0x1016b1a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Option_OnRequestOptionApply_Cancel",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049ed8c",
+      "fn0_va": "0x10141020",
+      "handler_va": "0x10102710",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Option_OnRequestOptionApply_Confirm",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049ed80",
+      "fn0_va": "0x10140fe0",
+      "handler_va": "0x101035e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Option_OnRequestOptionInit_Confirm",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049ed98",
+      "fn0_va": "0x10141060",
+      "handler_va": "0x10103bd0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Option_OptionApply",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049eda4",
+      "fn0_va": "0x101410a0",
+      "handler_va": "0x10103480",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Option_OptionInit",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049edb0",
+      "fn0_va": "0x101410e0",
+      "handler_va": "0x10103520",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Option_OptionOpen",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x1049edc8",
+      "fn0_va": "0x10141160",
+      "handler_va": "0x10103460",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PenaltyPopDialog_Cancel",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x104a3334",
+      "fn0_va": "0x10177420",
+      "handler_va": "0x100ca4b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PenaltyPopDialog_Confirm",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x104a3370",
+      "fn0_va": "0x10177560",
+      "handler_va": "0x100ca590",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PenaltyPopup_Cancel",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x104a3364",
+      "fn0_va": "0x10177520",
+      "handler_va": "0x100ca560",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PenaltyPopup_ItemUse",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x104a334c",
+      "fn0_va": "0x101774a0",
+      "handler_va": "0x100caf50",
+      "direct_hermit_opcodes": [
+        "0x222151"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_PenaltyPopup_NormalExit",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x104a3358",
+      "fn0_va": "0x101774e0",
+      "handler_va": "0x100ca4f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PlayerInfo_Achievement",
+      "scene": "CAchievement / Missions",
+      "vtable_va": "0x104a077c",
+      "fn0_va": "0x10154130",
+      "handler_va": "0x10148570",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PlayerInfo_Clan",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a0728",
+      "fn0_va": "0x10153f70",
+      "handler_va": "0x10148450",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PlayerInfo_GameMode",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a0740",
+      "fn0_va": "0x10153ff0",
+      "handler_va": "0x10148470",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PlayerInfo_Single",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a071c",
+      "fn0_va": "0x10153f30",
+      "handler_va": "0x101486c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PlayerInfo_Weapon",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a0734",
+      "fn0_va": "0x10153fb0",
+      "handler_va": "0x10148460",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PopUpIdentify_Status",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a4550",
+      "fn0_va": "0x1018f240",
+      "handler_va": "0x100e5f40",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PopupClanRetirement_Confirm",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a152c",
+      "fn0_va": "0x1015e710",
+      "handler_va": "0x1016b6b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Popup_ClanInviteAccept",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1388",
+      "fn0_va": "0x1015de50",
+      "handler_va": "0x10165e20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Popup_ClanInviteAccept_Cancel",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x104a1394",
+      "fn0_va": "0x1015de90",
+      "handler_va": "0x101688f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Popup_Close",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a2f80",
+      "fn0_va": "0x10174930",
+      "handler_va": "0x101748e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Popup_Open",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a2f68",
+      "fn0_va": "0x101748b0",
+      "handler_va": "0x10174860",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_PreChangeClanName",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x10487720",
+      "fn0_va": "0x100429e0",
+      "handler_va": "0x10042e90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_QuickStartDialog_SelectedMap",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049da44",
+      "fn0_va": "0x101309c0",
+      "handler_va": "0x100d4520",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RemodelingBtnClick",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x104a07a0",
+      "fn0_va": "0x101541f0",
+      "handler_va": "0x10148660",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_BuiltIn_Remove_Confirm",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bc08",
+      "fn0_va": "0x1010c9b0",
+      "handler_va": "0x10111550",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_Buy",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bb30",
+      "fn0_va": "0x1010c530",
+      "handler_va": "0x101115f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_Delete",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bb9c",
+      "fn0_va": "0x1010c770",
+      "handler_va": "0x10111e60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_Exit",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bc20",
+      "fn0_va": "0x1010ca30",
+      "handler_va": "0x10110f60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_Exit_Dev",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bf40",
+      "fn0_va": "0x10110a40",
+      "handler_va": "0x10110f80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_Install",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bb78",
+      "fn0_va": "0x1010c6b0",
+      "handler_va": "0x10111830",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_InventoryCategory",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x1049bb60",
+      "fn0_va": "0x1010c630",
+      "handler_va": "0x10111260",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_Remodeling",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bbd8",
+      "fn0_va": "0x1010c8b0",
+      "handler_va": "0x10113670",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_Remodeling_Dev",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bf28",
+      "fn0_va": "0x101109c0",
+      "handler_va": "0x10111fc0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_Remove",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bbe4",
+      "fn0_va": "0x1010c8f0",
+      "handler_va": "0x10112100",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_Remove_Dev",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bf34",
+      "fn0_va": "0x10110a00",
+      "handler_va": "0x101122b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_Reset",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bbcc",
+      "fn0_va": "0x1010c870",
+      "handler_va": "0x10111ec0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Btn_ShopCategory",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bb18",
+      "fn0_va": "0x1010c4b0",
+      "handler_va": "0x101110d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Buy_Confirm",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bb3c",
+      "fn0_va": "0x1010c570",
+      "handler_va": "0x10111760",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Confirm",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bbf0",
+      "fn0_va": "0x1010c930",
+      "handler_va": "0x101114b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_InstallParts_Confirm",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bb84",
+      "fn0_va": "0x1010c6f0",
+      "handler_va": "0x10111a10",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Inventory_Open",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x1049bb48",
+      "fn0_va": "0x1010c5b0",
+      "handler_va": "0x101111b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Inventory_Reset",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x1049bb54",
+      "fn0_va": "0x1010c5f0",
+      "handler_va": "0x10112c80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Purchase_Complete",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bbfc",
+      "fn0_va": "0x1010c970",
+      "handler_va": "0x101123f0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_PurchasedItemClick",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bb6c",
+      "fn0_va": "0x1010c670",
+      "handler_va": "0x10110ea0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_ShopItemClick",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bb24",
+      "fn0_va": "0x1010c4f0",
+      "handler_va": "0x10112ac0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Shop_Open",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bb00",
+      "fn0_va": "0x1010c430",
+      "handler_va": "0x10111000",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Shop_Reset",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bb0c",
+      "fn0_va": "0x1010c470",
+      "handler_va": "0x10112730",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_WeaponSelect",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bbc0",
+      "fn0_va": "0x1010c830",
+      "handler_va": "0x101113d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Weapon_Open",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bba8",
+      "fn0_va": "0x1010c7b0",
+      "handler_va": "0x10111340",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Remodeling_Weapon_Reset",
+      "scene": "CRemodelingScene (Weapon Mods)",
+      "vtable_va": "0x1049bbb4",
+      "fn0_va": "0x1010c7f0",
+      "handler_va": "0x10113000",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ReportClick",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x104a2898",
+      "fn0_va": "0x1016e6b0",
+      "handler_va": "0x100f8b20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ReportClick_confirm",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x104a28a4",
+      "fn0_va": "0x1016e6f0",
+      "handler_va": "0x100f91e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ReportPopup_Open",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x104a28b0",
+      "fn0_va": "0x1016e730",
+      "handler_va": "0x100f8ba0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ReportPopup_requestItemRange",
+      "scene": "COption / Moderation",
+      "vtable_va": "0x104a28bc",
+      "fn0_va": "0x1016e770",
+      "handler_va": "0x100faa00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RequestDisplayInfo",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049df9c",
+      "fn0_va": "0x10132c70",
+      "handler_va": "0x100d7670",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomList_ItemRollOver",
+      "scene": "CLobbyScene (Lobby)",
+      "vtable_va": "0x1049da14",
+      "fn0_va": "0x101308c0",
+      "handler_va": "0x100d2ec0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomRule_ClanModeBtnStatus",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049dae0",
+      "fn0_va": "0x10130d00",
+      "handler_va": "0x100d7310",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_ChangeRuleConfirm",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e878",
+      "fn0_va": "0x1013a590",
+      "handler_va": "0x10136dc0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_Exit",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e848",
+      "fn0_va": "0x1013a490",
+      "handler_va": "0x10136a70",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_GameRoomListSquadListReady",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e890",
+      "fn0_va": "0x1013a610",
+      "handler_va": "0x10137670",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_HostDelegateBtnClick",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e8c0",
+      "fn0_va": "0x1013a710",
+      "handler_va": "0x10138150",
+      "direct_hermit_opcodes": [
+        "0x220317"
+      ]
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_InviteBtnClick",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e860",
+      "fn0_va": "0x1013a510",
+      "handler_va": "0x10136bc0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_JoinMatchBtnClick",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049da68",
+      "fn0_va": "0x10130a80",
+      "handler_va": "0x100d3180",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_Open",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e884",
+      "fn0_va": "0x1013a5d0",
+      "handler_va": "0x10137430",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_PlayerTypeChkReady",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e8cc",
+      "fn0_va": "0x1013a750",
+      "handler_va": "0x10137660",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_ReadyBtnClick",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e854",
+      "fn0_va": "0x1013a4d0",
+      "handler_va": "0x10136a60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_RoomListA_Menu",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e8d8",
+      "fn0_va": "0x1013a790",
+      "handler_va": "0x10137460",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_RoomListA_MenuClick",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e8f0",
+      "fn0_va": "0x1013a810",
+      "handler_va": "0x101374a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_RoomListB_Menu",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e8e4",
+      "fn0_va": "0x1013a7d0",
+      "handler_va": "0x101374c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_RoomRuleGambleRoomSelected",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e8a8",
+      "fn0_va": "0x1013a690",
+      "handler_va": "0x10138a70",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_RoomRuleGameModeSelected",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e89c",
+      "fn0_va": "0x1013a650",
+      "handler_va": "0x10138220",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_RoomRuleMapSelected",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049c6d8",
+      "fn0_va": "0x1011c710",
+      "handler_va": "0x10137710",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_RuleChange",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e86c",
+      "fn0_va": "0x1013a550",
+      "handler_va": "0x10136c90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_RuleOpen",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e8b4",
+      "fn0_va": "0x1013a6d0",
+      "handler_va": "0x10138690",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_TeamChange_All",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e824",
+      "fn0_va": "0x1013a3d0",
+      "handler_va": "0x10136860",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_TeamChange_Blue",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e830",
+      "fn0_va": "0x1013a410",
+      "handler_va": "0x10136780",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RoomScene_TeamChange_Red",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e83c",
+      "fn0_va": "0x1013a450",
+      "handler_va": "0x101367d0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Room_ChatKindBGChange",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e320",
+      "fn0_va": "0x10133bf0",
+      "handler_va": "0x100bb250",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Room_KindList",
+      "scene": "CWaitRoomScene (Room)",
+      "vtable_va": "0x1049e344",
+      "fn0_va": "0x10133cb0",
+      "handler_va": "0x100bd680",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_RotateBtnClick",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a1080",
+      "fn0_va": "0x1015b170",
+      "handler_va": "0x100fc350",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_SaveLoginID",
+      "scene": "CLoginScene",
+      "vtable_va": "0x1049df24",
+      "fn0_va": "0x101329f0",
+      "handler_va": "0x100d75c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_BannerNotify",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c890",
+      "fn0_va": "0x1011d830",
+      "handler_va": "0x1011ea80",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_ConnectBtnClick",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c89c",
+      "fn0_va": "0x1011d870",
+      "handler_va": "0x1011ec50",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_ExitBtnClick",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c8a8",
+      "fn0_va": "0x1011d8b0",
+      "handler_va": "0x1011ef00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_LocalPlayerInfo",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c8b4",
+      "fn0_va": "0x1011d8f0",
+      "handler_va": "0x1011eab0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_OnServerListExitPopup_Cancel",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c8cc",
+      "fn0_va": "0x1011d970",
+      "handler_va": "0x1011eac0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_OnServerListExitPopup_Confirm",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c8c0",
+      "fn0_va": "0x1011d930",
+      "handler_va": "0x1011ea90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_RefreshBtnClick",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c8d8",
+      "fn0_va": "0x1011d9b0",
+      "handler_va": "0x1011eaa0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_RequestItemRange",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c8e4",
+      "fn0_va": "0x1011d9f0",
+      "handler_va": "0x1011ef60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_RequestLength",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c8f0",
+      "fn0_va": "0x1011da30",
+      "handler_va": "0x1011ebd0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_SelectServer",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c8fc",
+      "fn0_va": "0x1011da70",
+      "handler_va": "0x1011eb00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_ServerEnter",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c908",
+      "fn0_va": "0x1011dab0",
+      "handler_va": "0x1011ecd0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ServerList_ServerListOnload",
+      "scene": "CServerList / CChannelListScene",
+      "vtable_va": "0x1049c914",
+      "fn0_va": "0x1011daf0",
+      "handler_va": "0x1011eb50",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ShopInvenRight",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a05d8",
+      "fn0_va": "0x10153870",
+      "handler_va": "0x101498e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ShopPresent_DialogOpen",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a0704",
+      "fn0_va": "0x10153eb0",
+      "handler_va": "0x1014c540",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Shop_BuyBtnClick",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a068c",
+      "fn0_va": "0x10153c30",
+      "handler_va": "0x1014cab0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Shop_BuyConfirm",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a0698",
+      "fn0_va": "0x10153c70",
+      "handler_va": "0x1014cb30",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Shop_BuyConfirm_Gift",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a06a4",
+      "fn0_va": "0x10153cb0",
+      "handler_va": "0x1014d290",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Shop_GiftBtnClick",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a06b0",
+      "fn0_va": "0x10153cf0",
+      "handler_va": "0x1014cc60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Shop_ItemDoubleClick",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a06bc",
+      "fn0_va": "0x10153d30",
+      "handler_va": "0x1014c390",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Shop_ItemOneClick",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a06c8",
+      "fn0_va": "0x10153d70",
+      "handler_va": "0x1014d660",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Shop_Regulation",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a0710",
+      "fn0_va": "0x10153ef0",
+      "handler_va": "0x1014c1e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Shop_RequestItemList",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a06d4",
+      "fn0_va": "0x10153db0",
+      "handler_va": "0x1014df60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Shop_Selected_Tab",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a06e0",
+      "fn0_va": "0x10153df0",
+      "handler_va": "0x1014c3c0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Shop_SendingGift",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a06ec",
+      "fn0_va": "0x10153e30",
+      "handler_va": "0x1014cce0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Shop_UserListBtnClick",
+      "scene": "CShopScene (Shop)",
+      "vtable_va": "0x104a06f8",
+      "fn0_va": "0x10153e70",
+      "handler_va": "0x1014c410",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ShowNotice",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049daec",
+      "fn0_va": "0x10130d40",
+      "handler_va": "0x100d2940",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_SignupDelete",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a1334",
+      "fn0_va": "0x1015dc90",
+      "handler_va": "0x10165fc0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_Skiper",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x10488c6c",
+      "fn0_va": "0x10054700",
+      "handler_va": "0x100546e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_SlotSetReady_Weapon",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a108c",
+      "fn0_va": "0x1015b1b0",
+      "handler_va": "0x100fc370",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_SubmitChat_Clan",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049e380",
+      "fn0_va": "0x10133df0",
+      "handler_va": "0x100bba00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_SubmitChat_ClanMatch",
+      "scene": "CClanScene (Clan)",
+      "vtable_va": "0x1049e38c",
+      "fn0_va": "0x10133e30",
+      "handler_va": "0x100bbaf0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_SubmitChat_Lobby",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049e368",
+      "fn0_va": "0x10133d70",
+      "handler_va": "0x100bb820",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_SubmitChat_Room",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049e374",
+      "fn0_va": "0x10133db0",
+      "handler_va": "0x100bb910",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_ToggleAllSelect",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049d690",
+      "fn0_va": "0x1012f470",
+      "handler_va": "0x100e3860",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_TopMenuOpen",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a05e4",
+      "fn0_va": "0x101538b0",
+      "handler_va": "0x10149d20",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_UserCheckBox",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a2578",
+      "fn0_va": "0x1016cc10",
+      "handler_va": "0x10109a30",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_UserCheckBox_All",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a2584",
+      "fn0_va": "0x1016cc50",
+      "handler_va": "0x10109830",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_UserListPush",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a256c",
+      "fn0_va": "0x1016cbd0",
+      "handler_va": "0x1010a510",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_UserList_Confirm",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a2394",
+      "fn0_va": "0x1016c740",
+      "handler_va": "0x1010a900",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_UserList_ConfirmNote",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a23a0",
+      "fn0_va": "0x1016c780",
+      "handler_va": "0x1010ab30",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_UserList_Open",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a23ac",
+      "fn0_va": "0x1016c7c0",
+      "handler_va": "0x1010a7e0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_UserList_OpenNote",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a23b8",
+      "fn0_va": "0x1016c800",
+      "handler_va": "0x1010a870",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_UserList_RequestUserRange",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a23c4",
+      "fn0_va": "0x1016c840",
+      "handler_va": "0x1010af60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_UserList_RequestUserRangeNote",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a23d0",
+      "fn0_va": "0x1016c880",
+      "handler_va": "0x1010b3a0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_UserList_TabChange",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a23dc",
+      "fn0_va": "0x1016c8c0",
+      "handler_va": "0x1010ad60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_UserList_TabChangeNote",
+      "scene": "CMessenger / MailBox",
+      "vtable_va": "0x104a23e8",
+      "fn0_va": "0x1016c900",
+      "handler_va": "0x1010ae60",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_WriteMessageConfirm",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049d69c",
+      "fn0_va": "0x1012f4b0",
+      "handler_va": "0x100e3a90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_Flash_WriteMessageListClick",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x1049d6a8",
+      "fn0_va": "0x1012f4f0",
+      "handler_va": "0x100e0b90",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_LanguageConvert_Flash_TextEdit_FocusIn",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x10488c78",
+      "fn0_va": "0x10054740",
+      "handler_va": "0x10056c00",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_LanguageConvert_Flash_TextEdit_FocusOut",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x10488c84",
+      "fn0_va": "0x10054780",
+      "handler_va": "0x10056c50",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_PlayerInfo_Open",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a05b4",
+      "fn0_va": "0x101537b0",
+      "handler_va": "0x10149880",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_PlayerInven_Open",
+      "scene": "CInvenScene (Inventory/Loadout)",
+      "vtable_va": "0x104a05c0",
+      "fn0_va": "0x101537f0",
+      "handler_va": "0x101498b0",
+      "direct_hermit_opcodes": []
+    },
+    {
+      "class_name": "CDispatch_PlayerMyInfo_Open",
+      "scene": "Global / HUD / Misc UI",
+      "vtable_va": "0x104a05cc",
+      "fn0_va": "0x10153830",
+      "handler_va": "0x101498d0",
+      "direct_hermit_opcodes": []
+    }
+  ]
+}

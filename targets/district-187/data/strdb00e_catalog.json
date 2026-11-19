@@ -1,0 +1,2125 @@
+{
+  "dll_reverse_engineering": {
+    "binary": "targets/district-187/client-rebirth/StringEditRuntime.dll",
+    "file_size": 23568,
+    "image_base": "0x10000000",
+    "product_version": "0.18.731.1253 (JupiterEX StringEdit Runtime, CJGameLab 2011)",
+    "pdb_path": "D:\\work\\trunk\\built\\Final\\StringEditRuntime.pdb",
+    "exports": {
+      "GetIStringEditMgr": "0x10001000"
+    },
+    "globals": {
+      "g_StringEditMgr": "0x10004070 (sizeof=0x10, vtable=0x100030F4)",
+      "g_StringEditMgr_InitFlags": "0x10004080",
+      "g_EncryptedStringScratchIndex": "0x10004088 (wchar_t[512])",
+      "g_EncryptedStringScratchByID": "0x10004488 (wchar_t[512])"
+    },
+    "classes": {
+      "CStringEditMgr": {
+        "sizeof": "0x10 (16 bytes)",
+        "vtable_va": "0x100030F4 (26 virtual methods)",
+        "layout": {
+          "+0x00": "vftable (0x100030F4)",
+          "+0x04": "pfnErrorCallback (void (__cdecl*)(const char* szID, const char* szError, void* pUserData))",
+          "+0x08": "pErrorCallbackUserData (void*)",
+          "+0x0C": "pActiveStringKeeper (CStringKeeper*)"
+        }
+      },
+      "CStringKeeper": {
+        "sizeof": "0x28 (40 bytes)",
+        "layout": {
+          "+0x00": "pOwnerMgr (IStringEditMgr*)",
+          "+0x04": "pRecordTable (SRecordEntry* array, 8 bytes/entry: {int32 val_idx, int32 voice_idx})",
+          "+0x08": "pStringPoolBuffer (char* contiguous raw string pool allocation)",
+          "+0x0C": "ppStringIDs (const char** array of num_ids pointers into pool)",
+          "+0x10": "ppStringValues (const wchar_t** array of num_wvalues pointers into pool)",
+          "+0x14": "ppVoicePaths (const char** array of num_voices pointers into pool)",
+          "+0x18": "num_ids (uint32)",
+          "+0x1C": "num_ids_plus_values (uint32)",
+          "+0x20": "num_voices (uint32)",
+          "+0x24": "pStringDecryptor (IStringDecryptor*, optional virtual filter)"
+        }
+      }
+    },
+    "functions": {
+      "GetIStringEditMgr": "0x10001000",
+      "CStringKeeper::CStringKeeper": "0x1000102E",
+      "CStringKeeper::FreeAll": "0x10001050",
+      "LT_strlen": "0x100010B4",
+      "LT_wcslen": "0x100010CC",
+      "CStringKeeper::LoadFromStream": "0x100010EF",
+      "CStringKeeper::GetStringIDByIndex": "0x100012CC",
+      "CStringKeeper::GetValueByIndex": "0x1000130A",
+      "CStringKeeper::GetVoicePathByIndex": "0x100013C1",
+      "CStringKeeper::HasValueAtIndex": "0x10001427",
+      "CStringKeeper::HasVoiceAtIndex": "0x1000145A",
+      "CStringKeeper::BinarySearchID": "0x100018BB",
+      "CStringKeeper::GetIndexByID": "0x1000190B",
+      "CStringKeeper::GetValueByID": "0x10001945",
+      "CStringKeeper::GetVoicePathByID": "0x10001A75",
+      "CStringKeeper::DoesIDExist": "0x10001AF3",
+      "CStringKeeper::HasValueByID": "0x10001B3E",
+      "CStringKeeper::HasVoiceByID": "0x10001B8E",
+      "CStringKeeper::BinarySearchPrefix": "0x10001BDF",
+      "CStringKeeper::EnumerateIDsByPrefix": "0x10001C66",
+      "CStringEditMgr::CreateStringKeeper": "0x10001D1D",
+      "LTFormatMessageT": "0x1000208F"
+    }
+  },
+  "strdb00e_source_files": {
+    "StringDatabase/source/english.Strdb00e": {
+      "path": "StringDatabase/source/english.Strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 387472,
+      "rebuilt_size": 387472,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "11a70d3822b5115aa6d52415f026ac9cba451c582e6d6db61b8d6e67363a9af5",
+      "entry_count": 3488,
+      "unique_keys": 3488,
+      "duplicate_keys": [],
+      "non_empty_values": 3486,
+      "empty_values": 2,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/turkey.Strdb00e": {
+      "path": "StringDatabase/source/turkey.Strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 377560,
+      "rebuilt_size": 377560,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "3f56c306c90de7bca6e7ee5f5971fcea259a032cbf17a61162b2e96e4b285c22",
+      "entry_count": 3488,
+      "unique_keys": 3488,
+      "duplicate_keys": [],
+      "non_empty_values": 3486,
+      "empty_values": 2,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/kor.Strdb00e": {
+      "path": "StringDatabase/source/kor.Strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 318430,
+      "rebuilt_size": 318430,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "55c565305c90ab2666f0b41054c792204a567a6c03a36d6ce7d0add82dab3929",
+      "entry_count": 3481,
+      "unique_keys": 3481,
+      "duplicate_keys": [],
+      "non_empty_values": 3481,
+      "empty_values": 0,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/Arabic.strdb00e": {
+      "path": "StringDatabase/source/Arabic.strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 274438,
+      "rebuilt_size": 274438,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "7711e86c5a70e97c204259751df95d1d2f9f11c73d43f710783473ab9c42873a",
+      "entry_count": 2877,
+      "unique_keys": 2877,
+      "duplicate_keys": [],
+      "non_empty_values": 2877,
+      "empty_values": 0,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/category.Strdb00e": {
+      "path": "StringDatabase/source/category.Strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 240176,
+      "rebuilt_size": 240176,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "9aab159144a0bb40e45c1de8f1ac41fb448b0a586b12eb9ed9fdb2b70d875e29",
+      "entry_count": 3492,
+      "unique_keys": 3492,
+      "duplicate_keys": [],
+      "non_empty_values": 3492,
+      "empty_values": 0,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/voice.Strdb00e": {
+      "path": "StringDatabase/source/voice.Strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 5180,
+      "rebuilt_size": 5180,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "ebccd77aeb97f65b5a59043eea7f9006edfb41505ea483254b19a7087060003d",
+      "entry_count": 55,
+      "unique_keys": 55,
+      "duplicate_keys": [],
+      "non_empty_values": 55,
+      "empty_values": 0,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/comment.Strdb00e": {
+      "path": "StringDatabase/source/comment.Strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 22,
+      "rebuilt_size": 22,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "679f319e3c6689d88246954fba5cda884c2519265b5f3b7e11d76d0f9ce637f2",
+      "entry_count": 0,
+      "unique_keys": 0,
+      "duplicate_keys": [],
+      "non_empty_values": 0,
+      "empty_values": 0,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/Character.strdb00e": {
+      "path": "StringDatabase/source/Character.strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 22,
+      "rebuilt_size": 22,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "679f319e3c6689d88246954fba5cda884c2519265b5f3b7e11d76d0f9ce637f2",
+      "entry_count": 0,
+      "unique_keys": 0,
+      "duplicate_keys": [],
+      "non_empty_values": 0,
+      "empty_values": 0,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/Cinematic.strdb00e": {
+      "path": "StringDatabase/source/Cinematic.strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 22,
+      "rebuilt_size": 22,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "679f319e3c6689d88246954fba5cda884c2519265b5f3b7e11d76d0f9ce637f2",
+      "entry_count": 0,
+      "unique_keys": 0,
+      "duplicate_keys": [],
+      "non_empty_values": 0,
+      "empty_values": 0,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/Context.strdb00e": {
+      "path": "StringDatabase/source/Context.strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 22,
+      "rebuilt_size": 22,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "679f319e3c6689d88246954fba5cda884c2519265b5f3b7e11d76d0f9ce637f2",
+      "entry_count": 0,
+      "unique_keys": 0,
+      "duplicate_keys": [],
+      "non_empty_values": 0,
+      "empty_values": 0,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/Direction.strdb00e": {
+      "path": "StringDatabase/source/Direction.strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 22,
+      "rebuilt_size": 22,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "679f319e3c6689d88246954fba5cda884c2519265b5f3b7e11d76d0f9ce637f2",
+      "entry_count": 0,
+      "unique_keys": 0,
+      "duplicate_keys": [],
+      "non_empty_values": 0,
+      "empty_values": 0,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/Level.strdb00e": {
+      "path": "StringDatabase/source/Level.strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 22,
+      "rebuilt_size": 22,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "679f319e3c6689d88246954fba5cda884c2519265b5f3b7e11d76d0f9ce637f2",
+      "entry_count": 0,
+      "unique_keys": 0,
+      "duplicate_keys": [],
+      "non_empty_values": 0,
+      "empty_values": 0,
+      "trailing_crlf_count": 2
+    },
+    "StringDatabase/source/VoiceFX.strdb00e": {
+      "path": "StringDatabase/source/VoiceFX.strdb00e",
+      "format": "StrDb00e (UTF-16LE BOM Source Key-Value)",
+      "file_size": 22,
+      "rebuilt_size": 22,
+      "diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "679f319e3c6689d88246954fba5cda884c2519265b5f3b7e11d76d0f9ce637f2",
+      "entry_count": 0,
+      "unique_keys": 0,
+      "duplicate_keys": [],
+      "non_empty_values": 0,
+      "empty_values": 0,
+      "trailing_crlf_count": 2
+    }
+  },
+  "strdb00p_compiled_files": {
+    "Game/StringDatabase/Turkey/TheRaw.Strdb00p": {
+      "path": "Game/StringDatabase/Turkey/TheRaw.Strdb00p",
+      "format": "StrDb00p (SKDB v2 Compiled Binary String Keeper Database)",
+      "file_size": 340112,
+      "rebuilt_size": 340112,
+      "diff_bytes": 0,
+      "pool_diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "744cd8bffadf7cba63c570455eaeea3c9a7c53053956d08fb1d4cd775e4266f1",
+      "header": {
+        "magic": "SKDB",
+        "version": 2,
+        "num_ids": 3525,
+        "num_ids_plus_values": 6780,
+        "num_unique_wvalues": 3255,
+        "num_unique_voices": 55,
+        "string_pool_bytes": 311888,
+        "record_table_offset": 311912,
+        "record_table_bytes": 28200
+      },
+      "sorted_case_insensitive": true,
+      "non_empty_values": 3525,
+      "empty_values": 0,
+      "records_with_voice": 61,
+      "voices_list": [
+        "",
+        "Voice\\UI_SYS_MODE_SniperPistol.wav",
+        "Voice\\UI_SYS_MODE_SniperOnly.wav",
+        "[System][FlexibleCapture][2]",
+        "Voice\\IDS_WEAPON_DESCRIP_1130015.wav",
+        "Voice\\GAME_QuickRespawn_UseItem.wav",
+        "[AutoDialogue][4]",
+        "Voice\\UI_SYS_MODE_RiflePistol.wav",
+        "[System][Notice][2]",
+        "[HUD][RoundLose][0]",
+        "[System][Notice][8]",
+        "[System][AquaEvent][1]",
+        "[AutoDialogue][0]",
+        "[System][Captain][4]",
+        "[System][FlexibleCapture][1]",
+        "[HUD][TimeLimited][0]",
+        "[System][Notice][0]",
+        "[System][FlexibleCapture][0]",
+        "Voice\\IDS_WEAPON_NAME_1337001.wav",
+        "Voice\\IDS_WEAPON_NAME_1337002.wav",
+        "Voice\\GAME_QuickRespawn_UseMsg.wav",
+        "[System][Captain][7]",
+        "[System][Captain][0]",
+        "[System][Captain][1]",
+        "[AutoDialogue][3]",
+        "[System][FlexibleCapture][6]",
+        "[UI][Coin][5]",
+        "[HUD][RoundDraw][0]",
+        "[System][AquaEvent][3]",
+        "[System][FlexibleCapture][5]",
+        "Voice\\IDS_WEAPON_NAME_1130015.wav",
+        "[System][Demolition][2]",
+        "[System][FlexibleCapture][3]",
+        "[System][AquaEvent][5]",
+        "[System][AquaEvent][2]",
+        "[System][Demolition][1]",
+        "Voice\\IDS_WEAPON_NAME_1140023.wav",
+        "[HUD][RoundWin][0]",
+        "[System][Captain][5]",
+        "Voice\\GAME_QuickRespawn_GoldEmptyMsg.wav",
+        "[System][Captain][3]",
+        "[System][Demolition][0]",
+        "Voice\\MSG_ERROR_00A30199.wav",
+        "[System][Captain][2]",
+        "[System][AquaEvent][4]",
+        "[AutoDialogue][8]",
+        "[System][FlexibleCapture][4]",
+        "Voice\\IDS_MAP_NAME_10051.wav",
+        "Voice\\IDS_MAP_NAME_10052.wav",
+        "Voice\\IDS_MAP_NAME_10053.wav",
+        "Voice\\IDS_MAP_NAME_10054.wav",
+        "Voice\\IDS_MAP_NAME_10055.wav",
+        "Voice\\IDS_MAP_NAME_10056.wav",
+        "[System][Captain][6]",
+        "[UI][Coin][6]"
+      ]
+    },
+    "StringDatabase/English/TheRaw.Strdb00p": {
+      "path": "StringDatabase/English/TheRaw.Strdb00p",
+      "format": "StrDb00p (SKDB v2 Compiled Binary String Keeper Database)",
+      "file_size": 314092,
+      "rebuilt_size": 314092,
+      "diff_bytes": 0,
+      "pool_diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "132bda0459c1a5e53b58a9c1f7e77fb22286a956e85a540927b0c0d2debc8cdd",
+      "header": {
+        "magic": "SKDB",
+        "version": 2,
+        "num_ids": 3492,
+        "num_ids_plus_values": 6575,
+        "num_unique_wvalues": 3083,
+        "num_unique_voices": 49,
+        "string_pool_bytes": 286132,
+        "record_table_offset": 286156,
+        "record_table_bytes": 27936
+      },
+      "sorted_case_insensitive": true,
+      "non_empty_values": 3488,
+      "empty_values": 4,
+      "records_with_voice": 55,
+      "voices_list": [
+        "",
+        "[System][FlexibleCapture][2]",
+        "Voice\\IDS_WEAPON_DESCRIP_1130015.wav",
+        "Voice\\GAME_QuickRespawn_UseItem.wav",
+        "[AutoDialogue][4]",
+        "[System][Notice][2]",
+        "[HUD][RoundLose][0]",
+        "[System][Notice][8]",
+        "[System][AquaEvent][1]",
+        "[AutoDialogue][0]",
+        "[System][Captain][4]",
+        "[System][FlexibleCapture][1]",
+        "[HUD][TimeLimited][0]",
+        "[System][Notice][0]",
+        "[System][FlexibleCapture][0]",
+        "Voice\\GAME_QuickRespawn_UseMsg.wav",
+        "[System][Captain][7]",
+        "[System][Captain][0]",
+        "[System][Captain][1]",
+        "[AutoDialogue][3]",
+        "[System][FlexibleCapture][6]",
+        "[UI][Coin][5]",
+        "[HUD][RoundDraw][0]",
+        "[System][AquaEvent][3]",
+        "[System][FlexibleCapture][5]",
+        "Voice\\IDS_WEAPON_NAME_1130015.wav",
+        "[System][Demolition][2]",
+        "[System][FlexibleCapture][3]",
+        "[System][AquaEvent][5]",
+        "[System][AquaEvent][2]",
+        "[System][Demolition][1]",
+        "Voice\\IDS_WEAPON_NAME_1140023.wav",
+        "[HUD][RoundWin][0]",
+        "[System][Captain][5]",
+        "Voice\\GAME_QuickRespawn_GoldEmptyMsg.wav",
+        "[System][Captain][3]",
+        "[System][Demolition][0]",
+        "[System][Captain][2]",
+        "[System][AquaEvent][4]",
+        "[AutoDialogue][8]",
+        "[System][FlexibleCapture][4]",
+        "Voice\\IDS_MAP_NAME_10051.wav",
+        "Voice\\IDS_MAP_NAME_10052.wav",
+        "Voice\\IDS_MAP_NAME_10053.wav",
+        "Voice\\IDS_MAP_NAME_10054.wav",
+        "Voice\\IDS_MAP_NAME_10055.wav",
+        "Voice\\IDS_MAP_NAME_10056.wav",
+        "[System][Captain][6]",
+        "[UI][Coin][6]"
+      ]
+    },
+    "StringDatabase/Turkey/TheRaw.Strdb00p": {
+      "path": "StringDatabase/Turkey/TheRaw.Strdb00p",
+      "format": "StrDb00p (SKDB v2 Compiled Binary String Keeper Database)",
+      "file_size": 303332,
+      "rebuilt_size": 303332,
+      "diff_bytes": 0,
+      "pool_diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "6d6bbcf9dd505d0d33eee0f92b2f114b6ab21cf37cb50c1ff0a0a524721e9a07",
+      "header": {
+        "magic": "SKDB",
+        "version": 2,
+        "num_ids": 3492,
+        "num_ids_plus_values": 6542,
+        "num_unique_wvalues": 3050,
+        "num_unique_voices": 49,
+        "string_pool_bytes": 275372,
+        "record_table_offset": 275396,
+        "record_table_bytes": 27936
+      },
+      "sorted_case_insensitive": true,
+      "non_empty_values": 3488,
+      "empty_values": 4,
+      "records_with_voice": 55,
+      "voices_list": [
+        "",
+        "[System][FlexibleCapture][2]",
+        "Voice\\IDS_WEAPON_DESCRIP_1130015.wav",
+        "Voice\\GAME_QuickRespawn_UseItem.wav",
+        "[AutoDialogue][4]",
+        "[System][Notice][2]",
+        "[HUD][RoundLose][0]",
+        "[System][Notice][8]",
+        "[System][AquaEvent][1]",
+        "[AutoDialogue][0]",
+        "[System][Captain][4]",
+        "[System][FlexibleCapture][1]",
+        "[HUD][TimeLimited][0]",
+        "[System][Notice][0]",
+        "[System][FlexibleCapture][0]",
+        "Voice\\GAME_QuickRespawn_UseMsg.wav",
+        "[System][Captain][7]",
+        "[System][Captain][0]",
+        "[System][Captain][1]",
+        "[AutoDialogue][3]",
+        "[System][FlexibleCapture][6]",
+        "[UI][Coin][5]",
+        "[HUD][RoundDraw][0]",
+        "[System][AquaEvent][3]",
+        "[System][FlexibleCapture][5]",
+        "Voice\\IDS_WEAPON_NAME_1130015.wav",
+        "[System][Demolition][2]",
+        "[System][FlexibleCapture][3]",
+        "[System][AquaEvent][5]",
+        "[System][AquaEvent][2]",
+        "[System][Demolition][1]",
+        "Voice\\IDS_WEAPON_NAME_1140023.wav",
+        "[HUD][RoundWin][0]",
+        "[System][Captain][5]",
+        "Voice\\GAME_QuickRespawn_GoldEmptyMsg.wav",
+        "[System][Captain][3]",
+        "[System][Demolition][0]",
+        "[System][Captain][2]",
+        "[System][AquaEvent][4]",
+        "[AutoDialogue][8]",
+        "[System][FlexibleCapture][4]",
+        "Voice\\IDS_MAP_NAME_10051.wav",
+        "Voice\\IDS_MAP_NAME_10052.wav",
+        "Voice\\IDS_MAP_NAME_10053.wav",
+        "Voice\\IDS_MAP_NAME_10054.wav",
+        "Voice\\IDS_MAP_NAME_10055.wav",
+        "Voice\\IDS_MAP_NAME_10056.wav",
+        "[System][Captain][6]",
+        "[UI][Coin][6]"
+      ]
+    },
+    "StringDatabase/Turkey/1.Strdb00p": {
+      "path": "StringDatabase/Turkey/1.Strdb00p",
+      "format": "StrDb00p (SKDB v2 Compiled Binary String Keeper Database)",
+      "file_size": 303004,
+      "rebuilt_size": 303004,
+      "diff_bytes": 0,
+      "pool_diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "3fb0123d371bdfc566aa61d5e25dceb7714899ba8f35dc4ee757d4d566ae725a",
+      "header": {
+        "magic": "SKDB",
+        "version": 2,
+        "num_ids": 3488,
+        "num_ids_plus_values": 6534,
+        "num_unique_wvalues": 3046,
+        "num_unique_voices": 45,
+        "string_pool_bytes": 275076,
+        "record_table_offset": 275100,
+        "record_table_bytes": 27904
+      },
+      "sorted_case_insensitive": true,
+      "non_empty_values": 3484,
+      "empty_values": 4,
+      "records_with_voice": 51,
+      "voices_list": [
+        "",
+        "[System][FlexibleCapture][2]",
+        "Voice\\IDS_WEAPON_DESCRIP_1130015.wav",
+        "Voice\\GAME_QuickRespawn_UseItem.wav",
+        "[AutoDialogue][4]",
+        "[System][Notice][2]",
+        "[HUD][RoundLose][0]",
+        "[System][Notice][8]",
+        "[System][AquaEvent][1]",
+        "[AutoDialogue][0]",
+        "[System][Captain][4]",
+        "[System][FlexibleCapture][1]",
+        "[HUD][TimeLimited][0]",
+        "[System][Notice][0]",
+        "[System][FlexibleCapture][0]",
+        "Voice\\GAME_QuickRespawn_UseMsg.wav",
+        "[System][Captain][7]",
+        "[System][Captain][0]",
+        "[System][Captain][1]",
+        "[AutoDialogue][3]",
+        "[System][FlexibleCapture][6]",
+        "[UI][Coin][5]",
+        "[HUD][RoundDraw][0]",
+        "[System][AquaEvent][3]",
+        "[System][FlexibleCapture][5]",
+        "Voice\\IDS_WEAPON_NAME_1130015.wav",
+        "[System][Demolition][2]",
+        "[System][FlexibleCapture][3]",
+        "[System][AquaEvent][5]",
+        "[System][AquaEvent][2]",
+        "[System][Demolition][1]",
+        "Voice\\IDS_WEAPON_NAME_1140023.wav",
+        "[HUD][RoundWin][0]",
+        "[System][Captain][5]",
+        "Voice\\GAME_QuickRespawn_GoldEmptyMsg.wav",
+        "[System][Captain][3]",
+        "[System][Demolition][0]",
+        "[System][Captain][2]",
+        "[System][AquaEvent][4]",
+        "[AutoDialogue][8]",
+        "[System][FlexibleCapture][4]",
+        "Voice\\IDS_MAP_NAME_10051.wav",
+        "Voice\\IDS_MAP_NAME_10052.wav",
+        "[System][Captain][6]",
+        "[UI][Coin][6]"
+      ]
+    },
+    "StringDatabase/Korea/TheRaw.Strdb00p": {
+      "path": "StringDatabase/Korea/TheRaw.Strdb00p",
+      "format": "StrDb00p (SKDB v2 Compiled Binary String Keeper Database)",
+      "file_size": 255200,
+      "rebuilt_size": 255200,
+      "diff_bytes": 0,
+      "pool_diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "06590e6591154aedf06c2e5f42263fa4cd704e2f55071d7e4d71c7a847d7fd66",
+      "header": {
+        "magic": "SKDB",
+        "version": 2,
+        "num_ids": 3487,
+        "num_ids_plus_values": 6683,
+        "num_unique_wvalues": 3196,
+        "num_unique_voices": 44,
+        "string_pool_bytes": 227280,
+        "record_table_offset": 227304,
+        "record_table_bytes": 27896
+      },
+      "sorted_case_insensitive": true,
+      "non_empty_values": 3481,
+      "empty_values": 6,
+      "records_with_voice": 50,
+      "voices_list": [
+        "",
+        "[AutoDialogue][3]",
+        "[System][Captain][4]",
+        "[System][Captain][1]",
+        "[AutoDialogue][4]",
+        "[System][FlexibleCapture][5]",
+        "[System][Captain][0]",
+        "[System][Notice][2]",
+        "[System][Demolition][2]",
+        "[System][Captain][3]",
+        "[System][Demolition][0]",
+        "[System][Demolition][1]",
+        "[System][Captain][7]",
+        "[System][Captain][6]",
+        "[System][Captain][5]",
+        "[HUD][RoundWin][0]",
+        "[System][Captain][2]",
+        "[System][FlexibleCapture][6]",
+        "[System][FlexibleCapture][3]",
+        "[System][FlexibleCapture][4]",
+        "[System][FlexibleCapture][1]",
+        "[System][FlexibleCapture][2]",
+        "[System][FlexibleCapture][0]",
+        "Voice\\GAME_QuickRespawn_GoldEmptyMsg.wav",
+        "Voice\\GAME_QuickRespawn_UseItem.wav",
+        "Voice\\GAME_QuickRespawn_UseMsg.wav",
+        "[System][AquaEvent][3]",
+        "[System][AquaEvent][2]",
+        "[System][AquaEvent][4]",
+        "[System][AquaEvent][5]",
+        "[System][AquaEvent][1]",
+        "[HUD][TimeLimited][0]",
+        "[AutoDialogue][0]",
+        "[AutoDialogue][8]",
+        "[HUD][RoundDraw][0]",
+        "[HUD][RoundLose][0]",
+        "[UI][Coin][5]",
+        "Voice\\IDS_WEAPON_NAME_1130015.wav",
+        "Voice\\IDS_MAP_NAME_10051.wav",
+        "Voice\\IDS_WEAPON_DESCRIP_1130015.wav",
+        "[System][Notice][8]",
+        "Voice\\IDS_WEAPON_NAME_1140023.wav",
+        "[UI][Coin][6]",
+        "[System][Notice][0]"
+      ]
+    },
+    "StringDatabase/Arabic/TheRaw.Strdb00p": {
+      "path": "StringDatabase/Arabic/TheRaw.Strdb00p",
+      "format": "StrDb00p (SKDB v2 Compiled Binary String Keeper Database)",
+      "file_size": 245324,
+      "rebuilt_size": 245324,
+      "diff_bytes": 0,
+      "pool_diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "2b2be07ce523ff1ac4a233a581c000046128ddc45f66d90315fd14ab88f0cd14",
+      "header": {
+        "magic": "SKDB",
+        "version": 2,
+        "num_ids": 3487,
+        "num_ids_plus_values": 6051,
+        "num_unique_wvalues": 2564,
+        "num_unique_voices": 44,
+        "string_pool_bytes": 217404,
+        "record_table_offset": 217428,
+        "record_table_bytes": 27896
+      },
+      "sorted_case_insensitive": true,
+      "non_empty_values": 2877,
+      "empty_values": 610,
+      "records_with_voice": 50,
+      "voices_list": [
+        "",
+        "[AutoDialogue][3]",
+        "[System][Captain][4]",
+        "[System][Captain][1]",
+        "[AutoDialogue][4]",
+        "[System][FlexibleCapture][5]",
+        "[System][Captain][0]",
+        "[System][Notice][2]",
+        "[System][Demolition][2]",
+        "[System][Captain][3]",
+        "[System][Demolition][0]",
+        "[System][Demolition][1]",
+        "[System][Captain][7]",
+        "[System][Captain][6]",
+        "[System][Captain][5]",
+        "[HUD][RoundWin][0]",
+        "[System][Captain][2]",
+        "[System][FlexibleCapture][6]",
+        "[System][FlexibleCapture][3]",
+        "[System][FlexibleCapture][4]",
+        "[System][FlexibleCapture][1]",
+        "[System][FlexibleCapture][2]",
+        "[System][FlexibleCapture][0]",
+        "Voice\\GAME_QuickRespawn_GoldEmptyMsg.wav",
+        "Voice\\GAME_QuickRespawn_UseItem.wav",
+        "Voice\\GAME_QuickRespawn_UseMsg.wav",
+        "[System][AquaEvent][3]",
+        "[System][AquaEvent][2]",
+        "[System][AquaEvent][4]",
+        "[System][AquaEvent][5]",
+        "[System][AquaEvent][1]",
+        "[HUD][TimeLimited][0]",
+        "[AutoDialogue][0]",
+        "[AutoDialogue][8]",
+        "[HUD][RoundDraw][0]",
+        "[HUD][RoundLose][0]",
+        "[UI][Coin][5]",
+        "Voice\\IDS_WEAPON_NAME_1130015.wav",
+        "Voice\\IDS_MAP_NAME_10051.wav",
+        "Voice\\IDS_WEAPON_DESCRIP_1130015.wav",
+        "[System][Notice][8]",
+        "Voice\\IDS_WEAPON_NAME_1140023.wav",
+        "[UI][Coin][6]",
+        "[System][Notice][0]"
+      ]
+    },
+    "StringDatabase/TheRaw.Strdb00p": {
+      "path": "StringDatabase/TheRaw.Strdb00p",
+      "format": "StrDb00p (SKDB v2 Compiled Binary String Keeper Database)",
+      "file_size": 303332,
+      "rebuilt_size": 303332,
+      "diff_bytes": 0,
+      "pool_diff_bytes": 0,
+      "byte_exact": true,
+      "sha256": "6d6bbcf9dd505d0d33eee0f92b2f114b6ab21cf37cb50c1ff0a0a524721e9a07",
+      "header": {
+        "magic": "SKDB",
+        "version": 2,
+        "num_ids": 3492,
+        "num_ids_plus_values": 6542,
+        "num_unique_wvalues": 3050,
+        "num_unique_voices": 49,
+        "string_pool_bytes": 275372,
+        "record_table_offset": 275396,
+        "record_table_bytes": 27936
+      },
+      "sorted_case_insensitive": true,
+      "non_empty_values": 3488,
+      "empty_values": 4,
+      "records_with_voice": 55,
+      "voices_list": [
+        "",
+        "[System][FlexibleCapture][2]",
+        "Voice\\IDS_WEAPON_DESCRIP_1130015.wav",
+        "Voice\\GAME_QuickRespawn_UseItem.wav",
+        "[AutoDialogue][4]",
+        "[System][Notice][2]",
+        "[HUD][RoundLose][0]",
+        "[System][Notice][8]",
+        "[System][AquaEvent][1]",
+        "[AutoDialogue][0]",
+        "[System][Captain][4]",
+        "[System][FlexibleCapture][1]",
+        "[HUD][TimeLimited][0]",
+        "[System][Notice][0]",
+        "[System][FlexibleCapture][0]",
+        "Voice\\GAME_QuickRespawn_UseMsg.wav",
+        "[System][Captain][7]",
+        "[System][Captain][0]",
+        "[System][Captain][1]",
+        "[AutoDialogue][3]",
+        "[System][FlexibleCapture][6]",
+        "[UI][Coin][5]",
+        "[HUD][RoundDraw][0]",
+        "[System][AquaEvent][3]",
+        "[System][FlexibleCapture][5]",
+        "Voice\\IDS_WEAPON_NAME_1130015.wav",
+        "[System][Demolition][2]",
+        "[System][FlexibleCapture][3]",
+        "[System][AquaEvent][5]",
+        "[System][AquaEvent][2]",
+        "[System][Demolition][1]",
+        "Voice\\IDS_WEAPON_NAME_1140023.wav",
+        "[HUD][RoundWin][0]",
+        "[System][Captain][5]",
+        "Voice\\GAME_QuickRespawn_GoldEmptyMsg.wav",
+        "[System][Captain][3]",
+        "[System][Demolition][0]",
+        "[System][Captain][2]",
+        "[System][AquaEvent][4]",
+        "[AutoDialogue][8]",
+        "[System][FlexibleCapture][4]",
+        "Voice\\IDS_MAP_NAME_10051.wav",
+        "Voice\\IDS_MAP_NAME_10052.wav",
+        "Voice\\IDS_MAP_NAME_10053.wav",
+        "Voice\\IDS_MAP_NAME_10054.wav",
+        "Voice\\IDS_MAP_NAME_10055.wav",
+        "Voice\\IDS_MAP_NAME_10056.wav",
+        "[System][Captain][6]",
+        "[UI][Coin][6]"
+      ]
+    }
+  },
+  "category_distribution": {
+    "ItemName": 652,
+    "ItemDescription": 624,
+    "GlobalStr": 576,
+    "ErrorMsg": 470,
+    "Achievement": 178,
+    "Clan": 162,
+    "MapName": 155,
+    "Shop": 141,
+    "Setting": 112,
+    "InGame": 76,
+    "Stand-Alone Server": 67,
+    "Lobby": 52,
+    "Soundkey": 49,
+    "Post": 33,
+    "LuckyShop": 29,
+    "MarbleLand": 28,
+    "Menu": 24,
+    "Tournament": 24,
+    "Room": 21,
+    "JG_Error": 10,
+    "Stats": 7,
+    "Channel": 2
+  },
+  "comparison_summary": {
+    "active_runtime_db": "Game/StringDatabase/Turkey/TheRaw.Strdb00p",
+    "active_runtime_finding": "Despite residing in the 'Turkey/' subfolder (due to TheRaw.Strdb00s PostBuildStep and Turkish client base), Game/StringDatabase/Turkey/TheRaw.Strdb00p is actually the custom S2 Rebirth English database (3,525 IDs), containing 33 brand-new IDs (custom weapons 1337001..1337008, custom maps Plaza/White Night, Discord verification MSG_ERROR_00A30199, room/channel error messages, and Sniper/Rifle mode strings) plus 584 polished/translated English strings compared to StringDatabase/English/TheRaw.Strdb00p (3,492 IDs, which still had leftover Korean strings).",
+    "StringDatabase_TheRaw_vs_Turkey_TheRaw_identical_sha256": true,
+    "rebirth_added_id_count": 33,
+    "rebirth_modified_vs_english_count": 584,
+    "voice_mapped_entry_count": 61
+  },
+  "rebirth_added_entries": [
+    {
+      "id": "IDS_MAP_NAME_10035",
+      "value": "Plaza",
+      "voice": ""
+    },
+    {
+      "id": "IDS_MAP_NAME_10036",
+      "value": "White Night",
+      "voice": ""
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1337001",
+      "value": "PDW K101 Glitch",
+      "voice": "Voice\\IDS_WEAPON_NAME_1337001.wav"
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1337002",
+      "value": "AWM 300 Fire",
+      "voice": "Voice\\IDS_WEAPON_NAME_1337002.wav"
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1337003",
+      "value": "Hand Axe Glitch",
+      "voice": ""
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1337005",
+      "value": "Karambit",
+      "voice": ""
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1337006",
+      "value": "Glock-Lightning",
+      "voice": ""
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1337007",
+      "value": "Dragon Flame",
+      "voice": ""
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1337008",
+      "value": "AWM 300 Fire-S",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00A30199",
+      "value": "<font color='#DC143C'>You must verify your Discord account before you can access this channel.</font>",
+      "voice": "Voice\\MSG_ERROR_00A30199.wav"
+    },
+    {
+      "id": "MSG_ERROR_00a30101",
+      "value": "The Channel is full and you cannot enter.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30181",
+      "value": "Invalid Channel value.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30201",
+      "value": "The Room is full. You cannot enter.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a3022a",
+      "value": "You cannot enter. This map prohibits intrusion.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30231",
+      "value": "You cannot change the Room Settings while a game is in progress.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a3023c",
+      "value": "Intrusion is not allowed in Clan Matches.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a3023d",
+      "value": "Auto-Team balance is disabled in Clan Matches.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30241",
+      "value": "You are not able to enter the Room.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30244",
+      "value": "You cannot Start.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30255",
+      "value": "You are not the Room Leader.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30261",
+      "value": "You cannot change the Map while a game is in progress.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a302a1",
+      "value": "Unable to create more Rooms.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a302b1",
+      "value": "Wrong Password.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30323",
+      "value": "Incorrect team index. Unable to switch teams.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30382",
+      "value": "You cannot switch teams in Clan Matches.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30383",
+      "value": "You cannot switch to the opposing team.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30403",
+      "value": "No more Players can join.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30431",
+      "value": "That item does not exist.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a30ac1",
+      "value": "Anti-cheat protection is not running. Close and reopen the launcher, then start the game from it.",
+      "voice": ""
+    },
+    {
+      "id": "MSG_ERROR_00a32193",
+      "value": "Team composition is unconformable for Game Start.",
+      "voice": ""
+    },
+    {
+      "id": "UI_SYS_MODE_RiflePistol",
+      "value": "Rifle / Pistol",
+      "voice": "Voice\\UI_SYS_MODE_RiflePistol.wav"
+    },
+    {
+      "id": "UI_SYS_MODE_SniperOnly",
+      "value": "Sniper Only",
+      "voice": "Voice\\UI_SYS_MODE_SniperOnly.wav"
+    },
+    {
+      "id": "UI_SYS_MODE_SniperPistol",
+      "value": "Sniper/ Pistol",
+      "voice": "Voice\\UI_SYS_MODE_SniperPistol.wav"
+    }
+  ],
+  "voice_mapped_entries": [
+    {
+      "id": "GAME_BOMB_DEFUSE",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Demolition][2]",
+      "rebirth_en": "[%1!s!] disarmed the bomb.",
+      "turkish_tr": "[%1!s!] bombayı imha etti.",
+      "korean_ko": "[%1!s!] 님이 폭탄을 해체하였습니다."
+    },
+    {
+      "id": "GAME_BOMB_DEFUSEING",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Demolition][0]",
+      "rebirth_en": "Disarming bomb",
+      "turkish_tr": "Bomba İmha Ediliyor",
+      "korean_ko": "폭탄 해체중"
+    },
+    {
+      "id": "GAME_BOMB_PLANA_A",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Demolition][1]",
+      "rebirth_en": "[%1!s!] has set the bomb at location A. Defend the bomb!",
+      "turkish_tr": "[%1!s!] A bölgesine bombayı kurdu. Bombayı koruyun!",
+      "korean_ko": "[%1!s!] 님이 A지역에 폭탄을 설치하였습니다. 폭탄을 지켜내십시오!"
+    },
+    {
+      "id": "GAME_BOMB_PLANA_B",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Demolition][1]",
+      "rebirth_en": "[%1!s!] has set the bomb at location A. Disarm the bomb!",
+      "turkish_tr": "[%1!s!] A bölgesine bombayı kurdu. Bombayı imha edin!",
+      "korean_ko": "[%1!s!] 님이 A지역에 폭탄을 설치하였습니다. 즉시 폭탄을 해체 하십시오!"
+    },
+    {
+      "id": "GAME_BOMB_PLANB_A",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Demolition][1]",
+      "rebirth_en": "[%1!s!] has set the bomb at location B. Defend the bomb!",
+      "turkish_tr": "[%1!s!] B bölgesine bombayı kurdu. Bombayı koruyun!",
+      "korean_ko": "[%1!s!] 님이 B지역에 폭탄을 설치하였습니다. 폭탄을 지켜내십시오!"
+    },
+    {
+      "id": "GAME_BOMB_PLANB_B",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Demolition][1]",
+      "rebirth_en": "[%1!s!] has set the bomb at location B. Disarm the bomb!",
+      "turkish_tr": "[%1!s!] B bölgesine bombayı kurdu. Bombayı imha edin!",
+      "korean_ko": "[%1!s!] 님이 B지역에 폭탄을 설치하였습니다. 즉시 폭탄을 해체 하십시오!"
+    },
+    {
+      "id": "GAME_CAPTAIN_ALLKILL_FAIL",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Captain][7]",
+      "rebirth_en": "Failure! Our Boss has been defeated!",
+      "turkish_tr": "Görev Başarısız! Tüm patronlarımız öldü!",
+      "korean_ko": "미션 실패! 대장이 모두 사살 되었습니다."
+    },
+    {
+      "id": "GAME_CAPTAIN_ALLKILL_SUCCESS",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Captain][6]",
+      "rebirth_en": "Success! Enemy Boss has been defeated!",
+      "turkish_tr": "Görev Başarılı! Tüm düşman patronları öldü!",
+      "korean_ko": "미션 성공! 대장을 모두 사살 하였습니다."
+    },
+    {
+      "id": "GAME_CAPTAIN_DEATH",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Captain][1]",
+      "rebirth_en": "[%1!s!] killed our Boss!",
+      "turkish_tr": "[%1!s!] patronumuzu öldürdü.",
+      "korean_ko": "[%1!s!] 에게 대장이 사망 하였습니다."
+    },
+    {
+      "id": "GAME_CAPTAIN_KILL",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Captain][0]",
+      "rebirth_en": "[%1!s!] killed the enemy Boss!",
+      "turkish_tr": "[%1!s!] düşman patronunu öldürdü.",
+      "korean_ko": "[%1!s!] 님이 적의 대장을 사살 하였습니다."
+    },
+    {
+      "id": "GAME_CAPTAIN_SELECTED_ALLY",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Captain][3]",
+      "rebirth_en": "[%1!s!] is now our Boss. Protect them!",
+      "turkish_tr": "[%1!s!] yeni patronumuz oldu. Patronu koruyun!",
+      "korean_ko": "[%1!s!] 대장으로 선정 되었다 대장을 보호하라!"
+    },
+    {
+      "id": "GAME_CAPTAIN_SELECTED_ENEMY",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Captain][4]",
+      "rebirth_en": "[%1!s!] is now the Boss. Kill them!",
+      "turkish_tr": "[%1!s!] yeni patron oldu. Öldürün!",
+      "korean_ko": "[%1!s!] 대장으로 선정 되었다 적의 대장을 사살하라!"
+    },
+    {
+      "id": "GAME_CAPTAIN_SELECTED_I",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Captain][5]",
+      "rebirth_en": "You are now the Boss!",
+      "turkish_tr": "Yeni patron sizsiniz.",
+      "korean_ko": "당신이 대장으로 선정 되었습니다. "
+    },
+    {
+      "id": "GAME_CAPTAIN_START",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Captain][2]",
+      "rebirth_en": "Protect our Boss and kill the enemy's Boss!",
+      "turkish_tr": "Patronumuzu koruyun ve düşman patronunu öldürün",
+      "korean_ko": "아군 대장을 보호하고 상대 팀의 대장을 사살하라."
+    },
+    {
+      "id": "GAME_CAPTAIN_Suicide_Ally",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Captain][1]",
+      "rebirth_en": "Our Boss has commited suicide!",
+      "turkish_tr": "Patronumuz kazara öldürüldü.",
+      "korean_ko": "아군 대장이 불의의 사고로 죽었습니다"
+    },
+    {
+      "id": "GAME_CAPTAIN_Suicide_Enemy",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Captain][0]",
+      "rebirth_en": "Our enemy's Boss has commited suicide!",
+      "turkish_tr": "Düşman patronu kazara öldürüldü.",
+      "korean_ko": "적 대장이 불의의 사고로 죽었습니다"
+    },
+    {
+      "id": "GAME_GameDropOutCount",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Notice][2]",
+      "rebirth_en": "You have been idle for too long. Returning to game lobby in %1!d! seconds.",
+      "turkish_tr": "Uzun süredir boştasınız. %1!d! sn içinde bekleme odasına döneceksiniz.",
+      "korean_ko": "장시간 입력이 없으므로 '%1!d!초' 후 대기실로 이동 합니다."
+    },
+    {
+      "id": "GAME_MONEY_ALLTAKE_FAIL",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][FlexibleCapture][6]",
+      "rebirth_en": "We lost our money to them.",
+      "turkish_tr": "Parayı aldılar.",
+      "korean_ko": "현금을 모두 놈들에게 빼았겼습니다."
+    },
+    {
+      "id": "GAME_MONEY_ALLTAKE_SUCCESS",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][FlexibleCapture][3]",
+      "rebirth_en": "We've recovered the money!",
+      "turkish_tr": "Paramızı geri aldık.",
+      "korean_ko": "현금을 모두 탈취하는데 성공했습니다."
+    },
+    {
+      "id": "GAME_MONEY_ENEMY_TAKESAFE",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][FlexibleCapture][5]",
+      "rebirth_en": "They've secured the money in their vehicle!",
+      "turkish_tr": "Parayı araca yüklediler.",
+      "korean_ko": "놈들이 현금을 차량에 실었습니다."
+    },
+    {
+      "id": "GAME_MONEY_LOSE",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][FlexibleCapture][4]",
+      "rebirth_en": "They've taken the money! Stop them!",
+      "turkish_tr": "Parayı ele geçirdiler. Durdurun onları.",
+      "korean_ko": "놈들에게 현금을 탈취당했습니다. 어서 막으십시오."
+    },
+    {
+      "id": "GAME_MONEY_TAKE",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][FlexibleCapture][1]",
+      "rebirth_en": "[%1!s!] has grabbed the money.",
+      "turkish_tr": "[%1!s!] parayı kurtardı.",
+      "korean_ko": "[%1!s!]님이 현금을 탈취했습니다."
+    },
+    {
+      "id": "GAME_MONEY_TAKESAFE",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][FlexibleCapture][2]",
+      "rebirth_en": "[%1!s!] has loaded the money in a vehicle.",
+      "turkish_tr": "[%1!s!] parayı araca yükledi.",
+      "korean_ko": "[%1!s!] 님이 현금을 차량에 실었습니다."
+    },
+    {
+      "id": "GAME_MONEY_TAKING",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][FlexibleCapture][0]",
+      "rebirth_en": "Capturing money.",
+      "turkish_tr": "Para alınıyor.",
+      "korean_ko": "탈취중입니다."
+    },
+    {
+      "id": "GAME_QuickRespawn_GoldEmptyMsg",
+      "category": "InGame",
+      "voice_cue_or_path": "Voice\\GAME_QuickRespawn_GoldEmptyMsg.wav",
+      "rebirth_en": "You do not have enough Gold",
+      "turkish_tr": "Yeterli altını yok.",
+      "korean_ko": "골드가 부족합니다."
+    },
+    {
+      "id": "GAME_QuickRespawn_UseItem",
+      "category": "InGame",
+      "voice_cue_or_path": "Voice\\GAME_QuickRespawn_UseItem.wav",
+      "rebirth_en": "Press [E] to use instant respawn. [ %1!d! remaining]",
+      "turkish_tr": "Hemen canlanmak için [E] tuşuna basın.[ %1!d! kaldı]",
+      "korean_ko": "[E] 키를 눌러 즉시 리스폰을 사용할 수 있습니다.[남은 개수 : %1!d!]"
+    },
+    {
+      "id": "GAME_QuickRespawn_UseMsg",
+      "category": "InGame",
+      "voice_cue_or_path": "Voice\\GAME_QuickRespawn_UseMsg.wav",
+      "rebirth_en": "Instant respawn used!",
+      "turkish_tr": "Anlık canlandırma kullanıldı!",
+      "korean_ko": "즉시리스폰을 사용하였습니다."
+    },
+    {
+      "id": "GAME_Supplies_GetAlly",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][AquaEvent][3]",
+      "rebirth_en": "[%1!s!] received a weapon.",
+      "turkish_tr": "[%1!s!] bir silah elde etti.",
+      "korean_ko": "[%1!s!]님이 무기를 획득 하였습니다."
+    },
+    {
+      "id": "GAME_Supplies_GetEnemy",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][AquaEvent][2]",
+      "rebirth_en": "Opponent received a weapon.",
+      "turkish_tr": "Rakip bir silah elde etti.",
+      "korean_ko": "상대팀이 무기를 획득 하였습니다."
+    },
+    {
+      "id": "GAME_Supplies_GetSelf",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][AquaEvent][4]",
+      "rebirth_en": "You received a weapon.",
+      "turkish_tr": "당신이 무기를 획득 하였습니다.",
+      "korean_ko": "당신이 무기를 획득 하였습니다."
+    },
+    {
+      "id": "GAME_Supplies_Procuring",
+      "category": "InGame",
+      "voice_cue_or_path": "[System][AquaEvent][5]",
+      "rebirth_en": "Securing the supplies…",
+      "turkish_tr": "Teçhizat korunuyor…",
+      "korean_ko": "보급품 확보 중..."
+    },
+    {
+      "id": "GAME_Supplies_Production",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][AquaEvent][1]",
+      "rebirth_en": "Received weapon supplies!",
+      "turkish_tr": "Silah teçhizatı alındı!",
+      "korean_ko": "무기가 보급되었다! 획득하라!"
+    },
+    {
+      "id": "GAME_TIMELINIT_A_01",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[HUD][TimeLimited][0]",
+      "rebirth_en": "You're running out of time! Hurry!",
+      "turkish_tr": "Fazla zamanınız kalmadı. Çabuk.",
+      "korean_ko": "작전 시간이 얼마 남지 않았습니다. 서두르십시오."
+    },
+    {
+      "id": "GAME_TIMELINIT_A_02",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[HUD][TimeLimited][0]",
+      "rebirth_en": "You're running out of time! Hurry!",
+      "turkish_tr": "Fazla zamanınız kalmadı. Çabuk.",
+      "korean_ko": "작전 시간이 얼마 남지 않았습니다. 서두르십시오."
+    },
+    {
+      "id": "GAME_TIMELINIT_B_01",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[HUD][TimeLimited][0]",
+      "rebirth_en": "Hold on just a bit longer!",
+      "turkish_tr": "Az daha dayanın.",
+      "korean_ko": "조금만 더 버티면 된다.."
+    },
+    {
+      "id": "GAME_VOICE_DAMAGED",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[AutoDialogue][0]",
+      "rebirth_en": "I`m hit.",
+      "turkish_tr": "",
+      "korean_ko": ""
+    },
+    {
+      "id": "GAME_VOICE_FRAG",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[AutoDialogue][8]",
+      "rebirth_en": "Fire in the hole.",
+      "turkish_tr": "Bomba atıyorum.",
+      "korean_ko": ""
+    },
+    {
+      "id": "GAME_VOICE_RESPAWN",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[AutoDialogue][3]",
+      "rebirth_en": "I`m in position.",
+      "turkish_tr": "Pozisyonumu aldım.",
+      "korean_ko": ""
+    },
+    {
+      "id": "GAME_VOICE_TAUNT",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[AutoDialogue][4]",
+      "rebirth_en": "Bring it on!",
+      "turkish_tr": "",
+      "korean_ko": ""
+    },
+    {
+      "id": "GlobalUI_MissionDraw",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[HUD][RoundDraw][0]",
+      "rebirth_en": "Mission Draw",
+      "turkish_tr": "",
+      "korean_ko": ""
+    },
+    {
+      "id": "GlobalUI_MissionFailed",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[HUD][RoundLose][0]",
+      "rebirth_en": "Mission Failed",
+      "turkish_tr": "Görev Başarısız",
+      "korean_ko": "Mission Failed"
+    },
+    {
+      "id": "GlobalUI_MissionSuccess",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[HUD][RoundWin][0]",
+      "rebirth_en": "Mission Accomplished",
+      "turkish_tr": "Görev Başarılı",
+      "korean_ko": "Mission Success"
+    },
+    {
+      "id": "IDS_MAP_NAME_10051",
+      "category": "MapName",
+      "voice_cue_or_path": "Voice\\IDS_MAP_NAME_10051.wav",
+      "rebirth_en": "Dummy House (wide)",
+      "turkish_tr": "더미하우스(폭)",
+      "korean_ko": "더미하우스(폭)"
+    },
+    {
+      "id": "IDS_MAP_NAME_10052",
+      "category": "MapName",
+      "voice_cue_or_path": "Voice\\IDS_MAP_NAME_10052.wav",
+      "rebirth_en": "AWP Lego",
+      "turkish_tr": "AWP Lego",
+      "korean_ko": null
+    },
+    {
+      "id": "IDS_MAP_NAME_10053",
+      "category": "MapName",
+      "voice_cue_or_path": "Voice\\IDS_MAP_NAME_10053.wav",
+      "rebirth_en": "Aim RedLine",
+      "turkish_tr": "Aim RedLine",
+      "korean_ko": null
+    },
+    {
+      "id": "IDS_MAP_NAME_10054",
+      "category": "MapName",
+      "voice_cue_or_path": "Voice\\IDS_MAP_NAME_10054.wav",
+      "rebirth_en": "AWP Lego (R)",
+      "turkish_tr": "AWP Lego (R)",
+      "korean_ko": null
+    },
+    {
+      "id": "IDS_MAP_NAME_10055",
+      "category": "MapName",
+      "voice_cue_or_path": "Voice\\IDS_MAP_NAME_10055.wav",
+      "rebirth_en": "Dead Forest",
+      "turkish_tr": "Refinery",
+      "korean_ko": null
+    },
+    {
+      "id": "IDS_MAP_NAME_10056",
+      "category": "MapName",
+      "voice_cue_or_path": "Voice\\IDS_MAP_NAME_10056.wav",
+      "rebirth_en": "Dust 2",
+      "turkish_tr": "Dust 2",
+      "korean_ko": null
+    },
+    {
+      "id": "IDS_WEAPON_DESCRIP_1130015",
+      "category": "ItemDescription",
+      "voice_cue_or_path": "Voice\\IDS_WEAPON_DESCRIP_1130015.wav",
+      "rebirth_en": "Armsel Striker Shotgun that be modified to be able to use special bullets. Effective range and damage is increased.",
+      "turkish_tr": " Özel mermi kullanılması için modifiye edilen Vole kod isimli Tüfek. Etkili menzili vardır ve hasarı arttırılmıştır. ",
+      "korean_ko": "특수 탄환을 사용할 수 있도록 개조된 Armsel Striker 샷건. 유효사거리가 증가 하였으며, 높은 데미지를 줄 수 있게 되었다."
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1130015",
+      "category": "ItemName",
+      "voice_cue_or_path": "Voice\\IDS_WEAPON_NAME_1130015.wav",
+      "rebirth_en": "A.Striker CT12",
+      "turkish_tr": "Vole Plus",
+      "korean_ko": "A.Striker CT12"
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1140023",
+      "category": "ItemName",
+      "voice_cue_or_path": "Voice\\IDS_WEAPON_NAME_1140023.wav",
+      "rebirth_en": "AWM 300 SE",
+      "turkish_tr": "AWM 300 SE",
+      "korean_ko": "AWM 300 SE"
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1337001",
+      "category": "Uncategorized",
+      "voice_cue_or_path": "Voice\\IDS_WEAPON_NAME_1337001.wav",
+      "rebirth_en": "PDW K101 Glitch",
+      "turkish_tr": null,
+      "korean_ko": null
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1337002",
+      "category": "Uncategorized",
+      "voice_cue_or_path": "Voice\\IDS_WEAPON_NAME_1337002.wav",
+      "rebirth_en": "AWM 300 Fire",
+      "turkish_tr": null,
+      "korean_ko": null
+    },
+    {
+      "id": "IDS_Whisper",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[System][Notice][8]",
+      "rebirth_en": "Whisper",
+      "turkish_tr": "",
+      "korean_ko": ""
+    },
+    {
+      "id": "MSG_ERROR_00A30199",
+      "category": "Uncategorized",
+      "voice_cue_or_path": "Voice\\MSG_ERROR_00A30199.wav",
+      "rebirth_en": "<font color='#DC143C'>You must verify your Discord account before you can access this channel.</font>",
+      "turkish_tr": null,
+      "korean_ko": null
+    },
+    {
+      "id": "UI_SYS_COIN_Fail",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[UI][Coin][6]",
+      "rebirth_en": "Sorry!! (Oh, what a shame)",
+      "turkish_tr": "Üzgünüz",
+      "korean_ko": "안타깝습니다."
+    },
+    {
+      "id": "UI_SYS_COIN_Success",
+      "category": "Soundkey",
+      "voice_cue_or_path": "[UI][Coin][5]",
+      "rebirth_en": "Congratulations!",
+      "turkish_tr": "Tebrikler",
+      "korean_ko": "축하합니다."
+    },
+    {
+      "id": "UI_SYS_MODE_RiflePistol",
+      "category": "Uncategorized",
+      "voice_cue_or_path": "Voice\\UI_SYS_MODE_RiflePistol.wav",
+      "rebirth_en": "Rifle / Pistol",
+      "turkish_tr": null,
+      "korean_ko": null
+    },
+    {
+      "id": "UI_SYS_MODE_SniperOnly",
+      "category": "Uncategorized",
+      "voice_cue_or_path": "Voice\\UI_SYS_MODE_SniperOnly.wav",
+      "rebirth_en": "Sniper Only",
+      "turkish_tr": null,
+      "korean_ko": null
+    },
+    {
+      "id": "UI_SYS_MODE_SniperPistol",
+      "category": "Uncategorized",
+      "voice_cue_or_path": "Voice\\UI_SYS_MODE_SniperPistol.wav",
+      "rebirth_en": "Sniper/ Pistol",
+      "turkish_tr": null,
+      "korean_ko": null
+    },
+    {
+      "id": "UI_SYS_ROOM_Setting",
+      "category": "Room",
+      "voice_cue_or_path": "[System][Notice][0]",
+      "rebirth_en": "Room settings have been changed.",
+      "turkish_tr": "Oda ayarları değiştirildi.",
+      "korean_ko": "방 설정이 변경되었습니다."
+    }
+  ],
+  "multilang_parallel_samples": [
+    {
+      "id": "DB_MSG_ERROR_-2210299",
+      "category": "ErrorMsg",
+      "rebirth_active": "Registration failed. Retry.",
+      "english_p": "Registration failed. Retry.",
+      "turkey_p": "Kayıt başarısız. Tekrar deneyin.",
+      "korea_p": "참가신청에 실패했습니다. 다시 시도해 주세요 ",
+      "arabic_p": "",
+      "voice": ""
+    },
+    {
+      "id": "GAME_BOMB_DEFUSE",
+      "category": "Soundkey",
+      "rebirth_active": "[%1!s!] disarmed the bomb.",
+      "english_p": "[%1!s!] disarmed the bomb.",
+      "turkey_p": "[%1!s!] bombayı imha etti.",
+      "korea_p": "[%1!s!] 님이 폭탄을 해체하였습니다.",
+      "arabic_p": "\" %1!s! \" ابطل القنبلة.",
+      "voice": "[System][Demolition][2]"
+    },
+    {
+      "id": "GAME_CAPTAIN_START",
+      "category": "Soundkey",
+      "rebirth_active": "Protect our Boss and kill the enemy's Boss!",
+      "english_p": "Protect our Boss and kill the enemy's Boss!",
+      "turkey_p": "Patronumuzu koruyun ve düşman patronunu öldürün",
+      "korea_p": "아군 대장을 보호하고 상대 팀의 대장을 사살하라.",
+      "arabic_p": "احمى قائدنا و اقتل قائد الاعداء!",
+      "voice": "[System][Captain][2]"
+    },
+    {
+      "id": "GlobalUI_MODE_FreeForAll",
+      "category": "GlobalStr",
+      "rebirth_active": "Feast of Wolves!",
+      "english_p": "Free for All",
+      "turkey_p": "Free for All",
+      "korea_p": "개인전",
+      "arabic_p": "مجانا للجميع",
+      "voice": ""
+    },
+    {
+      "id": "GlobalUI_MissionSuccess",
+      "category": "Soundkey",
+      "rebirth_active": "Mission Accomplished",
+      "english_p": "Mission Accomplished",
+      "turkey_p": "Görev Başarılı",
+      "korea_p": "Mission Success",
+      "arabic_p": "تمت المهمة",
+      "voice": "[HUD][RoundWin][0]"
+    },
+    {
+      "id": "IDS_MAP_NAME_10000",
+      "category": "MapName",
+      "rebirth_active": "Double Route",
+      "english_p": "The Slums",
+      "turkey_p": "Çifte Yol",
+      "korea_p": "투 웨이",
+      "arabic_p": "العشوائيات",
+      "voice": ""
+    },
+    {
+      "id": "IDS_MAP_NAME_10001",
+      "category": "MapName",
+      "rebirth_active": "Death Harbor",
+      "english_p": "The Docks",
+      "turkey_p": "Ölüm Limanı",
+      "korea_p": "킬 포트",
+      "arabic_p": "الارصفة",
+      "voice": ""
+    },
+    {
+      "id": "IDS_MAP_NAME_10011",
+      "category": "MapName",
+      "rebirth_active": "Ghost City",
+      "english_p": "Downtown",
+      "turkey_p": "Hayalet Şehir",
+      "korea_p": "고스트시티",
+      "arabic_p": "وسط المدينة",
+      "voice": ""
+    },
+    {
+      "id": "IDS_MAP_NAME_10035",
+      "category": "Custom/Rebirth",
+      "rebirth_active": "Plaza",
+      "english_p": null,
+      "turkey_p": null,
+      "korea_p": null,
+      "arabic_p": null,
+      "voice": ""
+    },
+    {
+      "id": "IDS_MAP_NAME_10056",
+      "category": "MapName",
+      "rebirth_active": "Dust 2",
+      "english_p": "Dust 2",
+      "turkey_p": "Dust 2",
+      "korea_p": null,
+      "arabic_p": null,
+      "voice": "Voice\\IDS_MAP_NAME_10056.wav"
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1110001",
+      "category": "ItemName",
+      "rebirth_active": "K1 Rail",
+      "english_p": "K1 Rail",
+      "turkey_p": "K1 Rail",
+      "korea_p": "K1 Rail",
+      "arabic_p": "K1 Rail",
+      "voice": ""
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1337001",
+      "category": "Custom/Rebirth",
+      "rebirth_active": "PDW K101 Glitch",
+      "english_p": null,
+      "turkey_p": null,
+      "korea_p": null,
+      "arabic_p": null,
+      "voice": "Voice\\IDS_WEAPON_NAME_1337001.wav"
+    },
+    {
+      "id": "IDS_WEAPON_NAME_1337002",
+      "category": "Custom/Rebirth",
+      "rebirth_active": "AWM 300 Fire",
+      "english_p": null,
+      "turkey_p": null,
+      "korea_p": null,
+      "arabic_p": null,
+      "voice": "Voice\\IDS_WEAPON_NAME_1337002.wav"
+    },
+    {
+      "id": "MSG_ERROR_00A30199",
+      "category": "Custom/Rebirth",
+      "rebirth_active": "<font color='#DC143C'>You must verify your Discord account before you can access this channel.</font>",
+      "english_p": null,
+      "turkey_p": null,
+      "korea_p": null,
+      "arabic_p": null,
+      "voice": "Voice\\MSG_ERROR_00A30199.wav"
+    },
+    {
+      "id": "MSG_ERROR_00a30ac1",
+      "category": "Custom/Rebirth",
+      "rebirth_active": "Anti-cheat protection is not running. Close and reopen the launcher, then start the game from it.",
+      "english_p": null,
+      "turkey_p": null,
+      "korea_p": null,
+      "arabic_p": null,
+      "voice": ""
+    },
+    {
+      "id": "UI_SYS_MODE_SniperOnly",
+      "category": "Custom/Rebirth",
+      "rebirth_active": "Sniper Only",
+      "english_p": null,
+      "turkey_p": null,
+      "korea_p": null,
+      "arabic_p": null,
+      "voice": "Voice\\UI_SYS_MODE_SniperOnly.wav"
+    }
+  ],
+  "rebirth_modified_vs_english_sample": [
+    {
+      "id": "FunctionName_1029",
+      "category": "Shop",
+      "english_original": "Increase reloding speed",
+      "rebirth_active": "Increase reloading speed",
+      "turkish_original": "Doldurma hızı artar",
+      "korean_original": "재장전 속도 상승"
+    },
+    {
+      "id": "FunctionName_1031",
+      "category": "Shop",
+      "english_original": "bullet respawn",
+      "rebirth_active": "Bullet respawn",
+      "turkish_original": "Kurşun yenileme",
+      "korean_original": "탄약재생"
+    },
+    {
+      "id": "FunctionName_1034",
+      "category": "Shop",
+      "english_original": "defend 1 headshot",
+      "rebirth_active": "Survive 1 headshot",
+      "turkish_original": "1 Kafadan vuruşu engeller",
+      "korean_original": "헤드샷 1회 방어"
+    },
+    {
+      "id": "FunctionName_1035",
+      "category": "Shop",
+      "english_original": "reduce fall damage",
+      "rebirth_active": "Reduce fall damage",
+      "turkish_original": "Düşme hasarını azaltır",
+      "korean_original": "낙하 데미지 감소"
+    },
+    {
+      "id": "FunctionName_1039",
+      "category": "Shop",
+      "english_original": "additional grenade",
+      "rebirth_active": "Additional grenade",
+      "turkish_original": "Ek bomba",
+      "korean_original": "추가수류탄"
+    },
+    {
+      "id": "FunctionName_1040",
+      "category": "Shop",
+      "english_original": "provocation",
+      "rebirth_active": "Taunt",
+      "turkish_original": "Kışkırtma",
+      "korean_original": "도발"
+    },
+    {
+      "id": "GAME_Supplies_GetSelf",
+      "category": "Soundkey",
+      "english_original": "당신이 무기를 획득 하였습니다.",
+      "rebirth_active": "You received a weapon.",
+      "turkish_original": "당신이 무기를 획득 하였습니다.",
+      "korean_original": "당신이 무기를 획득 하였습니다."
+    },
+    {
+      "id": "GAME_SwapWeaponDescript",
+      "category": "GlobalStr",
+      "english_original": "weapon will change after next respawn",
+      "rebirth_active": "Weapon will change after next respawn",
+      "turkish_original": "Silah değişimi yeniden doğduktan sonra yapılır.",
+      "korean_original": "선택한 무기는 다음 리스폰에 적용됩니다."
+    },
+    {
+      "id": "GAME_VOICE_DAMAGED",
+      "category": "Soundkey",
+      "english_original": "",
+      "rebirth_active": "I`m hit.",
+      "turkish_original": "",
+      "korean_original": ""
+    },
+    {
+      "id": "GAME_VOICE_TAUNT",
+      "category": "Soundkey",
+      "english_original": "",
+      "rebirth_active": "Bring it on!",
+      "turkish_original": "",
+      "korean_original": ""
+    },
+    {
+      "id": "GlobalUI_MODE_FreeForAll",
+      "category": "GlobalStr",
+      "english_original": "Free for All",
+      "rebirth_active": "Feast of Wolves!",
+      "turkish_original": "Free for All",
+      "korean_original": "개인전"
+    },
+    {
+      "id": "GlobalUI_MissionDraw",
+      "category": "Soundkey",
+      "english_original": "",
+      "rebirth_active": "Mission Draw",
+      "turkish_original": "",
+      "korean_original": ""
+    },
+    {
+      "id": "GlobalUI_PCRoomBonusGold",
+      "category": "GlobalStr",
+      "english_original": "이벤트 혜택으로 %1!d! 골드 획득",
+      "rebirth_active": "Earn %1!d! Gold as part of the event rewards",
+      "turkish_original": "Tebrikler, Saatlik Maaşınız olan %1!d! Altın Hesabınıza Yatırılmıştır!",
+      "korean_original": "이벤트 혜택으로 %1!d! 골드 획득"
+    },
+    {
+      "id": "GlobalUI_PenaltyDescript",
+      "category": "GlobalStr",
+      "english_original": "You will receive a penalty on Exp, Gold and 1 Loss by leaving the current game",
+      "rebirth_active": "You will receive a penalty on XP, Gold and 1 Loss by leaving the current game",
+      "turkish_original": "Oyundan çıkarsanız Görev başarısız sayılacak ve TP/Altın cezası alacaksınız.",
+      "korean_original": "게임중 퇴장하시면 경험치/골드에 패널티를 받게 되며 개인전적에 패가 추가됩니다."
+    },
+    {
+      "id": "GlobalUI_ShutDownMsg1",
+      "category": "GlobalStr",
+      "english_original": "게임 접속 후",
+      "rebirth_active": "Time",
+      "turkish_original": "게임 접속 후",
+      "korean_original": "게임 접속 후"
+    },
+    {
+      "id": "GlobalUI_ShutDownMsg2",
+      "category": "GlobalStr",
+      "english_original": "시간이",
+      "rebirth_active": "has elapsed",
+      "turkish_original": "시간이",
+      "korean_original": "시간이"
+    },
+    {
+      "id": "GlobalUI_ShutDownMsg3",
+      "category": "GlobalStr",
+      "english_original": "경과하였습니다.",
+      "rebirth_active": "since logging into the game.",
+      "turkish_original": "경과하였습니다.",
+      "korean_original": "경과하였습니다."
+    },
+    {
+      "id": "GlobalUI_ShutDownMsg4",
+      "category": "GlobalStr",
+      "english_original": "과도한 게임 이용은 정상적인 일상생활에 지장을 줄 수 있습니다.",
+      "rebirth_active": "Excessive gaming may interfere with your normal daily life.",
+      "turkish_original": "과도한 게임 이용은 정상적인 일상생활에 지장을 줄 수 있습니다.",
+      "korean_original": "과도한 게임 이용은 정상적인 일상생활에 지장을 줄 수 있습니다."
+    },
+    {
+      "id": "GlobalUI_ShutDownNotice",
+      "category": "GlobalStr",
+      "english_original": "셧다운 알림",
+      "rebirth_active": "Shutdown Notification",
+      "turkish_original": "셧다운 알림",
+      "korean_original": "셧다운 알림"
+    },
+    {
+      "id": "GlobalUI_medium",
+      "category": "GlobalStr",
+      "english_original": "Middle",
+      "rebirth_active": "Medium",
+      "turkish_original": "Orta",
+      "korean_original": "중간"
+    },
+    {
+      "id": "GlobalUI_strEA",
+      "category": "GlobalStr",
+      "english_original": " ",
+      "rebirth_active": " Item",
+      "turkish_original": " ",
+      "korean_original": "개"
+    },
+    {
+      "id": "GlobalUI_strEXP",
+      "category": "GlobalStr",
+      "english_original": "EXP",
+      "rebirth_active": "XP",
+      "turkish_original": "TP",
+      "korean_original": "경험치"
+    },
+    {
+      "id": "GlobalUI_strRegion",
+      "category": "GlobalStr",
+      "english_original": "활동 지역",
+      "rebirth_active": "Region",
+      "turkish_original": "활동 지역",
+      "korean_original": "활동 지역"
+    },
+    {
+      "id": "GlobalUI_strSWAT",
+      "category": "GlobalStr",
+      "english_original": "SWAT",
+      "rebirth_active": "S.W.A.T.",
+      "turkish_original": "ÖzelTim",
+      "korean_original": "S.W.A.T"
+    },
+    {
+      "id": "GlobalUI_strSir",
+      "category": "GlobalStr",
+      "english_original": " ",
+      "rebirth_active": "Mr.",
+      "turkish_original": "Bay",
+      "korean_original": "님"
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2111001",
+      "category": "ItemDescription",
+      "english_original": "Muzie Character",
+      "rebirth_active": "UV Muzi Character",
+      "turkish_original": "test",
+      "korean_original": "UV 뮤지 캐릭터"
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2111003",
+      "category": "ItemDescription",
+      "english_original": "Maybe Yellow",
+      "rebirth_active": "Apparently, he's of Asian descent.",
+      "turkish_original": "test",
+      "korean_original": "황인종인 모양이다"
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2111004",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T. AVATAR>\nTransfered from the Special Operations branch of the army to SWAT in order to help counter the Gangster menance on the streets. Namely his brother Jackson…",
+      "rebirth_active": "<S.W.A.T. AVATAR>\nTransfered from the Special Operations branch of the army to S.W.A.T. in order to help counter the Gangster menance on the streets. Namely his brother Jackson…",
+      "turkish_original": "<ÖzelT Avatar>\nOrdunun özel harekat birimi, gansgterlerle mücadelede etmesi için Özel Tim'e desteğe yollandı.",
+      "korean_original": "<S.W.A.T 아바타>\n갱스터들의 극심해진 테러 행위에 대응하기 위해 S.W.A.T으로 파견된 육군 특수전사령부의 정예 요원이다."
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2111007",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T AVATAR>\nAfter a long life as a refugee of the civil war, now he yearns for peace. He has taken up arms against the Gangsters to restore peace to District 187.",
+      "rebirth_active": "<S.W.A.T. AVATAR>\nAfter a long life as a refugee of the civil war, now he yearns for peace. He has taken up arms against the Gangsters to restore peace to the district.",
+      "turkish_original": "<ÖzelT Avatar>\nİç savaş zamanında hayatını mülteci olarak geçirmiştir. Uzun süredir beklediği barış ortamına ulaşmayı hedeflemektedir. Yaşadığı muhite barışı ve huzuru getirmek için silahlanmıştır.",
+      "korean_original": "<S.W.A.T 아바타>\n내전으로 인한 오랜 피난민 생활로 불안함이 없는 지속적인 평화와 안식을 갈망하는 자로서, 이를 이룰 수 있다는 믿음 가지고 스와트 편으로 전투에 참여하고 있다."
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2111008",
+      "category": "ItemDescription",
+      "english_original": "Reduce Footstep Noise\n<S.W.A.T AVATAR>\nAfter a long life as a refugee of the civil war, now he yearns for peace. He has taken up arms against the Gangsters to restore peace to District 187.",
+      "rebirth_active": "<S.W.A.T. AVATAR>\nAfter a long life as a refugee of the civil war, now he yearns for peace. He has taken up arms against the Gangsters to restore peace to the district.",
+      "turkish_original": "Ayak Sesini Engelleyici\n<ÖzelT AVATAR>\nİç savaş zamanında hayatını mülteci olarak geçirmiştir. Uzun süredir beklediği barış ortamına ulaşmayı hedeflemektedir. Yaşadığı muhite barışı ve huzuru getirmek için silahlanmıştır.",
+      "korean_original": "이동시 발소리 감소효과\n<S.W.A.T 아바타>\n내전으로 인한 오랜 피난민 생활로 불안함이 없는 지속적인 평화와 안식을 갈망하는 자로서, 이를 이룰 수 있다는 믿음 가지고 스와트 편으로 전투에 참여하고 있다."
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2112001",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T AVATAR>\nAn experienced S.W.A.T.  Drill Sergeant who answers a call for backup to join the Gangster vs. S.W.A.T. shootout.",
+      "rebirth_active": "<S.W.A.T. AVATAR>\nAn experienced S.W.A.T.  Drill Sergeant who answers a call for backup to join the Gangster vs. S.W.A.T. shootout.",
+      "turkish_original": "<ÖzelT Avatar>\nTecrübeli özel tim ajanı. Silahlar üzerine olan derin bilgisini yeni ajanların eğitimi için kullanmaktadır.",
+      "korean_original": "<S.W.A.T 아바타>\nS.W.A.T에서 그 누구보다도 뛰어난 무기의 전문가로 교육생을 대상으로 교육을 하는 교관이며, 새로운 무기에 대해서 경험하고자 현장 자원하여 전투에 참여하게 된다.\n"
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2112003",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T. AVATAR>\nA District 187 traffic cop who was a witness to a S.W.A.T. vs. Gangster confrontation.",
+      "rebirth_active": "<S.W.A.T. AVATAR>\nA traffic cop who was a witness to a S.W.A.T. vs. Gangster confrontation.",
+      "turkish_original": "<ÖzelT Avatar>\nÖzel Tim ve çeteler arasındaki çatışmaya dahil olmuş bir trafik polisi.",
+      "korean_original": "<S.W.A.T 아바타>\n시내 교통 흐름을 담당하는 교통 경찰로서, 업무 지역에서 발생한 사건으로 스와트와 갱스터간의 전투에 목격자로 휘말리게 된다.\n"
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2112004",
+      "category": "ItemDescription",
+      "english_original": "Quick Reload +30%%\n<S.W.A.T. AVATAR>\nWhile on her way to a gig at a charity pool party, she responded to a call for backup to a major gang related confrontation.",
+      "rebirth_active": "<S.W.A.T. AVATAR>\nWhile on her way to a gig at a charity pool party, she responded to a call for backup to a major gang related confrontation.",
+      "turkish_original": "Hızlı Şarjör +30%%\n<ÖzelT Avatar>\nBüyük bir yardım partisine giderken bir çatışmaya destek olarak gönderilmiştir.",
+      "korean_original": "탄창 교체속도 +30%%\n<S.W.A.T 아바타>\n기부금을 모으는 풀 파티 행사에 안전 요원으로 행사장으로 가던 도중, 발생한 스와트와 갱스터 간의 전투에 긴급 호출을 받아 전투에 참여하게 된다."
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2112005",
+      "category": "ItemDescription",
+      "english_original": "Grenade Indicator\n<S.W.A.T AVATAR>\nMelissa is a S.W.A.T agent who is under covering as a life guard.",
+      "rebirth_active": "<S.W.A.T. AVATAR>\nMelissa is a S.W.A.T. agent who is under covering as a life guard.",
+      "turkish_original": "Bombayı bul\n<ÖzelT Avatar>\nMelissa cankurtaran kimliğine gizlenmiş bir ajandır.",
+      "korean_original": "수류탄 위치 표시\n<S.W.A.T 아바타>\n멜리사는 수상안전요원으로 잠복근무중인 S.W.A.T의 특수 요원이다."
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2112006",
+      "category": "ItemDescription",
+      "english_original": "Quick Swap +30%%\n<S.W.A.T AVATAR>\nAn experienced S.W.A.T.  Drill Sergeant who answers a call for backup to join the Gangster vs. S.W.A.T. shootout.",
+      "rebirth_active": "<S.W.A.T. AVATAR>\nAn experienced S.W.A.T.  Drill Sergeant who answers a call for backup to join the Gangster vs. S.W.A.T. shootout.",
+      "turkish_original": "Hızlı Değiştirme +30%%\n<ÖzelT Avatar>\nTecrübeli özel tim ajanı. Silahlar üzerine olan derin bilgisini yeni ajanların eğitimi için kullanmaktadır.",
+      "korean_original": "무기교체속도 +30%%\n<S.W.A.T 아바타>\nS.W.A.T에서 그 누구보다도 뛰어난 무기의 전문가로 교육생을 대상으로 교육을 하는 교관이며, 새로운 무기에 대해서 경험하고자 현장 자원하여 전투에 참여하게 된다.\n"
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2112007",
+      "category": "ItemDescription",
+      "english_original": "SWAT_Nurse Description",
+      "rebirth_active": "S.W.A.T. Nurse",
+      "turkish_original": "SWAT_Nurse Description",
+      "korean_original": "SWAT_Nurse Description"
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2113003",
+      "category": "ItemDescription",
+      "english_original": "It's Black",
+      "rebirth_active": "It is definitely a Black person.",
+      "turkish_original": "test",
+      "korean_original": "흑인이 틀림없다"
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2113008",
+      "category": "ItemDescription",
+      "english_original": "Reduce Footstep Noise\n<Gangster AVATAR>\nGangs tried to create an utopia after the civil war. Recruiting anyone who will join them, they've decided to take in a young blood into their ranks.",
+      "rebirth_active": "<Gangster AVATAR>\nGangs tried to create an utopia after the civil war. Recruiting anyone who will join them, they've decided to take in a young blood into their ranks.",
+      "turkish_original": "Ayak Sesini Engelleyici\n<Çete AVATAR>\nSavaştan sonra yeni bir ütopya yaratmayı hedefleyen çete üyeleri,  azimli ve istekli gençleri bünyelerine katmaya devam ediyor.",
+      "korean_original": "이동시 발소리 감소효과\n<Gangster 아바타>\n규칙과 억압되는 권위적인 세상을 반대하는 청년들의 대표이며, 이상향 위하여 갱스터에 합류하여 그 발판을 만들려고 하고 있다."
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2113999",
+      "category": "ItemDescription",
+      "english_original": "테스트용 흑형",
+      "rebirth_active": "Black guy Test",
+      "turkish_original": "테스트용 흑형",
+      "korean_original": "테스트용 흑형"
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2114001",
+      "category": "ItemDescription",
+      "english_original": "<Gangster AVATAR>\nA mid level member of the Gangsters. She specializes in recon and offers protection for businesses in District 187, for a price.",
+      "rebirth_active": "<Gangster AVATAR>\nA mid level member of the Gangsters. She specializes in recon and offers protection for businesses in the district, for a price.",
+      "turkish_original": "<Çete Avatar>\nOrta düzey çete yetkilisi. Bilgi toplama ve koruma üzerine çalışan paralı hizmet verir.",
+      "korean_original": "<Gangster 아바타>\n규모가 있는 관광 도시의 유흥업소들로부터 세금을 받고 관리를 하는 갱스터 중간 관리자 이며, 소속한 조직인 갱스터에게 활동 자금을 공급과 업소들을 도청하여 다양한 정보를 제공하고 있다."
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2114002",
+      "category": "ItemDescription",
+      "english_original": " (번역 준비중)",
+      "rebirth_active": "<Gangster Avatar>\nAn independence fighter who cannot bear to watch the legacies of the past destroyed by S.W.A.T.'s indiscriminate attacks. He sides with the gangsters to protect them, knowing their methods are wrong.",
+      "turkish_original": " (번역 준비중)",
+      "korean_original": "<Gangster 아바타>\n스와트의 무차별 공격으로 인하여 과거의 유산이 망가지는 것을 참지 못하는 독립가로서, 잘못된 것이지만 지키는 갱스터의 입장에 서서 전투에 참여하게 된다.\n"
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2114003",
+      "category": "ItemDescription",
+      "english_original": "<Gangster AVATAR>\nA Gangster negotiator whose extremist methods against the S.W.A.T. prevent any peace in District 187.",
+      "rebirth_active": "<Gangster AVATAR>\nA Gangster negotiator whose extremist methods against the S.W.A.T. prevent any peace in the district.",
+      "turkish_original": "<Çete Avatar>\nAşırıya kaçan metodlarıyla ünlü bir çete temsilcisi.",
+      "korean_original": "<Gangster 아바타>\n국가간의 연합에 대해서 반대하는 극진 주의 단체 소속의 협상가이지만, 표면상 일뿐 갱스터의 외부으로 포장된 단체에서 스와트의 활동에 훼방을 한다."
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2114004",
+      "category": "ItemDescription",
+      "english_original": "Quick Reload +30%%\n<Gangster AVATAR>\nA mid level member of the Gangsters. She specializes in recon and offers protection for businesses in District 187, for a price.",
+      "rebirth_active": "<Gangster AVATAR>\nA mid level member of the Gangsters. She specializes in recon and offers protection for businesses in the district, for a price.",
+      "turkish_original": "Hızlı Şarjör +30%%\n<Çete Avatar>\nOrta düzey çete yetkilisi. Bilgi toplama ve koruma üzerine çalışan paralı hizmet verir.",
+      "korean_original": "탄창 교체속도 +30%%\n<Gangster 아바타>\n규모가 있는 관광 도시의 유흥업소들로부터 세금을 받고 관리를 하는 갱스터 중간 관리자 이며, 소속한 조직인 갱스터에게 활동 자금을 공급과 업소들을 도청하여 다양한 정보를 제공하고 있다."
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2114005",
+      "category": "ItemDescription",
+      "english_original": "Grenade Indicator\n<Gangster AVATAR>\nAmber, a reputable member of the gangster, tries to spend her summer vacation within the crowd.",
+      "rebirth_active": "<Gangster AVATAR>\nAmber, a reputable member of the gangster, tries to spend her summer vacation within the crowd.",
+      "turkish_original": "Bombayı bul\n<Çete avatar>\nMeşhur çete üyelerinden Amber, yaz tatilini geçirmek için kalabalıkların arasına karışır.",
+      "korean_original": "수류탄 위치 표시\n<Gangster 아바타>\n갱스터의 조직원 앰버는 비록 현상수배중이지만 인파속에 숨어 여름휴가를 즐기려 하고 있다."
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2114006",
+      "category": "ItemDescription",
+      "english_original": "Quick Swap +30%%\n<Gangster AVATAR>\nA Gangster negotiator whose extremist methods against the S.W.A.T. prevent any peace in District 187.",
+      "rebirth_active": "<Gangster AVATAR>\nA Gangster negotiator whose extremist methods against the S.W.A.T. prevent any peace in the district.",
+      "turkish_original": "Hızlı Değiştirme +30%%\n<Çete Avatar>\nAşırıya kaçan metodlarıyla ünlü bir çete temsilcisi.",
+      "korean_original": "무기교체속도 +30%%\n<Gangster 아바타>\n국가간의 연합에 대해서 반대하는 극진 주의 단체 소속의 협상가이지만, 표면상 일뿐 갱스터의 외부으로 포장된 단체에서 스와트의 활동에 훼방을 한다."
+    },
+    {
+      "id": "IDS_AVATAR_DESCRIPT_2114007",
+      "category": "ItemDescription",
+      "english_original": "Gangster_Nurse Description",
+      "rebirth_active": "Gangster Nurse",
+      "turkish_original": "Gangster_Nurse Description",
+      "korean_original": "Gangster_Nurse Description"
+    },
+    {
+      "id": "IDS_AVATAR_NAME_2111001",
+      "category": "ItemName",
+      "english_original": "Muzie",
+      "rebirth_active": "Muzi",
+      "turkish_original": "test",
+      "korean_original": "뮤지"
+    },
+    {
+      "id": "IDS_AVATAR_NAME_2112003",
+      "category": "ItemName",
+      "english_original": "JULIA",
+      "rebirth_active": "Julia",
+      "turkish_original": "JULIA",
+      "korean_original": "줄리아"
+    },
+    {
+      "id": "IDS_AVATAR_NAME_2112007",
+      "category": "ItemName",
+      "english_original": "SWAT_Nurse",
+      "rebirth_active": "S.W.A.T. Nurse",
+      "turkish_original": "SWAT_Nurse",
+      "korean_original": "SWAT_Nurse"
+    },
+    {
+      "id": "IDS_AVATAR_NAME_2113999",
+      "category": "ItemName",
+      "english_original": "흑형",
+      "rebirth_active": "Black guy",
+      "turkish_original": "흑형",
+      "korean_original": "흑형"
+    },
+    {
+      "id": "IDS_AVATAR_NAME_2114002",
+      "category": "ItemName",
+      "english_original": "ISABEL",
+      "rebirth_active": "Isabel",
+      "turkish_original": "ISABEL",
+      "korean_original": "이자벨"
+    },
+    {
+      "id": "IDS_AVATAR_NAME_2114007",
+      "category": "ItemName",
+      "english_original": "Gangster_Nurse",
+      "rebirth_active": "Gangster Nurse",
+      "turkish_original": "Gangster_Nurse",
+      "korean_original": "Gangster_Nurse"
+    },
+    {
+      "id": "IDS_COSTUME_DESCRIPT_2211001",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T Hair>\nA slicked hairstyle with a natural wave.",
+      "rebirth_active": "<S.W.A.T. Hair>\nA slicked hairstyle with a natural wave.",
+      "turkish_original": "<ÖzelT Saç>\nDoğal düz saç",
+      "korean_original": "<S.W.A.T 헤어>\n올백 헤어로 웨이브로 자연스러움을 살렸다."
+    },
+    {
+      "id": "IDS_COSTUME_DESCRIPT_2211002",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T Hair>\nDefault hairstyle.",
+      "rebirth_active": "<S.W.A.T. Hair>\nDefault hairstyle.",
+      "turkish_original": "<ÖzelT Saç>\nNormal Saç",
+      "korean_original": "<S.W.A.T 헤어>\n기본 헤어"
+    },
+    {
+      "id": "IDS_COSTUME_DESCRIPT_2211003",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T Hair>\nA stylish haircut quite suitable for job interviews.",
+      "rebirth_active": "<S.W.A.T. Hair>\nA stylish haircut quite suitable for job interviews.",
+      "turkish_original": "<ÖzelT Saç>\nİş görüşmeleri için vazgeçilmez, stilli kesim",
+      "korean_original": "<S.W.A.T 헤어>\n단정하면서도 깔끔한 헤어로 면접 또는 맞선 보러 나가기 딱 좋은 스타일."
+    },
+    {
+      "id": "IDS_COSTUME_DESCRIPT_2211004",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T Hair>\nOne would need a lot of confidence to sport this haircut.",
+      "rebirth_active": "<S.W.A.T. Hair>\nOne would need a lot of confidence to sport this haircut.",
+      "turkish_original": "<ÖzelT Saç>\nBu kesim için özgüven gerekli",
+      "korean_original": "<S.W.A.T 헤어>\n함부로 할 수 없는 포스가 느껴지는 헤어로 자신감없이는 할 수 없는 스타일."
+    },
+    {
+      "id": "IDS_COSTUME_DESCRIPT_2211005",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T Hair>\nA clean cut man always makes a good first impression.",
+      "rebirth_active": "<S.W.A.T. Hair>\nA clean cut man always makes a good first impression.",
+      "turkish_original": "<ÖzelT Saç>\nİyi bir etki yaratmak için ideal bir kesim",
+      "korean_original": "<S.W.A.T 헤어>\n깔끔하게 커트해서 젊어보이면서도 시원스러운 스타일을 살렸다."
+    },
+    {
+      "id": "IDS_COSTUME_DESCRIPT_2211006",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T Hair>\nBasic hairstyle for Jin.",
+      "rebirth_active": "<S.W.A.T. Hair>\nBasic hairstyle for Jin.",
+      "turkish_original": "<ÖzelT Saç>\nJin için klasik saç modeli.",
+      "korean_original": "<S.W.A.T 헤어>\n진의 기본 헤어스타일이다."
+    },
+    {
+      "id": "IDS_COSTUME_DESCRIPT_2211007",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T Hair>\nA typical hairstyle with clean feeling to it.",
+      "rebirth_active": "<S.W.A.T. Hair>\nA typical hairstyle with clean feeling to it.",
+      "turkish_original": "<ÖzelT Saç>\nTemiz kesimli klasik saç",
+      "korean_original": "<S.W.A.T 헤어>\n모범적인 느낌의 헤어 스타일."
+    },
+    {
+      "id": "IDS_COSTUME_DESCRIPT_2211008",
+      "category": "ItemDescription",
+      "english_original": "<S.W.A.T Hair>\nA dandy looking hairstyle.",
+      "rebirth_active": "<S.W.A.T. Hair>\nA dandy looking hairstyle.",
+      "turkish_original": "<ÖzelT Saç>\nEğlenceli bir saç modeli.",
+      "korean_original": "<S.W.A.T 헤어>\n간지남을 대표하는 헤어스타일."
+    }
+  ]
+}
