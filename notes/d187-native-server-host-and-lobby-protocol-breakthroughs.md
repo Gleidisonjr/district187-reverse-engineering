@@ -134,11 +134,23 @@ Em `Game/GameClient.dll` (sincronizado com `GameClient.dll` na raiz):
   3. `SetGameInfo(&pOpts, sizeof(pOpts))` → `LoadBinaries()` (`Game\GameServer.dll`, `status = 0x1`)
   4. `StartWorld(&req)` (`Worlds\Arrival.World00p`) → loop `Update(0)` a 60Hz.
 
-### 5.2 Como Compilar (MSVC 2019 x86)
-Execute [`targets/district-187/server_host/build_server_host.bat`](../targets/district-187/server_host/build_server_host.bat) ou manualmente:
+### 5.2 Requisito Obrigatório de Nome do Executável (`TheRawServer.exe`)
+Ao validar a primeira conexão UDP real (`Active UDP Clients: 0 -> 1 -> 0` em 2 ticks), `GameServer.dll` enviou o aviso `not found file, TheRawServer_xxx.exe` e desconectou o cliente. A desmontagem de **`0x10034B85..0x10034BA3`** em `GameServer.dll` revelou:
+```asm
+0x10034B85: call dword ptr [0x1018c020]  ; GetModuleFileNameA(NULL, buf, 260)
+0x10034B92: push 0x10190c34              ; "TheRawServer.exe"
+0x10034B97: push ecx                     ; buf
+0x10034B98: call dword ptr [0x1018c298]  ; strstr(buf, "TheRawServer.exe")
+0x10034BA1: cmp  eax, 0
+0x10034BA3: jne  0x10034be1              ; se encontrar, extrai o diretório raiz e continua!
+```
+Portanto, o executável host compilado **DEVE se chamar `TheRawServer.exe`** (não `D187_ServerHost.exe`).
+
+### 5.3 Como Compilar (MSVC 2019 x86)
+Execute [`targets/district-187/server_host/build_server_host.bat`](../targets/district-187/server_host/build_server_host.bat) para gerar `targets/district-187/server_host/TheRawServer.exe`:
 ```bat
 call "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvars32.bat"
-cl /nologo /EHsc /O2 /Fe:targets\district-187\server_host\D187_ServerHost.exe targets\district-187\server_host\d187_server_host.cpp /Fo:targets\district-187\server_host\d187_server_host.obj
+cl /nologo /EHsc /O2 /Fe:targets\district-187\server_host\TheRawServer.exe targets\district-187\server_host\d187_server_host.cpp /Fo:targets\district-187\server_host\d187_server_host.obj
 ```
 
 ---

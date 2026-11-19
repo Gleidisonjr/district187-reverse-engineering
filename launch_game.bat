@@ -27,17 +27,18 @@ if %errorlevel% neq 0 (
 )
 
 :: 2.5 Check / Start Native LithTech Dedicated Server Host (UDP 27888)
-set "SERVER_HOST_EXE=%~dp0targets\district-187\server_host\D187_ServerHost.exe"
+:: Note: executable MUST be named TheRawServer.exe (GameServer.dll @ 0x10034B92 checks strstr(GetModuleFileNameA, "TheRawServer.exe"))
+set "SERVER_HOST_EXE=%~dp0targets\district-187\server_host\TheRawServer.exe"
 set "CLIENT_DIR=%~dp0targets\district-187\client-rebirth"
-tasklist /FI "IMAGENAME eq D187_ServerHost.exe" /NH | findstr /I "D187_ServerHost.exe" >nul
+tasklist /FI "IMAGENAME eq TheRawServer.exe" /NH | findstr /I "TheRawServer.exe" >nul
 if %errorlevel% neq 0 (
     if exist "%SERVER_HOST_EXE%" (
-        echo [*] Subindo Servidor Dedicado Nativo LithTech ^(UDP 27888, Worlds\Arrival.World00p^)...
+        echo [*] Subindo Servidor Dedicado Nativo LithTech ^(TheRawServer.exe, UDP 27888, Worlds\Arrival.World00p^)...
         start "D187 LithTech Dedicated Server" /D "%CLIENT_DIR%" /min "%SERVER_HOST_EXE%" --world Worlds\Arrival.World00p --port 27888
         timeout /t 2 /nobreak >nul
     )
 ) else (
-    echo [+] Servidor Dedicado Nativo LithTech ja esta ativo na porta UDP 27888.
+    echo [+] Servidor Dedicado Nativo LithTech ^(TheRawServer.exe^) ja esta ativo na porta UDP 27888.
 )
 
 :: 3. Launch Client

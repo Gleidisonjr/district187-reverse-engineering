@@ -6,11 +6,11 @@ set "VCVARS=C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Au
 if not exist "%VCVARS%" goto :no_vc
 
 call "%VCVARS%" >nul
-echo [*] Compilando D187_ServerHost.exe (x86)...
-cl /nologo /EHsc /O2 /Fe:D187_ServerHost.exe d187_server_host.cpp /Fo:d187_server_host.obj
+echo [*] Compilando TheRawServer.exe (x86 — nome exigido por GameServer.dll @ 0x10034B92)...
+cl /nologo /EHsc /O2 /Fe:TheRawServer.exe d187_server_host.cpp /Fo:d187_server_host.obj
 if errorlevel 1 goto :build_fail
 del /q d187_server_host.obj 2>nul
-echo [+] D187_ServerHost.exe compilado com sucesso!
+echo [+] TheRawServer.exe compilado com sucesso!
 exit /b 0
 
 :no_vc

@@ -76,10 +76,10 @@ class ServiceManager:
         },
         "dedicated_server": {
             "name": "LithTech Native Dedicated Server",
-            "cmd": [os.path.join(TARGET_DIR, "server_host", "D187_ServerHost.exe"), "--world", "Worlds\\Arrival.World00p", "--port", "27888"],
+            "cmd": [os.path.join(TARGET_DIR, "server_host", "TheRawServer.exe"), "--world", "Worlds\\Arrival.World00p", "--port", "27888"],
             "port": 27888,
             "proto": "udp",
-            "desc": "Native Engine_Server.dll + GameServer.dll (UDP 27888)",
+            "desc": "Native Engine_Server.dll + GameServer.dll (TheRawServer.exe, UDP 27888)",
             "cwd": CLIENT_DIR
         },
         "apexguard": {

@@ -28,7 +28,7 @@ PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 CLIENT_DIR = os.path.join(PROJECT_DIR, r"targets\district-187\client-rebirth")
 WORLDS_DIR = os.path.join(CLIENT_DIR, "Game", "Worlds")
 THE_RAW_EXE = os.path.join(CLIENT_DIR, "TheRaw.exe")
-SERVER_HOST_EXE = os.path.join(PROJECT_DIR, r"targets\district-187\server_host\D187_ServerHost.exe")
+SERVER_HOST_EXE = os.path.join(PROJECT_DIR, r"targets\district-187\server_host\TheRawServer.exe")
 SERVER_SCRIPT = os.path.join(SCRIPT_DIR, "d187-mock-server.py")
 WEB_PORTAL_SCRIPT = os.path.join(SCRIPT_DIR, "d187_web_portal.py")
 WEB_PANEL_SCRIPT = os.path.join(SCRIPT_DIR, "d187_web_panel.py")
@@ -268,10 +268,10 @@ class D187Launcher(tk.Tk):
     def _is_dedicated_running(self) -> bool:
         try:
             out = subprocess.check_output(
-                ["tasklist", "/FI", "IMAGENAME eq D187_ServerHost.exe", "/NH"],
+                ["tasklist", "/FI", "IMAGENAME eq TheRawServer.exe", "/NH"],
                 creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
             ).decode("utf-8", errors="ignore")
-            return "D187_ServerHost.exe" in out
+            return "TheRawServer.exe" in out
         except Exception:
             return False
 
@@ -332,7 +332,7 @@ class D187Launcher(tk.Tk):
                 capture_output=True,
                 creationflags=flags,
             )
-            subprocess.run(["taskkill", "/F", "/IM", "D187_ServerHost.exe"], capture_output=True, creationflags=flags)
+            subprocess.run(["taskkill", "/F", "/IM", "TheRawServer.exe"], capture_output=True, creationflags=flags)
             time.sleep(0.4)
             self._spawn_background([sys.executable, "-u", SERVER_SCRIPT, "--map", selected_map])
             self._start_dedicated_server(selected_map)
