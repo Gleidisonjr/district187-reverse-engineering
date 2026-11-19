@@ -9,6 +9,7 @@ Provides:
 - Player Profiles & Leaderboards (58 Ranks, K/D, XP)
 - Dedicated Server Live Status Monitor
 """
+import json
 import os
 import socket
 import sqlite3
@@ -19,7 +20,16 @@ from fastapi.responses import HTMLResponse, JSONResponse
 app = FastAPI(title="District 187 Web Portal")
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_PATH = os.path.join(BASE_DIR, "targets", "district-187", "data", "s2rebirth.db")
+DATA_DIR = os.path.join(BASE_DIR, "targets", "district-187", "data")
+DB_PATH = os.path.join(DATA_DIR, "s2rebirth.db")
+
+
+def _load_json_data(filename: str) -> dict:
+    p = os.path.join(DATA_DIR, filename)
+    if os.path.exists(p):
+        with open(p, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
 
 def check_server_status(host="127.0.0.1", port=12000, timeout=0.5):
     try:
@@ -109,6 +119,84 @@ def replay_viewer():
         with open(replay_path, "r", encoding="utf-8") as f:
             return HTMLResponse(content=f.read())
     return HTMLResponse(content="<h1>Replay file not generated yet.</h1>", status_code=404)
+
+
+@app.get("/api/re/protocol")
+def api_re_protocol(q: str = ""):
+    data = _load_json_data("d187_protocol_schema.json")
+    pkts = data.get("packets", [])
+    if q:
+        ql = q.lower()
+        pkts = [p for p in pkts if ql in p.get("name", "").lower() or ql in p.get("opcode_hex", "").lower() or ql in p.get("dispatch_class", "").lower()]
+    return {"total": len(pkts), "packets": pkts}
+
+
+@app.get("/api/re/scaleform")
+def api_re_scaleform(q: str = ""):
+    data = _load_json_data("scaleform_flash_bridge.json")
+    handlers = data.get("handlers", [])
+    if q:
+        ql = q.lower()
+        handlers = [h for h in handlers if ql in h.get("class_name", "").lower() or ql in h.get("scene", "").lower()]
+    return {"total": len(handlers), "scene_distribution": data.get("scene_distribution", {}), "handlers": handlers}
+
+
+@app.get("/api/re/gamdb")
+def api_re_gamdb():
+    return {
+        "catalog": _load_json_data("gamdb00p_catalog.json"),
+        "ballistics_and_modes": _load_json_data("gamdb_ballistics_and_modes.json"),
+    }
+
+
+@app.get("/api/re/gameserver")
+def api_re_gameserver():
+    return {
+        "gameserver": _load_json_data("gameserver_internals.json"),
+        "udp_mid_protocol": _load_json_data("lithtech_udp_mid_protocol.json"),
+    }
+
+
+@app.get("/re-explorer", response_class=HTMLResponse)
+def re_explorer_page():
+    return HTMLResponse(content="""<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>District 187 — RE Bible Explorer</title>
+<script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-zinc-950 text-zinc-100 p-6 font-sans">
+<div class="max-w-6xl mx-auto">
+  <div class="flex items-center justify-between mb-6 border-b border-zinc-800 pb-4">
+    <div><h1 class="text-2xl font-bold text-amber-400">District 187 — RE Bible Explorer</h1>
+    <p class="text-sm text-zinc-400">326 Opcodes Hermit · 530 Callbacks Scaleform GFx · 156 Mapas GADB v3 · GameServer.dll</p></div>
+    <a href="/" class="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 rounded text-sm">Voltar ao Portal</a>
+  </div>
+  <input id="q" type="text" placeholder="Pesquisar opcode (ex: 0x220233, SN_UserList, RoomScene, Shop)..."
+    class="w-full p-3 mb-4 rounded bg-zinc-900 border border-zinc-700 text-zinc-100" oninput="runSearch()">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="bg-zinc-900 rounded-lg p-4 border border-zinc-800">
+      <h2 class="text-lg font-semibold text-amber-300 mb-2">Protocolo Hermit (<span id="p_cnt">0</span>)</h2>
+      <div id="p_list" class="space-y-1 max-h-[65vh] overflow-y-auto text-xs font-mono"></div>
+    </div>
+    <div class="bg-zinc-900 rounded-lg p-4 border border-zinc-800">
+      <h2 class="text-lg font-semibold text-sky-300 mb-2">Scaleform Flash → C++ (<span id="s_cnt">0</span>)</h2>
+      <div id="s_list" class="space-y-1 max-h-[65vh] overflow-y-auto text-xs font-mono"></div>
+    </div>
+  </div>
+</div>
+<script>
+async function runSearch() {
+  const q = encodeURIComponent(document.getElementById('q').value || '');
+  const [pr, sr] = await Promise.all([fetch('/api/re/protocol?q=' + q).then(r=>r.json()), fetch('/api/re/scaleform?q=' + q).then(r=>r.json())]);
+  document.getElementById('p_cnt').textContent = pr.total;
+  document.getElementById('p_list').innerHTML = pr.packets.slice(0, 120).map(p =>
+    `<div class="p-1.5 bg-zinc-950 rounded flex justify-between"><span class="text-amber-400">${p.opcode_hex}</span><span class="truncate mx-2">${p.name}</span><span class="text-zinc-400">${p.handler_va || '—'}</span></div>`
+  ).join('');
+  document.getElementById('s_cnt').textContent = sr.total;
+  document.getElementById('s_list').innerHTML = sr.handlers.slice(0, 120).map(h =>
+    `<div class="p-1.5 bg-zinc-950 rounded flex justify-between"><span class="truncate text-sky-300">${h.class_name}</span><span class="text-zinc-400 ml-2">${h.handler_va || '—'}</span></div>`
+  ).join('');
+}
+runSearch();
+</script></body></html>""")
 
 @app.post("/api/register")
 def api_register(username: str = Form(...), password: str = Form(...), nickname: str = Form(...)):
