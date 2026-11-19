@@ -1,0 +1,1598 @@
+{
+  "total_world00p_on_disk": 33,
+  "world00p_files": [
+    "10007_warload.World00p",
+    "10015_Paradise.World00p",
+    "10016_underworld.World00p",
+    "10018_moonnight.World00p",
+    "10023_GrandBazar.World00p",
+    "10024_SandStorm.World00p",
+    "10025_Heaven.World00p",
+    "10026_UnderGround.World00p",
+    "10028_DeadCenter.World00p",
+    "10029_DummyHouse.World00p",
+    "10030_wolfandduck.World00p",
+    "10031_Hospital.World00p",
+    "10033_BlackOut.World00p",
+    "10034_TheMetro.World00p",
+    "10035_HeadHunting.World00p",
+    "10036_WhiteNight.World00p",
+    "10039_UnderSiege.World00p",
+    "10044_TwoWay_Round.World00p",
+    "Arrival.World00p",
+    "DeadWood1.World00p",
+    "Ghost_Ship.World00p",
+    "Kill_Port.World00p",
+    "Sky_Night_Stars.World00p",
+    "aim_redline.World00p",
+    "awm_lego_2.World00p",
+    "ghostcity.World00p",
+    "huntinghill.World00p",
+    "lostland.World00p",
+    "oldtown.World00p",
+    "oldtown_night.World00p",
+    "thebank.World00p",
+    "twoway.World00p",
+    "twoway_night.World00p"
+  ],
+  "total_gamdb_active_levels": 156,
+  "matched_playable_levels": 28,
+  "modes": [
+    {
+      "record": "000_TeamDeathMatch",
+      "attribute_count": 234
+    },
+    {
+      "record": "001_C4",
+      "attribute_count": 218
+    },
+    {
+      "record": "002_Assassin",
+      "attribute_count": 226
+    },
+    {
+      "record": "003_Rescue",
+      "attribute_count": 218
+    },
+    {
+      "record": "005_Conquest",
+      "attribute_count": 226
+    },
+    {
+      "record": "006_SuddenDeath",
+      "attribute_count": 218
+    },
+    {
+      "record": "007_FlexibleCapture",
+      "attribute_count": 220
+    },
+    {
+      "record": "008_Rescue_2",
+      "attribute_count": 226
+    },
+    {
+      "record": "009_Captin",
+      "attribute_count": 214
+    },
+    {
+      "record": "010_DeathMatch",
+      "attribute_count": 234
+    },
+    {
+      "record": "011_Extortion",
+      "attribute_count": 234
+    },
+    {
+      "record": "012_Escape",
+      "attribute_count": 230
+    },
+    {
+      "record": "013_Convoy",
+      "attribute_count": 224
+    },
+    {
+      "record": "014_FFA",
+      "attribute_count": 234
+    },
+    {
+      "record": "100_Clan_TeamDeathMatch",
+      "attribute_count": 232
+    },
+    {
+      "record": "101_Clan_C4",
+      "attribute_count": 206
+    },
+    {
+      "record": "102_Clan_SuddenDeath",
+      "attribute_count": 206
+    },
+    {
+      "record": "103_Clan_FlexibleCapture",
+      "attribute_count": 214
+    },
+    {
+      "record": "902_Rescue_Key",
+      "attribute_count": 222
+    },
+    {
+      "record": "903_Single",
+      "attribute_count": 228
+    }
+  ],
+  "playable_maps": [
+    {
+      "detail_info_id": 10000,
+      "gamdb_record": "08_twoway",
+      "display_name": "투 �?이",
+      "world_file": "10044_TwoWay_Round.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10001,
+      "gamdb_record": "09_Kill_Port",
+      "display_name": "킬 포트",
+      "world_file": "Kill_Port.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10002,
+      "gamdb_record": "10_lostland",
+      "display_name": "로스트 랜드",
+      "world_file": "lostland.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10003,
+      "gamdb_record": "07_huntinghill",
+      "display_name": "헌팅 힐",
+      "world_file": "huntinghill.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10007,
+      "gamdb_record": "10007_warload",
+      "display_name": "워로드",
+      "world_file": "10007_warload.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10008,
+      "gamdb_record": "15_Ghost_Ship",
+      "display_name": "고스트 쉽",
+      "world_file": "Ghost_Ship.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10013,
+      "gamdb_record": "19_twoway_night",
+      "display_name": "투 �?이(야)",
+      "world_file": "twoway_night.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10015,
+      "gamdb_record": "10015_Paradise",
+      "display_name": "파라다이스",
+      "world_file": "10015_Paradise.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10016,
+      "gamdb_record": "10016_underworld",
+      "display_name": "�?더월드",
+      "world_file": "10016_underworld.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10018,
+      "gamdb_record": "10018_moonnight",
+      "display_name": "문나이트",
+      "world_file": "10018_moonnight.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10022,
+      "gamdb_record": "10022_Heaven",
+      "display_name": "헤븐",
+      "world_file": "10025_Heaven.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10023,
+      "gamdb_record": "10023_GrandBazar",
+      "display_name": "그랜드바자르",
+      "world_file": "10023_GrandBazar.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10024,
+      "gamdb_record": "10024_SandStorm",
+      "display_name": "샌드스톰",
+      "world_file": "10024_SandStorm.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10025,
+      "gamdb_record": "10025_Heaven",
+      "display_name": "헤븐(폭설)",
+      "world_file": "10025_Heaven.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10026,
+      "gamdb_record": "10026_UnderGround",
+      "display_name": "�?더그라운드",
+      "world_file": "10026_UnderGround.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10028,
+      "gamdb_record": "10028_DeadCenter",
+      "display_name": "데드센터",
+      "world_file": "10028_DeadCenter.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10029,
+      "gamdb_record": "10029_DummyHouse",
+      "display_name": "더미하우스",
+      "world_file": "10029_DummyHouse.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10030,
+      "gamdb_record": "10030_wolfandduck",
+      "display_name": "늑대와오리",
+      "world_file": "10030_wolfandduck.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10031,
+      "gamdb_record": "10031_Hospital",
+      "display_name": "병원",
+      "world_file": "10031_Hospital.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10033,
+      "gamdb_record": "10033_BlackOut",
+      "display_name": "블랙아웃",
+      "world_file": "10033_BlackOut.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10034,
+      "gamdb_record": "10034_TheMetro",
+      "display_name": "더�?트로",
+      "world_file": "10034_TheMetro.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10035,
+      "gamdb_record": "10035_HeadHunting",
+      "display_name": "헤드헌팅",
+      "world_file": "10035_HeadHunting.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10036,
+      "gamdb_record": "10036_WhiteNight",
+      "display_name": "화이트나이트",
+      "world_file": "10036_WhiteNight.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10039,
+      "gamdb_record": "10039_UnderSiege",
+      "display_name": "�?더시즈",
+      "world_file": "10039_UnderSiege.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10044,
+      "gamdb_record": "10044_TwoWay_Round",
+      "display_name": "투 �?이",
+      "world_file": "10044_TwoWay_Round.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10053,
+      "gamdb_record": "10053_Aim_Redline",
+      "display_name": "AimRedline",
+      "world_file": "aim_redline.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10057,
+      "gamdb_record": "10057_Arrival",
+      "display_name": "Arrival",
+      "world_file": "Arrival.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 20032,
+      "gamdb_record": "10055_DeadWood",
+      "display_name": "DeadWood",
+      "world_file": "DeadWood1.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    }
+  ],
+  "all_gamdb_levels": [
+    {
+      "detail_info_id": 10000,
+      "gamdb_record": "08_twoway",
+      "display_name": "투 �?이",
+      "world_file": "10044_TwoWay_Round.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10001,
+      "gamdb_record": "09_Kill_Port",
+      "display_name": "킬 포트",
+      "world_file": "Kill_Port.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10002,
+      "gamdb_record": "10_lostland",
+      "display_name": "로스트 랜드",
+      "world_file": "lostland.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10003,
+      "gamdb_record": "07_huntinghill",
+      "display_name": "헌팅 힐",
+      "world_file": "huntinghill.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10004,
+      "gamdb_record": "11_Old_Town",
+      "display_name": "올드 타운",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10005,
+      "gamdb_record": "12_The_Bank",
+      "display_name": "더 �?크",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10006,
+      "gamdb_record": "10006_HeadHunting_Event",
+      "display_name": "헤드헌팅",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10007,
+      "gamdb_record": "10007_warload",
+      "display_name": "워로드",
+      "world_file": "10007_warload.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10008,
+      "gamdb_record": "15_Ghost_Ship",
+      "display_name": "고스트 쉽",
+      "world_file": "Ghost_Ship.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10009,
+      "gamdb_record": "16_DogHouse",
+      "display_name": "도그하우스",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10010,
+      "gamdb_record": "17_Old_Town_Night",
+      "display_name": "올드 타운(야)",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10011,
+      "gamdb_record": "02_Ghost_City",
+      "display_name": "고스트시티",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10012,
+      "gamdb_record": "18_Officetel",
+      "display_name": "오피스텔",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10013,
+      "gamdb_record": "19_twoway_night",
+      "display_name": "투 �?이(야)",
+      "world_file": "twoway_night.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10014,
+      "gamdb_record": "20_wharf",
+      "display_name": "선착장",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10015,
+      "gamdb_record": "10015_Paradise",
+      "display_name": "파라다이스",
+      "world_file": "10015_Paradise.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10016,
+      "gamdb_record": "10016_underworld",
+      "display_name": "�?더월드",
+      "world_file": "10016_underworld.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10017,
+      "gamdb_record": "10017_triplecore",
+      "display_name": "트리플코어",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10018,
+      "gamdb_record": "10018_moonnight",
+      "display_name": "문나이트",
+      "world_file": "10018_moonnight.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10019,
+      "gamdb_record": "10019_wolfandpig",
+      "display_name": "늑대와돼지",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10020,
+      "gamdb_record": "10020",
+      "display_name": "대장전",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10021,
+      "gamdb_record": "10021",
+      "display_name": "보스호보1",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10022,
+      "gamdb_record": "10022_Heaven",
+      "display_name": "헤븐",
+      "world_file": "10025_Heaven.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10023,
+      "gamdb_record": "10023_GrandBazar",
+      "display_name": "그랜드바자르",
+      "world_file": "10023_GrandBazar.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10024,
+      "gamdb_record": "10024_SandStorm",
+      "display_name": "샌드스톰",
+      "world_file": "10024_SandStorm.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10025,
+      "gamdb_record": "10025_Heaven",
+      "display_name": "헤븐(폭설)",
+      "world_file": "10025_Heaven.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10026,
+      "gamdb_record": "10026_UnderGround",
+      "display_name": "�?더그라운드",
+      "world_file": "10026_UnderGround.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10027,
+      "gamdb_record": "10027_WhiteNight_Event",
+      "display_name": "화이트나이트",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10028,
+      "gamdb_record": "10028_DeadCenter",
+      "display_name": "데드센터",
+      "world_file": "10028_DeadCenter.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10029,
+      "gamdb_record": "10029_DummyHouse",
+      "display_name": "더미하우스",
+      "world_file": "10029_DummyHouse.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10030,
+      "gamdb_record": "10030_wolfandduck",
+      "display_name": "늑대와오리",
+      "world_file": "10030_wolfandduck.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10031,
+      "gamdb_record": "10031_Hospital",
+      "display_name": "병원",
+      "world_file": "10031_Hospital.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10032,
+      "gamdb_record": "10032_PrisonCage",
+      "display_name": "프리�?케이지",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10033,
+      "gamdb_record": "10033_BlackOut",
+      "display_name": "블랙아웃",
+      "world_file": "10033_BlackOut.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10034,
+      "gamdb_record": "10034_TheMetro",
+      "display_name": "더�?트로",
+      "world_file": "10034_TheMetro.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10035,
+      "gamdb_record": "10035_HeadHunting",
+      "display_name": "헤드헌팅",
+      "world_file": "10035_HeadHunting.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10036,
+      "gamdb_record": "10036_WhiteNight",
+      "display_name": "화이트나이트",
+      "world_file": "10036_WhiteNight.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10037,
+      "gamdb_record": "10037_BackAlley",
+      "display_name": "백엘리",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10038,
+      "gamdb_record": "10038_Downtown",
+      "display_name": "다운타운",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10039,
+      "gamdb_record": "10039_UnderSiege",
+      "display_name": "�?더시즈",
+      "world_file": "10039_UnderSiege.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10040,
+      "gamdb_record": "10040_SecretVillage",
+      "display_name": "시크릿빌리지",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10041,
+      "gamdb_record": "10041_BlackClub",
+      "display_name": "블랙클럽",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10042,
+      "gamdb_record": "10042_SignalTower",
+      "display_name": "시그널타워",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10043,
+      "gamdb_record": "10043_Ghost_Ship_Event",
+      "display_name": "고스트 쉽",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10044,
+      "gamdb_record": "10044_TwoWay_Round",
+      "display_name": "투 �?이",
+      "world_file": "10044_TwoWay_Round.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10045,
+      "gamdb_record": "10045_UnderGround_Captain",
+      "display_name": "�?더그라운드",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10046,
+      "gamdb_record": "10046_Hospital_Capture",
+      "display_name": "병원",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10047,
+      "gamdb_record": "10047_WhiteNight_Captain",
+      "display_name": "화이트나이트",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10048,
+      "gamdb_record": "10048_OldTown_Round",
+      "display_name": "올드 타운",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10049,
+      "gamdb_record": "10049_LostLand_Round",
+      "display_name": "로스트 랜드",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10051,
+      "gamdb_record": "10051_DummyHouse_Bomb",
+      "display_name": "더미하우스",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10052,
+      "gamdb_record": "10052_AWP_Lego",
+      "display_name": "Cafeteria",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10053,
+      "gamdb_record": "10053_Aim_Redline",
+      "display_name": "AimRedline",
+      "world_file": "aim_redline.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 10054,
+      "gamdb_record": "10054_AWP_Lego_Round",
+      "display_name": "AwpLegoR",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10056,
+      "gamdb_record": "10056_Dust2",
+      "display_name": "Dust2",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 10057,
+      "gamdb_record": "10057_Arrival",
+      "display_name": "Arrival",
+      "world_file": "Arrival.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": true
+    },
+    {
+      "detail_info_id": 20002,
+      "gamdb_record": "20002_TEST",
+      "display_name": "개발용5",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20003,
+      "gamdb_record": "20003_TEST",
+      "display_name": "개발용1",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20004,
+      "gamdb_record": "20004_TEST",
+      "display_name": "개발용2",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20005,
+      "gamdb_record": "20005_TEST",
+      "display_name": "개발용3",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20006,
+      "gamdb_record": "20006_TEST",
+      "display_name": "개발용4",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20007,
+      "gamdb_record": "20007_TEST",
+      "display_name": "개발용6",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20008,
+      "gamdb_record": "20008_TEST",
+      "display_name": "개발용7",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20010,
+      "gamdb_record": "20010_TEST",
+      "display_name": "개발용8",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20011,
+      "gamdb_record": "20011_TEST",
+      "display_name": "개발용9",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20012,
+      "gamdb_record": "20012_TEST",
+      "display_name": "개발용10",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20013,
+      "gamdb_record": "20013_TEST",
+      "display_name": "개발용11",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20014,
+      "gamdb_record": "20014_TEST",
+      "display_name": "개발용12",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20015,
+      "gamdb_record": "20015_TEST",
+      "display_name": "개발용13",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20016,
+      "gamdb_record": "20016_TEST",
+      "display_name": "개발용14",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20017,
+      "gamdb_record": "20017_FlexibleCapture_01",
+      "display_name": "탈취전01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20018,
+      "gamdb_record": "20018_FlexibleCapture_02",
+      "display_name": "탈취전02",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20019,
+      "gamdb_record": "20019_FlexibleCapture_03",
+      "display_name": "탈취전03",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20021,
+      "gamdb_record": "20021_Captin_01",
+      "display_name": "대장전01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20022,
+      "gamdb_record": "20022_Captin_02",
+      "display_name": "대장전02",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20023,
+      "gamdb_record": "20023_Captin_03",
+      "display_name": "대장전03",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20024,
+      "gamdb_record": "20024_TDM_01",
+      "display_name": "TDM01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20025,
+      "gamdb_record": "20025_TDM_02",
+      "display_name": "TDM02",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20026,
+      "gamdb_record": "20026_TDM_03",
+      "display_name": "TDM03",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20027,
+      "gamdb_record": "20027_Extortion_01",
+      "display_name": "Extortion01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20028,
+      "gamdb_record": "20028_Escape_01",
+      "display_name": "Escape01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20029,
+      "gamdb_record": "20029_Convoy_01",
+      "display_name": "Convoy01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20030,
+      "gamdb_record": "20030_FFA_01",
+      "display_name": "개인전테스트1",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20031,
+      "gamdb_record": "20031_FFA_02",
+      "display_name": "개인전테스트2",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20032,
+      "gamdb_record": "10055_DeadWood",
+      "display_name": "DeadWood",
+      "world_file": "DeadWood1.World00p",
+      "playable_on_disk": true,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20101,
+      "gamdb_record": "20101_Round01",
+      "display_name": "Round01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20102,
+      "gamdb_record": "20102_Round02",
+      "display_name": "Round02",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20103,
+      "gamdb_record": "20103_Round03",
+      "display_name": "Round03",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20104,
+      "gamdb_record": "20104_Round04",
+      "display_name": "Round04",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20105,
+      "gamdb_record": "20105_Round05",
+      "display_name": "Round05",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20106,
+      "gamdb_record": "20106_Round06",
+      "display_name": "Round06",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20107,
+      "gamdb_record": "20107_Round07",
+      "display_name": "Round07",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20108,
+      "gamdb_record": "20108_Round08",
+      "display_name": "Round08",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20109,
+      "gamdb_record": "20109_Round09",
+      "display_name": "Round09",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20110,
+      "gamdb_record": "20110_Round10",
+      "display_name": "Round10",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20201,
+      "gamdb_record": "20201_Escape01",
+      "display_name": "Escape01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20202,
+      "gamdb_record": "20202_Escape02",
+      "display_name": "Escape02",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20203,
+      "gamdb_record": "20203_Escape03",
+      "display_name": "Escape03",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20204,
+      "gamdb_record": "20204_Escape04",
+      "display_name": "Escape04",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20205,
+      "gamdb_record": "20205_Escape05",
+      "display_name": "Escape05",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20206,
+      "gamdb_record": "20206_Escape06",
+      "display_name": "Escape06",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20207,
+      "gamdb_record": "20207_Escape07",
+      "display_name": "Escape07",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20208,
+      "gamdb_record": "20208_Escape08",
+      "display_name": "Escape08",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20209,
+      "gamdb_record": "20209_Escape09",
+      "display_name": "Escape09",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20210,
+      "gamdb_record": "20210_Escape10",
+      "display_name": "Escape10",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20301,
+      "gamdb_record": "20301_Captin01",
+      "display_name": "Captin01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20302,
+      "gamdb_record": "20302_Captin02",
+      "display_name": "Captin02",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20303,
+      "gamdb_record": "20303_Captin03",
+      "display_name": "Captin03",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20304,
+      "gamdb_record": "20304_Captin04",
+      "display_name": "Captin04",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20305,
+      "gamdb_record": "20305_Captin05",
+      "display_name": "Captin05",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20306,
+      "gamdb_record": "20306_Captin06",
+      "display_name": "Captin06",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20307,
+      "gamdb_record": "20307_Captin07",
+      "display_name": "Captin07",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20308,
+      "gamdb_record": "20308_Captin08",
+      "display_name": "Captin08",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20309,
+      "gamdb_record": "20309_Captin09",
+      "display_name": "Captin09",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20310,
+      "gamdb_record": "20310_Captin10",
+      "display_name": "Captin10",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20401,
+      "gamdb_record": "20401_Capture01",
+      "display_name": "Capture01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20402,
+      "gamdb_record": "20402_Capture02",
+      "display_name": "Capture02",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20403,
+      "gamdb_record": "20403_Capture03",
+      "display_name": "Capture03",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20404,
+      "gamdb_record": "20404_Capture04",
+      "display_name": "Capture04",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20405,
+      "gamdb_record": "20405_Capture05",
+      "display_name": "Capture05",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20406,
+      "gamdb_record": "20406_Capture06",
+      "display_name": "Capture06",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20407,
+      "gamdb_record": "20407_Capture07",
+      "display_name": "Capture07",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20408,
+      "gamdb_record": "20408_Capture08",
+      "display_name": "Capture08",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20409,
+      "gamdb_record": "20409_Capture09",
+      "display_name": "Capture09",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20410,
+      "gamdb_record": "20410_Capture10",
+      "display_name": "Capture10",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20501,
+      "gamdb_record": "20501_Bomb01",
+      "display_name": "Bomb01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20502,
+      "gamdb_record": "20502_Bomb02",
+      "display_name": "Bomb02",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20503,
+      "gamdb_record": "20503_Bomb03",
+      "display_name": "Bomb03",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20504,
+      "gamdb_record": "20504_Bomb04",
+      "display_name": "Bomb04",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20505,
+      "gamdb_record": "20505_Bomb05",
+      "display_name": "Bomb05",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20506,
+      "gamdb_record": "20506_Bomb06",
+      "display_name": "Bomb06",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20507,
+      "gamdb_record": "20507_Bomb07",
+      "display_name": "Bomb07",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20508,
+      "gamdb_record": "20508_Bomb08",
+      "display_name": "Bomb08",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20509,
+      "gamdb_record": "20509_Bomb09",
+      "display_name": "Bomb09",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20510,
+      "gamdb_record": "20510_Bomb10",
+      "display_name": "Bomb10",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20601,
+      "gamdb_record": "20601_TDM01",
+      "display_name": "TDM01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20601,
+      "gamdb_record": "20604_TDM04",
+      "display_name": "TDM04",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20602,
+      "gamdb_record": "20602_TDM02",
+      "display_name": "TDM02",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20603,
+      "gamdb_record": "20603_TDM03",
+      "display_name": "TDM03",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20605,
+      "gamdb_record": "20605_TDM05",
+      "display_name": "TDM05",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20606,
+      "gamdb_record": "20606_TDM06",
+      "display_name": "TDM06",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20607,
+      "gamdb_record": "20607_TDM07",
+      "display_name": "TDM07",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20608,
+      "gamdb_record": "20608_TDM08",
+      "display_name": "TDM08",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20609,
+      "gamdb_record": "20609_TDM09",
+      "display_name": "TDM09",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20610,
+      "gamdb_record": "20610_TDM10",
+      "display_name": "TDM10",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20701,
+      "gamdb_record": "20701_FFA01",
+      "display_name": "FFA01",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20702,
+      "gamdb_record": "20702_FFA02",
+      "display_name": "FFA02",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20703,
+      "gamdb_record": "20703_FFA03",
+      "display_name": "FFA03",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20704,
+      "gamdb_record": "20704_FFA04",
+      "display_name": "FFA04",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20705,
+      "gamdb_record": "20705_FFA05",
+      "display_name": "FFA05",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20706,
+      "gamdb_record": "20706_FFA06",
+      "display_name": "FFA06",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20707,
+      "gamdb_record": "20707_FFA07",
+      "display_name": "FFA07",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20708,
+      "gamdb_record": "20708_FFA08",
+      "display_name": "FFA08",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20709,
+      "gamdb_record": "20709_FFA09",
+      "display_name": "FFA09",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 20710,
+      "gamdb_record": "20710_FFA10",
+      "display_name": "FFA10",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    },
+    {
+      "detail_info_id": 200399,
+      "gamdb_record": "20032_Aqua_TEST",
+      "display_name": "파라다이스",
+      "world_file": null,
+      "playable_on_disk": false,
+      "has_navmesh": false
+    }
+  ]
+}
