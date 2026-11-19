@@ -87,8 +87,9 @@ Dentro do chat do lobby ou da sala, digite:
 
 ---
 
-## 📚 Documentação Técnica (`notes/`)
+## 📚 Documentação Técnica (`docs/` & `notes/`)
 
+- [`docs/MODDING_AND_ARCHITECTURE.md`](docs/MODDING_AND_ARCHITECTURE.md) — **Manual Unificado (Front-End, Back-End, Compiladores & Modding):** guia completo de toda a toolchain RE, empacotador de mod 1-comando (`scripts/build_d187_mod_bundle.py`), `/re-explorer` e suíte de testes (`scripts/test_re_toolchain.py`).
 - [`notes/d187-native-server-host-and-lobby-protocol-breakthroughs.md`](notes/d187-native-server-host-and-lobby-protocol-breakthroughs.md) — **Referência Master (2026-11-19):** `Hermit::Session::Waiter::TCP` (`0x0050BB10`), `SN_Info` (`0x220203`), `SN_HostConnect` (`0x420303`), patch cirúrgico de mapas (`0x10408C7E`), ABI completa de `Engine_Server.dll` (`D187_ServerHost.exe`), `LTGUID` oficial e guia para IAs/colaboradores.
 - [`notes/d187-wait-room-user-list-and-leader-protocol.md`](notes/d187-wait-room-user-list-and-leader-protocol.md) — **Sala de Espera, Líder & Inventário/Loja (2026-11-19):** `SN_UserList` (`0x220233`, 49B/usuário, `rank` em `+0x02`, `state=1` em `+0x0C`), `SN_ChangeLeader` (`0x220319`), `CN_PlayStartButton` (`0x222103`, `F5 Başla`), troca de time/mapa/regras e `NEquipment_SA_Open` (`0x240102` → `ChangeScene(4/5/13)`).
 - [`notes/district-187-full-network-protocol-specification.md`](notes/district-187-full-network-protocol-specification.md) — **Bíblia do Protocolo de Rede (326/326 Opcodes):** micro-interpretação da árvore de switch x86 (`0x10057168..0x1005845D`), 251 handlers `CDispatch_*` e 38 rotinas emissoras em `GameClient.dll`.

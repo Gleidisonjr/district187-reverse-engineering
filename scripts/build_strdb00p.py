@@ -108,7 +108,8 @@ def pad4_utf16(s: str) -> bytes:
 
 
 def unpack_strdb00p(path: str) -> dict:
-    data = open(path, "rb").read()
+    with open(path, "rb") as f:
+        data = f.read()
     magic, ver, n_ids, n_ids_plus_vals, n_voices, pool_bytes = struct.unpack_from("<4s5I", data, 0)
     assert magic == b"SKDB" and ver == 2, f"Invalid SKDB header: {magic!r} v{ver}"
     pool = data[24 : 24 + pool_bytes]
