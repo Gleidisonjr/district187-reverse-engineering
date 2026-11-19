@@ -1,0 +1,46 @@
+name: District 187 RE Toolchain CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-schemas-and-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile-check all Python scripts
+        run: |
+          python -m py_compile scripts/*.py
+
+      - name: Validate RE JSON schemas (326 opcodes, 530 Scaleform, 522 GameServer RTTI, GADB/UDP)
+        run: |
+          python - <<'EOF'
+          import json
+
+          proto = json.load(open("targets/district-187/data/d187_protocol_schema.json", encoding="utf-8"))
+          assert proto["total_packets"] == 326 and proto["resolved_opcodes"] == 326
+
+          sf = json.load(open("targets/district-187/data/scaleform_flash_bridge.json", encoding="utf-8"))
+          assert sf["total_flash_dispatch_classes"] == 530 and sf["resolved_vtables"] == 530
+
+          gs = json.load(open("targets/district-187/data/gameserver_internals.json", encoding="utf-8"))
+          assert gs["export_count"] == 12 and gs["total_rtti_classes"] == 522
+
+          bal = json.load(open("targets/district-187/data/gamdb_ballistics_and_modes.json", encoding="utf-8"))
+          assert bal["ammo_multiplayer_count"] >= 180 and bal["modes_count"] == 20
+
+          udp = json.load(open("targets/district-187/data/lithtech_udp_mid_protocol.json", encoding="utf-8"))
+          assert udp["on_message_va"] == "0x1004fd70" and udp["active_mid_count"] >= 7
+
+          print("[OK] All District 187 RE schemas passed CI integrity checks!")
+          EOF
