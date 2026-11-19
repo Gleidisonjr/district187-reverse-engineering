@@ -21,30 +21,47 @@ from urllib.parse import parse_qs, urlparse
 sys.stdout.reconfigure(encoding='utf-8')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+if SCRIPT_DIR not in sys.path:
+    sys.path.insert(0, SCRIPT_DIR)
 TARGET_DIR = os.path.join(BASE_DIR, "targets", "district-187")
 CLIENT_DIR = os.path.join(TARGET_DIR, "client-rebirth")
 DB_PATH = os.path.join(TARGET_DIR, "data", "s2rebirth.db")
 CFG_PATH = os.path.join(CLIENT_DIR, "autoexec.cfg")
 
-def check_port_open(host="127.0.0.1", port=12000, timeout=0.5):
+def check_port_open(host="127.0.0.1", port=12000, timeout=0.5, proto="tcp"):
     try:
+        if proto == "udp":
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s.settimeout(timeout)
+            s.sendto(b"\x01", (host, port))
+            data, _ = s.recvfrom(64)
+            s.close()
+            return len(data) > 0
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(timeout)
         result = s.connect_ex((host, port))
         s.close()
         return result == 0
-    except:
+    except Exception:
         return False
 
 def get_process_status(name="TheRaw.exe"):
     try:
-        clean_name = name.replace(".exe", "")
-        cmd = f'powershell -Command "Get-Process -Name \'{clean_name}\' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Id"'
-        out = subprocess.check_output(cmd, shell=True).decode().strip()
-        if out:
-            pids = [int(p) for p in out.splitlines() if p.strip().isdigit()]
+        out = subprocess.check_output(
+            ["tasklist", "/FI", f"IMAGENAME eq {name}", "/FO", "CSV", "/NH"],
+            creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
+        ).decode("utf-8", errors="ignore").strip()
+        pids = []
+        for line in out.splitlines():
+            parts = [p.strip('"') for p in line.split(",")]
+            if len(parts) >= 2 and parts[0].lower() == name.lower() and parts[1].isdigit():
+                pids.append(int(parts[1]))
+        if pids:
             return {"running": True, "pids": pids}
-    except:
+    except Exception:
         pass
     return {"running": False, "pids": []}
 
@@ -58,11 +75,12 @@ class ServiceManager:
             "cwd": BASE_DIR
         },
         "dedicated_server": {
-            "name": "LithTech Dedicated Gateway",
-            "cmd": [sys.executable, "-u", os.path.join(BASE_DIR, "scripts", "d187_dedicated_gateway.py"), "--port", "27888"],
+            "name": "LithTech Native Dedicated Server",
+            "cmd": [os.path.join(TARGET_DIR, "server_host", "D187_ServerHost.exe"), "--world", "Worlds\\Arrival.World00p", "--port", "27888"],
             "port": 27888,
-            "desc": "Jupiter EX Combat UDP Gateway (27888)",
-            "cwd": BASE_DIR
+            "proto": "udp",
+            "desc": "Native Engine_Server.dll + GameServer.dll (UDP 27888)",
+            "cwd": CLIENT_DIR
         },
         "apexguard": {
             "name": "ApexGuard Anti-Cheat Stub",
@@ -119,8 +137,10 @@ class ServiceManager:
                 return True
             else:
                 del cls._procs[svc_id]
-        port = cls.SERVICES.get(svc_id, {}).get("port")
-        if port and check_port_open("127.0.0.1", port):
+        info = cls.SERVICES.get(svc_id, {})
+        port = info.get("port")
+        proto = info.get("proto", "tcp")
+        if port and check_port_open("127.0.0.1", port, proto=proto):
             return True
         return False
 
@@ -130,7 +150,7 @@ class ServiceManager:
         for svc_id, info in cls.SERVICES.items():
             running = cls.is_running(svc_id)
             pid = cls._procs[svc_id].pid if svc_id in cls._procs and cls._procs[svc_id].poll() is None else None
-            port_open = check_port_open("127.0.0.1", info["port"]) if info.get("port") else False
+            port_open = check_port_open("127.0.0.1", info["port"], proto=info.get("proto", "tcp")) if info.get("port") else False
             res[svc_id] = {
                 "name": info["name"],
                 "desc": info["desc"],
@@ -625,19 +645,12 @@ class PanelHandler(BaseHTTPRequestHandler):
 
         elif path == "/api/save_cvars":
             params = parse_qs(url.query)
-            fps = params.get("fps", ["0"])[0]
-            fov = params.get("fov", ["90"])[0]
-            mip = params.get("mip", ["0"])[0]
+            fps = int(params.get("fps", ["0"])[0] or 0)
+            fov = int(params.get("fov", ["95"])[0] or 95)
+            mip = int(params.get("mip", ["0"])[0] or 0)
 
-            cfg_content = f"""// District 187: Sin Streets - Competitive autoexec.cfg
-MaxFPS {fps}
-Fov {fov}
-BindTexturesMipOffset {mip}
-GraphicQualityLevel 3
-ShowFrameRate 1
-"""
-            with open(CFG_PATH, "w", encoding="utf-8") as f:
-                f.write(cfg_content)
+            from d187_qol_optimizer import apply_qol_profile
+            apply_qol_profile(fov=fov, raw_mouse=True, borderless=True, max_fps=fps, mip_offset=mip)
 
             self.send_response(200)
             self.send_header("Content-Type", "application/json")

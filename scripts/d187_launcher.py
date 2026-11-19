@@ -22,24 +22,41 @@ from tkinter import ttk, messagebox
 
 # Resolve base paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+if SCRIPT_DIR not in sys.path:
+    sys.path.insert(0, SCRIPT_DIR)
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 CLIENT_DIR = os.path.join(PROJECT_DIR, r"targets\district-187\client-rebirth")
+WORLDS_DIR = os.path.join(CLIENT_DIR, "Game", "Worlds")
 THE_RAW_EXE = os.path.join(CLIENT_DIR, "TheRaw.exe")
+SERVER_HOST_EXE = os.path.join(PROJECT_DIR, r"targets\district-187\server_host\D187_ServerHost.exe")
 SERVER_SCRIPT = os.path.join(SCRIPT_DIR, "d187-mock-server.py")
 WEB_PORTAL_SCRIPT = os.path.join(SCRIPT_DIR, "d187_web_portal.py")
+WEB_PANEL_SCRIPT = os.path.join(SCRIPT_DIR, "d187_web_panel.py")
+
+try:
+    from d187_qol_optimizer import apply_qol_profile, enforce_borderless_window
+except Exception:
+    apply_qol_profile = None
+    enforce_borderless_window = None
+
+_CURATED_MAPS = [
+    ("Arrival (Recomendado)", "Arrival.World00p"),
+    ("Two Way (Çifte Yol)", "twoway.World00p"),
+    ("The Bank (Banka)", "thebank.World00p"),
+    ("Old Town (Eski Şehir)", "oldtown.World00p"),
+    ("Kill Port (Ölüm Limanı)", "Kill_Port.World00p"),
+    ("Ghost Ship (Hayalet Gemi)", "Ghost_Ship.World00p"),
+    ("Heaven (10025_Heaven)", "10025_Heaven.World00p"),
+    ("Hospital (10031_Hospital)", "10031_Hospital.World00p"),
+    ("Grand Bazar (10023_GrandBazar)", "10023_GrandBazar.World00p"),
+]
 
 MAPS = [
-    ("Arrival (Recomendado)", "Arrival.World00p"),
-    ("Two Way (Çifte Yol)", "Worlds\\twoway.World00p"),
-    ("Kill Port (Ölüm Limanı)", "Worlds\\Kill_Port.World00p"),
-    ("Old Town (Eski Şehir)", "Worlds\\oldtown.World00p"),
-    ("Ghost Ship (Hayalet Gemi)", "Worlds\\Ghost_Ship.World00p"),
-    ("Dust 2 (De_dust2)", "Worlds\\De_dust2.World00p"),
-    ("The Bank (Banka)", "Worlds\\thebank.World00p"),
-    ("Downtown (Çarşı)", "Worlds\\10038_Downtown.World00p"),
-    ("SandStorm (Kum Fırtınası)", "Worlds\\10024_SandStorm.World00p"),
-    ("Hospital (Hastane)", "Worlds\\10031_Hospital.World00p"),
-]
+    (label, fname)
+    for label, fname in _CURATED_MAPS
+    if os.path.exists(os.path.join(WORLDS_DIR, fname))
+    and os.path.getsize(os.path.join(WORLDS_DIR, fname)) > 100_000
+] or [("Arrival (Recomendado)", "Arrival.World00p")]
 
 class D187Launcher(tk.Tk):
     def __init__(self):
@@ -49,17 +66,12 @@ class D187Launcher(tk.Tk):
         self.resizable(False, False)
         self.configure(bg="#0c0d12")
 
-        # Set app icon if available
-        icon_path = os.path.join(CLIENT_DIR, "S2Launcher.exe")
-        if os.path.exists(icon_path):
-            try:
-                self.iconbitmap(icon_path)
-            except Exception:
-                pass
-
         self.server_online = False
+        self._closing = False
+        self._child_procs = []
         self.setup_styles()
         self.build_ui()
+        self.protocol("WM_DELETE_WINDOW", self.on_close)
         self.start_status_checker()
 
     def setup_styles(self):
@@ -119,6 +131,9 @@ class D187Launcher(tk.Tk):
 
         btn_portal = tk.Button(status_right, text="Abrir Web Portal", font=("Segoe UI", 9, "bold"), bg="#F59E0B", fg="#000000", activebackground="#D97706", activeforeground="#000000", border=0, padx=12, pady=4, cursor="hand2", command=self.open_portal)
         btn_portal.pack(side="left", padx=4)
+
+        btn_panel = tk.Button(status_right, text="Painel Dev", font=("Segoe UI", 9, "bold"), bg="#1f2230", fg="#a78bfa", activebackground="#2a2d40", activeforeground="#ffffff", border=0, padx=10, pady=4, cursor="hand2", command=self.open_panel)
+        btn_panel.pack(side="left", padx=4)
 
         btn_replay = tk.Button(status_right, text="🎬 Replay 2D", font=("Segoe UI", 9, "bold"), bg="#1f2230", fg="#38bdf8", activebackground="#2a2d40", activeforeground="#ffffff", border=0, padx=10, pady=4, cursor="hand2", command=self.open_replay)
         btn_replay.pack(side="left", padx=4)
@@ -215,8 +230,11 @@ class D187Launcher(tk.Tk):
         lbl_perf.pack(side="left")
 
         # Giant Launch Button
-        btn_launch = tk.Button(self, text="🚀 ENTRAR NO JOGO / LAUNCH GAME", font=("Segoe UI", 14, "bold"), bg="#F59E0B", fg="#000000", activebackground="#D97706", activeforeground="#000000", border=0, pady=12, cursor="hand2", command=self.launch_game)
-        btn_launch.pack(fill="x", padx=24, pady=(8, 16))
+        self.btn_launch = tk.Button(self, text="🚀 ENTRAR NO JOGO / LAUNCH GAME", font=("Segoe UI", 14, "bold"), bg="#F59E0B", fg="#000000", activebackground="#D97706", activeforeground="#000000", border=0, pady=12, cursor="hand2", command=self.launch_game)
+        self.btn_launch.pack(fill="x", padx=24, pady=(8, 4))
+
+        self.feedback_lbl = tk.Label(self, text="Pronto. Na tela de login in-game, digite seu usuário (ex: gleidison) + qualquer senha.", font=("Segoe UI", 8), fg=self.c_muted, bg=self.c_bg)
+        self.feedback_lbl.pack(fill="x", padx=24, pady=(0, 12))
 
     def on_mode_change(self):
         mode = self.mode_var.get()
@@ -227,47 +245,127 @@ class D187Launcher(tk.Tk):
             self.solo_frame.pack_forget()
             self.online_frame.pack(fill="both", expand=True)
 
-    def check_server(self):
+    def _set_feedback(self, text: str, color: str = None):
+        if not self._closing:
+            self.after(0, lambda: self.feedback_lbl.config(text=text, fg=color or self.c_muted))
+
+    def _selected_map_file(self) -> str:
+        idx = self.cb_map.current()
+        if 0 <= idx < len(MAPS):
+            return MAPS[idx][1]
+        return "Arrival.World00p"
+
+    def _check_tcp_port(self, port: int, host: str = "127.0.0.1") -> bool:
         try:
-            with socket.create_connection(("127.0.0.1", 12000), timeout=0.4):
+            with socket.create_connection((host, port), timeout=0.4):
                 return True
         except Exception:
             return False
 
+    def check_server(self):
+        return self._check_tcp_port(12000)
+
+    def _is_dedicated_running(self) -> bool:
+        try:
+            out = subprocess.check_output(
+                ["tasklist", "/FI", "IMAGENAME eq D187_ServerHost.exe", "/NH"],
+                creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
+            ).decode("utf-8", errors="ignore")
+            return "D187_ServerHost.exe" in out
+        except Exception:
+            return False
+
+    def _start_dedicated_server(self, selected_map: str):
+        if not os.path.exists(SERVER_HOST_EXE):
+            return
+        if self._is_dedicated_running():
+            return
+        flags = subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0
+        world_arg = selected_map if selected_map.lower().startswith("worlds\\") else f"Worlds\\{selected_map}"
+        proc = subprocess.Popen(
+            [SERVER_HOST_EXE, "--world", world_arg, "--port", "27888"],
+            cwd=CLIENT_DIR,
+            creationflags=flags,
+        )
+        self._child_procs.append(proc)
+
+    def _update_status_ui(self, online: bool, dedicated_online: bool = False):
+        if self._closing:
+            return
+        if online and dedicated_online:
+            self.status_dot.config(fg=self.c_green)
+            self.status_text.config(text="Hermit (12000) + LithTech Dedicated (27888): ONLINE", fg=self.c_green)
+        elif online:
+            self.status_dot.config(fg=self.c_gold)
+            self.status_text.config(text="Hermit: ONLINE (12000) | Dedicated 3D: sobe ao clicar Jogar", fg=self.c_gold)
+        else:
+            self.status_dot.config(fg=self.c_red)
+            self.status_text.config(text="Servidores: OFFLINE — Clique em Entrar no Jogo ou Reiniciar", fg=self.c_red)
+
     def start_status_checker(self):
         def worker():
-            while True:
+            while not self._closing:
                 online = self.check_server()
+                ded = self._is_dedicated_running()
                 self.server_online = online
                 try:
-                    if online:
-                        self.status_dot.config(fg=self.c_green)
-                        self.status_text.config(text="Servidor Hermit: ONLINE (127.0.0.1:12000) — Pronto para Jogar", fg=self.c_green)
-                    else:
-                        self.status_dot.config(fg=self.c_red)
-                        self.status_text.config(text="Servidor Hermit: OFFLINE — Clique em Reiniciar Servidor", fg=self.c_red)
+                    self.after(0, lambda o=online, d=ded: self._update_status_ui(o, d))
                 except Exception:
                     break
                 time.sleep(2)
-        t = threading.Thread(target=worker, daemon=True)
-        t.start()
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _spawn_background(self, args: list):
+        flags = subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0
+        proc = subprocess.Popen(args, cwd=PROJECT_DIR, creationflags=flags)
+        self._child_procs.append(proc)
+        return proc
 
     def restart_server(self):
-        # Kill existing python processes on 12000 if any
-        subprocess.run(["powershell", "-Command", "Get-NetTCPConnection -LocalPort 12000 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }"], capture_output=True)
-        # Start server script in background
-        subprocess.Popen([sys.executable, SERVER_SCRIPT], creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
-        messagebox.showinfo("Servidor Hermit", "Servidor Hermit reiniciado com sucesso na porta 12000!")
+        selected_map = self._selected_map_file()
+        self._set_feedback(f"Reiniciando Servidor Hermit na porta 12000 (Mapa: {selected_map})...", self.c_gold)
+
+        def worker():
+            flags = subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0
+            subprocess.run(
+                ["powershell", "-Command", "Get-NetTCPConnection -LocalPort 12000 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }"],
+                capture_output=True,
+                creationflags=flags,
+            )
+            subprocess.run(["taskkill", "/F", "/IM", "D187_ServerHost.exe"], capture_output=True, creationflags=flags)
+            time.sleep(0.4)
+            self._spawn_background([sys.executable, "-u", SERVER_SCRIPT, "--map", selected_map])
+            self._start_dedicated_server(selected_map)
+            for _ in range(15):
+                if self.check_server():
+                    self._set_feedback(f"Hermit (12000) + LithTech Dedicated (27888) ONLINE (Mapa: {selected_map}).", self.c_green)
+                    self.after(0, lambda: self._update_status_ui(True, self._is_dedicated_running()))
+                    return
+                time.sleep(0.25)
+            self._set_feedback("Falha ao subir Servidor Hermit na porta 12000.", self.c_red)
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _open_web_service(self, script_path: str, port: int, label: str):
+        self._set_feedback(f"Abrindo {label} (localhost:{port})...", self.c_gold)
+
+        def worker():
+            if not self._check_tcp_port(port):
+                self._spawn_background([sys.executable, "-u", script_path])
+                for _ in range(25):
+                    if self._check_tcp_port(port):
+                        break
+                    time.sleep(0.25)
+            webbrowser.open(f"http://localhost:{port}")
+            self._set_feedback(f"{label} aberto em http://localhost:{port}.", self.c_green)
+
+        threading.Thread(target=worker, daemon=True).start()
 
     def open_portal(self):
-        # Ensure web portal is up
-        try:
-            with socket.create_connection(("127.0.0.1", 8080), timeout=0.3):
-                pass
-        except Exception:
-            subprocess.Popen([sys.executable, WEB_PORTAL_SCRIPT], creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
-            time.sleep(1)
-        webbrowser.open("http://localhost:8080")
+        self._open_web_service(WEB_PORTAL_SCRIPT, 8080, "Web Portal")
+
+    def open_panel(self):
+        self._open_web_service(WEB_PANEL_SCRIPT, 8081, "Painel Dev")
 
     def open_replay(self):
         replay_html = os.path.join(PROJECT_DIR, "targets", "district-187", "analytics", "match_replay.html")
@@ -276,60 +374,86 @@ class D187Launcher(tk.Tk):
         else:
             self.open_portal()
 
+    def on_close(self):
+        self._closing = True
+        for proc in self._child_procs:
+            try:
+                if proc.poll() is None:
+                    proc.terminate()
+            except Exception:
+                pass
+        self.destroy()
+
     def launch_game(self):
         if not os.path.exists(THE_RAW_EXE):
             messagebox.showerror("Erro", f"TheRaw.exe não encontrado em:\n{THE_RAW_EXE}")
             return
 
-        # Ensure server is running if playing solo / local
         target_ip = "127.0.0.1"
         target_port = "12000"
-
         if self.mode_var.get() == "online":
             target_ip = self.ent_ip.get().strip() or "127.0.0.1"
             target_port = self.ent_port.get().strip() or "12000"
 
-        if target_ip in ("127.0.0.1", "localhost") and not self.check_server():
-            subprocess.Popen([sys.executable, SERVER_SCRIPT], creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
-            time.sleep(1.5)
+        borderless = self.borderless_var.get()
+        selected_map = self._selected_map_file()
+        self.btn_launch.config(state="disabled")
+        self._set_feedback(f"Preparando motor LithTech ({selected_map})...", self.c_gold)
 
-        # Terminate any orphaned/hung TheRaw.exe to guarantee mutex is free
-        subprocess.run(
-            ["taskkill", "/F", "/IM", "TheRaw.exe"],
-            capture_output=True,
-            creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0
-        )
-        time.sleep(0.3)
+        def worker():
+            try:
+                if target_ip in ("127.0.0.1", "localhost"):
+                    if not self.check_server():
+                        self._spawn_background([sys.executable, "-u", SERVER_SCRIPT, "--map", selected_map])
+                        for _ in range(15):
+                            if self.check_server():
+                                break
+                            time.sleep(0.25)
+                    self._start_dedicated_server(selected_map)
 
-        # Set environment compatibility flag & apply Windows 11 QoL profile
-        env = os.environ.copy()
-        env["__COMPAT_LAYER"] = "RunAsInvoker"
-        os.environ["__COMPAT_LAYER"] = "RunAsInvoker"
-        try:
-            from d187_qol_optimizer import apply_qol_profile, enforce_borderless_window
-            apply_qol_profile(fov=95, raw_mouse=True, borderless=self.borderless_var.get())
-        except Exception:
-            pass
+                flags = subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0
+                subprocess.run(["taskkill", "/F", "/IM", "TheRaw.exe"], capture_output=True, creationflags=flags)
+                time.sleep(0.3)
 
-        cmd = [
-            THE_RAW_EXE,
-            "-arch", "game",
-            "-archcfg", "Default.archcfg",
-            "-windowtitle", "District 187: Sin Streets",
-            "+gs_ip", target_ip,
-            "+gs_port", target_port,
-            "+windowed", "1",
-            "+ScreenWidth", "1920",
-            "+ScreenHeight", "1080"
-        ]
+                env = os.environ.copy()
+                env["__COMPAT_LAYER"] = "RunAsInvoker"
+                os.environ["__COMPAT_LAYER"] = "RunAsInvoker"
 
-        try:
-            subprocess.Popen(cmd, cwd=CLIENT_DIR, env=env)
-            if self.borderless_var.get():
-                threading.Thread(target=enforce_borderless_window, kwargs={"timeout_sec": 12.0}, daemon=True).start()
-            messagebox.showinfo("District 187", "Jogo inicializado com sucesso!\n\nNa tela de login dentro do jogo:\n- Digite seu Usuário (ex: gleidison)\n- Digite sua Senha (qualquer senha)\n- Clique em OK!")
-        except Exception as e:
-            messagebox.showerror("Erro ao disparar", f"Falha ao iniciar TheRaw.exe:\n{e}")
+                screen_w, screen_h = 1920, 1080
+                if apply_qol_profile is not None:
+                    try:
+                        qol = apply_qol_profile(fov=95, raw_mouse=True, borderless=borderless)
+                        screen_w = int(qol.get("width", 1920))
+                        screen_h = int(qol.get("height", 1080))
+                    except Exception:
+                        pass
+
+                cmd = [
+                    THE_RAW_EXE,
+                    "-arch", "game",
+                    "-archcfg", "Default.archcfg",
+                    "-windowtitle", "District 187: Sin Streets",
+                    "+gs_ip", target_ip,
+                    "+gs_port", target_port,
+                    "+windowed", "1" if borderless else "0",
+                    "+ScreenWidth", str(screen_w),
+                    "+ScreenHeight", str(screen_h),
+                ]
+
+                subprocess.Popen(cmd, cwd=CLIENT_DIR, env=env)
+                if borderless and enforce_borderless_window is not None:
+                    threading.Thread(target=enforce_borderless_window, kwargs={"timeout_sec": 12.0}, daemon=True).start()
+                self._set_feedback(
+                    f"TheRaw.exe iniciado ({screen_w}x{screen_h}) -> {target_ip}:{target_port}. Faça login in-game (ex: gleidison).",
+                    self.c_green,
+                )
+            except Exception as e:
+                self._set_feedback(f"Falha ao iniciar TheRaw.exe: {e}", self.c_red)
+            finally:
+                if not self._closing:
+                    self.after(0, lambda: self.btn_launch.config(state="normal"))
+
+        threading.Thread(target=worker, daemon=True).start()
 
 def main():
     app = D187Launcher()

@@ -50,3 +50,6 @@ targets/*/extracted/converted_weapons/
 projects/ddtank-server/
 targets/dd-classico/
 dist/
+
+# C/C++ build intermediates
+*.obj

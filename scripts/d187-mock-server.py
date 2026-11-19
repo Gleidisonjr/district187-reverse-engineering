@@ -24,7 +24,9 @@ try:
 except Exception:
     pass
 
-LOG_DIR = r"targets\district-187\traffic"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(BASE_DIR, "targets", "district-187", "data", "s2rebirth.db")
+LOG_DIR = os.path.join(BASE_DIR, "targets", "district-187", "traffic")
 
 # Packet IDs (Network Byte Order on wire - Ground Truth from GameClient.dll)
 PACKET_HERMIT_HANDSHAKE_REQ = 0x20080
@@ -81,12 +83,17 @@ PACKET_CQ_QUICK_JOIN = 0x220161
 PACKET_SA_QUICK_JOIN = 0x220162
 PACKET_CQ_CREATE_ROOM = 0x220201
 PACKET_SA_CREATE_ROOM = 0x220202
+PACKET_SN_ROOM_INFO = 0x220203
 PACKET_SN_ROOM_LIST = 0x220204
 PACKET_CQ_ENTER_ROOM = 0x220231
 PACKET_SA_ENTER_ROOM = 0x220232
 PACKET_CN_START_BUTTON = 0x220301
+PACKET_CQ_START_GAME = 0x220314
+PACKET_CQ_EQUIP_OPEN = 0x240101
+PACKET_SA_EQUIP_OPEN = 0x240102
 
 # NHosting / NBattle Family
+PACKET_SN_HOST_CONNECT = 0x420303
 PACKET_SN_BATTLE_START = 0x420310
 
 # Standard IEEE 802.3 CRC32 lookup table (matching TheRaw.exe VA 0x802a58)
@@ -206,7 +213,7 @@ def build_apex_heartbeat_response(session_id: int, payload_data: bytes = b"", ke
     plain = b'\x00\x00\x00\x00' + header + bytes(payload)
     return encrypt_hermit_packet(plain, key_byte)
 
-def build_login_success_response(packet_id: int, session_id: int, account_id: int = ACCOUNT_ID_SUCCESS, key_byte: int = 0x0F) -> bytes:
+def build_login_success_response(packet_id: int, session_id: int, account_id: int = ACCOUNT_ID_SUCCESS, key_byte: int = 0x0F, flags: int = 1) -> bytes:
     """
     Constructs an authentic SA_JoyGameLogin (0x110112), SA_Login (0x110102), or SA_Join (0x110125) packet (80 bytes).
     Handler at 0x100d74a0 / 0x100d7450 / 0x10030c90 calls IsPacketerrorMessage(edx, ecx) at 0x10191740:
@@ -218,20 +225,20 @@ def build_login_success_response(packet_id: int, session_id: int, account_id: in
     struct.pack_into('<H', payload, 0, 0)  # Offset 16: Origin = 0
     struct.pack_into('<I', payload, 2, 0)  # Offset 18: ErrorCode = 0 (Success)
 
-    header = struct.pack('>HHII', 0, total_len, session_id, packet_id)
+    header = struct.pack('>HHII', flags & 0xFFFF, total_len, session_id, packet_id)
     plain = b'\x00\x00\x00\x00' + header + bytes(payload)
     return encrypt_hermit_packet(plain, key_byte)
 
-def build_hermit_packet(packet_id: int, session_id: int, payload: bytes, key_byte: int = 0x0F) -> bytes:
+def build_hermit_packet(packet_id: int, session_id: int, payload: bytes, key_byte: int = 0x0F, flags: int = 1) -> bytes:
     total_len = 16 + len(payload)
-    header = struct.pack('>HHII', 0, total_len, session_id, packet_id)
+    header = struct.pack('>HHII', flags & 0xFFFF, total_len, session_id, packet_id)
     plain = b'\x00\x00\x00\x00' + header + payload
     return encrypt_hermit_packet(plain, key_byte)
 
 def get_user_data_from_db(username_hint: str = "gleidison") -> dict:
     """Queries user profile and stats from SQLite database."""
     import sqlite3
-    db_path = os.path.join(r"targets\district-187\data\s2rebirth.db")
+    db_path = DB_PATH
     default_user = {
         "id": 1,
         "username": "gleidison",
@@ -311,7 +318,7 @@ def build_item_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
       (uint64 uid, uint8 flag, uint32 f9c, uint32 fa0, uint32 fa4, uint16 fa8, uint32 item_id)
     """
     import sqlite3
-    db_path = os.path.join(r"targets\district-187\data\s2rebirth.db")
+    db_path = DB_PATH
     gids = []
     if os.path.exists(db_path):
         try:
@@ -326,7 +333,8 @@ def build_item_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
     if not gids:
         gids = [1110001, 1120001, 1130001, 1140001]
 
-    count = min(len(gids), 32)
+    # Keep SN_ItemList compact (<= 8 items = 234B) so it never fragments TheRaw.exe's 0x400-byte recv buffer
+    count = min(len(gids), 8)
     payload = bytearray(struct.pack("<BB", 0, count))
     for idx, gid in enumerate(gids[:count], start=1):
         # 27 bytes: uid(Q=8) + flag(B=1) + f9c(I=4) + fa0(I=4) + fa4(I=4) + fa8(H=2) + item_id(I=4) = 27B
@@ -415,9 +423,9 @@ def build_server_info_hermit(session_id: int, port: int = 12000, key_byte: int =
     entry = bytearray(98)
     entry[0:5] = b"S2\x00\x00\x00"
     entry[5:10] = b"S2\x00\x00\x00"
-    ip_b = b"127.0.0.1\x00"
-    entry[16:16+len(ip_b)] = ip_b
-    name_b = b"District 187 Dedicated [BR]\x00"
+    ip_b = b"127.0.0.1\x00"[:15]
+    entry[10:10+len(ip_b)] = ip_b
+    name_b = b"District 187 Dedicated [BR]\x00"[:54]
     entry[26:26+len(name_b)] = name_b
     struct.pack_into("<IHHHBB", entry, 81, 1, port, 12, 200, 0, 1)
 
@@ -446,7 +454,7 @@ def build_channel_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
     payload = bytearray(struct.pack("<BB5s", 0, len(channels), b"S2\x00\x00\x00"))
     for cid, cur_u, max_u, cname in channels:
         entry = bytearray(57)
-        struct.pack_into("<BHHBI", entry, 0, cid, cur_u, max_u, 0, 0)
+        struct.pack_into("<BHHB4xI", entry, 0, cid, cur_u, max_u, 0, 0)
         entry[14:14+len(cname)] = cname[:42]
         payload += entry
     return build_hermit_packet(PACKET_SN_CHANNEL_LIST, session_id, bytes(payload), key_byte)
@@ -493,22 +501,58 @@ def build_room_list_hermit(session_id: int, key_byte: int = 0x0F) -> bytes:
     return build_hermit_packet(PACKET_SN_ROOM_LIST, session_id, bytes(payload), key_byte)
 
 def build_create_room_response(session_id: int, room_id: int = 1, room_name: str = "Arrival 8v8 [Bots & VIP]", key_byte: int = 0x0F) -> bytes:
-    """SA_CreateRoom (0x220202): Response to CQ_CreateRoom."""
+    """SA_CreateRoom (0x220202): Response to CQ_CreateRoom (Origin=0, ErrorCode=0 at payload[0:6])."""
     rname = room_name.encode("utf-8")[:31].ljust(32, b"\x00")
-    payload = struct.pack("<II32sI", 0, room_id, rname, 1)
+    payload = struct.pack("<HIH32sI", 0, 0, room_id, rname, 1)
     return build_hermit_packet(PACKET_SA_CREATE_ROOM, session_id, payload, key_byte)
 
+def build_room_info_hermit(session_id: int, room_id: int = 1, room_name: str = "Sala1", map_id: int = 10001, max_players: int = 16, mode: int = 2, key_byte: int = 0x0F) -> bytes:
+    """
+    SN_Info (0x220203): Handler at 0x101393A0 -> ChangeScene(3) (CRoomScene) + ParseRoomInfo (0x10072640).
+    - Offset 0x16 (payload +6): uint8 room_type (2=TDM, 3=Demolition, 6=Practice -> ChangeScene(3))
+    - Offset 0x19 (payload +9): uint8 max_players
+    - Offset 0x1A (payload +10): uint8 cur_players
+    - Offset 0x2D (payload +29): room_name (null-terminated)
+    - Offset 0x6A..0x75 (payload +90..101): map_id, goal, time_limit
+    - Offset 0xD3 (payload +195): uint32 room_extra
+    """
+    payload = bytearray(224)
+    struct.pack_into("<H", payload, 0, room_id)
+    payload[6] = mode & 0xFF          # +0x16: 2 = TDM -> ChangeScene(3)!
+    payload[9] = max_players & 0xFF   # +0x19: max_players
+    payload[10] = 1                   # +0x1A: cur_players
+    payload[25] = mode & 0xFF         # +0x29: mode
+    rname_b = room_name.encode("ascii", "ignore")[:31] + b"\x00"
+    payload[29 : 29 + len(rname_b)] = rname_b
+    struct.pack_into("<HHHHHH", payload, 90, map_id & 0xFFFF, 100, 10, 0, 0, 0)
+    return build_hermit_packet(PACKET_SN_ROOM_INFO, session_id, bytes(payload), key_byte)
+
+def build_host_connect_hermit(session_id: int, ip: str = "127.0.0.1", port: int = 27888, key_byte: int = 0x0F) -> bytes:
+    """
+    SN_HostConnect (0x420303): Handler at 0x10138EE0 -> 0x10138F0B -> CMissionMgr::StartGameAsClient("ip:port", 0, 0)!
+    - Offset 0x10 (payload +0..+1): uint16 LE port (27888)
+    - Offset 0x12 (payload +2): uint8 pad (0)
+    - Offset 0x13 (payload +3..): null-terminated ASCII IP string ("127.0.0.1\x00")
+    """
+    ip_b = ip.encode("ascii")[:30] + b"\x00"
+    payload = struct.pack("<HB", port & 0xFFFF, 0) + ip_b.ljust(32, b"\x00")
+    return build_hermit_packet(PACKET_SN_HOST_CONNECT, session_id, payload, key_byte)
+
 def build_battle_start_hermit(session_id: int, map_name: str = "Arrival.World00p", port: int = 27888, key_byte: int = 0x0F) -> bytes:
-    """SN_BattleStart (0x230104): Directs client to connect to combat server."""
-    if not map_name.endswith(".World00p"):
-        map_name = f"{map_name}.World00p"
+    """SN_BattleStart (0x420310): Directs client to connect to combat server."""
+    clean_name = map_name.strip().replace("/", "\\")
+    for prefix in ("Game\\Worlds\\", "Worlds\\"):
+        if clean_name.lower().startswith(prefix.lower()):
+            clean_name = clean_name[len(prefix):]
+    if not clean_name.lower().endswith(".world00p"):
+        clean_name = f"{clean_name}.World00p"
     ip_b = b"127.0.0.1\x00".ljust(16, b"\x00")
-    map_rel = f"Worlds\\{map_name}".encode("ascii")[:31].ljust(32, b"\x00")
+    map_rel = f"Worlds\\{clean_name}".encode("ascii", "ignore")[:31].ljust(32, b"\x00")
     payload = struct.pack("<16sH32s", ip_b, port, map_rel)
     return build_hermit_packet(PACKET_SN_BATTLE_START, session_id, payload, key_byte)
 
 class HermitClientSession:
-    def __init__(self, sock, addr, active_map: str = "Arrival.World00p"):
+    def __init__(self, sock, addr, active_map: str = "Arrival.World00p", server_port: int = 12000):
         self.sock = sock
         self.addr = addr
         self.session_id = 0x04034992
@@ -516,6 +560,40 @@ class HermitClientSession:
         self.recv_buf = bytearray()
         self.state = "HANDSHAKE"
         self.active_map = active_map
+        self.server_port = server_port
+        self.send_seq = 0
+        self.user_data = get_user_data_from_db("gleidison")
+        self.lobby_ext = None
+        try:
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            if script_dir not in sys.path:
+                sys.path.insert(0, script_dir)
+            from d187_lobby_extensions import LobbyExtensionService
+            self.lobby_ext = LobbyExtensionService(DB_PATH)
+            self.lobby_ext.active_map = active_map
+        except Exception:
+            pass
+
+        try:
+            self.sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+        except Exception:
+            pass
+
+    def send_pkt(self, pkt: bytes, pause: float = 0.02):
+        """
+        Sends an encrypted Hermit game packet with monotonically increasing TCP sequence number
+        at header offset +4 (required by Hermit::Session::Waiter::TCP at 0x0050BB10 in TheRaw.exe).
+        """
+        plain, _ = decrypt_hermit_packet(pkt, self.key_byte)
+        _, _, pkt_len, sid, pkt_id = struct.unpack('>IHHII', plain[:16])
+        if (pkt_id & 0xFFFFFF00) != 0x00020000:
+            self.send_seq = (self.send_seq + 1) & 0xFFFF
+            rebuilt = bytearray(plain)
+            struct.pack_into('>H', rebuilt, 4, self.send_seq)
+            pkt = encrypt_hermit_packet(bytes(rebuilt), self.key_byte)
+        self.sock.sendall(pkt)
+        if pause > 0:
+            time.sleep(pause)
 
     def handle(self):
         print(f"[+] Client connected from {self.addr}")
@@ -605,7 +683,7 @@ class HermitClientSession:
         elif pkt_id == PACKET_APEX_HEARTBEAT_REQ:
             payload_data = plain_packet[16:]
             resp = build_apex_heartbeat_response(self.session_id, payload_data, self.key_byte)
-            self.sock.sendall(resp)
+            self.send_pkt(resp, pause=0)
             print(f"[+] Dispatched Apex Heartbeat Pong 0x5A0102 ({len(resp)} bytes)")
 
         # 5. CQ_JoyGameLogin (0x110111) / CQ_Login (0x110101) / CQ_NetmarbleLogin (0x110121)
@@ -632,71 +710,72 @@ class HermitClientSession:
                     pass
 
             user_data = get_user_data_from_db(username_hint)
+            self.user_data = user_data
             print(f"[+] {login_type} (0x{pkt_id:X}) received for '{username_hint}'! Authenticating as '{user_data['nickname']}' (Rank {user_data['rank']})...")
             
             # 1. Login Response (Origin=0, ErrorCode=0 -> No Error at 0x10191740)
             resp = build_login_success_response(resp_pkt_id, self.session_id, account_id=0, key_byte=self.key_byte)
-            self.sock.sendall(resp)
+            self.send_pkt(resp)
             print(f"[+] Dispatched SA_Login 0x{resp_pkt_id:X} ({len(resp)} bytes, Origin=0, ErrorCode=0)!")
 
             # 2. Dispatch User Info (0x210101: 25B Nickname + 25B ClanName in CLoginScene)
             uinfo = build_user_info_hermit(self.session_id, user_data, account_id=0, key_byte=self.key_byte)
-            self.sock.sendall(uinfo)
+            self.send_pkt(uinfo)
             print(f"[+] Dispatched SN_UserInfo 0x210101 (Nickname='{user_data['nickname']}')!")
 
             # 3. Dispatch Ranking Info (0x210105: Rank + Exp)
             rinfo = build_ranking_info_hermit(self.session_id, user_data, key_byte=self.key_byte)
-            self.sock.sendall(rinfo)
+            self.send_pkt(rinfo)
             print(f"[+] Dispatched SN_RankingInfo 0x210105 (Rank {user_data['rank']}, Exp {user_data['exp']:,})!")
 
             # 4. Dispatch Item List (0x210111: 27-byte item entries from s2rebirth.db)
             ilist = build_item_list_hermit(self.session_id, key_byte=self.key_byte)
-            self.sock.sendall(ilist)
+            self.send_pkt(ilist)
             print(f"[+] Dispatched SN_ItemList 0x210111 ({len(ilist)} bytes, 27B/item)!")
 
             # 5. Dispatch Record Stats (0x210103: 224-byte stats block)
             rec = build_record_hermit(self.session_id, user_data, key_byte=self.key_byte)
-            self.sock.sendall(rec)
+            self.send_pkt(rec)
             print(f"[+] Dispatched SN_Record 0x210103 ({user_data['kills']} Kills, {user_data['headshots']} Headshots, {user_data['wins']} Wins)!")
 
             # 6. Pre-populate Groups, Servers and Channels in global manager
             glist = build_group_list_hermit(self.session_id, key_byte=self.key_byte)
-            self.sock.sendall(glist)
+            self.send_pkt(glist)
             slist = build_server_list_hermit(self.session_id, key_byte=self.key_byte)
-            self.sock.sendall(slist)
-            sinfo = build_server_info_hermit(self.session_id, port=12000, key_byte=self.key_byte)
-            self.sock.sendall(sinfo)
+            self.send_pkt(slist)
+            sinfo = build_server_info_hermit(self.session_id, port=self.server_port, key_byte=self.key_byte)
+            self.send_pkt(sinfo)
             clist = build_channel_list_hermit(self.session_id, key_byte=self.key_byte)
-            self.sock.sendall(clist)
+            self.send_pkt(clist)
             print(f"[+] Dispatched SN_GroupList 0x220107, SN_ServerList 0x220108, SN_ServerInfo 0x220101 & SN_ChannelList 0x220102!")
 
             # 7. Dispatch LockEnd (0x210121: Calls ChangeScene(0) out of LoginScene!)
             lend = build_lock_end_hermit(self.session_id, key_byte=self.key_byte)
-            self.sock.sendall(lend)
+            self.send_pkt(lend, pause=0.05)
             print(f"[+] Dispatched SN_LockEnd 0x210121 -> Client transitioned out of LoginScene to ServerList (Scene[0])!")
 
             # 8. Re-send Group, Server & Channel lists now that CServerListScene is active
-            self.sock.sendall(glist)
-            self.sock.sendall(slist)
-            self.sock.sendall(sinfo)
-            self.sock.sendall(clist)
+            self.send_pkt(glist)
+            self.send_pkt(slist)
+            self.send_pkt(sinfo)
+            self.send_pkt(clist)
 
         # 5b. CQ_Join (0x110124) -> SA_Join (0x110125) + SN_ChannelList (0x220102) + SN_LockEnd (0x210121)
         elif pkt_id == PACKET_CQ_JOIN:
             print(f"[+] CQ_Join (0x110124) received (Server Selection)! Sending SA_Join + SN_ChannelList + SN_LockEnd...")
             resp = build_login_success_response(PACKET_SA_JOIN, self.session_id, account_id=0, key_byte=self.key_byte)
-            self.sock.sendall(resp)
+            self.send_pkt(resp)
             clist = build_channel_list_hermit(self.session_id, key_byte=self.key_byte)
-            self.sock.sendall(clist)
+            self.send_pkt(clist)
             lend = build_lock_end_hermit(self.session_id, key_byte=self.key_byte)
-            self.sock.sendall(lend)
+            self.send_pkt(lend)
             print(f"[+] Dispatched SA_Join 0x110125 + SN_ChannelList 0x220102 + SN_LockEnd 0x210121 -> ChannelList (Scene[1])!")
 
         # 5c. CQ_MoveServer (0x220131) -> SA_MoveServer (0x220132)
         elif pkt_id == PACKET_CQ_MOVE_SERVER:
             print(f"[+] CQ_MoveServer (0x220131) received! Sending SA_MoveServer...")
             resp = build_move_server_response(self.session_id, key_byte=self.key_byte)
-            self.sock.sendall(resp)
+            self.send_pkt(resp)
             print(f"[+] Dispatched SA_MoveServer 0x220132!")
 
         # 6. CQ_EnterUser (0x220111) -> SA_EnterUser (0x220112) [Channel Navigation]
@@ -704,24 +783,38 @@ class HermitClientSession:
             channel_id = plain_packet[16] if len(plain_packet) > 16 else 1
             print(f"[+] CQ_EnterUser (0x{pkt_id:X}) received for Channel {channel_id}! Entering Lobby (Scene[2])...")
             resp = build_enter_channel_response(self.session_id, channel_id=channel_id, key_byte=self.key_byte)
-            self.sock.sendall(resp)
+            self.send_pkt(resp)
             rlist = build_room_list_hermit(self.session_id, key_byte=self.key_byte)
-            self.sock.sendall(rlist)
+            self.send_pkt(rlist)
             print(f"[+] Dispatched SA_EnterUser 0x220112 (Channel {channel_id}) + SN_RoomList 0x220204!")
 
         # CQ_RoomList (0x220103) -> SN_RoomList (0x220204) [Lobby Browser]
         elif pkt_id == PACKET_CQ_ROOM_LIST:
             print(f"[+] CQ_RoomList (0x220103) received! Sending available rooms...")
             resp = build_room_list_hermit(self.session_id, key_byte=self.key_byte)
-            self.sock.sendall(resp)
+            self.send_pkt(resp)
             print(f"[+] Dispatched SN_RoomList 0x220204 (5 active multi-map rooms)!")
 
-        # 7. CQ_CreateRoom (0x220201) -> SA_CreateRoom (0x220202) [Room Creation]
+        # 7. CQ_CreateRoom (0x220201) -> SA_CreateRoom (0x220202) + SN_Info (0x220203 -> ChangeScene(3) CRoomScene!)
         elif pkt_id == PACKET_CQ_CREATE_ROOM:
-            print(f"[+] CQ_CreateRoom (0x220201) received! Creating Match Room...")
-            resp = build_create_room_response(self.session_id, room_id=1, room_name=f"{self.active_map} 8v8 [Bots & VIP]", key_byte=self.key_byte)
-            self.sock.sendall(resp)
-            print(f"[+] Dispatched SA_CreateRoom (Room 1: {self.active_map} 8v8 [Bots & VIP])!")
+            req_name = "Sala1"
+            req_mode = 2
+            req_max = 16
+            if len(plain_packet) >= 40:
+                req_mode = plain_packet[16] if plain_packet[16] in (2, 3, 6) else 2
+                req_max = plain_packet[17] if 2 <= plain_packet[17] <= 16 else 16
+                raw_rn = plain_packet[34:66].split(b"\x00")[0].decode("utf-8", errors="ignore").strip()
+                if raw_rn:
+                    req_name = raw_rn
+            print(f"[+] CQ_CreateRoom (0x220201) received! Creating Match Room '{req_name}' (mode={req_mode}, max={req_max})...")
+            resp = build_create_room_response(self.session_id, room_id=1, room_name=req_name, key_byte=self.key_byte)
+            self.send_pkt(resp)
+            rinfo = build_room_info_hermit(self.session_id, room_id=1, room_name=req_name, max_players=req_max, mode=req_mode, key_byte=self.key_byte)
+            self.send_pkt(rinfo, pause=0.4)
+            # Auto-dispatch SN_HostConnect (0x420303) to connect directly to our native LithTech Dedicated Server (UDP 27888)!
+            hconn = build_host_connect_hermit(self.session_id, ip="127.0.0.1", port=27888, key_byte=self.key_byte)
+            self.send_pkt(hconn)
+            print(f"[+] Dispatched SA_CreateRoom (0x220202) + SN_Info (0x220203) + SN_HostConnect (0x420303 -> 127.0.0.1:27888)!")
 
         # 7b. CQ_EnterRoom (0x220231) -> SA_EnterRoom (0x220232)
         elif pkt_id == PACKET_CQ_ENTER_ROOM:
@@ -729,7 +822,7 @@ class HermitClientSession:
             print(f"[+] CQ_EnterRoom (0x220231) received for Room {room_id}!")
             payload = struct.pack("<HIH", 0, 0, room_id)
             resp = build_hermit_packet(PACKET_SA_ENTER_ROOM, self.session_id, payload, key_byte=self.key_byte)
-            self.sock.sendall(resp)
+            self.send_pkt(resp)
             print(f"[+] Dispatched SA_EnterRoom 0x220232 for Room {room_id}!")
 
         # 7c. CQ_QuickJoin (0x220161) -> SA_QuickJoin (0x220162)
@@ -737,39 +830,53 @@ class HermitClientSession:
             print(f"[+] CQ_QuickJoin (0x220161) received! Directing to Room 1...")
             payload = struct.pack("<HIH", 0, 0, 1)
             resp = build_hermit_packet(PACKET_SA_QUICK_JOIN, self.session_id, payload, key_byte=self.key_byte)
-            self.sock.sendall(resp)
+            self.send_pkt(resp)
             print(f"[+] Dispatched SA_QuickJoin 0x220162 (Room 1)!")
 
-        # 8. CN_StartButton (0x220301) -> SN_BattleStart (0x420310) [Match Trigger]
-        elif pkt_id == PACKET_CN_START_BUTTON:
-            print(f"[+] CN_StartButton (0x220301) received! Launching Battle on {self.active_map}...")
+        # 8. CN_StartButton (0x220301) / CQ_StartGame (0x220314, F5 Basla) -> SN_HostConnect (0x420303) + SN_BattleStart (0x420310)
+        elif pkt_id in (PACKET_CN_START_BUTTON, PACKET_CQ_START_GAME):
+            print(f"[+] Start Game (0x{pkt_id:X}) received! Launching 3D Battle on {self.active_map} (127.0.0.1:27888)...")
+            hconn = build_host_connect_hermit(self.session_id, ip="127.0.0.1", port=27888, key_byte=self.key_byte)
+            self.send_pkt(hconn)
             resp = build_battle_start_hermit(self.session_id, map_name=self.active_map, key_byte=self.key_byte)
-            self.sock.sendall(resp)
-            print(f"[+] Dispatched SN_BattleStart -> Directing client to 127.0.0.1:27888 ({self.active_map})!")
+            self.send_pkt(resp)
+            print(f"[+] Dispatched SN_HostConnect (0x420303 -> 127.0.0.1:27888) + SN_BattleStart (0x420310)!")
+
+        # 8b. CQ_EquipOpen (0x240101, Shop/Inventory) -> SA_EquipOpen (0x240102)
+        elif pkt_id == PACKET_CQ_EQUIP_OPEN:
+            print(f"[+] CQ_EquipOpen (0x240101) received! Opening Shop/Inventory...")
+            payload = struct.pack("<HI", 0, 0) + b"\x00" * 10
+            resp = build_hermit_packet(PACKET_SA_EQUIP_OPEN, self.session_id, payload, self.key_byte)
+            self.send_pkt(resp)
+            print(f"[+] Dispatched SA_EquipOpen (0x240102)!")
 
         # 9. CQ_Chat (0x210151) -> Slash Command Processor (/map, /bots, /give, /mmr, /loadout, /clan) + SN_Chat (0x210152)
         elif pkt_id == PACKET_CQ_CHAT:
             raw_msg = plain_packet[16:].split(b"\x00")[0].decode("utf-8", errors="ignore").strip() or "/help"
+            nick = self.user_data.get("nickname", "Gleidison") if self.user_data else "Gleidison"
             try:
-                from d187_lobby_extensions import LobbyExtensionService
-                ext = LobbyExtensionService()
-                cmd_res = ext.process_chat_command("Gleidison", raw_msg)
+                if self.lobby_ext is None:
+                    from d187_lobby_extensions import LobbyExtensionService
+                    self.lobby_ext = LobbyExtensionService(DB_PATH)
+                cmd_res = self.lobby_ext.process_chat_command(nick, raw_msg)
                 if "active_map" in cmd_res:
                     self.active_map = cmd_res["active_map"]
-                chat_payload = ext.build_sn_chat_packet(cmd_res["sender"], cmd_res["reply"])
-            except Exception as e:
+                chat_payload = self.lobby_ext.build_sn_chat_packet(cmd_res["sender"], cmd_res["reply"])
+            except Exception:
                 chat_payload = f"[SISTEMA]: {raw_msg}".encode("utf-8")[:128].ljust(168, b"\x00")
             resp = build_hermit_packet(PACKET_SN_CHAT, self.session_id, chat_payload, self.key_byte)
-            self.sock.sendall(resp)
+            self.send_pkt(resp)
             print(f"[+] Processed CQ_Chat ('{raw_msg}') -> Dispatched SN_Chat (0x210152)!")
 
         # 10. CQ_EquipSlot (0x210114) -> Persistent Loadout Slot Update + SN_SlotInfo (0x210113)
         elif pkt_id == PACKET_CQ_EQUIP_SLOT:
             slot_idx = plain_packet[16] if len(plain_packet) > 16 else 0
+            if self.lobby_ext is not None:
+                self.lobby_ext.active_slot = max(0, min(2, slot_idx))
             slot_payload = bytearray(244)
             struct.pack_into("<B", slot_payload, 0, slot_idx)
             resp = build_hermit_packet(PACKET_SN_SLOT_INFO, self.session_id, bytes(slot_payload), self.key_byte)
-            self.sock.sendall(resp)
+            self.send_pkt(resp)
             print(f"[+] Processed CQ_EquipSlot (Slot {slot_idx}) -> Dispatched SN_SlotInfo (0x210113)!")
 
         else:
@@ -804,7 +911,7 @@ def start_tcp_server(port=12000, active_map="Arrival.World00p"):
     while True:
         try:
             client_sock, client_addr = server_sock.accept()
-            session = HermitClientSession(client_sock, client_addr, active_map=active_map)
+            session = HermitClientSession(client_sock, client_addr, active_map=active_map, server_port=port)
             thread = threading.Thread(target=session.handle, daemon=True)
             thread.start()
         except Exception as e:

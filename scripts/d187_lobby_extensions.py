@@ -18,15 +18,14 @@ DB_PATH = os.path.join(BASE_DIR, "targets", "district-187", "data", "s2rebirth.d
 
 AVAILABLE_MAPS = {
     "arrival": "Arrival.World00p",
-    "twoway": "Worlds\\twoway.World00p",
-    "thebank": "Worlds\\thebank.World00p",
-    "oldtown": "Worlds\\oldtown.World00p",
-    "killport": "Worlds\\Kill_Port.World00p",
-    "ghostship": "Worlds\\Ghost_Ship.World00p",
-    "heaven": "Worlds\\10025_Heaven.World00p",
-    "hospital": "Worlds\\10031_Hospital.World00p",
-    "downtown": "Worlds\\10038_Downtown.World00p",
-    "grandbazar": "Worlds\\10023_GrandBazar.World00p",
+    "twoway": "twoway.World00p",
+    "thebank": "thebank.World00p",
+    "oldtown": "oldtown.World00p",
+    "killport": "Kill_Port.World00p",
+    "ghostship": "Ghost_Ship.World00p",
+    "heaven": "10025_Heaven.World00p",
+    "hospital": "10031_Hospital.World00p",
+    "grandbazar": "10023_GrandBazar.World00p",
 }
 
 
@@ -35,7 +34,7 @@ class LobbyExtensionService:
 
     def __init__(self, db_path: str = DB_PATH):
         self.db_path = db_path
-        self.active_map = "Worlds\\twoway.World00p"
+        self.active_map = "twoway.World00p"
         self.bot_count = 16
         self.bot_difficulty = "adaptive"
         self.active_slot = 0
@@ -165,8 +164,20 @@ class LobbyExtensionService:
 
         if cmd == "/give":
             query = " ".join(args) if args else "AK-47"
-            updated = self.update_loadout_slot(1, self.active_slot, primary_name=query)
-            wname = updated.get("primary_weapon_name", query)
+            conn = self._conn()
+            match = conn.execute(
+                "SELECT group_id, name FROM weapons WHERE name LIKE ? LIMIT 1",
+                (f"%{query}%",),
+            ).fetchone()
+            conn.close()
+            if not match:
+                return {
+                    "is_command": True,
+                    "sender": "[ARSENAL VIP]",
+                    "reply": f"Arma '{query}' não encontrada no arsenal. Tente ex: /give AK-47, /give M4A1 ou /give AWP.",
+                }
+            updated = self.update_loadout_slot(1, self.active_slot, primary_name=match["name"])
+            wname = updated.get("primary_weapon_name", match["name"])
             return {
                 "is_command": True,
                 "sender": "[ARSENAL VIP]",
@@ -226,9 +237,9 @@ class LobbyExtensionService:
 
     @staticmethod
     def build_sn_chat_packet(sender: str, message: str) -> bytes:
-        """Serializes SN_Chat (0x210152) payload for GameClient.dll."""
+        """Serializes SN_Chat (0x210152) payload for GameClient.dll (without duplicating Hermit header opcode)."""
         payload = bytearray(168)
-        struct.pack_into("<I", payload, 0, 0x210152)
+        struct.pack_into("<HI", payload, 0, 0, 0)
         s_bytes = sender.encode("utf-8")[:31]
         m_bytes = message.encode("utf-8")[:127]
         payload[8 : 8 + len(s_bytes)] = s_bytes

@@ -54,18 +54,20 @@ def apply_qol_profile(
     raw_mouse: bool = True,
     borderless: bool = True,
     max_fps: int = 0,
+    mip_offset: int = 0,
     enable_ptbr_mod: bool = True,
 ) -> dict:
     """Writes optimized autoexec.cfg and updates Default.archcfg."""
     screen_w, screen_h = get_primary_monitor_resolution()
     fov = max(75, min(115, int(fov)))
+    mip_offset = max(0, min(3, int(mip_offset)))
 
     lines = [
         "// District 187: Sin Streets — Windows 11 Competitive & QoL Profile",
         f"MaxFPS {max_fps}",
         f"Fov {fov}",
         f"FovY {round(fov * 0.75, 1)}",
-        "BindTexturesMipOffset 0",
+        f"BindTexturesMipOffset {mip_offset}",
         "GraphicQualityLevel 3",
         "ShowFrameRate 1",
         "VSyncOnFlip 0",
@@ -101,11 +103,14 @@ def apply_qol_profile(
             mod_mounted = True
 
     return {
+        "width": screen_w,
+        "height": screen_h,
         "resolution": f"{screen_w}x{screen_h}",
         "fov": fov,
         "raw_mouse": raw_mouse,
         "borderless": borderless,
         "max_fps": max_fps,
+        "mip_offset": mip_offset,
         "custom_mod_mounted": mod_mounted,
         "autoexec_path": AUTOEXEC_PATH,
     }
@@ -146,7 +151,7 @@ def enforce_borderless_window(window_titles=None, timeout_sec: float = 15.0) -> 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="District 187 Windows 11 QoL Optimizer")
     parser.add_argument("--fov", type=int, default=95)
-    parser.add_argument("--borderless", action="store_true", default=True)
+    parser.add_argument("--borderless", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--watch-window", action="store_true", help="Wait for TheRaw.exe window and make it borderless")
     args = parser.parse_args()
 

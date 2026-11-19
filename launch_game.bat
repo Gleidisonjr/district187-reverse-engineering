@@ -15,7 +15,7 @@ echo.
 :: 1. Compatibility Layer
 set __COMPAT_LAYER=RunAsInvoker
 
-:: 2. Check / Start Local Hermit Server
+:: 2. Check / Start Local Hermit Server (TCP 12000)
 echo [*] Verificando Servidor Hermit local na porta 12000...
 netstat -ano | findstr ":12000" >nul
 if %errorlevel% neq 0 (
@@ -26,8 +26,21 @@ if %errorlevel% neq 0 (
     echo [+] Servidor Hermit ja esta ativo na porta 12000.
 )
 
-:: 3. Launch Client
+:: 2.5 Check / Start Native LithTech Dedicated Server Host (UDP 27888)
+set "SERVER_HOST_EXE=%~dp0targets\district-187\server_host\D187_ServerHost.exe"
 set "CLIENT_DIR=%~dp0targets\district-187\client-rebirth"
+tasklist /FI "IMAGENAME eq D187_ServerHost.exe" /NH | findstr /I "D187_ServerHost.exe" >nul
+if %errorlevel% neq 0 (
+    if exist "%SERVER_HOST_EXE%" (
+        echo [*] Subindo Servidor Dedicado Nativo LithTech ^(UDP 27888, Worlds\Arrival.World00p^)...
+        start "D187 LithTech Dedicated Server" /D "%CLIENT_DIR%" /min "%SERVER_HOST_EXE%" --world Worlds\Arrival.World00p --port 27888
+        timeout /t 2 /nobreak >nul
+    )
+) else (
+    echo [+] Servidor Dedicado Nativo LithTech ja esta ativo na porta UDP 27888.
+)
+
+:: 3. Launch Client
 if not exist "%CLIENT_DIR%\TheRaw.exe" (
     echo [ERRO] TheRaw.exe nao encontrado em: %CLIENT_DIR%
     pause

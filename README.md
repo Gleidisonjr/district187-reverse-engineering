@@ -13,10 +13,16 @@
 
 Este repositório consolida a engenharia reversa completa do motor nativo **LithTech Jupiter EX** e sua infraestrutura de servidor e analytics:
 
-1. **Protocolo de Rede Hermit & Desbloqueio do Cliente Nativo (`TCP 12000`):**
-   - Reversão da cifra de fluxo proprietária Hermit em `TheRaw.exe` (`0x802a58`, polinômio IEEE 802.3 CRC32 `0xEDB88320`, chave `0x0F`) e máquina de estados de handshake (`0x20080` $\rightarrow$ `0x20081` $\rightarrow$ `0x20082` $\rightarrow$ `0x20083`, Keepalive `0x20084` e ApexGuard Heartbeat `0x5A0101` $\rightarrow$ `0x5A0102`).
-   - Desmontagem completa das tabelas de despacho em `GameClient.dll` (`0x10194800` e `0x10132d10`), identificando `IsPacketerrorMessage(0, 0)` (`0x10191740`) e o pacote real de transição de cenas `SN_LockEnd` (`0x210121`), além de `SN_UserInfo` (`0x210101`), `SN_RankingInfo` (`0x210105`), `SN_ItemList` (`0x210111`, 27B/item), `SN_Record` (`0x210103`, 224B), `SN_ServerInfo` (`0x220101`, 98B) e `SN_ChannelList` (`0x220102`, 57B).
-   - Mapeamento da cadeia de DLLs-proxy do `ApexGuard.dll` (`D3DX9_43.dll` 119 KB $\rightarrow$ `dxbase.dll`, `StringEditRuntime.dll` $\rightarrow$ `strbase.dll`, `GameDatabase.dll` $\rightarrow$ `dbbase.dll`), eliminando definitivamente o erro `S2-320` e o crash `R6025`.
+1. **Protocolo de Rede Hermit & Desbloqueio Completo do Cliente Nativo (`TCP 12000`):**
+   - Reversão da cifra de fluxo proprietária Hermit em `TheRaw.exe` (`0x802a58`, polinômio IEEE 802.3 CRC32 `0xEDB88320`, chave `0x0F`), máquina de estados de handshake (`0x20080` $\rightarrow$ `0x20081` $\rightarrow$ `0x20082` $\rightarrow$ `0x20083`, Keepalive `0x20084`, ApexGuard Heartbeat `0x5A0101` $\rightarrow$ `0x5A0102`) e **sequência monotônica `uint16` no offset `+4` exigida por `Hermit::Session::Waiter::TCP` (`0x0050BB10`)**.
+   - Fluxo completo validado em tela real (**Login → Canais `Kanal Seçimi` → Lobby `Oyun Lobisi` → `Create Room` com mapas/modos reais → Sala `Bekleme Odası` → `SN_HostConnect 0x420303`**): `IsPacketerrorMessage(0, 0)` (`0x10191740`), `SN_LockEnd` (`0x210121`), `SN_UserInfo` (`0x210101`), `SN_RankingInfo` (`0x210105`), `SN_ItemList` (`0x210111`), `SN_Record` (`0x210103`), `SN_ServerInfo` (`0x220101`, IP em `+10` / Nome em `+26`), `SN_ChannelList` (`0x220102`), `SN_Info` (`0x220203` → `ChangeScene(3)`) e `SN_HostConnect` (`0x420303` → `CMissionMgr::StartGameAsClient("127.0.0.1:27888")`).
+   - Patch cirúrgico de 2 bytes em `GameClient.dll` (`0x10408C7E`: `74 3f` → `74 27`, `je 0x10408ca7`) restaurando o carregamento completo de mapas/modos de `TheRaw.Gamdb00p` sem disparar o pop-up `GDB Mission/Level DetailInfo`.
+   - Remoção do anticheat `ApexGuard.dll` e integração do DXVK v3.1.1 x86 (Direct3D 9 → Vulkan em GPUs AMD modernas).
+
+2. **Servidor Dedicado Nativo LithTech (`D187_ServerHost.exe` — MSVC x86, `UDP 27888`):**
+   - Engenharia reversa da ABI completa de `Engine_Server.dll` (`CreateServer(SI_VERSION=2)` @ `RVA 0x62631`, vtable `0x10158bcc` de 28 slots, **`HostGame` no slot `[25]`** → `CUDPDriver::HostSession`, `NetHost` UTF-16LE de `0x2050` bytes, `ServerGameOptions` VC10-safe via `SetGameInfo(&pOpts)` antes de `LoadBinaries()`).
+   - Extração do **`LTGUID` oficial da memória viva (`CNetMgr+0x28`)**: `{DF560590-D918-4A51-9CB1-38EBBE3879AD}`.
+   - Host nativo [`targets/district-187/server_host/d187_server_host.cpp`](targets/district-187/server_host/d187_server_host.cpp) carregando `Engine_Server.dll` + `Game\GameServer.dll` (`LoadBinaries -> OK, status=0x1`), abrindo **`UDP 0.0.0.0:27888`** e rodando **`Worlds\Arrival.World00p`** no tick loop nativo a 60Hz.
 
 2. **Extração e Re-Compilação de Containers Proprietários (`HBEK` `.Res00` / `.ResDt`):**
    - Extração integral de **13.824 arquivos** distribuídos em **2.305 diretórios** (`Game.Res00`/`Game.ResDt`), incluindo **29 mapas compilados (`.World00p`)**, **585 modelos 3D (`.Model00p` v33)**, **54 tabelas CSV** e **901 amostras de áudio FMOD FSB5**.
@@ -83,7 +89,8 @@ Dentro do chat do lobby ou da sala, digite:
 
 ## 📚 Documentação Técnica (`notes/`)
 
-- [`notes/d187-login-scaleform-unlock.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/d187-login-scaleform-unlock.md) — Engenharia reversa de `IsPacketerrorMessage` (`0x10191740`), `SN_LockEnd` (`0x210121`) e transição de cenas Scaleform em `GameClient.dll`.
+- [`notes/d187-native-server-host-and-lobby-protocol-breakthroughs.md`](notes/d187-native-server-host-and-lobby-protocol-breakthroughs.md) — **Referência Master (2026-11-19):** `Hermit::Session::Waiter::TCP` (`0x0050BB10`), `SN_Info` (`0x220203`), `SN_HostConnect` (`0x420303`), patch cirúrgico de mapas (`0x10408C7E`), ABI completa de `Engine_Server.dll` (`D187_ServerHost.exe`), `LTGUID` oficial e guia para IAs/colaboradores.
+- [`notes/d187-login-scaleform-unlock.md`](notes/d187-login-scaleform-unlock.md) — Engenharia reversa de `IsPacketerrorMessage` (`0x10191740`), `SN_LockEnd` (`0x210121`) e transição de cenas Scaleform em `GameClient.dll`.
 - [`notes/d187-apexguard-s2-320-dx-proxy.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/d187-apexguard-s2-320-dx-proxy.md) — Análise da cadeia de DLLs-proxy (`dxbase.dll`, `strbase.dll`, `dbbase.dll`) do `ApexGuard.dll` e resolução do `S2-320` / `R6025`.
 - [`notes/district-187-hermit-protocol-and-handshake.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-hermit-protocol-and-handshake.md) — Cifra de fluxo Hermit CRC32 e máquina de estados TCP.
 - [`notes/district-187-full-network-protocol-specification.md`](file:///C:/Users/dopamine/Desktop/Projetos/Reverse%20Engineering/notes/district-187-full-network-protocol-specification.md) — Especificação dos 326 pacotes das famílias `NLaunch`, `NMatchup`, `NHosting` e `NBattle`.
