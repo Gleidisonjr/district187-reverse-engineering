@@ -25,3 +25,18 @@
 ## Próximo Passo
 - **Jogar agora:** Execute `.\D187_Launcher.bat` (interface gráfica) ou `.\launch_game.bat` (1 clique). Na tela de login in-game, entre com `gleidison` + qualquer senha.
 - **Se quiser testar entrada em partida 3D ao vivo:** Após logar e iniciar a sala, monitore se `TheRaw.exe` conecta no `D187_ServerHost.exe` (UDP 27888) ou reporte qualquer tela/mensagem in-game para ajuste fino imediato.
+
+---
+
+## Coordenação Multi-Agente (Claude Code + Antigravity)
+
+> Sistema ativo desde 2026-11-19. Ambos os agentes trabalham neste repositório em paralelo.
+
+| Arquivo | Propósito |
+|---|---|
+| [`sessions/protocol.md`](sessions/protocol.md) | Regras de trabalho conjunto, ownership de arquivos, sessões REA |
+| [`sessions/task-queue.md`](sessions/task-queue.md) | Fila de tarefas com estado OPEN/DOING/DONE e dono |
+| [`sessions/agent-claude.md`](sessions/agent-claude.md) | Estado atual do Claude Code |
+| [`sessions/agent-agy.md`](sessions/agent-agy.md) | Estado atual do Antigravity |
+
+**Regra de ouro ao iniciar qualquer sessão:** leia `task-queue.md` antes de qualquer trabalho.

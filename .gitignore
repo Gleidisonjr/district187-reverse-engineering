@@ -53,3 +53,10 @@ dist/
 
 # C/C++ build intermediates
 *.obj
+
+# Agent state files (voláteis, não versionar)
+sessions/agent-claude.md
+sessions/agent-agy.md
+
+# craft-anything (clone externo, não versionar no repo principal)
+craft-anything/
