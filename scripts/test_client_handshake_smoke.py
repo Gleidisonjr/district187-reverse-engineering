@@ -144,12 +144,15 @@ def run_smoke_test(host="127.0.0.1", port=12000):
     assert 0x220102 in received_opcodes, "Missing SN_ChannelList (0x220102)"
     print("  [OK] SN_ChannelList (0x220102) verified -> 57B Channel entries delivered!")
 
-    def recv_opcodes(sock, min_count=1):
+    def recv_packets(sock, min_count=1, timeout=2.0):
         buf = bytearray()
-        ops = []
-        deadline = time.time() + 2.0
-        while len(ops) < min_count and time.time() < deadline:
-            chunk = sock.recv(4096)
+        pkts = []
+        deadline = time.time() + timeout
+        while len(pkts) < min_count and time.time() < deadline:
+            try:
+                chunk = sock.recv(4096)
+            except socket.timeout:
+                break
             if not chunk:
                 break
             buf.extend(chunk)
@@ -163,8 +166,11 @@ def run_smoke_test(host="127.0.0.1", port=12000):
                 buf = buf[plen:]
                 dec_p = decrypt(raw_p)
                 _, _, _, _, op_code = struct.unpack('>IHHII', dec_p[:16])
-                ops.append(op_code)
-        return ops
+                pkts.append((op_code, dec_p))
+        return pkts
+
+    def recv_opcodes(sock, min_count=1):
+        return [op for op, _ in recv_packets(sock, min_count)]
 
     # 4. Channel Navigation (CQ_EnterUser 0x220111 -> SA_EnterUser 0x220112 + SN_RoomList 0x220204)
     enter_ch = build_pkt(0x220111, session_id, struct.pack("<B", 1))
@@ -174,21 +180,43 @@ def run_smoke_test(host="127.0.0.1", port=12000):
     assert 0x220112 in ch_ops, f"Expected SA_EnterUser 0x220112 in {ch_ops}"
     print(f"  [<-] Received SA_EnterUser (0x220112) & SN_RoomList (0x220204) -> ChangeScene(2) into CLobbyScene!")
 
-    # 5. Create Room
+    # 5. Create Room -> SA_Create + SN_Info + SN_UserList + SN_ChangeLeader + SN_HostConnect
     create_room = build_pkt(0x220201, session_id, b"Arrival 8v8\x00".ljust(32, b"\x00"))
     sock.sendall(create_room)
     print("  [->] Sent CQ_CreateRoom (0x220201)")
-    room_ops = recv_opcodes(sock, min_count=1)
-    assert 0x220202 in room_ops, f"Expected SA_CreateRoom 0x220202 in {room_ops}"
-    print(f"  [<-] Received SA_CreateRoom (0x220202) -> Match Room Created!")
+    room_pkts = dict(recv_packets(sock, min_count=5, timeout=3.0))
+    for op, name in [(0x220202, "SA_Create"), (0x220203, "SN_Info"), (0x220233, "SN_UserList"),
+                     (0x220319, "SN_ChangeLeader"), (0x420303, "SN_HostConnect")]:
+        assert op in room_pkts, f"Missing {name} (0x{op:X}) in {[hex(o) for o in room_pkts]}"
+        print(f"  [<-] Received {name} (0x{op:X})")
 
-    # 6. Start Match
-    start_btn = build_pkt(0x220301, session_id, b"")
+    # Validate layouts against the GameClient.dll parsers (offsets relative to packet start, incl. 16B header)
+    info = room_pkts[0x220203]
+    assert info[0x16] == 2, f"SN_Info room_type must be 2 (TDM -> ChangeScene(3)), got {info[0x16]}"
+    team_ids = set(struct.unpack_from('<HHH', info, 0x6A))  # -> TeamMgr+0x30/+0x31/+0x32
+
+    ul = room_pkts[0x220233]
+    count = ul[0x11]
+    assert count >= 1 and len(ul) == 0x12 + count * 0x31, f"SN_UserList size mismatch: count={count} len={len(ul)}"
+    user_id, team, state = struct.unpack_from('<H8xHI', ul, 0x12)
+    nick = ul[0x12 + 0x18:0x12 + 0x31].split(b"\x00")[0].decode("ascii")
+    assert team in team_ids, f"Team {team} not in SN_Info team indices {team_ids} -> 'Missing nTeamIndex error!'"
+    assert state in (0, 1, 2, 3, 6, 8, 9), f"Invalid CRoomUser state {state}"
+    assert nick == "Gleidison", f"Slot 0 nickname must match SN_UserInfo, got '{nick}'"
+    print(f"  [OK] SN_UserList slot 0 -> user_id={user_id} team={team} state={state} nick='{nick}'")
+
+    leader_id = struct.unpack_from('<H', room_pkts[0x220319], 0x10)[0]
+    assert leader_id == user_id, f"SN_ChangeLeader id {leader_id} != slot 0 user_id {user_id}"
+    print(f"  [OK] SN_ChangeLeader -> leader user_id={leader_id} (room+0x60)")
+
+    # 6. Start Match (F5 Basla 0x220314) -> SN_HostConnect + SN_BattleStart
+    start_btn = build_pkt(0x220314, session_id, b"")
     sock.sendall(start_btn)
-    print("  [->] Sent CN_StartButton (0x220301)")
-    battle_ops = recv_opcodes(sock, min_count=1)
+    print("  [->] Sent CQ_StartGame (0x220314, F5 Basla)")
+    battle_ops = recv_opcodes(sock, min_count=2)
+    assert 0x420303 in battle_ops, f"Expected SN_HostConnect 0x420303 in {battle_ops}"
     assert 0x420310 in battle_ops, f"Expected SN_BattleStart 0x420310 in {battle_ops}"
-    print(f"  [<-] Received SN_BattleStart (0x420310) -> Connecting to combat UDP server 127.0.0.1:27888!")
+    print(f"  [<-] Received SN_HostConnect (0x420303) + SN_BattleStart (0x420310) -> UDP 127.0.0.1:27888!")
 
     # 7. Test In-Game Chat Slash Command (/mmr)
     chat_cmd = build_pkt(0x210151, session_id, b"/mmr\x00".ljust(64, b"\x00"))
@@ -205,4 +233,5 @@ def run_smoke_test(host="127.0.0.1", port=12000):
     return True
 
 if __name__ == "__main__":
-    run_smoke_test()
+    ok = run_smoke_test(port=int(sys.argv[1]) if len(sys.argv) > 1 else 12000)
+    sys.exit(0 if ok else 1)

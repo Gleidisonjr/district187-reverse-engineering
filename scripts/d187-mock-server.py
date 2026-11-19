@@ -87,6 +87,15 @@ PACKET_SN_ROOM_INFO = 0x220203
 PACKET_SN_ROOM_LIST = 0x220204
 PACKET_CQ_ENTER_ROOM = 0x220231
 PACKET_SA_ENTER_ROOM = 0x220232
+PACKET_SN_ROOM_USER_LIST = 0x220233   # CDispatch_NMatchup_NRoom_SN_UserList   -> 0x101394F0 -> 0x100720C0
+PACKET_SN_CHANGE_LEADER = 0x220319    # CDispatch_NMatchup_NRoom_SN_ChangeLeader -> 0x101396C0
+PACKET_SN_BASE_USER_LIST = 0x222112   # CDispatch_NMatchup_NPlay_SN_BaseUserList -> 0x100CB7B0
+
+# Team indices written to SN_Info +0x6A/+0x6C/+0x6E (ParseRoomInfo 0x10072640 -> TeamMgr+0x30/+0x31/+0x32).
+# Every SN_UserList entry team MUST match one of these, or the client shows "Missing nTeamIndex error!".
+ROOM_TEAM_A = 0
+ROOM_TEAM_B = 1
+ROOM_TEAM_OBSERVER = 2
 PACKET_CN_START_BUTTON = 0x220301
 PACKET_CQ_START_GAME = 0x220314
 PACKET_CQ_EQUIP_OPEN = 0x240101
@@ -513,7 +522,9 @@ def build_room_info_hermit(session_id: int, room_id: int = 1, room_name: str = "
     - Offset 0x19 (payload +9): uint8 max_players
     - Offset 0x1A (payload +10): uint8 cur_players
     - Offset 0x2D (payload +29): room_name (null-terminated)
-    - Offset 0x6A..0x75 (payload +90..101): map_id, goal, time_limit
+    - Offset 0x6A/0x6C/0x6E (payload +90/+92/+94): uint16 team indices A / B / Observer
+      (ParseRoomInfo copies them to TeamMgr+0x30/+0x31/+0x32; SN_ExchangeTeam 0x10138C60 swaps A/B).
+      NOTE: previously misread as map_id/goal/time_limit.
     - Offset 0xD3 (payload +195): uint32 room_extra
     """
     payload = bytearray(224)
@@ -524,8 +535,59 @@ def build_room_info_hermit(session_id: int, room_id: int = 1, room_name: str = "
     payload[25] = mode & 0xFF         # +0x29: mode
     rname_b = room_name.encode("ascii", "ignore")[:31] + b"\x00"
     payload[29 : 29 + len(rname_b)] = rname_b
-    struct.pack_into("<HHHHHH", payload, 90, map_id & 0xFFFF, 100, 10, 0, 0, 0)
+    struct.pack_into("<HHHHHH", payload, 90, ROOM_TEAM_A, ROOM_TEAM_B, ROOM_TEAM_OBSERVER, 0, 0, 0)
     return build_hermit_packet(PACKET_SN_ROOM_INFO, session_id, bytes(payload), key_byte)
+
+def build_room_user_list_hermit(session_id: int, users: list, key_byte: int = 0x0F) -> bytes:
+    """
+    SN_UserList (0x220233): 0x101394F0 -> CRoomUserList::Parse (0x100720C0) -> CRoomUser::Deserialize (0x10071F30).
+    - Offset 0x11 (payload +1): uint8 count; entries start at 0x12 (payload +2), stride 0x31 (49 bytes, max 1006B).
+    Entry layout:
+      +0x00 uint16 user_id   (CRoomUser+0x00; key used by SN_ChangeLeader / SN_State lookups 0x10070AA0)
+      +0x02 uint32 unk_a     (CRoomUser+0x04)
+      +0x06 uint32 unk_b     (CRoomUser+0x3C; forwarded to in-game player creation)
+      +0x0A uint16 team      (CRoomUser+0x08; must equal a ROOM_TEAM_* index)
+      +0x0C uint32 state     (CRoomUser::SetState 0x1006F9F0: 0,1,2,3 kept; 6->4, 8->5, 9->6)
+      +0x10 uint32 unk_c     (CRoomUser+0x10)
+      +0x14 uint32 unk_d     (CRoomUser+0x40)
+      +0x18 char[25] nickname (ASCII; compared to own SN_UserInfo nickname to detect the local player)
+    """
+    payload = bytearray(2)
+    payload[1] = len(users) & 0xFF
+    for u in users:
+        entry = bytearray(49)
+        struct.pack_into("<HIIHIII", entry, 0, u["user_id"], 0, 0, u.get("team", ROOM_TEAM_A), u.get("state", 0), 0, 0)
+        nick = u["nickname"].encode("ascii", "ignore")[:24]
+        entry[0x18:0x18 + len(nick)] = nick
+        payload += entry
+    return build_hermit_packet(PACKET_SN_ROOM_USER_LIST, session_id, bytes(payload), key_byte)
+
+def build_change_leader_hermit(session_id: int, leader_user_id: int, key_byte: int = 0x0F) -> bytes:
+    """
+    SN_ChangeLeader (0x220319): 0x101396C0.
+    - Offset 0x10 (payload +0): uint16 leader user_id (stored at room+0x60, looked up via 0x10070AA0)
+    - Offset 0x12 (payload +2): uint32 (read into a local; 0)
+    Outside scene 7 it refreshes the wait-room UI (0x1013DD80) and prints chat string 0x18D.
+    """
+    payload = struct.pack("<HI", leader_user_id & 0xFFFF, 0)
+    return build_hermit_packet(PACKET_SN_CHANGE_LEADER, session_id, payload, key_byte)
+
+def build_base_user_list_hermit(session_id: int, users: list, key_byte: int = 0x0F) -> bytes:
+    """
+    SN_BaseUserList (0x222112, NPlay — battle start, NOT the wait-room list): 0x100CB7B0.
+    - Offset 0x11 (payload +1): uint8 count; entries start at 0x12, stride 0x10E (270 bytes).
+      +0x00 uint16 user_id, +0x02 uint16 team, +0x04 char[] nickname (ASCII, null-terminated); rest unknown (zero).
+    The client looks each user up by nickname in the room list (0x10070AD0) — send SN_UserList first.
+    """
+    payload = bytearray(2)
+    payload[1] = len(users) & 0xFF
+    for u in users:
+        entry = bytearray(270)
+        struct.pack_into("<HH", entry, 0, u["user_id"], u.get("team", ROOM_TEAM_A))
+        nick = u["nickname"].encode("ascii", "ignore")[:24]
+        entry[4:4 + len(nick)] = nick
+        payload += entry
+    return build_hermit_packet(PACKET_SN_BASE_USER_LIST, session_id, bytes(payload), key_byte)
 
 def build_host_connect_hermit(session_id: int, ip: str = "127.0.0.1", port: int = 27888, key_byte: int = 0x0F) -> bytes:
     """
@@ -562,6 +624,7 @@ class HermitClientSession:
         self.active_map = active_map
         self.server_port = server_port
         self.send_seq = 0
+        self.room_users = []
         self.user_data = get_user_data_from_db("gleidison")
         self.lobby_ext = None
         try:
@@ -811,6 +874,12 @@ class HermitClientSession:
             self.send_pkt(resp)
             rinfo = build_room_info_hermit(self.session_id, room_id=1, room_name=req_name, max_players=req_max, mode=req_mode, key_byte=self.key_byte)
             self.send_pkt(rinfo, pause=0.4)
+            # Populate wait-room slot 0 with the local player and make him leader (F5 Basla enabled).
+            nick = self.user_data.get("nickname", "Gleidison") if self.user_data else "Gleidison"
+            self.room_users = [{"user_id": 1, "nickname": nick, "team": ROOM_TEAM_A, "state": 0}]
+            self.send_pkt(build_room_user_list_hermit(self.session_id, self.room_users, key_byte=self.key_byte))
+            self.send_pkt(build_change_leader_hermit(self.session_id, 1, key_byte=self.key_byte))
+            print(f"[+] Dispatched SN_UserList (0x220233, '{nick}' slot 0) + SN_ChangeLeader (0x220319, user 1)!")
             # Auto-dispatch SN_HostConnect (0x420303) to connect directly to our native LithTech Dedicated Server (UDP 27888)!
             hconn = build_host_connect_hermit(self.session_id, ip="127.0.0.1", port=27888, key_byte=self.key_byte)
             self.send_pkt(hconn)
