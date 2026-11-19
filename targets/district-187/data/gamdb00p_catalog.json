@@ -1,0 +1,2466 @@
+{
+  "databases": {
+    "Game/Database/TheRaw.Gamdb00p": {
+      "file_size": 2258252,
+      "parsed_bytes": 2258252,
+      "byte_exact": true,
+      "header": {
+        "magic": "GADB",
+        "version": 3,
+        "string_pool_bytes": 365444,
+        "num_categories": 179,
+        "num_records": 2886,
+        "num_attributes": 91436,
+        "num_values": 101320
+      },
+      "attribute_type_distribution": {
+        "1 (Float32)": 11806,
+        "2 (Int32)": 18277,
+        "3 (RecordLink)": 13153,
+        "4 (String)": 28244,
+        "6 (StringRes)": 1173,
+        "7 (StringTable)": 240,
+        "8 (StringPath)": 15,
+        "9 (Vector2)": 11683,
+        "10 (Vector3)": 6845
+      },
+      "category_summary": {
+        "Arsenal": 0,
+        "Arsenal/Ammo": 183,
+        "Arsenal/Ammo/AI": 5,
+        "Arsenal/Ammo/MultiPlayer": 182,
+        "Arsenal/CameraDelta": 31,
+        "Arsenal/Gear": 2,
+        "Arsenal/Global": 1,
+        "Arsenal/Mods": 27,
+        "Arsenal/WeaponParts": 0,
+        "Arsenal/WeaponParts/Attach": 0,
+        "Arsenal/WeaponParts/Attach/Decal": 9,
+        "Arsenal/WeaponParts/Attach/Down": 7,
+        "Arsenal/WeaponParts/Attach/Front": 8,
+        "Arsenal/WeaponParts/Attach/Mount": 10,
+        "Arsenal/WeaponParts/GlobalWP": 1,
+        "Arsenal/Weapons": 193,
+        "Arsenal/Weapons/AI": 5,
+        "Arsenal/Weapons/Multiplayer": 197,
+        "Attachment": 0,
+        "Attachment/ObjectAttachment": 0,
+        "Attachment/PropAttachment": 1,
+        "Attachment/PVAttachment": 1,
+        "Character": 0,
+        "Character/Alignments": 7,
+        "Character/Constants": 1,
+        "Character/Models": 5,
+        "Character/Models/DeathFX": 2,
+        "Character/Models/Global": 1,
+        "Character/Models/ModelDecalSet": 1,
+        "Character/Models/ModelDecalSet/ModelDecalNode": 0,
+        "Character/Models/ModelDecalSet/ModelDecalNode/PlayerS2_Skeleton": 16,
+        "Character/Models/Sever": 0,
+        "Character/Models/Sever/SeverBody": 2,
+        "Character/Models/Sever/SeverDamage": 4,
+        "Character/Models/Sever/SeverPiece": 6,
+        "Character/Models/Skeletons": 2,
+        "Character/Models/Skeletons/Nodes": 17,
+        "Character/Models/Skeletons/TrackerNodes": 5,
+        "Character/Models/SocketSets": 3,
+        "Character/PlayerPiece": 0,
+        "Character/PlayerPiece/00_Police": 0,
+        "Character/PlayerPiece/00_Police/Man": 0,
+        "Character/PlayerPiece/00_Police/Man/00_Avatar": 11,
+        "Character/PlayerPiece/00_Police/Man/01_Hair": 31,
+        "Character/PlayerPiece/00_Police/Man/02_Body": 39,
+        "Character/PlayerPiece/00_Police/Man/03_Leg": 41,
+        "Character/PlayerPiece/00_Police/Man/04_Eye": 9,
+        "Character/PlayerPiece/00_Police/Man/05_Mask": 3,
+        "Character/PlayerPiece/00_Police/Man/06_FaceMask": 17,
+        "Character/PlayerPiece/00_Police/Woman": 0,
+        "Character/PlayerPiece/00_Police/Woman/00_Avatar": 7,
+        "Character/PlayerPiece/00_Police/Woman/01_Hair": 5,
+        "Character/PlayerPiece/00_Police/Woman/02_Body": 6,
+        "Character/PlayerPiece/00_Police/Woman/03_Leg": 6,
+        "Character/PlayerPiece/00_Police/Woman/04_Eye": 1,
+        "Character/PlayerPiece/00_Police/Woman/05_Mask": 0,
+        "Character/PlayerPiece/00_Police/Woman/06_FaceMask": 0,
+        "Character/PlayerPiece/01_Gangster": 0,
+        "Character/PlayerPiece/01_Gangster/Man": 0,
+        "Character/PlayerPiece/01_Gangster/Man/00_Avatar": 13,
+        "Character/PlayerPiece/01_Gangster/Man/01_Hair": 34,
+        "Character/PlayerPiece/01_Gangster/Man/02_Body": 39,
+        "Character/PlayerPiece/01_Gangster/Man/03_Leg": 39,
+        "Character/PlayerPiece/01_Gangster/Man/04_Eye": 16,
+        "Character/PlayerPiece/01_Gangster/Man/05_Mask": 4,
+        "Character/PlayerPiece/01_Gangster/Man/06_FaceMask": 11,
+        "Character/PlayerPiece/01_Gangster/Woman": 0,
+        "Character/PlayerPiece/01_Gangster/Woman/00_Avatar": 7,
+        "Character/PlayerPiece/01_Gangster/Woman/01_Hair": 5,
+        "Character/PlayerPiece/01_Gangster/Woman/02_Body": 6,
+        "Character/PlayerPiece/01_Gangster/Woman/03_Leg": 6,
+        "Character/PlayerPiece/01_Gangster/Woman/04_Eye": 1,
+        "Character/PlayerPiece/01_Gangster/Woman/05_Mask": 2,
+        "Character/PlayerPiece/01_Gangster/Woman/06_FaceMask": 1,
+        "Client": 0,
+        "Client/CameraDelta": 1,
+        "Client/ClientFXSequence": 9,
+        "Client/DebugKey": 53,
+        "Client/Flashlight": 3,
+        "Client/HpScan": 1,
+        "Client/HUDFlash": 10,
+        "Client/Movement": 2,
+        "Client/Overlay": 13,
+        "Client/PlayerMovement": 1,
+        "Client/Shared": 1,
+        "Collisions": 1,
+        "Collisions/CollisionProperty": 44,
+        "Commands": 1,
+        "Damage": 0,
+        "Damage/FX": 9,
+        "Damage/Masks": 7,
+        "Damage/Types": 18,
+        "Functionality": 0,
+        "Functionality/Count": 0,
+        "Functionality/Count/Coin": 8,
+        "Functionality/Count/EventCoupon": 10,
+        "Functionality/Count/GambleTicket": 4,
+        "Functionality/Count/Marble": 2,
+        "Functionality/Count/Normal": 27,
+        "Functionality/Count/Package": 98,
+        "Functionality/Period": 0,
+        "Functionality/Period/Normal": 19,
+        "FX": 0,
+        "FX/ActivateFX": 12,
+        "FX/FireFX": 10,
+        "FX/FocusBlur": 1,
+        "FX/ImpactFX": 18,
+        "FX/ModelDecal": 3,
+        "FX/ModelDecal/Settings": 3,
+        "FX/ProjectileFX": 22,
+        "FX/ProjectileFX/ProjectileClassData": 0,
+        "FX/ProjectileFX/ProjectileClassData/ProximityClassData": 1,
+        "FX/ProjectileFX/ProjectileClassData/RemoteClassData": 1,
+        "FX/ProjectileFX/ProjectileClassData/SpearClassData": 1,
+        "FX/PusherFX": 3,
+        "FX/ScreenEffect": 1,
+        "FX/ScreenGlow": 1,
+        "FX/ShatterType": 8,
+        "FX/TracerFX": 8,
+        "FX/VolumetricLight": 1,
+        "Interface": 0,
+        "Interface/CharacterDisplay": 4,
+        "Interface/Credits": 0,
+        "Interface/Credits/Entries": 63,
+        "Interface/Credits/Order": 78,
+        "Interface/Dialogue": 1,
+        "Interface/ImagePath": 0,
+        "Interface/ImagePath/Achieve": 1,
+        "Interface/ImagePath/Banner": 1,
+        "Interface/ImagePath/Buff": 1,
+        "Interface/ImagePath/Etc": 1,
+        "Interface/ImagePath/Mark": 1,
+        "Interface/ImagePath/Notice": 1,
+        "Interface/ImagePath/Result": 1,
+        "Interface/ImagePath/WeaponType": 1,
+        "Interface/MarbleLand": 31,
+        "Interface/NavMarkerTypes": 11,
+        "Interface/Objective": 1,
+        "Interface/WeaponDisplay": 2,
+        "Missions": 4,
+        "Missions/Level": 162,
+        "Missions/Mode": 20,
+        "Notifier": 4,
+        "Performance": 0,
+        "Performance/General": 1,
+        "Performance/Global": 3,
+        "Performance/Groups": 5,
+        "Performance/Options": 25,
+        "Props": 3,
+        "Server": 0,
+        "Server/Limits": 1,
+        "Server/Player": 1,
+        "Sound": 0,
+        "Sound/AISoundSet": 35,
+        "Sound/AISoundTemplate": 2,
+        "Sound/Broadcast": 0,
+        "Sound/Broadcast/Broadcasts": 22,
+        "Sound/Broadcast/BroadcastSet": 1,
+        "Sound/Broadcast/Global": 1,
+        "Sound/Mixers": 16,
+        "Sound/Music": 3,
+        "Sound/MusicSettings": 1,
+        "Sound/Occlusion": 5,
+        "Sound/Sound": 375,
+        "Sound/Sound/Object": 1,
+        "Sound/Sound/Weapon": 0,
+        "Sound/Sound/Weapon/00_Main": 72,
+        "Sound/Sound/Weapon/01_Sub": 19,
+        "Sound/Sound/Weapon/02_Melee": 2,
+        "Sound/Sound/Weapon/03_Item1": 1,
+        "Sound/Sound/Weapon/04_Item2": 0,
+        "SoundFilters": 0,
+        "SoundFilters/Filters": 13,
+        "Surfaces": 0,
+        "Surfaces/Impacts": 98,
+        "Surfaces/Surfaces": 34,
+        "Surfaces/WeaponFX": 25,
+        "TriggerTypes": 0,
+        "TriggerTypes/Types": 1
+      }
+    },
+    "Database/TheRaw.Gamdb00p": {
+      "file_size": 3119616,
+      "parsed_bytes": 3119616,
+      "byte_exact": true,
+      "header": {
+        "magic": "GADB",
+        "version": 3,
+        "string_pool_bytes": 363620,
+        "num_categories": 194,
+        "num_records": 2862,
+        "num_attributes": 134430,
+        "num_values": 145159
+      },
+      "attribute_type_distribution": {
+        "1 (Float32)": 15555,
+        "2 (Int32)": 28834,
+        "3 (RecordLink)": 17636,
+        "4 (String)": 40985,
+        "6 (StringRes)": 1703,
+        "7 (StringTable)": 505,
+        "8 (StringPath)": 15,
+        "9 (Vector2)": 17591,
+        "10 (Vector3)": 11606
+      },
+      "category_summary": {
+        "Arsenal": 0,
+        "Arsenal/Ammo": 181,
+        "Arsenal/Ammo/AI": 5,
+        "Arsenal/Ammo/MultiPlayer": 180,
+        "Arsenal/CameraDelta": 31,
+        "Arsenal/Gear": 2,
+        "Arsenal/Global": 1,
+        "Arsenal/Mods": 27,
+        "Arsenal/WeaponParts": 0,
+        "Arsenal/WeaponParts/Attach": 0,
+        "Arsenal/WeaponParts/Attach/Decal": 9,
+        "Arsenal/WeaponParts/Attach/Down": 7,
+        "Arsenal/WeaponParts/Attach/Front": 8,
+        "Arsenal/WeaponParts/Attach/Mount": 10,
+        "Arsenal/WeaponParts/GlobalWP": 1,
+        "Arsenal/Weapons": 186,
+        "Arsenal/Weapons/AI": 1,
+        "Arsenal/Weapons/AI/00_Main": 2,
+        "Arsenal/Weapons/AI/01_Sub": 1,
+        "Arsenal/Weapons/AI/02_Melee": 0,
+        "Arsenal/Weapons/AI/03_Item1": 1,
+        "Arsenal/Weapons/AI/04_Item2": 0,
+        "Arsenal/Weapons/Multiplayer": 1,
+        "Arsenal/Weapons/Multiplayer/00_Main": 67,
+        "Arsenal/Weapons/Multiplayer/00_Main/Old_Weapon": 53,
+        "Arsenal/Weapons/Multiplayer/01_Sub": 11,
+        "Arsenal/Weapons/Multiplayer/01_Sub/Old_Weapon": 8,
+        "Arsenal/Weapons/Multiplayer/02_Melee": 17,
+        "Arsenal/Weapons/Multiplayer/02_Melee/Old_Weapon": 15,
+        "Arsenal/Weapons/Multiplayer/03_Item1": 2,
+        "Arsenal/Weapons/Multiplayer/03_Item1/Old_Weapon": 9,
+        "Arsenal/Weapons/Multiplayer/04_Item2": 0,
+        "Arsenal/Weapons/Multiplayer/04_Item2/Old_Weapon": 4,
+        "Attachment": 0,
+        "Attachment/ObjectAttachment": 0,
+        "Attachment/PropAttachment": 1,
+        "Attachment/PVAttachment": 1,
+        "Character": 0,
+        "Character/Alignments": 7,
+        "Character/Constants": 1,
+        "Character/Models": 5,
+        "Character/Models/DeathFX": 2,
+        "Character/Models/Global": 1,
+        "Character/Models/ModelDecalSet": 1,
+        "Character/Models/ModelDecalSet/ModelDecalNode": 0,
+        "Character/Models/ModelDecalSet/ModelDecalNode/PlayerS2_Skeleton": 16,
+        "Character/Models/Sever": 0,
+        "Character/Models/Sever/SeverBody": 2,
+        "Character/Models/Sever/SeverDamage": 4,
+        "Character/Models/Sever/SeverPiece": 6,
+        "Character/Models/Skeletons": 2,
+        "Character/Models/Skeletons/Nodes": 16,
+        "Character/Models/Skeletons/TrackerNodes": 5,
+        "Character/Models/SocketSets": 3,
+        "Character/PlayerPiece": 0,
+        "Character/PlayerPiece/00_Police": 0,
+        "Character/PlayerPiece/00_Police/Man": 0,
+        "Character/PlayerPiece/00_Police/Man/00_Avatar": 11,
+        "Character/PlayerPiece/00_Police/Man/01_Hair": 31,
+        "Character/PlayerPiece/00_Police/Man/02_Body": 39,
+        "Character/PlayerPiece/00_Police/Man/03_Leg": 41,
+        "Character/PlayerPiece/00_Police/Man/04_Eye": 9,
+        "Character/PlayerPiece/00_Police/Man/05_Mask": 3,
+        "Character/PlayerPiece/00_Police/Man/06_FaceMask": 17,
+        "Character/PlayerPiece/00_Police/Woman": 0,
+        "Character/PlayerPiece/00_Police/Woman/00_Avatar": 7,
+        "Character/PlayerPiece/00_Police/Woman/01_Hair": 5,
+        "Character/PlayerPiece/00_Police/Woman/02_Body": 6,
+        "Character/PlayerPiece/00_Police/Woman/03_Leg": 6,
+        "Character/PlayerPiece/00_Police/Woman/04_Eye": 1,
+        "Character/PlayerPiece/00_Police/Woman/05_Mask": 0,
+        "Character/PlayerPiece/00_Police/Woman/06_FaceMask": 0,
+        "Character/PlayerPiece/01_Gangster": 0,
+        "Character/PlayerPiece/01_Gangster/Man": 0,
+        "Character/PlayerPiece/01_Gangster/Man/00_Avatar": 13,
+        "Character/PlayerPiece/01_Gangster/Man/01_Hair": 34,
+        "Character/PlayerPiece/01_Gangster/Man/02_Body": 39,
+        "Character/PlayerPiece/01_Gangster/Man/03_Leg": 39,
+        "Character/PlayerPiece/01_Gangster/Man/04_Eye": 16,
+        "Character/PlayerPiece/01_Gangster/Man/05_Mask": 4,
+        "Character/PlayerPiece/01_Gangster/Man/06_FaceMask": 11,
+        "Character/PlayerPiece/01_Gangster/Woman": 0,
+        "Character/PlayerPiece/01_Gangster/Woman/00_Avatar": 7,
+        "Character/PlayerPiece/01_Gangster/Woman/01_Hair": 5,
+        "Character/PlayerPiece/01_Gangster/Woman/02_Body": 6,
+        "Character/PlayerPiece/01_Gangster/Woman/03_Leg": 6,
+        "Character/PlayerPiece/01_Gangster/Woman/04_Eye": 1,
+        "Character/PlayerPiece/01_Gangster/Woman/05_Mask": 2,
+        "Character/PlayerPiece/01_Gangster/Woman/06_FaceMask": 1,
+        "Client": 0,
+        "Client/CameraDelta": 1,
+        "Client/ClientFXSequence": 9,
+        "Client/DebugKey": 53,
+        "Client/Flashlight": 3,
+        "Client/HpScan": 1,
+        "Client/HUDFlash": 10,
+        "Client/Movement": 2,
+        "Client/Overlay": 13,
+        "Client/PlayerMovement": 1,
+        "Client/Shared": 1,
+        "Collisions": 1,
+        "Collisions/CollisionProperty": 44,
+        "Commands": 1,
+        "Damage": 0,
+        "Damage/FX": 9,
+        "Damage/Masks": 7,
+        "Damage/Types": 18,
+        "Functionality": 0,
+        "Functionality/Count": 0,
+        "Functionality/Count/Coin": 8,
+        "Functionality/Count/EventCoupon": 10,
+        "Functionality/Count/GambleTicket": 4,
+        "Functionality/Count/Marble": 2,
+        "Functionality/Count/Normal": 27,
+        "Functionality/Count/Package": 98,
+        "Functionality/Period": 0,
+        "Functionality/Period/Normal": 19,
+        "FX": 0,
+        "FX/ActivateFX": 12,
+        "FX/FireFX": 10,
+        "FX/FocusBlur": 1,
+        "FX/ImpactFX": 18,
+        "FX/ModelDecal": 3,
+        "FX/ModelDecal/Settings": 3,
+        "FX/ProjectileFX": 22,
+        "FX/ProjectileFX/ProjectileClassData": 0,
+        "FX/ProjectileFX/ProjectileClassData/ProximityClassData": 1,
+        "FX/ProjectileFX/ProjectileClassData/RemoteClassData": 1,
+        "FX/ProjectileFX/ProjectileClassData/SpearClassData": 1,
+        "FX/PusherFX": 3,
+        "FX/ScreenEffect": 1,
+        "FX/ScreenGlow": 1,
+        "FX/ShatterType": 8,
+        "FX/TracerFX": 8,
+        "FX/VolumetricLight": 1,
+        "Interface": 0,
+        "Interface/CharacterDisplay": 4,
+        "Interface/Credits": 0,
+        "Interface/Credits/Entries": 63,
+        "Interface/Credits/Order": 78,
+        "Interface/Dialogue": 1,
+        "Interface/ImagePath": 0,
+        "Interface/ImagePath/Achieve": 1,
+        "Interface/ImagePath/Banner": 1,
+        "Interface/ImagePath/Buff": 1,
+        "Interface/ImagePath/Etc": 1,
+        "Interface/ImagePath/Mark": 1,
+        "Interface/ImagePath/Notice": 1,
+        "Interface/ImagePath/Result": 1,
+        "Interface/ImagePath/WeaponType": 1,
+        "Interface/MarbleLand": 31,
+        "Interface/NavMarkerTypes": 11,
+        "Interface/Objective": 1,
+        "Interface/WeaponDisplay": 2,
+        "Missions": 4,
+        "Missions/Level": 161,
+        "Missions/Mode": 20,
+        "Notifier": 4,
+        "Performance": 0,
+        "Performance/General": 1,
+        "Performance/Global": 3,
+        "Performance/Groups": 5,
+        "Performance/Options": 25,
+        "Props": 3,
+        "Server": 0,
+        "Server/Limits": 1,
+        "Server/Player": 1,
+        "Sound": 0,
+        "Sound/AISoundSet": 35,
+        "Sound/AISoundTemplate": 2,
+        "Sound/Broadcast": 0,
+        "Sound/Broadcast/Broadcasts": 22,
+        "Sound/Broadcast/BroadcastSet": 1,
+        "Sound/Broadcast/Global": 1,
+        "Sound/Mixers": 16,
+        "Sound/Music": 3,
+        "Sound/MusicSettings": 1,
+        "Sound/Occlusion": 5,
+        "Sound/Sound": 375,
+        "Sound/Sound/Object": 1,
+        "Sound/Sound/Weapon": 0,
+        "Sound/Sound/Weapon/00_Main": 72,
+        "Sound/Sound/Weapon/01_Sub": 19,
+        "Sound/Sound/Weapon/02_Melee": 2,
+        "Sound/Sound/Weapon/03_Item1": 1,
+        "Sound/Sound/Weapon/04_Item2": 0,
+        "SoundFilters": 0,
+        "SoundFilters/Filters": 13,
+        "Surfaces": 0,
+        "Surfaces/Impacts": 97,
+        "Surfaces/Surfaces": 34,
+        "Surfaces/WeaponFX": 25,
+        "TriggerTypes": 0,
+        "TriggerTypes/Types": 1
+      }
+    },
+    "Game/DatabaseLocalized/TheRawL.Gamdb00p": {
+      "file_size": 89716,
+      "parsed_bytes": 89716,
+      "byte_exact": true,
+      "header": {
+        "magic": "GADB",
+        "version": 3,
+        "string_pool_bytes": 23796,
+        "num_categories": 16,
+        "num_records": 124,
+        "num_attributes": 3111,
+        "num_values": 3748
+      },
+      "attribute_type_distribution": {
+        "1 (Float32)": 70,
+        "2 (Int32)": 148,
+        "3 (RecordLink)": 961,
+        "4 (String)": 592,
+        "6 (StringRes)": 609,
+        "8 (StringPath)": 365,
+        "9 (Vector2)": 292,
+        "10 (Vector3)": 74
+      },
+      "category_summary": {
+        "Interface": 0,
+        "Interface/CharacterDisplayLayout": 4,
+        "Interface/Credits": 0,
+        "Interface/Credits/LineLayout": 10,
+        "Interface/Cursors": 3,
+        "Interface/Fonts": 4,
+        "Interface/HUD": 35,
+        "Interface/Language": 1,
+        "Interface/LoadScreen": 3,
+        "Interface/Menu": 5,
+        "Interface/NavMarkerLayouts": 8,
+        "Interface/Screens": 39,
+        "Interface/ServerIcons": 7,
+        "Interface/Shared": 1,
+        "Interface/Stats": 1,
+        "Interface/WeaponDisplayLayout": 3
+      }
+    },
+    "AnimationDatabase/S2_anim.Gamdb00p": {
+      "file_size": 136456,
+      "parsed_bytes": 136456,
+      "byte_exact": true,
+      "header": {
+        "magic": "GADB",
+        "version": 3,
+        "string_pool_bytes": 16540,
+        "num_categories": 194,
+        "num_records": 357,
+        "num_attributes": 5537,
+        "num_values": 6721
+      },
+      "attribute_type_distribution": {
+        "2 (Int32)": 279,
+        "4 (String)": 3518,
+        "9 (Vector2)": 1392,
+        "10 (Vector3)": 348
+      },
+      "category_summary": {
+        "AnimDescriptorGroups": 2,
+        "AnimPropGroups": 2,
+        "PlayerS2_Lower": 1,
+        "PlayerS2_Lower/Animations": 0,
+        "PlayerS2_Lower/Animations/AnyWeapon": 1,
+        "PlayerS2_Lower/Animations/AnyWeapon/Crouch": 1,
+        "PlayerS2_Lower/Animations/AnyWeapon/Crouch/Walk": 4,
+        "PlayerS2_Lower/Animations/AnyWeapon/Stand": 1,
+        "PlayerS2_Lower/Animations/AnyWeapon/Stand/Jump": 1,
+        "PlayerS2_Lower/Animations/AnyWeapon/Stand/Run": 4,
+        "PlayerS2_Lower/Animations/AnyWeapon/Stand/Walk": 4,
+        "PlayerS2_Lower/Animations/Melee_A": 1,
+        "PlayerS2_Lower/Animations/Melee_A/Sit": 1,
+        "PlayerS2_Lower/Animations/Melee_A/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Melee_A/Stand": 1,
+        "PlayerS2_Lower/Animations/Melee_A/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Melee_B": 1,
+        "PlayerS2_Lower/Animations/Melee_B/Sit": 1,
+        "PlayerS2_Lower/Animations/Melee_B/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Melee_B/Stand": 1,
+        "PlayerS2_Lower/Animations/Melee_B/Stand/Idle": 2,
+        "PlayerS2_Lower/Animations/Melee_C": 1,
+        "PlayerS2_Lower/Animations/Melee_C/Sit": 1,
+        "PlayerS2_Lower/Animations/Melee_C/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Melee_C/Stand": 1,
+        "PlayerS2_Lower/Animations/Melee_C/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Pistol_A": 1,
+        "PlayerS2_Lower/Animations/Pistol_A/Sit": 1,
+        "PlayerS2_Lower/Animations/Pistol_A/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Pistol_A/Stand": 1,
+        "PlayerS2_Lower/Animations/Pistol_A/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Projectile_A": 1,
+        "PlayerS2_Lower/Animations/Projectile_A/Sit": 1,
+        "PlayerS2_Lower/Animations/Projectile_A/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Projectile_A/Stand": 1,
+        "PlayerS2_Lower/Animations/Projectile_A/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Projectile_B": 1,
+        "PlayerS2_Lower/Animations/Projectile_B/Sit": 1,
+        "PlayerS2_Lower/Animations/Projectile_B/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Projectile_B/Stand": 1,
+        "PlayerS2_Lower/Animations/Projectile_B/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Rifle_A": 1,
+        "PlayerS2_Lower/Animations/Rifle_A/Sit": 1,
+        "PlayerS2_Lower/Animations/Rifle_A/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Rifle_A/Stand": 1,
+        "PlayerS2_Lower/Animations/Rifle_A/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Rifle_B": 1,
+        "PlayerS2_Lower/Animations/Rifle_B/Sit": 1,
+        "PlayerS2_Lower/Animations/Rifle_B/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Rifle_B/Stand": 1,
+        "PlayerS2_Lower/Animations/Rifle_B/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Rifle_C": 1,
+        "PlayerS2_Lower/Animations/Rifle_C/Sit": 1,
+        "PlayerS2_Lower/Animations/Rifle_C/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Rifle_C/Stand": 1,
+        "PlayerS2_Lower/Animations/Rifle_C/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Rifle_D": 1,
+        "PlayerS2_Lower/Animations/Rifle_D/Sit": 1,
+        "PlayerS2_Lower/Animations/Rifle_D/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Rifle_D/Stand": 1,
+        "PlayerS2_Lower/Animations/Rifle_D/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Rifle_F": 1,
+        "PlayerS2_Lower/Animations/Rifle_F/Sit": 1,
+        "PlayerS2_Lower/Animations/Rifle_F/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Rifle_F/Stand": 1,
+        "PlayerS2_Lower/Animations/Rifle_F/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Shotgun_A": 1,
+        "PlayerS2_Lower/Animations/Shotgun_A/Sit": 1,
+        "PlayerS2_Lower/Animations/Shotgun_A/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Shotgun_A/Stand": 1,
+        "PlayerS2_Lower/Animations/Shotgun_A/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Shotgun_B": 1,
+        "PlayerS2_Lower/Animations/Shotgun_B/Sit": 1,
+        "PlayerS2_Lower/Animations/Shotgun_B/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Shotgun_B/Stand": 1,
+        "PlayerS2_Lower/Animations/Shotgun_B/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Shotgun_C": 1,
+        "PlayerS2_Lower/Animations/Shotgun_C/Sit": 1,
+        "PlayerS2_Lower/Animations/Shotgun_C/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Shotgun_C/Stand": 1,
+        "PlayerS2_Lower/Animations/Shotgun_C/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Shotgun_D": 1,
+        "PlayerS2_Lower/Animations/Shotgun_D/Sit": 1,
+        "PlayerS2_Lower/Animations/Shotgun_D/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Shotgun_D/Stand": 1,
+        "PlayerS2_Lower/Animations/Shotgun_D/Stand/Idle": 1,
+        "PlayerS2_Lower/Animations/Sniper_A": 1,
+        "PlayerS2_Lower/Animations/Sniper_A/Sit": 1,
+        "PlayerS2_Lower/Animations/Sniper_A/Sit/Idle": 1,
+        "PlayerS2_Lower/Animations/Sniper_A/Stand": 1,
+        "PlayerS2_Lower/Animations/Sniper_A/Stand/Idle": 1,
+        "PlayerS2_Main": 1,
+        "PlayerS2_Main/Animations": 1,
+        "PlayerS2_Main/Animations/AnyWeapon": 1,
+        "PlayerS2_Main/Animations/AnyWeapon/Stand": 1,
+        "PlayerS2_Main/Animations/AnyWeapon/Stand/Ladder": 3,
+        "PlayerS2_PV": 1,
+        "PlayerS2_PV/Animations": 0,
+        "PlayerS2_PV/Animations/Fire": 10,
+        "PlayerS2_PV/Animations/Idle": 5,
+        "PlayerS2_PV/Animations/Ladder": 3,
+        "PlayerS2_PV/Animations/Reload": 6,
+        "PlayerS2_PV/Animations/Rescue": 1,
+        "PlayerS2_PV/Animations/Rush": 3,
+        "PlayerS2_PV/Animations/Select": 1,
+        "PlayerS2_PV/Animations/Zoom": 4,
+        "PlayerS2_Upper": 1,
+        "PlayerS2_Upper/Animations": 0,
+        "PlayerS2_Upper/Animations/Melee_A": 1,
+        "PlayerS2_Upper/Animations/Melee_A/Change": 1,
+        "PlayerS2_Upper/Animations/Melee_A/Fire": 6,
+        "PlayerS2_Upper/Animations/Melee_A/Idle": 6,
+        "PlayerS2_Upper/Animations/Melee_A/Reload": 0,
+        "PlayerS2_Upper/Animations/Melee_B": 1,
+        "PlayerS2_Upper/Animations/Melee_B/Change": 1,
+        "PlayerS2_Upper/Animations/Melee_B/Fire": 4,
+        "PlayerS2_Upper/Animations/Melee_B/Idle": 6,
+        "PlayerS2_Upper/Animations/Melee_B/Reload": 0,
+        "PlayerS2_Upper/Animations/Melee_C": 1,
+        "PlayerS2_Upper/Animations/Melee_C/Change": 1,
+        "PlayerS2_Upper/Animations/Melee_C/Fire": 2,
+        "PlayerS2_Upper/Animations/Melee_C/Idle": 6,
+        "PlayerS2_Upper/Animations/Melee_C/Reload": 0,
+        "PlayerS2_Upper/Animations/Pistol_A": 1,
+        "PlayerS2_Upper/Animations/Pistol_A/Change": 1,
+        "PlayerS2_Upper/Animations/Pistol_A/Fire": 1,
+        "PlayerS2_Upper/Animations/Pistol_A/Idle": 6,
+        "PlayerS2_Upper/Animations/Pistol_A/Reload": 3,
+        "PlayerS2_Upper/Animations/Projectile_A": 1,
+        "PlayerS2_Upper/Animations/Projectile_A/Change": 1,
+        "PlayerS2_Upper/Animations/Projectile_A/Fire": 5,
+        "PlayerS2_Upper/Animations/Projectile_A/Idle": 6,
+        "PlayerS2_Upper/Animations/Projectile_A/Reload": 0,
+        "PlayerS2_Upper/Animations/Projectile_B": 1,
+        "PlayerS2_Upper/Animations/Projectile_B/Change": 1,
+        "PlayerS2_Upper/Animations/Projectile_B/Fire": 2,
+        "PlayerS2_Upper/Animations/Projectile_B/Idle": 6,
+        "PlayerS2_Upper/Animations/Rifle_A": 1,
+        "PlayerS2_Upper/Animations/Rifle_A/Change": 1,
+        "PlayerS2_Upper/Animations/Rifle_A/Fire": 1,
+        "PlayerS2_Upper/Animations/Rifle_A/Idle": 6,
+        "PlayerS2_Upper/Animations/Rifle_A/Reload": 6,
+        "PlayerS2_Upper/Animations/Rifle_B": 1,
+        "PlayerS2_Upper/Animations/Rifle_B/Change": 1,
+        "PlayerS2_Upper/Animations/Rifle_B/Fire": 1,
+        "PlayerS2_Upper/Animations/Rifle_B/Idle": 6,
+        "PlayerS2_Upper/Animations/Rifle_B/Reload": 3,
+        "PlayerS2_Upper/Animations/Rifle_C": 1,
+        "PlayerS2_Upper/Animations/Rifle_C/Change": 1,
+        "PlayerS2_Upper/Animations/Rifle_C/Fire": 1,
+        "PlayerS2_Upper/Animations/Rifle_C/Idle": 6,
+        "PlayerS2_Upper/Animations/Rifle_C/Reload": 3,
+        "PlayerS2_Upper/Animations/Rifle_D": 1,
+        "PlayerS2_Upper/Animations/Rifle_D/Change": 1,
+        "PlayerS2_Upper/Animations/Rifle_D/Fire": 1,
+        "PlayerS2_Upper/Animations/Rifle_D/Idle": 6,
+        "PlayerS2_Upper/Animations/Rifle_D/Reload": 3,
+        "PlayerS2_Upper/Animations/Rifle_F": 1,
+        "PlayerS2_Upper/Animations/Rifle_F/Change": 1,
+        "PlayerS2_Upper/Animations/Rifle_F/Fire": 1,
+        "PlayerS2_Upper/Animations/Rifle_F/Idle": 6,
+        "PlayerS2_Upper/Animations/Rifle_F/Reload": 3,
+        "PlayerS2_Upper/Animations/Shotgun_A": 1,
+        "PlayerS2_Upper/Animations/Shotgun_A/Change": 1,
+        "PlayerS2_Upper/Animations/Shotgun_A/Fire": 1,
+        "PlayerS2_Upper/Animations/Shotgun_A/Idle": 6,
+        "PlayerS2_Upper/Animations/Shotgun_A/Reload": 3,
+        "PlayerS2_Upper/Animations/Shotgun_B": 1,
+        "PlayerS2_Upper/Animations/Shotgun_B/Change": 1,
+        "PlayerS2_Upper/Animations/Shotgun_B/Fire": 1,
+        "PlayerS2_Upper/Animations/Shotgun_B/Idle": 6,
+        "PlayerS2_Upper/Animations/Shotgun_B/Reload": 3,
+        "PlayerS2_Upper/Animations/Shotgun_C": 1,
+        "PlayerS2_Upper/Animations/Shotgun_C/Change": 1,
+        "PlayerS2_Upper/Animations/Shotgun_C/Fire": 1,
+        "PlayerS2_Upper/Animations/Shotgun_C/Idle": 6,
+        "PlayerS2_Upper/Animations/Shotgun_C/Reload": 3,
+        "PlayerS2_Upper/Animations/Shotgun_D": 1,
+        "PlayerS2_Upper/Animations/Shotgun_D/Change": 1,
+        "PlayerS2_Upper/Animations/Shotgun_D/Fire": 1,
+        "PlayerS2_Upper/Animations/Shotgun_D/Idle": 6,
+        "PlayerS2_Upper/Animations/Shotgun_D/Reload": 3,
+        "PlayerS2_Upper/Animations/Sniper_A": 1,
+        "PlayerS2_Upper/Animations/Sniper_A/Change": 1,
+        "PlayerS2_Upper/Animations/Sniper_A/Fire": 2,
+        "PlayerS2_Upper/Animations/Sniper_A/Idle": 6,
+        "PlayerS2_Upper/Animations/Sniper_A/Reload": 3,
+        "PlayerS2_Viewer": 1,
+        "PlayerS2_Viewer/Animations": 1,
+        "PlayerS2_Viewer/Animations/Anijob": 2,
+        "PlayerS2_Viewer/Animations/Gang": 1,
+        "PlayerS2_Viewer/Animations/Gang/Motion": 6,
+        "PlayerS2_Viewer/Animations/Police": 1,
+        "PlayerS2_Viewer/Animations/Police/Motion": 6
+      }
+    },
+    "ProfileDatabase/Defaults.Gamdb00p": {
+      "file_size": 13240,
+      "parsed_bytes": 13240,
+      "byte_exact": true,
+      "header": {
+        "magic": "GADB",
+        "version": 3,
+        "string_pool_bytes": 2048,
+        "num_categories": 9,
+        "num_records": 56,
+        "num_attributes": 532,
+        "num_values": 532
+      },
+      "attribute_type_distribution": {
+        "1 (Float32)": 20,
+        "2 (Int32)": 332,
+        "3 (RecordLink)": 33,
+        "4 (String)": 3,
+        "5 (WString)": 94,
+        "10 (Vector3)": 50
+      },
+      "category_summary": {
+        "Bindings": 41,
+        "Community": 1,
+        "Controls": 1,
+        "etc": 1,
+        "Game": 1,
+        "Login": 1,
+        "Macro": 8,
+        "Multiplayer": 1,
+        "Sound": 1
+      }
+    }
+  },
+  "diff_root_vs_game_theraw": {
+    "categories_only_in_root_Database_TheRaw": [
+      "Arsenal/Weapons/AI/00_Main",
+      "Arsenal/Weapons/AI/01_Sub",
+      "Arsenal/Weapons/AI/02_Melee",
+      "Arsenal/Weapons/AI/03_Item1",
+      "Arsenal/Weapons/AI/04_Item2",
+      "Arsenal/Weapons/Multiplayer/00_Main",
+      "Arsenal/Weapons/Multiplayer/00_Main/Old_Weapon",
+      "Arsenal/Weapons/Multiplayer/01_Sub",
+      "Arsenal/Weapons/Multiplayer/01_Sub/Old_Weapon",
+      "Arsenal/Weapons/Multiplayer/02_Melee",
+      "Arsenal/Weapons/Multiplayer/02_Melee/Old_Weapon",
+      "Arsenal/Weapons/Multiplayer/03_Item1",
+      "Arsenal/Weapons/Multiplayer/03_Item1/Old_Weapon",
+      "Arsenal/Weapons/Multiplayer/04_Item2",
+      "Arsenal/Weapons/Multiplayer/04_Item2/Old_Weapon"
+    ],
+    "categories_only_in_Game_Database_TheRaw": []
+  },
+  "missions_modes": [
+    {
+      "record": "000_TeamDeathMatch",
+      "attribute_count": 234
+    },
+    {
+      "record": "001_C4",
+      "attribute_count": 218
+    },
+    {
+      "record": "002_Assassin",
+      "attribute_count": 226
+    },
+    {
+      "record": "003_Rescue",
+      "attribute_count": 218
+    },
+    {
+      "record": "005_Conquest",
+      "attribute_count": 226
+    },
+    {
+      "record": "006_SuddenDeath",
+      "attribute_count": 218
+    },
+    {
+      "record": "007_FlexibleCapture",
+      "attribute_count": 220
+    },
+    {
+      "record": "008_Rescue_2",
+      "attribute_count": 226
+    },
+    {
+      "record": "009_Captin",
+      "attribute_count": 214
+    },
+    {
+      "record": "010_DeathMatch",
+      "attribute_count": 234
+    },
+    {
+      "record": "011_Extortion",
+      "attribute_count": 234
+    },
+    {
+      "record": "012_Escape",
+      "attribute_count": 230
+    },
+    {
+      "record": "013_Convoy",
+      "attribute_count": 224
+    },
+    {
+      "record": "014_FFA",
+      "attribute_count": 234
+    },
+    {
+      "record": "100_Clan_TeamDeathMatch",
+      "attribute_count": 232
+    },
+    {
+      "record": "101_Clan_C4",
+      "attribute_count": 206
+    },
+    {
+      "record": "102_Clan_SuddenDeath",
+      "attribute_count": 206
+    },
+    {
+      "record": "103_Clan_FlexibleCapture",
+      "attribute_count": 214
+    },
+    {
+      "record": "902_Rescue_Key",
+      "attribute_count": 222
+    },
+    {
+      "record": "903_Single",
+      "attribute_count": 228
+    }
+  ],
+  "missions_levels_active_count": 156,
+  "missions_levels_unmapped_zero_detailinfo_count": 6,
+  "missions_levels_active": [
+    {
+      "record": "08_twoway",
+      "detail_info_id": 10000,
+      "display_name": "투 �?이",
+      "color_curve_material": "Materials\\ColorCurve\\twoway_CC.Mat00"
+    },
+    {
+      "record": "09_Kill_Port",
+      "detail_info_id": 10001,
+      "display_name": "킬 포트",
+      "color_curve_material": "Materials\\ColorCurve\\Kill_Port_CC.Mat00"
+    },
+    {
+      "record": "10_lostland",
+      "detail_info_id": 10002,
+      "display_name": "로스트 랜드",
+      "color_curve_material": "Materials\\ColorCurve\\lostland_CC.Mat00"
+    },
+    {
+      "record": "07_huntinghill",
+      "detail_info_id": 10003,
+      "display_name": "헌팅 힐",
+      "color_curve_material": "Materials\\ColorCurve\\huntinghill_CC.Mat00"
+    },
+    {
+      "record": "11_Old_Town",
+      "detail_info_id": 10004,
+      "display_name": "올드 타운",
+      "color_curve_material": "Materials\\ColorCurve\\oldtown_CC.Mat00"
+    },
+    {
+      "record": "12_The_Bank",
+      "detail_info_id": 10005,
+      "display_name": "더 �?크",
+      "color_curve_material": "Materials\\ColorCurve\\thebank_CC.Mat00"
+    },
+    {
+      "record": "10006_HeadHunting_Event",
+      "detail_info_id": 10006,
+      "display_name": "헤드헌팅",
+      "color_curve_material": "Materials\\ColorCurve\\10006_HeadHunting_Event_CC.Mat00"
+    },
+    {
+      "record": "10007_warload",
+      "detail_info_id": 10007,
+      "display_name": "워로드",
+      "color_curve_material": "Materials\\ColorCurve\\10007_warload_CC.Mat00"
+    },
+    {
+      "record": "15_Ghost_Ship",
+      "detail_info_id": 10008,
+      "display_name": "고스트 쉽",
+      "color_curve_material": "Materials\\ColorCurve\\Ghost_Ship_CC.Mat00"
+    },
+    {
+      "record": "16_DogHouse",
+      "detail_info_id": 10009,
+      "display_name": "도그하우스",
+      "color_curve_material": "Materials\\ColorCurve\\WarLoad_CC.Mat00"
+    },
+    {
+      "record": "17_Old_Town_Night",
+      "detail_info_id": 10010,
+      "display_name": "올드 타운(야)",
+      "color_curve_material": "Materials\\ColorCurve\\oldtown_night_CC.Mat00"
+    },
+    {
+      "record": "02_Ghost_City",
+      "detail_info_id": 10011,
+      "display_name": "고스트시티",
+      "color_curve_material": "Materials\\ColorCurve\\ghostcity_CC.Mat00"
+    },
+    {
+      "record": "18_Officetel",
+      "detail_info_id": 10012,
+      "display_name": "오피스텔",
+      "color_curve_material": "Materials\\ColorCurve\\officetel_CC.Mat00"
+    },
+    {
+      "record": "19_twoway_night",
+      "detail_info_id": 10013,
+      "display_name": "투 �?이(야)",
+      "color_curve_material": "Materials\\ColorCurve\\twoway_night_CC.Mat00"
+    },
+    {
+      "record": "20_wharf",
+      "detail_info_id": 10014,
+      "display_name": "선착장",
+      "color_curve_material": "Materials\\ColorCurve\\officetel_CC.Mat00"
+    },
+    {
+      "record": "10015_Paradise",
+      "detail_info_id": 10015,
+      "display_name": "파라다이스",
+      "color_curve_material": "Materials\\ColorCurve\\10015_Paradise_CC.Mat00"
+    },
+    {
+      "record": "10016_underworld",
+      "detail_info_id": 10016,
+      "display_name": "�?더월드",
+      "color_curve_material": "Materials\\ColorCurve\\10016_underworld_CC.Mat00"
+    },
+    {
+      "record": "10017_triplecore",
+      "detail_info_id": 10017,
+      "display_name": "트리플코어",
+      "color_curve_material": "Materials\\ColorCurve\\10017_triplecore_CC.Mat00"
+    },
+    {
+      "record": "10018_moonnight",
+      "detail_info_id": 10018,
+      "display_name": "문나이트",
+      "color_curve_material": "Materials\\ColorCurve\\10018_moonnight_CC.Mat00"
+    },
+    {
+      "record": "10019_wolfandpig",
+      "detail_info_id": 10019,
+      "display_name": "늑대와돼지",
+      "color_curve_material": "Materials\\ColorCurve\\10019_wolfandpig_CC.Mat00"
+    },
+    {
+      "record": "10020",
+      "detail_info_id": 10020,
+      "display_name": "대장전",
+      "color_curve_material": "Materials\\ColorCurve\\10019_wolfandpig_CC.Mat00"
+    },
+    {
+      "record": "10021",
+      "detail_info_id": 10021,
+      "display_name": "보스호보1",
+      "color_curve_material": "Materials\\ColorCurve\\10019_wolfandpig_CC.Mat00"
+    },
+    {
+      "record": "10022_Heaven",
+      "detail_info_id": 10022,
+      "display_name": "헤븐",
+      "color_curve_material": "Materials\\ColorCurve\\10019_wolfandpig_CC.Mat00"
+    },
+    {
+      "record": "10023_GrandBazar",
+      "detail_info_id": 10023,
+      "display_name": "그랜드바자르",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "10024_SandStorm",
+      "detail_info_id": 10024,
+      "display_name": "샌드스톰",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "10025_Heaven",
+      "detail_info_id": 10025,
+      "display_name": "헤븐(폭설)",
+      "color_curve_material": "Materials\\ColorCurve\\10019_wolfandpig_CC.Mat00"
+    },
+    {
+      "record": "10026_UnderGround",
+      "detail_info_id": 10026,
+      "display_name": "�?더그라운드",
+      "color_curve_material": "Materials\\ColorCurve\\10026_UnderGround_CC.Mat00"
+    },
+    {
+      "record": "10027_WhiteNight_Event",
+      "detail_info_id": 10027,
+      "display_name": "화이트나이트",
+      "color_curve_material": "Materials\\ColorCurve\\10027_WhiteNight_Event_CC.Mat00"
+    },
+    {
+      "record": "10028_DeadCenter",
+      "detail_info_id": 10028,
+      "display_name": "데드센터",
+      "color_curve_material": "Materials\\ColorCurve\\10028_DeadCenter_CC.Mat00"
+    },
+    {
+      "record": "10029_DummyHouse",
+      "detail_info_id": 10029,
+      "display_name": "더미하우스",
+      "color_curve_material": "Materials\\ColorCurve\\10029_DummyHouse_CC.Mat00"
+    },
+    {
+      "record": "10030_wolfandduck",
+      "detail_info_id": 10030,
+      "display_name": "늑대와오리",
+      "color_curve_material": "Materials\\ColorCurve\\10030_wolfandduck_CC.Mat00"
+    },
+    {
+      "record": "10031_Hospital",
+      "detail_info_id": 10031,
+      "display_name": "병원",
+      "color_curve_material": "Materials\\ColorCurve\\10031_Hospital_CC.Mat00"
+    },
+    {
+      "record": "10032_PrisonCage",
+      "detail_info_id": 10032,
+      "display_name": "프리�?케이지",
+      "color_curve_material": "Materials\\ColorCurve\\10032_PrisonCage_CC.Mat00"
+    },
+    {
+      "record": "10033_BlackOut",
+      "detail_info_id": 10033,
+      "display_name": "블랙아웃",
+      "color_curve_material": "Materials\\ColorCurve\\10033_BlackOut_CC.Mat00"
+    },
+    {
+      "record": "10034_TheMetro",
+      "detail_info_id": 10034,
+      "display_name": "더�?트로",
+      "color_curve_material": "Materials\\ColorCurve\\10034_TheMetro_CC.Mat00"
+    },
+    {
+      "record": "10035_HeadHunting",
+      "detail_info_id": 10035,
+      "display_name": "헤드헌팅",
+      "color_curve_material": "Materials\\ColorCurve\\10035_HeadHunting_CC.Mat00"
+    },
+    {
+      "record": "10036_WhiteNight",
+      "detail_info_id": 10036,
+      "display_name": "화이트나이트",
+      "color_curve_material": "Materials\\ColorCurve\\10036_WhiteNight_CC.Mat00"
+    },
+    {
+      "record": "10037_BackAlley",
+      "detail_info_id": 10037,
+      "display_name": "백엘리",
+      "color_curve_material": "Materials\\ColorCurve\\10037_BackAlley_CC.Mat00"
+    },
+    {
+      "record": "10038_Downtown",
+      "detail_info_id": 10038,
+      "display_name": "다운타운",
+      "color_curve_material": "Materials\\ColorCurve\\10038_Downtown_CC.Mat00"
+    },
+    {
+      "record": "10039_UnderSiege",
+      "detail_info_id": 10039,
+      "display_name": "�?더시즈",
+      "color_curve_material": "Materials\\ColorCurve\\10039_UnderSiege_CC.Mat00"
+    },
+    {
+      "record": "10040_SecretVillage",
+      "detail_info_id": 10040,
+      "display_name": "시크릿빌리지",
+      "color_curve_material": "Materials\\ColorCurve\\10040_SecretVillage_CC.Mat00"
+    },
+    {
+      "record": "10041_BlackClub",
+      "detail_info_id": 10041,
+      "display_name": "블랙클럽",
+      "color_curve_material": "Materials\\ColorCurve\\10041_BlackClub_CC.Mat00"
+    },
+    {
+      "record": "10042_SignalTower",
+      "detail_info_id": 10042,
+      "display_name": "시그널타워",
+      "color_curve_material": "Materials\\ColorCurve\\10042_SignalTower_CC.Mat00"
+    },
+    {
+      "record": "10043_Ghost_Ship_Event",
+      "detail_info_id": 10043,
+      "display_name": "고스트 쉽",
+      "color_curve_material": "Materials\\ColorCurve\\Ghost_Ship_Event_CC.Mat00"
+    },
+    {
+      "record": "10044_TwoWay_Round",
+      "detail_info_id": 10044,
+      "display_name": "투 �?이",
+      "color_curve_material": "Materials\\ColorCurve\\10044_TwoWay_Round_CC.Mat00"
+    },
+    {
+      "record": "10045_UnderGround_Captain",
+      "detail_info_id": 10045,
+      "display_name": "�?더그라운드",
+      "color_curve_material": "Materials\\ColorCurve\\10045_UnderGround_Captain_CC.Mat00"
+    },
+    {
+      "record": "10046_Hospital_Capture",
+      "detail_info_id": 10046,
+      "display_name": "병원",
+      "color_curve_material": "Materials\\ColorCurve\\10046_Hospital_Capture_CC.Mat00"
+    },
+    {
+      "record": "10047_WhiteNight_Captain",
+      "detail_info_id": 10047,
+      "display_name": "화이트나이트",
+      "color_curve_material": "Materials\\ColorCurve\\10047_WhiteNight_Captain_CC.Mat00"
+    },
+    {
+      "record": "10048_OldTown_Round",
+      "detail_info_id": 10048,
+      "display_name": "올드 타운",
+      "color_curve_material": "Materials\\ColorCurve\\10048_OldTown_Round_CC.Mat00"
+    },
+    {
+      "record": "10049_LostLand_Round",
+      "detail_info_id": 10049,
+      "display_name": "로스트 랜드",
+      "color_curve_material": "Materials\\ColorCurve\\10049_LostLand_Round_CC.Mat00"
+    },
+    {
+      "record": "10051_DummyHouse_Bomb",
+      "detail_info_id": 10051,
+      "display_name": "더미하우스",
+      "color_curve_material": "Materials\\ColorCurve\\10051_DummyHouse_Bomb_CC.Mat00"
+    },
+    {
+      "record": "10052_AWP_Lego",
+      "detail_info_id": 10052,
+      "display_name": "Cafeteria",
+      "color_curve_material": "Materials\\ColorCurve\\10034_TheMetro_CC.Mat00"
+    },
+    {
+      "record": "10053_Aim_Redline",
+      "detail_info_id": 10053,
+      "display_name": "AimRedline",
+      "color_curve_material": "Materials\\ColorCurve\\10034_TheMetro_CC.Mat00"
+    },
+    {
+      "record": "10054_AWP_Lego_Round",
+      "detail_info_id": 10054,
+      "display_name": "AwpLegoR",
+      "color_curve_material": "Materials\\ColorCurve\\10034_TheMetro_CC.Mat00"
+    },
+    {
+      "record": "10056_Dust2",
+      "detail_info_id": 10056,
+      "display_name": "Dust2",
+      "color_curve_material": "Materials\\ColorCurve\\10034_TheMetro_CC.Mat00"
+    },
+    {
+      "record": "10057_Arrival",
+      "detail_info_id": 10057,
+      "display_name": "Arrival",
+      "color_curve_material": "Materials\\ColorCurve\\10034_TheMetro_CC.Mat00"
+    },
+    {
+      "record": "20002_TEST",
+      "detail_info_id": 20002,
+      "display_name": "개발용5",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20003_TEST",
+      "detail_info_id": 20003,
+      "display_name": "개발용1",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20004_TEST",
+      "detail_info_id": 20004,
+      "display_name": "개발용2",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20005_TEST",
+      "detail_info_id": 20005,
+      "display_name": "개발용3",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20006_TEST",
+      "detail_info_id": 20006,
+      "display_name": "개발용4",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20007_TEST",
+      "detail_info_id": 20007,
+      "display_name": "개발용6",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20008_TEST",
+      "detail_info_id": 20008,
+      "display_name": "개발용7",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20010_TEST",
+      "detail_info_id": 20010,
+      "display_name": "개발용8",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20011_TEST",
+      "detail_info_id": 20011,
+      "display_name": "개발용9",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20012_TEST",
+      "detail_info_id": 20012,
+      "display_name": "개발용10",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20013_TEST",
+      "detail_info_id": 20013,
+      "display_name": "개발용11",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20014_TEST",
+      "detail_info_id": 20014,
+      "display_name": "개발용12",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20015_TEST",
+      "detail_info_id": 20015,
+      "display_name": "개발용13",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20016_TEST",
+      "detail_info_id": 20016,
+      "display_name": "개발용14",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20017_FlexibleCapture_01",
+      "detail_info_id": 20017,
+      "display_name": "탈취전01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20018_FlexibleCapture_02",
+      "detail_info_id": 20018,
+      "display_name": "탈취전02",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20019_FlexibleCapture_03",
+      "detail_info_id": 20019,
+      "display_name": "탈취전03",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20021_Captin_01",
+      "detail_info_id": 20021,
+      "display_name": "대장전01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20022_Captin_02",
+      "detail_info_id": 20022,
+      "display_name": "대장전02",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20023_Captin_03",
+      "detail_info_id": 20023,
+      "display_name": "대장전03",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20024_TDM_01",
+      "detail_info_id": 20024,
+      "display_name": "TDM01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20025_TDM_02",
+      "detail_info_id": 20025,
+      "display_name": "TDM02",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20026_TDM_03",
+      "detail_info_id": 20026,
+      "display_name": "TDM03",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20027_Extortion_01",
+      "detail_info_id": 20027,
+      "display_name": "Extortion01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20028_Escape_01",
+      "detail_info_id": 20028,
+      "display_name": "Escape01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20029_Convoy_01",
+      "detail_info_id": 20029,
+      "display_name": "Convoy01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20030_FFA_01",
+      "detail_info_id": 20030,
+      "display_name": "개인전테스트1",
+      "color_curve_material": "Materials\\ColorCurve\\20030_FFA_01_CC.Mat00"
+    },
+    {
+      "record": "20031_FFA_02",
+      "detail_info_id": 20031,
+      "display_name": "개인전테스트2",
+      "color_curve_material": "Materials\\ColorCurve\\20031_FFA_02_CC.Mat00"
+    },
+    {
+      "record": "10055_DeadWood",
+      "detail_info_id": 20032,
+      "display_name": "DeadWood",
+      "color_curve_material": "Materials\\ColorCurve\\10034_TheMetro_CC.Mat00"
+    },
+    {
+      "record": "20101_Round01",
+      "detail_info_id": 20101,
+      "display_name": "Round01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20102_Round02",
+      "detail_info_id": 20102,
+      "display_name": "Round02",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20103_Round03",
+      "detail_info_id": 20103,
+      "display_name": "Round03",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20104_Round04",
+      "detail_info_id": 20104,
+      "display_name": "Round04",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20105_Round05",
+      "detail_info_id": 20105,
+      "display_name": "Round05",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20106_Round06",
+      "detail_info_id": 20106,
+      "display_name": "Round06",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20107_Round07",
+      "detail_info_id": 20107,
+      "display_name": "Round07",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20108_Round08",
+      "detail_info_id": 20108,
+      "display_name": "Round08",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20109_Round09",
+      "detail_info_id": 20109,
+      "display_name": "Round09",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20110_Round10",
+      "detail_info_id": 20110,
+      "display_name": "Round10",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20201_Escape01",
+      "detail_info_id": 20201,
+      "display_name": "Escape01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20202_Escape02",
+      "detail_info_id": 20202,
+      "display_name": "Escape02",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20203_Escape03",
+      "detail_info_id": 20203,
+      "display_name": "Escape03",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20204_Escape04",
+      "detail_info_id": 20204,
+      "display_name": "Escape04",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20205_Escape05",
+      "detail_info_id": 20205,
+      "display_name": "Escape05",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20206_Escape06",
+      "detail_info_id": 20206,
+      "display_name": "Escape06",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20207_Escape07",
+      "detail_info_id": 20207,
+      "display_name": "Escape07",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20208_Escape08",
+      "detail_info_id": 20208,
+      "display_name": "Escape08",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20209_Escape09",
+      "detail_info_id": 20209,
+      "display_name": "Escape09",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20210_Escape10",
+      "detail_info_id": 20210,
+      "display_name": "Escape10",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20301_Captin01",
+      "detail_info_id": 20301,
+      "display_name": "Captin01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20302_Captin02",
+      "detail_info_id": 20302,
+      "display_name": "Captin02",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20303_Captin03",
+      "detail_info_id": 20303,
+      "display_name": "Captin03",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20304_Captin04",
+      "detail_info_id": 20304,
+      "display_name": "Captin04",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20305_Captin05",
+      "detail_info_id": 20305,
+      "display_name": "Captin05",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20306_Captin06",
+      "detail_info_id": 20306,
+      "display_name": "Captin06",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20307_Captin07",
+      "detail_info_id": 20307,
+      "display_name": "Captin07",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20308_Captin08",
+      "detail_info_id": 20308,
+      "display_name": "Captin08",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20309_Captin09",
+      "detail_info_id": 20309,
+      "display_name": "Captin09",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20310_Captin10",
+      "detail_info_id": 20310,
+      "display_name": "Captin10",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20401_Capture01",
+      "detail_info_id": 20401,
+      "display_name": "Capture01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20402_Capture02",
+      "detail_info_id": 20402,
+      "display_name": "Capture02",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20403_Capture03",
+      "detail_info_id": 20403,
+      "display_name": "Capture03",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20404_Capture04",
+      "detail_info_id": 20404,
+      "display_name": "Capture04",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20405_Capture05",
+      "detail_info_id": 20405,
+      "display_name": "Capture05",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20406_Capture06",
+      "detail_info_id": 20406,
+      "display_name": "Capture06",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20407_Capture07",
+      "detail_info_id": 20407,
+      "display_name": "Capture07",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20408_Capture08",
+      "detail_info_id": 20408,
+      "display_name": "Capture08",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20409_Capture09",
+      "detail_info_id": 20409,
+      "display_name": "Capture09",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20410_Capture10",
+      "detail_info_id": 20410,
+      "display_name": "Capture10",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20501_Bomb01",
+      "detail_info_id": 20501,
+      "display_name": "Bomb01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20502_Bomb02",
+      "detail_info_id": 20502,
+      "display_name": "Bomb02",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20503_Bomb03",
+      "detail_info_id": 20503,
+      "display_name": "Bomb03",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20504_Bomb04",
+      "detail_info_id": 20504,
+      "display_name": "Bomb04",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20505_Bomb05",
+      "detail_info_id": 20505,
+      "display_name": "Bomb05",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20506_Bomb06",
+      "detail_info_id": 20506,
+      "display_name": "Bomb06",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20507_Bomb07",
+      "detail_info_id": 20507,
+      "display_name": "Bomb07",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20508_Bomb08",
+      "detail_info_id": 20508,
+      "display_name": "Bomb08",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20509_Bomb09",
+      "detail_info_id": 20509,
+      "display_name": "Bomb09",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20510_Bomb10",
+      "detail_info_id": 20510,
+      "display_name": "Bomb10",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20601_TDM01",
+      "detail_info_id": 20601,
+      "display_name": "TDM01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20604_TDM04",
+      "detail_info_id": 20601,
+      "display_name": "TDM04",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20602_TDM02",
+      "detail_info_id": 20602,
+      "display_name": "TDM02",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20603_TDM03",
+      "detail_info_id": 20603,
+      "display_name": "TDM03",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20605_TDM05",
+      "detail_info_id": 20605,
+      "display_name": "TDM05",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20606_TDM06",
+      "detail_info_id": 20606,
+      "display_name": "TDM06",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20607_TDM07",
+      "detail_info_id": 20607,
+      "display_name": "TDM07",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20608_TDM08",
+      "detail_info_id": 20608,
+      "display_name": "TDM08",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20609_TDM09",
+      "detail_info_id": 20609,
+      "display_name": "TDM09",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20610_TDM10",
+      "detail_info_id": 20610,
+      "display_name": "TDM10",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20701_FFA01",
+      "detail_info_id": 20701,
+      "display_name": "FFA01",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20702_FFA02",
+      "detail_info_id": 20702,
+      "display_name": "FFA02",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20703_FFA03",
+      "detail_info_id": 20703,
+      "display_name": "FFA03",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20704_FFA04",
+      "detail_info_id": 20704,
+      "display_name": "FFA04",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20705_FFA05",
+      "detail_info_id": 20705,
+      "display_name": "FFA05",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20706_FFA06",
+      "detail_info_id": 20706,
+      "display_name": "FFA06",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20707_FFA07",
+      "detail_info_id": 20707,
+      "display_name": "FFA07",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20708_FFA08",
+      "detail_info_id": 20708,
+      "display_name": "FFA08",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20709_FFA09",
+      "detail_info_id": 20709,
+      "display_name": "FFA09",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20710_FFA10",
+      "detail_info_id": 20710,
+      "display_name": "FFA10",
+      "color_curve_material": "Materials\\ColorCurve\\ColorCurve.Mat00"
+    },
+    {
+      "record": "20032_Aqua_TEST",
+      "detail_info_id": 200399,
+      "display_name": "파라다이스",
+      "color_curve_material": "Materials\\ColorCurve\\20032_Aqua_TEST_CC.Mat00"
+    }
+  ],
+  "missions_levels_unmapped_sample": [
+    {
+      "record": "01_DummyHouse2",
+      "detail_info_id": 0,
+      "display_name": "DummyHouse2",
+      "color_curve_material": "Materials\\ColorCurve\\DummyHouse2_CC.Mat00"
+    },
+    {
+      "record": "03_OldWarLoad",
+      "detail_info_id": 0,
+      "display_name": "WarLoad",
+      "color_curve_material": "Materials\\ColorCurve\\WarLoad_CC.Mat00"
+    },
+    {
+      "record": "04_UnderGround",
+      "detail_info_id": 0,
+      "display_name": "UnderGround",
+      "color_curve_material": "Materials\\ColorCurve\\UnderGround_CC.Mat00"
+    },
+    {
+      "record": "05_Heaven",
+      "detail_info_id": 0,
+      "display_name": "Heaven",
+      "color_curve_material": "Materials\\ColorCurve\\Heaven_CC.Mat00"
+    },
+    {
+      "record": "UI_Inven",
+      "detail_info_id": 0,
+      "display_name": "UI_Inven",
+      "color_curve_material": "Materials\\ColorCurve\\WhiteNight_CC.Mat00"
+    },
+    {
+      "record": "UI_Roby",
+      "detail_info_id": 0,
+      "display_name": "UI_Roby",
+      "color_curve_material": "Materials\\ColorCurve\\WhiteNight_CC.Mat00"
+    }
+  ],
+  "profile_defaults": {
+    "Bindings": {
+      "Activate": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "E",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Backward": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "S",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "ChatAll": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "F",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "ChatClan": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "F",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "ChatQuickTeam": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "Y",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "ChatTeam": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "F",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "ChatToggle": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "I",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "DropWeapon": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "G",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Duck": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "C",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Fire": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "M",
+        "Bindings.0.Object": "B",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "FlashOnOff": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "F",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Forward": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "W",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "InGameHUDInventory": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "N",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Jump": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "S",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "LastWeapon": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "Q",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Mission": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "M",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "NextWeapon": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1052938076,
+        "Bindings.0.CommandMin": -943501440,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 1056964608,
+        "Bindings.0.Device": "M",
+        "Bindings.0.Object": "W",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Pitch": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 1203982208,
+        "Bindings.0.DeadZoneMin": -943501440,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "M",
+        "Bindings.0.Object": "Y",
+        "Bindings.0.Offset": -1077936128,
+        "Bindings.0.Scale": 1077936128
+      },
+      "PreviousWeapon": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1058977874,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 1056964608,
+        "Bindings.0.Device": "M",
+        "Bindings.0.Object": "W",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Radio_Macro": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "Z",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Radio_Order": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "C",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Radio_Talk": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "X",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Reload": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "R",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Say": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "E",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Status": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "T",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "StrafeLeft": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "A",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "StrafeRight": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "D",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "TeamSay": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "Y",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Turn": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "B",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "VoiceChat": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "V",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Walk": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "S",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Weapon_0": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "1",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Weapon_1": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "2",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Weapon_2": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "3",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Weapon_3": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "4",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Weapon_4": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "5",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Weapon_5": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "6",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Weapon_6": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "7",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Weapon_7": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "K",
+        "Bindings.0.Object": "8",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      },
+      "Yaw": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 1203982208,
+        "Bindings.0.DeadZoneMin": -943501440,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "M",
+        "Bindings.0.Object": "X",
+        "Bindings.0.Offset": -1077936128,
+        "Bindings.0.Scale": 1077936128
+      },
+      "ZoomIn": {
+        "Bindings": 0,
+        "Bindings.0.CommandMax": 1203982208,
+        "Bindings.0.CommandMin": 1036831949,
+        "Bindings.0.DeadZoneMax": 0,
+        "Bindings.0.DeadZoneMin": 0,
+        "Bindings.0.DeadZoneValue": 0,
+        "Bindings.0.Default": 0,
+        "Bindings.0.Device": "M",
+        "Bindings.0.Object": "B",
+        "Bindings.0.Offset": 0,
+        "Bindings.0.Scale": 1065353216
+      }
+    },
+    "Community": {
+      "Community": {
+        "AddFriendType": 0,
+        "ChatOptionType": 0,
+        "InviteType": 0,
+        "JoinClanType": 0,
+        "NoteType": 0,
+        "WhisperType": 0
+      }
+    },
+    "Controls": {
+      "Controls": {
+        "AutoCenter": 0.0,
+        "FastTurn": 15,
+        "InvertMouse": 0.0,
+        "LookUp": 25,
+        "MouseLook": 0.0,
+        "NormalTurn": 15,
+        "Sensitivity": 80
+      }
+    },
+    "etc": {
+      "etc": {
+        "CrossHairColor": 0,
+        "CrossHairForm": 0,
+        "EmptyShell": 0.0,
+        "HandType": 0.0
+      }
+    },
+    "Game": {
+      "Game": {
+        "AlwaysRun": 0.0,
+        "CrosshairColor": 2130770239,
+        "CrosshairSize": 10,
+        "CrouchToggle": 0.0,
+        "Difficulty": 1,
+        "Gore": 0.0,
+        "HeadBob": 10,
+        "HideInGameHUD": 0.0,
+        "HUDFadeSpeed": 1065353216,
+        "MessageDur": 10,
+        "MPAutoWeaponSwitch": 0.0,
+        "PersistentHUD": 0.0,
+        "Physics": 0.0,
+        "SlowMoFX": 0.0,
+        "SPAutoWeaponSwitch": 0.0,
+        "Subtitles": 0.0,
+        "VersionNumber": 0
+      }
+    },
+    "Login": {
+      "Login": {
+        "Login_Check": 0.0,
+        "Login_ID": ""
+      }
+    },
+    "Macro": {
+      "Macro1": {
+        "Macro": 0,
+        "Macro.0.ChattingText": "",
+        "Macro.0.ChattingType": 0
+      },
+      "Macro2": {
+        "Macro": 0,
+        "Macro.0.ChattingText": "",
+        "Macro.0.ChattingType": 0
+      },
+      "Macro3": {
+        "Macro": 0,
+        "Macro.0.ChattingText": "",
+        "Macro.0.ChattingType": 0
+      },
+      "Macro4": {
+        "Macro": 0,
+        "Macro.0.ChattingText": "",
+        "Macro.0.ChattingType": 0
+      },
+      "Macro5": {
+        "Macro": 0,
+        "Macro.0.ChattingText": "",
+        "Macro.0.ChattingType": 0
+      },
+      "Macro6": {
+        "Macro": 0,
+        "Macro.0.ChattingText": "",
+        "Macro.0.ChattingType": 0
+      },
+      "Macro7": {
+        "Macro": 0,
+        "Macro.0.ChattingText": "",
+        "Macro.0.ChattingType": 0
+      },
+      "Macro8": {
+        "Macro": 0,
+        "Macro.0.ChattingText": "",
+        "Macro.0.ChattingType": 0
+      }
+    },
+    "Multiplayer": {
+      "Multiplayer": {
+        "AllowBroadcast": 0.0,
+        "AllowContentDownload": 0.0,
+        "AllowContentDownloadRedirect": 0.0,
+        "BandwidthClient": 3,
+        "BandwidthClientCustom": 512,
+        "ClientPort": 27888,
+        "DMPlayerModel": 0,
+        "FavoriteServers": 0,
+        "FavoriteServers.0.IP": "",
+        "FavoriteServers.0.LAN": 0.0,
+        "FavoriteServers.0.SessionName": "",
+        "Friends": "",
+        "Guid": "",
+        "MaximumDownloadSize": 4294967295,
+        "PlayerName": "",
+        "PunkbusterFilter": 0,
+        "ServerOptionsFile": ""
+      }
+    },
+    "Sound": {
+      "Sound": {
+        "Language": 0,
+        "MusicVolume": 1061997773,
+        "SFXVolume": 1061997773,
+        "VoiceVolume": 1061997773
+      }
+    }
+  }
+}
