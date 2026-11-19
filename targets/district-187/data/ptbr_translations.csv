@@ -1,0 +1,503 @@
+﻿string_id,english_original,ptbr_translation,status
+FunctionName_1034,Survive 1 headshot,Sobreviver a 1 tiro na cabeça,translated
+GAME_ACTIVATE_DOOR_CLOSE,Close,Fechar,translated
+GAME_ACTIVATE_DOOR_OPEN,Open,Abrir,translated
+GAME_ACTIVATE_KEY_DISABLED,You cannot pick that up.,Você não pode pegar isso.,translated
+GAME_ACTIVATE_OBJECT_ALREADY,Target already acquired.,Objetivo já capturado.,translated
+GAME_ALLKILL_Ally,Our forces have been annihilated.,,pending
+GAME_ALLKILL_Enemy,The enemy forces have been annihilated.,,pending
+GAME_BOMB_BombTimer,%1!02d!:%2!02d!,,pending
+GAME_BOMB_Button5,Select Bomb Mission.,Selecionar Missão C4.,translated
+GAME_BOMB_CANPLANT,Set bomb,Plantar bomba C4,translated
+GAME_BOMB_DEFENCE_FAIL,Mission Failed!,Missão Falhou!,translated
+GAME_BOMB_DEFENCE_SUCCESS,Mission Success!,Missão Cumprida!,translated
+GAME_BOMB_DEFUSE,[%1!s!] disarmed the bomb.,[%1!s!] desarmou a bomba C4.,translated
+GAME_BOMB_DEFUSEING,Disarming bomb,Desarmando bomba C4,translated
+GAME_BOMB_EXPLO_FAIL,Mission Failed,Missão Falhou,translated
+GAME_BOMB_EXPLO_SUCCESS,Mission Success!,Missão Cumprida!,translated
+GAME_BOMB_INSTALLING,Arming bomb,Armando bomba C4,translated
+GAME_BOMB_PLANT,Arm,Armar,translated
+GAME_BOMB_strDefuse,Disarm,Desarmar,translated
+GAME_CAPTAIN_ALLKILL_FAIL,Failure! Our Boss has been defeated!,,pending
+GAME_CAPTAIN_ALLKILL_SUCCESS,Success! Enemy Boss has been defeated!,,pending
+GAME_CAPTAIN_DEATH,[%1!s!] killed our Boss!,[%1!s!] eliminou nosso Chefe!,translated
+GAME_CAPTAIN_KILL,[%1!s!] killed the enemy Boss!,[%1!s!] eliminou o Chefe inimigo!,translated
+GAME_CAPTAIN_SELECTED_ALLY,[%1!s!] is now our Boss. Protect them!,,pending
+GAME_CAPTAIN_SELECTED_ENEMY,[%1!s!] is now the Boss. Kill them!,,pending
+GAME_CAPTAIN_SELECTED_I,You are now the Boss!,Você agora é o Chefe!,translated
+GAME_CAPTAIN_START,Protect our Boss and kill the enemy's Boss!,,pending
+GAME_CAPTAIN_Suicide_Ally,Our Boss has commited suicide!,,pending
+GAME_CAPTAIN_Suicide_Enemy,Our enemy's Boss has commited suicide!,,pending
+GAME_CAPTURE_CaptureAlly,%1!s! has occupied a region.,%1!s! capturou uma zona.,translated
+GAME_CAPTURE_CaptureEnemy,%1!s! lost a region to %2!s!.,,pending
+GAME_Escape_Ending_Defence,Mission failed. The enemies have escaped.,,pending
+GAME_Escape_Exposure_Attack,We've been spotted! Escape quickly!,,pending
+GAME_Escape_Exposure_Defence,Enemy Spotted. Take 'em out!,Inimigo avistado! Eliminem-no!,translated
+GAME_Escape_Opening_Attack,Hurry up!,Rápido!,translated
+GAME_Escape_Opening_Defence,We must stop them from escaping.,Impeça a fuga dos inimigos.,translated
+GAME_Extortion_Drop_Defence,Enemy dropped the object. Stop them!,,pending
+GAME_Extortion_Ending_Attack,The object was secured successfully.,,pending
+GAME_Extortion_Ending_Defence,We have lost the object.,,pending
+GAME_Extortion_Opening_Attack,Secure the object from the enemy.,,pending
+GAME_Extortion_Opening_Defence,Enemies are coming for the object. Stop them.,,pending
+GAME_Extortion_Procure_Attack,Object secured. Escape quikly.,,pending
+GAME_Extortion_Procure_Defence,Object taken. Stop the enemy.,,pending
+GAME_Extortion_ReProcure_Attack,Object restored. Move quikly.,,pending
+GAME_GAMESTART,Connected. Starting game.,Conectado. Iniciando partida.,translated
+GAME_HUD_CoinFail_1,More than 30,,pending
+GAME_HUD_CoinFail_2,Cannot Obtain,,pending
+GAME_HUD_CoinSuccess_1,Mission Success!,Missão Cumprida!,translated
+GAME_HUD_CoinSuccess_2,Obtained Coins,,pending
+GAME_MONEY_ALLTAKE_FAIL,We lost our money to them.,,pending
+GAME_MONEY_ALLTAKE_SUCCESS,We've recovered the money!,,pending
+GAME_MONEY_ENEMY_TAKESAFE,They've secured the money in their vehicle!,,pending
+GAME_MONEY_LOSE,They've taken the money! Stop them!,,pending
+GAME_MONEY_STEAL,We took the money from them. Help!,,pending
+GAME_MONEY_TAKE,[%1!s!] has grabbed the money.,,pending
+GAME_MONEY_TAKESAFE,[%1!s!] has loaded the money in a vehicle.,,pending
+GAME_MONEY_TAKING,Capturing money.,Capturando dinheiro.,translated
+GAME_MONEYLIMIT_AB,We have to get our money back from them.,,pending
+GAME_NEV_Capture,Capture - %1!d! m,Capturar - %1!d! m,translated
+GAME_NEV_Escape,Escape - %1!d! m,Fugir - %1!d! m,translated
+GAME_NEV_Return,Return - %1!d! m,Retornar - %1!d! m,translated
+GAME_NEV_Site_A,A - %1!d! m,,pending
+GAME_NEV_Site_B,B - %1!d! m,,pending
+GAME_QuickRespawn_GoldEmptyMsg,You do not have enough Gold,Ouro insuficiente,translated
+GAME_QuickRespawn_UseMsg,Instant respawn used!,Respawn instantâneo ativado!,translated
+GAME_RESCUE_TIMEOVER_A,Failed to rescue the hostages.,Falha ao resgatar os reféns.,translated
+GAME_RESPAWN_Fire,You are invincible for five seconds!,,pending
+GAME_ROUNDTIMER,%1!02d!:%2!02d!,,pending
+GAME_strObserv,Click the left mouse switch between players.,,pending
+GAME_strScore,Score,Placar,translated
+GAME_strSensitivity,Mouse sensitivity ,Sensibilidade do mouse ,translated
+GAME_Supplies_GetAlly,[%1!s!] received a weapon.,,pending
+GAME_Supplies_GetEnemy,Opponent received a weapon.,,pending
+GAME_Supplies_GetSelf,You received a weapon.,,pending
+GAME_Supplies_Procure,Secure the supplies,,pending
+GAME_Supplies_Procuring,Securing the supplies…,,pending
+GAME_Supplies_Production,Received weapon supplies!,,pending
+GAME_SWAPWEAPON,Change Weapon,Trocar Arma,translated
+GAME_SwapWeaponDescript,Weapon will change after next respawn,,pending
+GAME_TIMELINIT_A_01,You're running out of time! Hurry!,,pending
+GAME_TIMELINIT_A_02,You're running out of time! Hurry!,,pending
+GAME_TIMELINIT_B_01,Hold on just a bit longer!,,pending
+GAME_UseFlash,Use Flashlight,Usar Lanterna,translated
+GAME_User_Exit,%1!s! has left the game.,%1!s! saiu da partida.,translated
+GAME_User_Join,%1!s! has joined the game.,%1!s! entrou na partida.,translated
+GAME_VOICE_DAMAGED,I`m hit.,Fui atingido!,translated
+GAME_VOICE_FRAG,Fire in the hole.,Granada lançada!,translated
+GAME_VOICE_RESPAWN,I`m in position.,Estou em posição.,translated
+GAME_VOICE_TAUNT,Bring it on!,Pode vir!,translated
+GAME_WAITING,Waiting for other players…,Aguardando outros jogadores…,translated
+GlobalUI_100CharactersLimit,100 character limit,,pending
+GlobalUI_Accept,Accept,Aceitar,translated
+GlobalUI_AccruePrize,Accumulated Winning Gold,,pending
+GlobalUI_AddFriend,Add Friend,Adicionar Amigo,translated
+GlobalUI_Admin,GM,,pending
+GlobalUI_AnotherReport,Other Reports,Outras Denúncias,translated
+GlobalUI_BeginnerServer,Beginner Server,Servidor Iniciante,translated
+GlobalUI_BeginnerServerX,Beginner Zone Server %1!d!,,pending
+GlobalUI_BeginnerXServer,Beginner %1!d! Server,,pending
+GlobalUI_BugReport,Bug Report,Reportar Bug,translated
+GlobalUI_Cancel,Cancel,Cancelar,translated
+GlobalUI_ChannelSelect,Channel Selection,Seleção de Canal,translated
+GlobalUI_ChatHead_Clan,<font color = '#f40b6e'>[Clan]:</font>,<font color = '#f40b6e'>[Clã]:</font>,translated
+GlobalUI_ChatHead_DeathAll,To Every Death Soldier,,pending
+GlobalUI_ChatHead_DeathTeam,To Every Death Team Member,,pending
+GlobalUI_Clan,Clan,Clã,translated
+GlobalUI_ClanLevel01,D Class,,pending
+GlobalUI_ClanLevel02,C Class,,pending
+GlobalUI_ClanLevel03,B Class,,pending
+GlobalUI_ClanLevel04,A Class,,pending
+GlobalUI_Class,Pay Grade %1!d!,,pending
+GlobalUI_Conquest_A,Region A,,pending
+GlobalUI_Conquest_B,Region B,,pending
+GlobalUI_Conquest_C,Region C,,pending
+GlobalUI_convAcceptAll,Allow All,,pending
+GlobalUI_convBlockAll,Block All,,pending
+GlobalUI_convClan,Allow Clans,Permitir Clãs,translated
+GlobalUI_convFriend,Allow Friends,,pending
+GlobalUI_convFriendClan,Allow Friends & Clans,Permitir Amigos e Clãs,translated
+GlobalUI_ConvoyVictory,Mission Complete,,pending
+GlobalUI_Count,#%1!d!,,pending
+GlobalUI_CrossGreen,Green,,pending
+GlobalUI_CrossPupple,Purple,,pending
+GlobalUI_CrossSky,Blue,,pending
+GlobalUI_CrossWhite,White,,pending
+GlobalUI_CrossYellow,Yellow,,pending
+GlobalUI_CustomSetting,Settings,,pending
+GlobalUI_Death,%1!d! Death,,pending
+GlobalUI_Del,Delete,,pending
+GlobalUI_DetailInfo,Details,,pending
+GlobalUI_Draw,%1!d! D,,pending
+GlobalUI_Eject,Ban,,pending
+GlobalUI_Game_Draw,Draw,,pending
+GlobalUI_Game_Lose,We have lost.,,pending
+GlobalUI_Game_TimeOver,Time's Up!,,pending
+GlobalUI_Game_Win,We've won!,,pending
+GlobalUI_GiftReceived,Gift Received,,pending
+GlobalUI_HackerReport,Report Illegal Programs,,pending
+GlobalUI_high,High,,pending
+GlobalUI_InputPassword,Password,,pending
+GlobalUI_InputPasswordAlert,Please enter your Password,,pending
+GlobalUI_ItemPeriod,%1!d!,,pending
+GlobalUI_Kill,%1!d! Kill,,pending
+GlobalUI_Kill_Death,%1!d!  /  %2!d!,,pending
+GlobalUI_KillLimit_100,100 Kills,,pending
+GlobalUI_KillLimit_120,120 Kills,,pending
+GlobalUI_KillLimit_140,140 Kills,,pending
+GlobalUI_KillLimit_40,40 Kills,,pending
+GlobalUI_KillLimit_60,60 Kills,,pending
+GlobalUI_KillLimit_80,80 Kills,,pending
+GlobalUI_Location_Channel,Channel %1!d!,Canal %1!d!,translated
+GlobalUI_Location_Room,Room %1!d!,,pending
+GlobalUI_Lose,%1!d! L,,pending
+GlobalUI_low,Low,,pending
+GlobalUI_Manager,Manager,,pending
+GlobalUI_Master,Master,,pending
+GlobalUI_medium,Medium,,pending
+GlobalUI_MessageAll,Message All,,pending
+GlobalUI_MessageDescript,Enter a message. 100 character limit.,,pending
+GlobalUI_MissionDraw,Mission Draw,,pending
+GlobalUI_MissionFailed,Mission Failed,,pending
+GlobalUI_MissionSuccess,Mission Accomplished,,pending
+GlobalUI_MODE_Assassin,Assassination,,pending
+GlobalUI_MODE_C4,Bomb,Demolição (C4),translated
+GlobalUI_MODE_Captin,Boss Match,,pending
+GlobalUI_MODE_Carry,Scramble,,pending
+GlobalUI_MODE_Conquest,Occupation,,pending
+GlobalUI_MODE_Convoy,Convoy,,pending
+GlobalUI_MODE_DeathMatch,Round,,pending
+GlobalUI_MODE_Escape,Escape,,pending
+GlobalUI_MODE_Extortion,CTF,,pending
+GlobalUI_MODE_FreeForAll,Feast of Wolves!,,pending
+GlobalUI_MODE_Rescue,Rescue,,pending
+GlobalUI_MODE_TeamDeathMatch,TDM,,pending
+GlobalUI_NicknameAlert,Your Nickname contains a restricted word.,,pending
+GlobalUI_NickNameSetDescript,Please enter your Nickname,,pending
+GlobalUI_NickNameSetting,Create Name,,pending
+GlobalUI_NomannerReport,Report Behavior,,pending
+GlobalUI_None,None,,pending
+GlobalUI_NormalServer,Standard Server,,pending
+GlobalUI_NormalServerX,Standard Zone Server %1!d!,,pending
+GlobalUI_NormalXServer,Standard Zone %1!d!,,pending
+GlobalUI_NotEquip_Accessory1,Accessory 1 (unequipped),,pending
+GlobalUI_NotEquip_Accessory2,Accessory 2 (unequipped),,pending
+GlobalUI_NotEquip_Body,Top (unequipped),,pending
+GlobalUI_NotEquip_Head,Head (unequipped),,pending
+GlobalUI_NotEquip_Leg,Pants (unequipped),,pending
+GlobalUI_NotRead,New,,pending
+GlobalUI_O2Gauge,Oxygen Gauge,,pending
+GlobalUI_Offline,Offline,,pending
+GlobalUI_OK,OK,,pending
+GlobalUI_Option,Settings,,pending
+GlobalUI_PCRoomBonusGold,Earn %1!d! Gold as part of the event rewards,,pending
+GlobalUI_PCRoomServer,Plus Server,,pending
+GlobalUI_PCRoomServerX,Server %1!d! in Plus Area,,pending
+GlobalUI_PCRoomXServer,Plus %1!d! Server,,pending
+GlobalUI_PlayedHours,%1!d! hours,,pending
+GlobalUI_PlayedMinutes,%1!d! min,,pending
+GlobalUI_Playing,Playing,,pending
+GlobalUI_POINT_3,3 Points,,pending
+GlobalUI_POINT_5,5 Points,,pending
+GlobalUI_POINT_7,7 Points,,pending
+GlobalUI_POINT_9,9 Points,,pending
+GlobalUI_Prize,Winnings,,pending
+GlobalUI_Purchase,Purchase,,pending
+GlobalUI_Ranking,#%1!d!,,pending
+GlobalUI_RankingKeep,[- No Change],,pending
+GlobalUI_RankingNew,[ NEW ],,pending
+GlobalUI_Read,Read,,pending
+GlobalUI_Record,%1!d! W / %2!d! L / %3!d! D,,pending
+GlobalUI_Reject,Refuse,,pending
+GlobalUI_RequestFriend,Friend Request,,pending
+GlobalUI_Rescue,Rescue,,pending
+GlobalUI_Round_10,10 Rounds,,pending
+GlobalUI_Round_2,2 Rounds,,pending
+GlobalUI_Round_3,3 Rounds,,pending
+GlobalUI_Round_5,5 Rounds,,pending
+GlobalUI_Round_7,7 Rounds,,pending
+GlobalUI_Round_9,9 Rounds,,pending
+GlobalUI_ScoreLimit,Score Limit,,pending
+GlobalUI_Sec,%1!d! secs,,pending
+GlobalUI_Server_Disconnected,Server connection terminated.,,pending
+GlobalUI_ShutDownMsg1,Time,,pending
+GlobalUI_ShutDownMsg2,has elapsed,,pending
+GlobalUI_ShutDownMsg3,since logging into the game.,,pending
+GlobalUI_ShutDownNotice,Shutdown Notification,,pending
+GlobalUI_SlanderReport,Report Language,,pending
+GlobalUI_Squad_1,1 vs 1,,pending
+GlobalUI_Squad_2,2 vs 2,,pending
+GlobalUI_Squad_3,3 vs 3,,pending
+GlobalUI_Squad_4,4 vs 4,,pending
+GlobalUI_Squad_5,5 vs 5,,pending
+GlobalUI_Squad_6,6 vs 6,,pending
+GlobalUI_Squad_7,7 vs 7,,pending
+GlobalUI_Squad_8,8 vs 8,,pending
+GlobalUI_Steal,Capture,,pending
+GlobalUI_Stereo,Stereo Sound,,pending
+GlobalUI_strAble,Activate,,pending
+GlobalUI_strAccuracy,Acc,,pending
+GlobalUI_strActionKey,Use,,pending
+GlobalUI_strAll,All,,pending
+GlobalUI_strAM,AM,,pending
+GlobalUI_strAmmoCapacity,Ammo,,pending
+GlobalUI_strAnimal,Animal,,pending
+GlobalUI_strApply,Apply,,pending
+GlobalUI_strAuthority,Authority,,pending
+GlobalUI_strBalanceGold,Gold Balance,,pending
+GlobalUI_strBattleField,The Field,,pending
+GlobalUI_strBattleZone,Map,,pending
+GlobalUI_strBlockChat,Block Chat,,pending
+GlobalUI_strBoss,Boss,,pending
+GlobalUI_strBouns,Bonus,,pending
+GlobalUI_strBuy,Buy,,pending
+GlobalUI_strCancel,Cancel,Cancelar,translated
+GlobalUI_strCash,Cash,,pending
+GlobalUI_strChangeAfter,After,,pending
+GlobalUI_strChangeBefore,Before,,pending
+GlobalUI_strChangeClass,Change Class,,pending
+GlobalUI_strChangeRoomSetting,Room Settings,,pending
+GlobalUI_strChangeSetting,Settings,,pending
+GlobalUI_strChangeWeapon,Change,,pending
+GlobalUI_strChannel,Channel %1!d,Canal %1!d,translated
+GlobalUI_strChat,Chat,,pending
+GlobalUI_strChoice,Select,,pending
+GlobalUI_strCircle,Circle,,pending
+GlobalUI_strClan,Clan,Clã,translated
+GlobalUI_strClanClass,Clan Class,Classe do Clã,translated
+GlobalUI_strClanDissolution,Disband Clan,Dissolver Clã,translated
+GlobalUI_strClanIntro,Clan Introduction,Apresentação do Clã,translated
+GlobalUI_strClanList,Clan List,Lista de Clãs,translated
+GlobalUI_strClanMark,Change ,,pending
+GlobalUI_strClanMember,Members,,pending
+GlobalUI_strClanRank,Clan Rank,Ranking de Clãs,translated
+GlobalUI_strClanRecord,Records,,pending
+GlobalUI_strClanSearch,Find Clan,Buscar Clã,translated
+GlobalUI_strClanWithdrawal,Leave Clan,Sair do Clã,translated
+GlobalUI_strClass,Class,,pending
+GlobalUI_strClickLeft,Left-Click,,pending
+GlobalUI_strClickRight,Right-Click,,pending
+GlobalUI_strClose,Close,,pending
+GlobalUI_strCommandClear,/c,,pending
+GlobalUI_strCommandHelp,/?,,pending
+GlobalUI_strCommunity,Chat,,pending
+GlobalUI_strConfigure,Configure,,pending
+GlobalUI_strConnect,Connect,,pending
+GlobalUI_strCreate,Create,,pending
+GlobalUI_strCreateClan,Create Clan,Criar Clã,translated
+GlobalUI_strCrouch,Crouch,,pending
+GlobalUI_strDamage,Dmg,,pending
+GlobalUI_strDateSent,Date,,pending
+GlobalUI_strDay,%1!d!,,pending
+GlobalUI_strDeath,Death,,pending
+GlobalUI_strDeath2,Death,,pending
+GlobalUI_strDeathMatch,TDM,,pending
+GlobalUI_strDeaths,Death,,pending
+GlobalUI_strDelete,Delete,,pending
+GlobalUI_strDemolition,Bomb,,pending
+GlobalUI_strDisable,Deactivate,,pending
+GlobalUI_strDivisionType,Share,,pending
+GlobalUI_strDropWeapon,Drop,,pending
+GlobalUI_strDuration,Sales Type,,pending
+GlobalUI_strEA, Item,,pending
+GlobalUI_strEdit,Edit,,pending
+GlobalUI_strEquip,Equip,,pending
+GlobalUI_strExit,Exit,,pending
+GlobalUI_strEXP,XP,,pending
+GlobalUI_strFindFriend,Find Friend,,pending
+GlobalUI_strForward,Forward,,pending
+GlobalUI_strFriendList,Friend List,,pending
+GlobalUI_strFriends,Friends,,pending
+GlobalUI_strGameLobby,Game Lobby,,pending
+GlobalUI_strGameMenu,Game Menu,,pending
+GlobalUI_strGameMode,Mode,,pending
+GlobalUI_strGamePlayer,Players,,pending
+GlobalUI_strGameType,Type,,pending
+GlobalUI_strGaming,Playing,,pending
+GlobalUI_strGangsters,Gangsters,,pending
+GlobalUI_strGeneralRecord,Records,,pending
+GlobalUI_strGoingBack,Back,,pending
+GlobalUI_strGoingBackward,Backward,,pending
+GlobalUI_strGold,Gold,,pending
+GlobalUI_strGoldCost,Total Cost,,pending
+GlobalUI_strGunModification,Modify Gun,,pending
+GlobalUI_strHaveItem,Item On Hand,,pending
+GlobalUI_strHelp,Help,,pending
+GlobalUI_strHexagon,Hexagon,,pending
+GlobalUI_strHour,%1!d!,,pending
+GlobalUI_strInform,Notice,,pending
+GlobalUI_StringInvited,Invite,,pending
+GlobalUI_strInsect,Insects,,pending
+GlobalUI_strIntrusion,Intrusion,,pending
+GlobalUI_strInven,Inventory,,pending
+GlobalUI_strInvite,Invite,,pending
+GlobalUI_strItemInvenroty,Inventory,,pending
+GlobalUI_strItemSelect,Item Select,,pending
+GlobalUI_strItemShop,Item Shop,,pending
+GlobalUI_strJump,Jump,,pending
+GlobalUI_strKeyBackSpace,B.Space,,pending
+GlobalUI_strKeyboard,Keyboard,,pending
+GlobalUI_strKeyCtrl,Ctrl,,pending
+GlobalUI_strKeyCtrlEnter,Ctrl + Enter,,pending
+GlobalUI_strKeyEnter,Enter,,pending
+GlobalUI_strKeyF8,F8,,pending
+GlobalUI_strKeyShift,Shift,,pending
+GlobalUI_strKeySpace,Space,,pending
+GlobalUI_strKeyTab,Tab,,pending
+GlobalUI_strKill2,Kill,,pending
+GlobalUI_strKillDeath,K / D,,pending
+GlobalUI_strKills,Kills,,pending
+GlobalUI_strLastWeapon,Last Weapon,,pending
+GlobalUI_strList,List,,pending
+GlobalUI_strMacroSettings,Set Macros,,pending
+GlobalUI_strMainNotice,Notice,,pending
+GlobalUI_strMainWeapon,Main,,pending
+GlobalUI_strMaxPlayer,Players,,pending
+GlobalUI_strMeleeWeapon,Melee,,pending
+GlobalUI_strMessage,Message,,pending
+GlobalUI_strMin,%1!d!,,pending
+GlobalUI_strMissionBomb,Task Bomb,,pending
+GlobalUI_strMissions,Task,,pending
+GlobalUI_strMissionWeapon,Mission Explosive,,pending
+GlobalUI_strMonth,%1!d!,,pending
+GlobalUI_strMouse,Mouse,,pending
+GlobalUI_strMouseSetting,Mouse Settings,,pending
+GlobalUI_strMyClan,My Clan,,pending
+GlobalUI_strMyInfo,My Info,,pending
+GlobalUI_strNickname,Name,,pending
+GlobalUI_strNicknameAfter,New Nickname,,pending
+GlobalUI_strNicknameBefore,Original Nickname,,pending
+GlobalUI_strNO,No.,,pending
+GlobalUI_strNone,None,,pending
+GlobalUI_strNote,Note,,pending
+GlobalUI_strNotes,Notes,,pending
+GlobalUI_strNotice,Notice,,pending
+GlobalUI_strNotReady,Not ready.,,pending
+GlobalUI_strNowGold,Gold amount,,pending
+GlobalUI_strNowLocation,Location,,pending
+GlobalUI_strOctagon,Octagon,,pending
+GlobalUI_strOK,OK,,pending
+GlobalUI_strOption,Options,,pending
+GlobalUI_strOther,Other,,pending
+GlobalUI_strPassword,Password,,pending
+GlobalUI_strPattern,Patterns,,pending
+GlobalUI_strPING,Ping,,pending
+GlobalUI_strPlayer,Players,,pending
+GlobalUI_strPlayerNum,Players,,pending
+GlobalUI_strPlayerRanking,Ranking,,pending
+GlobalUI_strPlayNum,%1!d! Match,,pending
+GlobalUI_strPlaytime,Playtime,,pending
+GlobalUI_strPM,PM,,pending
+GlobalUI_strPoint,%1!d! Point(s),,pending
+GlobalUI_strPost,Mail,,pending
+GlobalUI_strPostBox,Mailbox,,pending
+GlobalUI_strPostDeliverd,New Message,,pending
+GlobalUI_strPostReply,Reply,,pending
+GlobalUI_strPostSending,Send Message,,pending
+GlobalUI_strPresent,Gift,,pending
+GlobalUI_strPresentTaking,Receive Gift,,pending
+GlobalUI_strPrivateRoom,Private,,pending
+GlobalUI_strPromote,Promote,,pending
+GlobalUI_strPromotion,Congratulations!,,pending
+GlobalUI_strPromotionReward,Promotion Reward,,pending
+GlobalUI_strQuickJoin,Quick Join,,pending
+GlobalUI_strRange,Range,,pending
+GlobalUI_strRank,Lvl,,pending
+GlobalUI_strRanking,Ranking,,pending
+GlobalUI_strRankingDivision,Rank share,,pending
+GlobalUI_strRateOfFire,Auto,,pending
+GlobalUI_strRead,Read,,pending
+GlobalUI_strReady,Ready,,pending
+GlobalUI_strReceivedGifts,Received Gift,,pending
+GlobalUI_strRecipient,Recipient,,pending
+GlobalUI_strRecipient2,Recipient,,pending
+GlobalUI_strRecoil,Recoil,,pending
+GlobalUI_strRecord,Record,,pending
+GlobalUI_strRegion,Region,,pending
+GlobalUI_strReport,Report,,pending
+GlobalUI_strReportCategory,Report Category,,pending
+GlobalUI_strReportDetails,Details,,pending
+GlobalUI_strReportTarget,Target,,pending
+GlobalUI_strRequestMsg,Request Message,,pending
+GlobalUI_strReset,Reset,,pending
+GlobalUI_strRoomInfo,Room Info,,pending
+GlobalUI_strRoomLeader,Host,,pending
+GlobalUI_strRoomName,Name,,pending
+GlobalUI_strRoomNum,Room No.%1!d!,,pending
+GlobalUI_strRoundMatch,Round ,,pending
+GlobalUI_strScramble,Scramble,,pending
+GlobalUI_strScreenshot,Screenshot,,pending
+GlobalUI_strSearch,Search,,pending
+GlobalUI_strSender,Sender,,pending
+GlobalUI_strSender2,Sender,,pending
+GlobalUI_strSender3,Sender,,pending
+GlobalUI_strSendGift,Send Gift,,pending
+GlobalUI_strSerration,Serrate,,pending
+GlobalUI_strServerSelect,Server Selection,,pending
+GlobalUI_strSetting,Settings,,pending
+GlobalUI_strSettings,Settings,,pending
+GlobalUI_strShift,Shift,,pending
+GlobalUI_strShop,Shop,,pending
+GlobalUI_strShopInven,Shop/Inventory,,pending
+GlobalUI_strSign,Sings,,pending
+GlobalUI_strSir,Mr.,,pending
+GlobalUI_strStart,Start,,pending
+GlobalUI_strStatus,Status,,pending
+GlobalUI_strStrafeLeft,Strafe Left,,pending
+GlobalUI_strStrafeRight,Strafe Right,,pending
+GlobalUI_strSubWeapon,Sidearm,,pending
+GlobalUI_strSuicide,Oops,,pending
+GlobalUI_strSwapWeapon,Change Weapon,,pending
+GlobalUI_strSWAT,S.W.A.T.,,pending
+GlobalUI_strTeam,Team,,pending
+GlobalUI_strTeamBalance,Balance,,pending
+GlobalUI_strTeamChat,Team Chat,,pending
+GlobalUI_strThrownWeapon,Thrown,,pending
+GlobalUI_strTurnAround,Turn Around,,pending
+GlobalUI_strType,Type,,pending
+GlobalUI_strUnlimited,Unlimited,,pending
+GlobalUI_strUse,Use,,pending
+GlobalUI_strUseFlashlight,Flashlight,,pending
+GlobalUI_strUseItem,Use Items,,pending
+GlobalUI_strUserNum,%1!d!Player(s),,pending
+GlobalUI_strUseWheel,Change Wheel,,pending
+GlobalUI_strUsing,In Use,,pending
+GlobalUI_strVictoryConditions,Mission,,pending
+GlobalUI_strViewDetails,View Details,,pending
+GlobalUI_strViewLeaderboard,Leaderboard,,pending
+GlobalUI_strVoiceChat,V-Chat,,pending
+GlobalUI_strWalk,Walk,,pending
+GlobalUI_strWattingRoom,Waiting Room,,pending
+GlobalUI_strWeapons,Weapons,,pending
+GlobalUI_strWhisper,PM,,pending
+GlobalUI_strWinningSideDivision,Team Share,,pending
+GlobalUI_strWorldChat,World Chat,,pending
+GlobalUI_strWriter,Writer,,pending
+GlobalUI_strYear,%1!d!,,pending
+GlobalUI_strYourCash,Cash,,pending
+GlobalUI_strYourGold,Gold,,pending
+GlobalUI_Surround,Surround Sound,,pending
+GlobalUI_TestServer,Test Server,,pending
+GlobalUI_TestServerX,Test Zone Server %1!d!,,pending
+GlobalUI_TestXServer,Test Server %1!d!,,pending
+GlobalUI_Ticket,%1!d! Ticket,,pending
+GlobalUI_TIME_120,2 min,,pending
+GlobalUI_TIME_1200,20 min,,pending
+GlobalUI_TIME_1500,25 min,,pending
+GlobalUI_TIME_180,3 min,,pending
+GlobalUI_TIME_1800,30 min,,pending
+GlobalUI_TIME_2100,35 min,,pending
+GlobalUI_TIME_2400,40 min,,pending
+GlobalUI_TIME_300,5 min,,pending
+GlobalUI_TIME_600,10 min,,pending
+GlobalUI_TIME_900,15 min,,pending
+GlobalUI_Unranked,No Rank,,pending
+GlobalUI_Use,Use,,pending
+GlobalUI_User_Record_Score,%1!d! W / %2!d! L / %3!d! D,,pending
+GlobalUI_verylow,Very Low,,pending
+GlobalUI_Waiting,Queued,,pending
+GlobalUI_WeaponChange,Change Weapon,,pending
+GlobalUI_Whisper,PM,,pending
+GlobalUI_Win,%1!d! W,,pending
+GlobalUI_XChannel,Channel %1!d!,,pending

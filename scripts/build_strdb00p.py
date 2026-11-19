@@ -13,6 +13,7 @@ Provides:
   - PT-BR localization compilation to targets/district-187/extracted/TheRaw_PTBR.Strdb00p
 """
 
+import csv
 import hashlib
 import os
 import struct
@@ -21,6 +22,7 @@ import sys
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_STRDB = os.path.join(ROOT_DIR, "targets", "district-187", "client-rebirth", "Game", "StringDatabase", "Turkey", "TheRaw.Strdb00p")
 OUT_PTBR = os.path.join(ROOT_DIR, "targets", "district-187", "extracted", "TheRaw_PTBR.Strdb00p")
+PTBR_CSV = os.path.join(ROOT_DIR, "targets", "district-187", "data", "ptbr_translations.csv")
 
 # Core UI / Lobby / Room / Combat PT-BR overrides using authentic S2 Rebirth GlobalUI_* & GAME_* IDs
 PTBR_OVERRIDES = {
@@ -170,14 +172,40 @@ def main():
     print(f"[+] Round-trip SHA-256 match: {orig_sha == repacked_sha} ({repacked_sha[:16]}...)")
     assert orig_bytes == repacked, "Round-trip SKDB v2 mismatch!"
 
+    # Sync editable ptbr_translations.csv and load any user-added PT-BR overrides
+    overrides = dict(PTBR_OVERRIDES)
+    if os.path.exists(PTBR_CSV):
+        with open(PTBR_CSV, "r", encoding="utf-8-sig", newline="") as f:
+            for row in csv.DictReader(f):
+                sid = (row.get("string_id") or "").strip()
+                tr = (row.get("ptbr_translation") or "").strip()
+                if sid and tr:
+                    overrides[sid] = tr
+    else:
+        csv_rows = []
+        for idx, raw_id in enumerate(db["ids"]):
+            k = raw_id.decode("ascii", errors="ignore")
+            vi, _ = db["records"][idx]
+            en = db["values"][vi] if 0 <= vi < len(db["values"]) else ""
+            if k in overrides:
+                csv_rows.append((k, en, overrides[k], "translated"))
+            elif k.startswith(("GlobalUI_", "GAME_")) and 2 <= len(en) <= 45 and "<font" not in en:
+                csv_rows.append((k, en, "", "pending"))
+        os.makedirs(os.path.dirname(PTBR_CSV), exist_ok=True)
+        with open(PTBR_CSV, "w", encoding="utf-8-sig", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(["string_id", "english_original", "ptbr_translation", "status"])
+            w.writerows(csv_rows)
+        print(f"[+] Generated editable PT-BR CSV: {os.path.relpath(PTBR_CSV, ROOT_DIR)} ({len(csv_rows)} rows)")
+
     # Apply PT-BR overrides where ID matches
     applied = 0
     for idx, raw_id in enumerate(db["ids"]):
         key = raw_id.decode("ascii", errors="ignore")
-        if key in PTBR_OVERRIDES:
+        if key in overrides:
             val_idx, _ = db["records"][idx]
             if 0 <= val_idx < len(db["values"]):
-                db["values"][val_idx] = PTBR_OVERRIDES[key]
+                db["values"][val_idx] = overrides[key]
                 applied += 1
 
     os.makedirs(os.path.dirname(OUT_PTBR), exist_ok=True)
