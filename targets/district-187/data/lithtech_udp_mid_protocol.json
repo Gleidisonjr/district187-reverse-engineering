@@ -1,0 +1,37 @@
+{
+  "binary": "targets/district-187/client-rebirth/Game/GameServer.dll",
+  "on_message_va": "0x1004fd70",
+  "vtable_va": "0x1019220c",
+  "default_fallthrough_va": "0x10050947",
+  "jump_tables_found": 1,
+  "active_mid_count": 7,
+  "active_mids": {
+    "0xE9": "0x100509a3",
+    "0xEA": "0x10050a05",
+    "0xEB": "0x10050a5b",
+    "0xEC": "0x10050c6c",
+    "0xED": "0x10050a97",
+    "0xEE": "0x10050b23",
+    "0xEF": "0x10050bc0"
+  },
+  "jump_tables": [
+    {
+      "jmp_va": "0x10050940",
+      "table_va": "0x10050d74",
+      "index_table_va": null,
+      "base_mid": 232,
+      "max_span": 7,
+      "unique_targets": 8,
+      "cases": {
+        "0xE8": "0x10050947",
+        "0xE9": "0x100509a3",
+        "0xEA": "0x10050a05",
+        "0xEB": "0x10050a5b",
+        "0xEC": "0x10050c6c",
+        "0xED": "0x10050a97",
+        "0xEE": "0x10050b23",
+        "0xEF": "0x10050bc0"
+      }
+    }
+  ]
+}
