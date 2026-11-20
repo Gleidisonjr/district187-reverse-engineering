@@ -39,27 +39,64 @@ def load_protocol_schema():
 
 # Known Opcode to Name mappings
 KNOWN_OPCODES = {
-    0x20080: "HERMIT_HANDSHAKE_REQ (0x20080)",
-    0x20081: "HERMIT_HANDSHAKE_RES (0x20081)",
-    0x20082: "HERMIT_HANDSHAKE_ACK (0x20082)",
-    0x20083: "HERMIT_HANDSHAKE_PONG (0x20083)",
-    0x20090: "HERMIT_PING (0x20090)",
-    0x110101: "CQ_Login (0x110101)",
-    0x110102: "SA_Login (0x110102)",
-    0x110111: "CQ_JoyGameLogin (0x110111)",
-    0x110112: "SA_JoyGameLogin (0x110112)",
-    0x210101: "SN_UserInfo (0x210101)",
-    0x210201: "SN_ItemList (0x210201)",
-    0x210202: "SN_LockEnd (0x210202)",
-    0x210203: "SN_Record (0x210203)",
-    0x220101: "CQ_EnterUser (0x220101)",
-    0x220102: "SA_EnterUser (0x220102)",
-    0x220201: "CQ_CreateRoom (0x220201)",
-    0x220202: "SA_CreateRoom (0x220202)",
-    0x220301: "CN_StartButton (0x220301)",
-    0x230104: "SN_BattleStart (0x230104)",
-    0x230124: "SN_Kill (0x230124)",
-    0x230136: "SN_Bomb (0x230136)"
+    # Handshake
+    0x20080: "HERMIT_HANDSHAKE_REQ",
+    0x20081: "HERMIT_HANDSHAKE_RES",
+    0x20082: "HERMIT_HANDSHAKE_ACK",
+    0x20083: "HERMIT_HANDSHAKE_PONG",
+    0x20084: "HERMIT_KEEPALIVE",
+    0x20090: "HERMIT_PING",
+    # Login
+    0x110101: "CQ_Login",
+    0x110102: "SA_Login",
+    0x110111: "CQ_JoyGameLogin",
+    0x110112: "SA_JoyGameLogin",
+    0x110124: "CQ_Join",
+    0x110125: "SA_Join",
+    # Profile
+    0x210101: "SN_UserInfo",
+    0x210103: "SN_Record",
+    0x210105: "SN_RankingInfo",
+    0x210111: "SN_ItemList",
+    0x210121: "SN_LockEnd",
+    # Server/Channel
+    0x220101: "SN_ServerInfo",
+    0x220102: "SN_ChannelList",
+    0x220107: "SN_GroupList",
+    0x220108: "SN_ServerList",
+    0x220111: "CQ_EnterUser",
+    0x220112: "SA_EnterUser",
+    # Room
+    0x220201: "CQ_CreateRoom",
+    0x220202: "SA_CreateRoom",
+    0x220203: "SN_Info",
+    0x220231: "CQ_EnterRoom",
+    0x220232: "SA_EnterRoom",
+    0x220233: "SN_UserList",
+    0x220234: "CQ_LeaveRoom",
+    0x220301: "CN_StartButton",
+    0x220311: "CQ_ChangeTeam",
+    0x220312: "SA_ChangeTeam",
+    0x220313: "SN_ChangeTeam",
+    0x220314: "CQ_StartGame",
+    0x220319: "SN_ChangeLeader",
+    # NPlay (battle start — only valid after F5)
+    0x222101: "CN_PlayReadyButton",
+    0x222103: "CN_PlayStartButton (F5)",
+    0x222111: "SN_BaseRoomInfo",
+    0x222112: "SN_BaseUserList",
+    # Match server
+    0x420303: "SN_HostConnect",
+    0x420310: "SN_BattleStart",
+    # Equipment/shop
+    0x240101: "CQ_EquipOpen",
+    0x240102: "SA_EquipOpen",
+    # Combat
+    0x230124: "SN_Kill",
+    0x230136: "SN_Bomb",
+    # ApexGuard
+    0x5A0101: "APEX_HEARTBEAT_REQ",
+    0x5A0102: "APEX_HEARTBEAT_ACK",
 }
 
 def decrypt_hermit(data: bytes, key_byte: int = 0x0F) -> bytes:
@@ -72,7 +109,10 @@ def decrypt_hermit(data: bytes, key_byte: int = 0x0F) -> bytes:
 def inspect_packet(plain_bytes: bytes, direction: str, log_file):
     if len(plain_bytes) < 16:
         return
-    _, flags, pkt_len, session_id, pkt_id = struct.unpack('>IHHII', plain_bytes[:16])
+    try:
+        _, flags, pkt_len, session_id, pkt_id = struct.unpack('>IHHII', plain_bytes[:16])
+    except struct.error:
+        return
     payload = plain_bytes[16:]
     name = KNOWN_OPCODES.get(pkt_id, f"tPacket_Opcode_0x{pkt_id:X}")
 
@@ -144,25 +184,38 @@ class MitmProxy:
 
                 sockets = [client_sock, server_sock]
                 while True:
-                    r, _, x = select.select(sockets, [], sockets, 1.0)
-                    if x:
-                        break
+                    # Empty error-set: on Windows select() fires exceptional conditions on
+                    # normal TCP events, causing silent break before any data is logged.
+                    r, _, _ = select.select(sockets, [], [], 1.0)
                     for s in r:
                         other = server_sock if s is client_sock else client_sock
                         direction = "C2S" if s is client_sock else "S2C"
                         try:
-                            data = s.recv(4096)
+                            data = s.recv(65536)
                             if not data:
                                 raise ConnectionResetError()
-                            
-                            # Decrypt copy for sniffer inspection
-                            decrypted = decrypt_hermit(data)
-                            inspect_packet(decrypted, direction, log_file)
-                            
-                            # Relay original unmodified bytes to destination
+
+                            # Log FIRST (write raw hex before any parse that could throw)
+                            ts = datetime.datetime.now().strftime("%H:%M:%S.%f")[:-3]
+                            raw_entry = {
+                                "timestamp": ts, "direction": direction,
+                                "opcode": "raw", "name": "RAW",
+                                "length": len(data), "session_id": "?",
+                                "payload_hex": data.hex()
+                            }
+                            log_file.write(json.dumps(raw_entry) + "\n")
+                            log_file.flush()
+
+                            # Relay original encrypted bytes unmodified
                             other.sendall(data)
-                        except Exception:
-                            print("[-] Connection closed by peer.")
+
+                            # Also try to parse and log decoded packet on top
+                            decrypted = decrypt_hermit(data)
+                            if len(decrypted) >= 16:
+                                inspect_packet(decrypted, direction, log_file)
+
+                        except Exception as e:
+                            print(f"[-] Connection closed ({e})")
                             sockets = []
                             break
                     if not sockets:
