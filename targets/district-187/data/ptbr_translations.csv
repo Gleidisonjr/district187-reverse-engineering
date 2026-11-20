@@ -1,12 +1,29 @@
 ﻿string_id,english_original,ptbr_translation,status
+FunctionName_1014,Increase the amount of experience obtained,Aumenta a experiência recebida,translated
+FunctionName_1015,Increase the amount of gold obtained,Aumenta o ouro recebido,translated
+FunctionName_1020,Defend poison gas,Proteção contra gás tóxico,translated
+FunctionName_1022,Increase swimming speed,Aumenta a velocidade de nado,translated
+FunctionName_1023,Increase breathing time underwater,Aumenta o fôlego debaixo d'água,translated
+FunctionName_1024,Grenade Indicator,Indicador de Granada,translated
+FunctionName_1026,Display enemy's HP,Exibe o HP do inimigo,translated
+FunctionName_1027,Reduce footsteps,Reduz o som dos passos,translated
+FunctionName_1029,Increase reloading speed,Aumenta a velocidade de recarga,translated
+FunctionName_1030,Increase weapon change speed,Aumenta a velocidade de troca de arma,translated
+FunctionName_1031,Bullet respawn,Munição extra ao renascer,translated
+FunctionName_1032,Grenade drop with death,Solta granada ao morrer,translated
+FunctionName_1033,HP recovery,Recuperação de HP,translated
 FunctionName_1034,Survive 1 headshot,Sobreviver a 1 tiro na cabeça,translated
+FunctionName_1035,Reduce fall damage,Reduz dano de queda,translated
+FunctionName_1036,HP absorb with melee kill,Absorve HP em abate corpo a corpo,translated
+FunctionName_1039,Additional grenade,Granada adicional,translated
+FunctionName_1040,Taunt,Provocação,translated
 GAME_ACTIVATE_DOOR_CLOSE,Close,Fechar,translated
 GAME_ACTIVATE_DOOR_OPEN,Open,Abrir,translated
 GAME_ACTIVATE_KEY_DISABLED,You cannot pick that up.,Você não pode pegar isso.,translated
 GAME_ACTIVATE_OBJECT_ALREADY,Target already acquired.,Objetivo já capturado.,translated
-GAME_ALLKILL_Ally,Our forces have been annihilated.,,pending
-GAME_ALLKILL_Enemy,The enemy forces have been annihilated.,,pending
-GAME_BOMB_BombTimer,%1!02d!:%2!02d!,,pending
+GAME_ALLKILL_Ally,Our forces have been annihilated.,Nossas forças foram aniquiladas.,translated
+GAME_ALLKILL_Enemy,The enemy forces have been annihilated.,As forças inimigas foram aniquiladas.,translated
+GAME_BOMB_BombTimer,%1!02d!:%2!02d!,%1!02d!:%2!02d!,translated
 GAME_BOMB_Button5,Select Bomb Mission.,Selecionar Missão C4.,translated
 GAME_BOMB_CANPLANT,Set bomb,Plantar bomba C4,translated
 GAME_BOMB_DEFENCE_FAIL,Mission Failed!,Missão Falhou!,translated
@@ -16,71 +33,81 @@ GAME_BOMB_DEFUSEING,Disarming bomb,Desarmando bomba C4,translated
 GAME_BOMB_EXPLO_FAIL,Mission Failed,Missão Falhou,translated
 GAME_BOMB_EXPLO_SUCCESS,Mission Success!,Missão Cumprida!,translated
 GAME_BOMB_INSTALLING,Arming bomb,Armando bomba C4,translated
+GAME_BOMB_PLANA_A,[%1!s!] has set the bomb at location A. Defend the bomb!,[%1!s!] plantou a bomba C4 no ponto A. Defenda a bomba!,translated
+GAME_BOMB_PLANA_B,[%1!s!] has set the bomb at location A. Disarm the bomb!,[%1!s!] plantou a bomba C4 no ponto A. Desarme a bomba!,translated
+GAME_BOMB_PLANB_A,[%1!s!] has set the bomb at location B. Defend the bomb!,[%1!s!] plantou a bomba C4 no ponto B. Defenda a bomba!,translated
+GAME_BOMB_PLANB_B,[%1!s!] has set the bomb at location B. Disarm the bomb!,[%1!s!] plantou a bomba C4 no ponto B. Desarme a bomba!,translated
 GAME_BOMB_PLANT,Arm,Armar,translated
 GAME_BOMB_strDefuse,Disarm,Desarmar,translated
-GAME_CAPTAIN_ALLKILL_FAIL,Failure! Our Boss has been defeated!,,pending
-GAME_CAPTAIN_ALLKILL_SUCCESS,Success! Enemy Boss has been defeated!,,pending
+GAME_CAPTAIN_ALLKILL_FAIL,Failure! Our Boss has been defeated!,Derrota! Nosso Chefe foi eliminado!,translated
+GAME_CAPTAIN_ALLKILL_SUCCESS,Success! Enemy Boss has been defeated!,Vitória! O Chefe inimigo foi eliminado!,translated
 GAME_CAPTAIN_DEATH,[%1!s!] killed our Boss!,[%1!s!] eliminou nosso Chefe!,translated
 GAME_CAPTAIN_KILL,[%1!s!] killed the enemy Boss!,[%1!s!] eliminou o Chefe inimigo!,translated
-GAME_CAPTAIN_SELECTED_ALLY,[%1!s!] is now our Boss. Protect them!,,pending
-GAME_CAPTAIN_SELECTED_ENEMY,[%1!s!] is now the Boss. Kill them!,,pending
+GAME_CAPTAIN_SELECTED_ALLY,[%1!s!] is now our Boss. Protect them!,[%1!s!] agora é nosso Chefe. Protejam-no!,translated
+GAME_CAPTAIN_SELECTED_ENEMY,[%1!s!] is now the Boss. Kill them!,[%1!s!] agora é o Chefe inimigo. Eliminem-no!,translated
 GAME_CAPTAIN_SELECTED_I,You are now the Boss!,Você agora é o Chefe!,translated
-GAME_CAPTAIN_START,Protect our Boss and kill the enemy's Boss!,,pending
-GAME_CAPTAIN_Suicide_Ally,Our Boss has commited suicide!,,pending
-GAME_CAPTAIN_Suicide_Enemy,Our enemy's Boss has commited suicide!,,pending
+GAME_CAPTAIN_START,Protect our Boss and kill the enemy's Boss!,Proteja nosso Chefe e elimine o Chefe inimigo!,translated
+GAME_CAPTAIN_Suicide_Ally,Our Boss has commited suicide!,Nosso Chefe cometeu suicídio!,translated
+GAME_CAPTAIN_Suicide_Enemy,Our enemy's Boss has commited suicide!,O Chefe inimigo cometeu suicídio!,translated
 GAME_CAPTURE_CaptureAlly,%1!s! has occupied a region.,%1!s! capturou uma zona.,translated
-GAME_CAPTURE_CaptureEnemy,%1!s! lost a region to %2!s!.,,pending
-GAME_Escape_Ending_Defence,Mission failed. The enemies have escaped.,,pending
-GAME_Escape_Exposure_Attack,We've been spotted! Escape quickly!,,pending
+GAME_CAPTURE_CaptureEnemy,%1!s! lost a region to %2!s!.,%1!s! perdeu uma zona para %2!s!.,translated
+GAME_Escape_Ending_Attack,Mission success! %1!s! have escaped successfully!,Missão cumprida! %1!s! escaparam com sucesso!,translated
+GAME_Escape_Ending_Defence,Mission failed. The enemies have escaped.,Missão falhou. Os inimigos escaparam.,translated
+GAME_Escape_Exposure_Attack,We've been spotted! Escape quickly!,Fomos avistados! Fujam rápido!,translated
 GAME_Escape_Exposure_Defence,Enemy Spotted. Take 'em out!,Inimigo avistado! Eliminem-no!,translated
 GAME_Escape_Opening_Attack,Hurry up!,Rápido!,translated
 GAME_Escape_Opening_Defence,We must stop them from escaping.,Impeça a fuga dos inimigos.,translated
-GAME_Extortion_Drop_Defence,Enemy dropped the object. Stop them!,,pending
-GAME_Extortion_Ending_Attack,The object was secured successfully.,,pending
-GAME_Extortion_Ending_Defence,We have lost the object.,,pending
-GAME_Extortion_Opening_Attack,Secure the object from the enemy.,,pending
-GAME_Extortion_Opening_Defence,Enemies are coming for the object. Stop them.,,pending
-GAME_Extortion_Procure_Attack,Object secured. Escape quikly.,,pending
-GAME_Extortion_Procure_Defence,Object taken. Stop the enemy.,,pending
-GAME_Extortion_ReProcure_Attack,Object restored. Move quikly.,,pending
+GAME_Extortion_Drop_Attack,We have dropped the object. Secure the object and escape.,Derrubamos o objetivo. Recupere o objetivo e fuja.,translated
+GAME_Extortion_Drop_Defence,Enemy dropped the object. Stop them!,O inimigo derrubou o objetivo. Detenha-o!,translated
+GAME_Extortion_Ending_Attack,The object was secured successfully.,O objetivo foi assegurado com sucesso.,translated
+GAME_Extortion_Ending_Defence,We have lost the object.,Perdemos o objetivo.,translated
+GAME_Extortion_Opening_Attack,Secure the object from the enemy.,Capture o objetivo do inimigo.,translated
+GAME_Extortion_Opening_Defence,Enemies are coming for the object. Stop them.,Os inimigos vêm atrás do objetivo. Detenha-os.,translated
+GAME_Extortion_Procure_Attack,Object secured. Escape quikly.,Objetivo capturado. Fuja rápido.,translated
+GAME_Extortion_Procure_Defence,Object taken. Stop the enemy.,Objetivo roubado. Detenha o inimigo.,translated
+GAME_Extortion_ReProcure_Attack,Object restored. Move quikly.,Objetivo recuperado. Mova-se rápido.,translated
+GAME_Extortion_ReProcure_Defence,Enemy took the object. Do not let them escape.,O inimigo pegou o objetivo. Não os deixe escapar.,translated
+GAME_GameDropOutCount,You have been idle for too long. Returning to game lobby in %1!d! seconds.,Você ficou inativo por muito tempo. Voltando ao lobby em %1!d! segundos.,translated
 GAME_GAMESTART,Connected. Starting game.,Conectado. Iniciando partida.,translated
-GAME_HUD_CoinFail_1,More than 30,,pending
-GAME_HUD_CoinFail_2,Cannot Obtain,,pending
+GAME_HUD_CoinFail_1,More than 30,Mais de 30,translated
+GAME_HUD_CoinFail_2,Cannot Obtain,Não foi possível obter,translated
 GAME_HUD_CoinSuccess_1,Mission Success!,Missão Cumprida!,translated
-GAME_HUD_CoinSuccess_2,Obtained Coins,,pending
-GAME_MONEY_ALLTAKE_FAIL,We lost our money to them.,,pending
-GAME_MONEY_ALLTAKE_SUCCESS,We've recovered the money!,,pending
-GAME_MONEY_ENEMY_TAKESAFE,They've secured the money in their vehicle!,,pending
-GAME_MONEY_LOSE,They've taken the money! Stop them!,,pending
-GAME_MONEY_STEAL,We took the money from them. Help!,,pending
-GAME_MONEY_TAKE,[%1!s!] has grabbed the money.,,pending
-GAME_MONEY_TAKESAFE,[%1!s!] has loaded the money in a vehicle.,,pending
+GAME_HUD_CoinSuccess_2,Obtained Coins,Moedas Obtidas,translated
+GAME_MONEY_ALLTAKE_FAIL,We lost our money to them.,Perdemos nosso dinheiro para eles.,translated
+GAME_MONEY_ALLTAKE_SUCCESS,We've recovered the money!,Recuperamos o dinheiro!,translated
+GAME_MONEY_ENEMY_TAKESAFE,They've secured the money in their vehicle!,Eles colocaram o dinheiro no veículo!,translated
+GAME_MONEY_LOSE,They've taken the money! Stop them!,Eles pegaram o dinheiro! Detenham-nos!,translated
+GAME_MONEY_STEAL,We took the money from them. Help!,Pegamos o dinheiro deles. Cobertura!,translated
+GAME_MONEY_TAKE,[%1!s!] has grabbed the money.,[%1!s!] pegou o dinheiro.,translated
+GAME_MONEY_TAKESAFE,[%1!s!] has loaded the money in a vehicle.,[%1!s!] colocou o dinheiro no veículo.,translated
 GAME_MONEY_TAKING,Capturing money.,Capturando dinheiro.,translated
-GAME_MONEYLIMIT_AB,We have to get our money back from them.,,pending
+GAME_MONEYLIMIT_AB,We have to get our money back from them.,Precisamos recuperar nosso dinheiro.,translated
 GAME_NEV_Capture,Capture - %1!d! m,Capturar - %1!d! m,translated
 GAME_NEV_Escape,Escape - %1!d! m,Fugir - %1!d! m,translated
 GAME_NEV_Return,Return - %1!d! m,Retornar - %1!d! m,translated
-GAME_NEV_Site_A,A - %1!d! m,,pending
-GAME_NEV_Site_B,B - %1!d! m,,pending
+GAME_NEV_Site_A,A - %1!d! m,A - %1!d! m,translated
+GAME_NEV_Site_B,B - %1!d! m,B - %1!d! m,translated
 GAME_QuickRespawn_GoldEmptyMsg,You do not have enough Gold,Ouro insuficiente,translated
+GAME_QuickRespawn_UseGold,Press [E] to use instant respawn. [Gold Cost : 500],Pressione [E] para respawn instantâneo. [Custo de Ouro: 500],translated
+GAME_QuickRespawn_UseItem,Press [E] to use instant respawn. [ %1!d! remaining],Pressione [E] para respawn instantâneo. [ %1!d! restantes],translated
 GAME_QuickRespawn_UseMsg,Instant respawn used!,Respawn instantâneo ativado!,translated
 GAME_RESCUE_TIMEOVER_A,Failed to rescue the hostages.,Falha ao resgatar os reféns.,translated
-GAME_RESPAWN_Fire,You are invincible for five seconds!,,pending
-GAME_ROUNDTIMER,%1!02d!:%2!02d!,,pending
-GAME_strObserv,Click the left mouse switch between players.,,pending
+GAME_RESPAWN_Fire,You are invincible for five seconds!,Você está invencível por 5 segundos!,translated
+GAME_ROUNDTIMER,%1!02d!:%2!02d!,%1!02d!:%2!02d!,translated
+GAME_strObserv,Click the left mouse switch between players.,Clique com o botão esquerdo para alternar jogadores.,translated
 GAME_strScore,Score,Placar,translated
 GAME_strSensitivity,Mouse sensitivity ,Sensibilidade do mouse ,translated
-GAME_Supplies_GetAlly,[%1!s!] received a weapon.,,pending
-GAME_Supplies_GetEnemy,Opponent received a weapon.,,pending
-GAME_Supplies_GetSelf,You received a weapon.,,pending
-GAME_Supplies_Procure,Secure the supplies,,pending
-GAME_Supplies_Procuring,Securing the supplies…,,pending
-GAME_Supplies_Production,Received weapon supplies!,,pending
+GAME_Supplies_GetAlly,[%1!s!] received a weapon.,[%1!s!] recebeu uma arma.,translated
+GAME_Supplies_GetEnemy,Opponent received a weapon.,O oponente recebeu uma arma.,translated
+GAME_Supplies_GetSelf,You received a weapon.,Você recebeu uma arma.,translated
+GAME_Supplies_Procure,Secure the supplies,Capturar suprimentos,translated
+GAME_Supplies_Procuring,Securing the supplies…,Capturando suprimentos…,translated
+GAME_Supplies_Production,Received weapon supplies!,Suprimentos de armas recebidos!,translated
 GAME_SWAPWEAPON,Change Weapon,Trocar Arma,translated
-GAME_SwapWeaponDescript,Weapon will change after next respawn,,pending
-GAME_TIMELINIT_A_01,You're running out of time! Hurry!,,pending
-GAME_TIMELINIT_A_02,You're running out of time! Hurry!,,pending
-GAME_TIMELINIT_B_01,Hold on just a bit longer!,,pending
+GAME_SwapWeaponDescript,Weapon will change after next respawn,A arma mudará no próximo respawn,translated
+GAME_TIMELINIT_A_01,You're running out of time! Hurry!,O tempo está acabando! Rápido!,translated
+GAME_TIMELINIT_A_02,You're running out of time! Hurry!,O tempo está acabando! Rápido!,translated
+GAME_TIMELINIT_B_01,Hold on just a bit longer!,Aguente firme só mais um pouco!,translated
 GAME_UseFlash,Use Flashlight,Usar Lanterna,translated
 GAME_User_Exit,%1!s! has left the game.,%1!s! saiu da partida.,translated
 GAME_User_Join,%1!s! has joined the game.,%1!s! entrou na partida.,translated
@@ -89,415 +116,837 @@ GAME_VOICE_FRAG,Fire in the hole.,Granada lançada!,translated
 GAME_VOICE_RESPAWN,I`m in position.,Estou em posição.,translated
 GAME_VOICE_TAUNT,Bring it on!,Pode vir!,translated
 GAME_WAITING,Waiting for other players…,Aguardando outros jogadores…,translated
-GlobalUI_100CharactersLimit,100 character limit,,pending
+GloablUI_InGameRadio,[Radio : %1!s!],[Rádio : %1!s!],translated
+GloablUI_strAccept,Approve,Aprovar,translated
+GlobalUI_100CharactersLimit,100 character limit,Limite de 100 caracteres,translated
 GlobalUI_Accept,Accept,Aceitar,translated
-GlobalUI_AccruePrize,Accumulated Winning Gold,,pending
+GlobalUI_AccruePrize,Accumulated Winning Gold,Ouro Acumulado,translated
 GlobalUI_AddFriend,Add Friend,Adicionar Amigo,translated
-GlobalUI_Admin,GM,,pending
+GlobalUI_Admin,GM,GM,translated
+GlobalUI_Alert_LoginHour,%1!d! hours have elapsed since the start of the game.,%1!d! horas se passaram desde o início do jogo.,translated
 GlobalUI_AnotherReport,Other Reports,Outras Denúncias,translated
 GlobalUI_BeginnerServer,Beginner Server,Servidor Iniciante,translated
-GlobalUI_BeginnerServerX,Beginner Zone Server %1!d!,,pending
-GlobalUI_BeginnerXServer,Beginner %1!d! Server,,pending
+GlobalUI_BeginnerServerX,Beginner Zone Server %1!d!,Servidor Iniciante Zona %1!d!,translated
+GlobalUI_BeginnerXServer,Beginner %1!d! Server,Servidor Iniciante %1!d!,translated
 GlobalUI_BugReport,Bug Report,Reportar Bug,translated
 GlobalUI_Cancel,Cancel,Cancelar,translated
 GlobalUI_ChannelSelect,Channel Selection,Seleção de Canal,translated
+GlobalUI_ChatHead_All,<font color = '#FFFFFF'>[World]:</font>,<font color = '#FFFFFF'>[Geral]:</font>,translated
 GlobalUI_ChatHead_Clan,<font color = '#f40b6e'>[Clan]:</font>,<font color = '#f40b6e'>[Clã]:</font>,translated
-GlobalUI_ChatHead_DeathAll,To Every Death Soldier,,pending
-GlobalUI_ChatHead_DeathTeam,To Every Death Team Member,,pending
+GlobalUI_ChatHead_DeathAll,To Every Death Soldier,Para Todos os Mortos,translated
+GlobalUI_ChatHead_DeathTeam,To Every Death Team Member,Para Aliados Mortos,translated
+GlobalUI_ChatHead_QuickTeam,<font color = '#D5C88F'>[Quick Team]:</font>,<font color = '#D5C88F'>[Equipe Rápida]:</font>,translated
+GlobalUI_ChatHead_Team,<font color = '#D5C88F'>[Team]:</font>,<font color = '#D5C88F'>[Equipe]:</font>,translated
 GlobalUI_Clan,Clan,Clã,translated
-GlobalUI_ClanLevel01,D Class,,pending
-GlobalUI_ClanLevel02,C Class,,pending
-GlobalUI_ClanLevel03,B Class,,pending
-GlobalUI_ClanLevel04,A Class,,pending
-GlobalUI_Class,Pay Grade %1!d!,,pending
-GlobalUI_Conquest_A,Region A,,pending
-GlobalUI_Conquest_B,Region B,,pending
-GlobalUI_Conquest_C,Region C,,pending
-GlobalUI_convAcceptAll,Allow All,,pending
-GlobalUI_convBlockAll,Block All,,pending
+GlobalUI_ClanLevel01,D Class,Classe D,translated
+GlobalUI_ClanLevel02,C Class,Classe C,translated
+GlobalUI_ClanLevel03,B Class,Classe B,translated
+GlobalUI_ClanLevel04,A Class,Classe A,translated
+GlobalUI_Class,Pay Grade %1!d!,Patente %1!d!,translated
+GlobalUI_Conquest_A,Region A,Zona A,translated
+GlobalUI_Conquest_B,Region B,Zona B,translated
+GlobalUI_Conquest_C,Region C,Zona C,translated
+GlobalUI_convAcceptAll,Allow All,Permitir Todos,translated
+GlobalUI_convBlockAll,Block All,Bloquear Todos,translated
 GlobalUI_convClan,Allow Clans,Permitir Clãs,translated
-GlobalUI_convFriend,Allow Friends,,pending
+GlobalUI_convFriend,Allow Friends,Permitir Amigos,translated
 GlobalUI_convFriendClan,Allow Friends & Clans,Permitir Amigos e Clãs,translated
-GlobalUI_ConvoyVictory,Mission Complete,,pending
-GlobalUI_Count,#%1!d!,,pending
-GlobalUI_CrossGreen,Green,,pending
-GlobalUI_CrossPupple,Purple,,pending
-GlobalUI_CrossSky,Blue,,pending
-GlobalUI_CrossWhite,White,,pending
-GlobalUI_CrossYellow,Yellow,,pending
-GlobalUI_CustomSetting,Settings,,pending
-GlobalUI_Death,%1!d! Death,,pending
-GlobalUI_Del,Delete,,pending
-GlobalUI_DetailInfo,Details,,pending
-GlobalUI_Draw,%1!d! D,,pending
-GlobalUI_Eject,Ban,,pending
-GlobalUI_Game_Draw,Draw,,pending
-GlobalUI_Game_Lose,We have lost.,,pending
-GlobalUI_Game_TimeOver,Time's Up!,,pending
-GlobalUI_Game_Win,We've won!,,pending
-GlobalUI_GiftReceived,Gift Received,,pending
-GlobalUI_HackerReport,Report Illegal Programs,,pending
-GlobalUI_high,High,,pending
-GlobalUI_InputPassword,Password,,pending
-GlobalUI_InputPasswordAlert,Please enter your Password,,pending
-GlobalUI_ItemPeriod,%1!d!,,pending
-GlobalUI_Kill,%1!d! Kill,,pending
-GlobalUI_Kill_Death,%1!d!  /  %2!d!,,pending
-GlobalUI_KillLimit_100,100 Kills,,pending
-GlobalUI_KillLimit_120,120 Kills,,pending
-GlobalUI_KillLimit_140,140 Kills,,pending
-GlobalUI_KillLimit_40,40 Kills,,pending
-GlobalUI_KillLimit_60,60 Kills,,pending
-GlobalUI_KillLimit_80,80 Kills,,pending
+GlobalUI_ConvoyVictory,Mission Complete,Missão Cumprida,translated
+GlobalUI_Count,#%1!d!,#%1!d!,translated
+GlobalUI_CrossGreen,Green,Verde,translated
+GlobalUI_CrossPupple,Purple,Roxo,translated
+GlobalUI_CrossSky,Blue,Azul,translated
+GlobalUI_CrossWhite,White,Branco,translated
+GlobalUI_CrossYellow,Yellow,Amarelo,translated
+GlobalUI_CustomSetting,Settings,Configurações,translated
+GlobalUI_Death,%1!d! Death,%1!d! Mortes,translated
+GlobalUI_Del,Delete,Excluir,translated
+GlobalUI_DetailInfo,Details,Detalhes,translated
+GlobalUI_Draw,%1!d! D,%1!d! E,translated
+GlobalUI_Eject,Ban,Expulsar,translated
+GlobalUI_Game_Draw,Draw,Empate,translated
+GlobalUI_Game_Lose,We have lost.,Derrota.,translated
+GlobalUI_Game_TimeOver,Time's Up!,Tempo Esgotado!,translated
+GlobalUI_Game_Win,We've won!,Vitória!,translated
+GlobalUI_GiftReceived,Gift Received,Presente Recebido,translated
+GlobalUI_HackerReport,Report Illegal Programs,Denunciar Hack/Cheats,translated
+GlobalUI_high,High,Alto,translated
+GlobalUI_InputPassword,Password,Senha,translated
+GlobalUI_InputPasswordAlert,Please enter your Password,Digite sua senha,translated
+GlobalUI_ItemPeriod,%1!d!,%1!d!,translated
+GlobalUI_Kill,%1!d! Kill,%1!d! Abates,translated
+GlobalUI_Kill_Death,%1!d!  /  %2!d!,%1!d!  /  %2!d!,translated
+GlobalUI_KillLimit_100,100 Kills,100 Abates,translated
+GlobalUI_KillLimit_120,120 Kills,120 Abates,translated
+GlobalUI_KillLimit_140,140 Kills,140 Abates,translated
+GlobalUI_KillLimit_40,40 Kills,40 Abates,translated
+GlobalUI_KillLimit_60,60 Kills,60 Abates,translated
+GlobalUI_KillLimit_80,80 Kills,80 Abates,translated
+GlobalUI_LimitedChat,You're blocked from chatting for 30 secs due to spamming.,Seu chat foi bloqueado por 30 seg por envio excessivo de mensagens.,translated
 GlobalUI_Location_Channel,Channel %1!d!,Canal %1!d!,translated
-GlobalUI_Location_Room,Room %1!d!,,pending
-GlobalUI_Lose,%1!d! L,,pending
-GlobalUI_low,Low,,pending
-GlobalUI_Manager,Manager,,pending
-GlobalUI_Master,Master,,pending
-GlobalUI_medium,Medium,,pending
-GlobalUI_MessageAll,Message All,,pending
-GlobalUI_MessageDescript,Enter a message. 100 character limit.,,pending
-GlobalUI_MissionDraw,Mission Draw,,pending
-GlobalUI_MissionFailed,Mission Failed,,pending
-GlobalUI_MissionSuccess,Mission Accomplished,,pending
-GlobalUI_MODE_Assassin,Assassination,,pending
+GlobalUI_Location_Room,Room %1!d!,Sala %1!d!,translated
+GlobalUI_Lose,%1!d! L,%1!d! D,translated
+GlobalUI_low,Low,Baixo,translated
+GlobalUI_Manager,Manager,Gerente,translated
+GlobalUI_MapEvent,"%1!s! <font color=""#FFCC00"">[Event]</font>","%1!s! <font color=""#FFCC00"">[Evento]</font>",translated
+GlobalUI_Master,Master,Líder,translated
+GlobalUI_medium,Medium,Médio,translated
+GlobalUI_MessageAll,Message All,Mensagem Geral,translated
+GlobalUI_MessageDescript,Enter a message. 100 character limit.,Digite uma mensagem. Limite de 100 caracteres.,translated
+GlobalUI_MissionDraw,Mission Draw,Empate na Missão,translated
+GlobalUI_MissionFailed,Mission Failed,Missão Falhou,translated
+GlobalUI_MissionSuccess,Mission Accomplished,Missão Cumprida,translated
+GlobalUI_MODE_Assassin,Assassination,Assassinato,translated
 GlobalUI_MODE_C4,Bomb,Demolição (C4),translated
-GlobalUI_MODE_Captin,Boss Match,,pending
-GlobalUI_MODE_Carry,Scramble,,pending
-GlobalUI_MODE_Conquest,Occupation,,pending
-GlobalUI_MODE_Convoy,Convoy,,pending
-GlobalUI_MODE_DeathMatch,Round,,pending
-GlobalUI_MODE_Escape,Escape,,pending
-GlobalUI_MODE_Extortion,CTF,,pending
-GlobalUI_MODE_FreeForAll,Feast of Wolves!,,pending
-GlobalUI_MODE_Rescue,Rescue,,pending
-GlobalUI_MODE_TeamDeathMatch,TDM,,pending
-GlobalUI_NicknameAlert,Your Nickname contains a restricted word.,,pending
-GlobalUI_NickNameSetDescript,Please enter your Nickname,,pending
-GlobalUI_NickNameSetting,Create Name,,pending
-GlobalUI_NomannerReport,Report Behavior,,pending
-GlobalUI_None,None,,pending
-GlobalUI_NormalServer,Standard Server,,pending
-GlobalUI_NormalServerX,Standard Zone Server %1!d!,,pending
-GlobalUI_NormalXServer,Standard Zone %1!d!,,pending
-GlobalUI_NotEquip_Accessory1,Accessory 1 (unequipped),,pending
-GlobalUI_NotEquip_Accessory2,Accessory 2 (unequipped),,pending
-GlobalUI_NotEquip_Body,Top (unequipped),,pending
-GlobalUI_NotEquip_Head,Head (unequipped),,pending
-GlobalUI_NotEquip_Leg,Pants (unequipped),,pending
-GlobalUI_NotRead,New,,pending
-GlobalUI_O2Gauge,Oxygen Gauge,,pending
-GlobalUI_Offline,Offline,,pending
-GlobalUI_OK,OK,,pending
-GlobalUI_Option,Settings,,pending
-GlobalUI_PCRoomBonusGold,Earn %1!d! Gold as part of the event rewards,,pending
-GlobalUI_PCRoomServer,Plus Server,,pending
-GlobalUI_PCRoomServerX,Server %1!d! in Plus Area,,pending
-GlobalUI_PCRoomXServer,Plus %1!d! Server,,pending
-GlobalUI_PlayedHours,%1!d! hours,,pending
-GlobalUI_PlayedMinutes,%1!d! min,,pending
-GlobalUI_Playing,Playing,,pending
-GlobalUI_POINT_3,3 Points,,pending
-GlobalUI_POINT_5,5 Points,,pending
-GlobalUI_POINT_7,7 Points,,pending
-GlobalUI_POINT_9,9 Points,,pending
-GlobalUI_Prize,Winnings,,pending
-GlobalUI_Purchase,Purchase,,pending
-GlobalUI_Ranking,#%1!d!,,pending
-GlobalUI_RankingKeep,[- No Change],,pending
-GlobalUI_RankingNew,[ NEW ],,pending
-GlobalUI_Read,Read,,pending
-GlobalUI_Record,%1!d! W / %2!d! L / %3!d! D,,pending
-GlobalUI_Reject,Refuse,,pending
-GlobalUI_RequestFriend,Friend Request,,pending
-GlobalUI_Rescue,Rescue,,pending
-GlobalUI_Round_10,10 Rounds,,pending
-GlobalUI_Round_2,2 Rounds,,pending
-GlobalUI_Round_3,3 Rounds,,pending
-GlobalUI_Round_5,5 Rounds,,pending
-GlobalUI_Round_7,7 Rounds,,pending
-GlobalUI_Round_9,9 Rounds,,pending
-GlobalUI_ScoreLimit,Score Limit,,pending
-GlobalUI_Sec,%1!d! secs,,pending
-GlobalUI_Server_Disconnected,Server connection terminated.,,pending
-GlobalUI_ShutDownMsg1,Time,,pending
-GlobalUI_ShutDownMsg2,has elapsed,,pending
-GlobalUI_ShutDownMsg3,since logging into the game.,,pending
-GlobalUI_ShutDownNotice,Shutdown Notification,,pending
-GlobalUI_SlanderReport,Report Language,,pending
-GlobalUI_Squad_1,1 vs 1,,pending
-GlobalUI_Squad_2,2 vs 2,,pending
-GlobalUI_Squad_3,3 vs 3,,pending
-GlobalUI_Squad_4,4 vs 4,,pending
-GlobalUI_Squad_5,5 vs 5,,pending
-GlobalUI_Squad_6,6 vs 6,,pending
-GlobalUI_Squad_7,7 vs 7,,pending
-GlobalUI_Squad_8,8 vs 8,,pending
-GlobalUI_Steal,Capture,,pending
-GlobalUI_Stereo,Stereo Sound,,pending
-GlobalUI_strAble,Activate,,pending
-GlobalUI_strAccuracy,Acc,,pending
-GlobalUI_strActionKey,Use,,pending
-GlobalUI_strAll,All,,pending
-GlobalUI_strAM,AM,,pending
-GlobalUI_strAmmoCapacity,Ammo,,pending
-GlobalUI_strAnimal,Animal,,pending
-GlobalUI_strApply,Apply,,pending
-GlobalUI_strAuthority,Authority,,pending
-GlobalUI_strBalanceGold,Gold Balance,,pending
-GlobalUI_strBattleField,The Field,,pending
-GlobalUI_strBattleZone,Map,,pending
-GlobalUI_strBlockChat,Block Chat,,pending
-GlobalUI_strBoss,Boss,,pending
-GlobalUI_strBouns,Bonus,,pending
-GlobalUI_strBuy,Buy,,pending
+GlobalUI_MODE_Captin,Boss Match,Partida de Chefe,translated
+GlobalUI_MODE_Carry,Scramble,Disputa,translated
+GlobalUI_MODE_Conquest,Occupation,Dominação,translated
+GlobalUI_MODE_Convoy,Convoy,Comboio,translated
+GlobalUI_MODE_DeathMatch,Round,Rodadas,translated
+GlobalUI_MODE_Escape,Escape,Fuga,translated
+GlobalUI_MODE_Extortion,CTF,Capture a Bandeira,translated
+GlobalUI_MODE_FreeForAll,Feast of Wolves!,Todos Contra Todos,translated
+GlobalUI_MODE_Rescue,Rescue,Resgate,translated
+GlobalUI_MODE_TeamDeathMatch,TDM,Mata-Mata em Equipe,translated
+GlobalUI_NicknameAlert,Your Nickname contains a restricted word.,Seu apelido contém uma palavra proibida.,translated
+GlobalUI_NicknameAlert2,"Profanity, GM names and the following characters are not allowed: <,>,%, "","", &,?, =","Palavrões, nomes de GM e os seguintes caracteres não são permitidos: <,>,%, "","", &,?, =",translated
+GlobalUI_NicknameAlert3,"Your nickname violates our naming policy 
+Please change your nickname. 
+Thank you.","Seu apelido viola nossa política de nomes 
+Por favor, altere seu apelido. 
+Obrigado.",translated
+GlobalUI_NickNameSetDescript,Please enter your Nickname,Digite seu apelido,translated
+GlobalUI_NickNameSetting,Create Name,Criar Apelido,translated
+GlobalUI_NomannerReport,Report Behavior,Denunciar Conduta,translated
+GlobalUI_None,None,Nenhum,translated
+GlobalUI_NormalServer,Standard Server,Servidor Padrão,translated
+GlobalUI_NormalServerX,Standard Zone Server %1!d!,Servidor Padrão Zona %1!d!,translated
+GlobalUI_NormalXServer,Standard Zone %1!d!,Zona Padrão %1!d!,translated
+GlobalUI_NotEquip_Accessory1,Accessory 1 (unequipped),Acessório 1 (vazio),translated
+GlobalUI_NotEquip_Accessory2,Accessory 2 (unequipped),Acessório 2 (vazio),translated
+GlobalUI_NotEquip_Body,Top (unequipped),Torso (vazio),translated
+GlobalUI_NotEquip_Head,Head (unequipped),Cabeça (vazio),translated
+GlobalUI_NotEquip_Leg,Pants (unequipped),Calças (vazio),translated
+GlobalUI_NotRead,New,Novo,translated
+GlobalUI_O2Gauge,Oxygen Gauge,Medidor de Oxigênio,translated
+GlobalUI_Offline,Offline,Offline,translated
+GlobalUI_OK,OK,OK,translated
+GlobalUI_Option,Settings,Configurações,translated
+GlobalUI_PCRoomBonusGold,Earn %1!d! Gold as part of the event rewards,Ganhe %1!d! de Ouro como recompensa de evento,translated
+GlobalUI_PCRoomServer,Plus Server,Servidor Plus,translated
+GlobalUI_PCRoomServerX,Server %1!d! in Plus Area,Servidor %1!d! na Área Plus,translated
+GlobalUI_PCRoomXServer,Plus %1!d! Server,Servidor Plus %1!d!,translated
+GlobalUI_PenaltyDescript,"You will receive a penalty on XP, Gold and 1 Loss by leaving the current game","Você sofrerá penalidade de XP, Ouro e 1 Derrota ao abandonar a partida atual",translated
+GlobalUI_PlayedHours,%1!d! hours,%1!d! horas,translated
+GlobalUI_PlayedMinutes,%1!d! min,%1!d! min,translated
+GlobalUI_Playing,Playing,Jogando,translated
+GlobalUI_POINT_3,3 Points,3 Pontos,translated
+GlobalUI_POINT_5,5 Points,5 Pontos,translated
+GlobalUI_POINT_7,7 Points,7 Pontos,translated
+GlobalUI_POINT_9,9 Points,9 Pontos,translated
+GlobalUI_PostAlert_01,- Use the gift to put the item into your inventory.,- Use o presente para enviar o item ao seu inventário.,translated
+GlobalUI_PostAlert_02,- item durations begin as soon as the item is placed in your inventory.,- a duração do item começa assim que ele entra no seu inventário.,translated
+GlobalUI_Prize,Winnings,Prêmios,translated
+GlobalUI_Purchase,Purchase,Comprar,translated
+GlobalUI_Ranking,#%1!d!,#%1!d!,translated
+GlobalUI_RankingKeep,[- No Change],[- Sem Alteração],translated
+GlobalUI_RankingNew,[ NEW ],[ NOVO ],translated
+GlobalUI_Read,Read,Lida,translated
+GlobalUI_Record,%1!d! W / %2!d! L / %3!d! D,%1!d! V / %2!d! D / %3!d! E,translated
+GlobalUI_Reject,Refuse,Recusar,translated
+GlobalUI_ReportAlert,"False reports may cause account
+suspension or deletion.","Denúncias falsas podem causar
+suspensão ou exclusão da conta.",translated
+GlobalUI_ReportDescript,Tell us what you'd like to report. Maximum of 40 characters.,Descreva o que deseja denunciar. Máximo de 40 caracteres.,translated
+GlobalUI_RequestFriend,Friend Request,Pedido de Amizade,translated
+GlobalUI_Rescue,Rescue,Resgate,translated
+GlobalUI_Round_10,10 Rounds,10 Rodadas,translated
+GlobalUI_Round_2,2 Rounds,2 Rodadas,translated
+GlobalUI_Round_3,3 Rounds,3 Rodadas,translated
+GlobalUI_Round_5,5 Rounds,5 Rodadas,translated
+GlobalUI_Round_7,7 Rounds,7 Rodadas,translated
+GlobalUI_Round_9,9 Rounds,9 Rodadas,translated
+GlobalUI_ScoreLimit,Score Limit,Limite de Pontos,translated
+GlobalUI_Sec,%1!d! secs,%1!d! seg,translated
+GlobalUI_Server_Disconnected,Server connection terminated.,Conexão com o servidor encerrada.,translated
+GlobalUI_ServerConnectUnstable,"Connection with the Server is not Stable.
+Please Try Again","A conexão com o servidor está instável.
+Tente novamente.",translated
+GlobalUI_ShutDownMsg1,Time,Tempo,translated
+GlobalUI_ShutDownMsg2,has elapsed,decorrido,translated
+GlobalUI_ShutDownMsg3,since logging into the game.,desde o login no jogo.,translated
+GlobalUI_ShutDownMsg4,Excessive gaming may interfere with your normal daily life.,Jogar em excesso pode prejudicar sua rotina diária.,translated
+GlobalUI_ShutDownNotice,Shutdown Notification,Aviso de Encerramento,translated
+GlobalUI_SlanderReport,Report Language,Denunciar Linguagem,translated
+GlobalUI_Squad_1,1 vs 1,1 vs 1,translated
+GlobalUI_Squad_2,2 vs 2,2 vs 2,translated
+GlobalUI_Squad_3,3 vs 3,3 vs 3,translated
+GlobalUI_Squad_4,4 vs 4,4 vs 4,translated
+GlobalUI_Squad_5,5 vs 5,5 vs 5,translated
+GlobalUI_Squad_6,6 vs 6,6 vs 6,translated
+GlobalUI_Squad_7,7 vs 7,7 vs 7,translated
+GlobalUI_Squad_8,8 vs 8,8 vs 8,translated
+GlobalUI_Steal,Capture,Capturar,translated
+GlobalUI_Stereo,Stereo Sound,Som Estéreo,translated
+GlobalUI_strAble,Activate,Ativar,translated
+GlobalUI_strAccuracy,Acc,Prec.,translated
+GlobalUI_strActionKey,Use,Usar,translated
+GlobalUI_strAll,All,Todos,translated
+GlobalUI_strAM,AM,AM,translated
+GlobalUI_strAmmoCapacity,Ammo,Munição,translated
+GlobalUI_strAnimal,Animal,Animal,translated
+GlobalUI_strApply,Apply,Aplicar,translated
+GlobalUI_strAuthority,Authority,Permissão,translated
+GlobalUI_strBalanceGold,Gold Balance,Saldo de Ouro,translated
+GlobalUI_strBattleField,The Field,Campo de Batalha,translated
+GlobalUI_strBattleZone,Map,Mapa,translated
+GlobalUI_strBlockChat,Block Chat,Bloquear Chat,translated
+GlobalUI_strBoss,Boss,Chefe,translated
+GlobalUI_strBouns,Bonus,Bônus,translated
+GlobalUI_strBuy,Buy,Comprar,translated
 GlobalUI_strCancel,Cancel,Cancelar,translated
-GlobalUI_strCash,Cash,,pending
-GlobalUI_strChangeAfter,After,,pending
-GlobalUI_strChangeBefore,Before,,pending
-GlobalUI_strChangeClass,Change Class,,pending
-GlobalUI_strChangeRoomSetting,Room Settings,,pending
-GlobalUI_strChangeSetting,Settings,,pending
-GlobalUI_strChangeWeapon,Change,,pending
+GlobalUI_strCash,Cash,Cash,translated
+GlobalUI_strChangeAfter,After,Depois,translated
+GlobalUI_strChangeBefore,Before,Antes,translated
+GlobalUI_strChangeClass,Change Class,Mudar Classe,translated
+GlobalUI_strChangeRoomSetting,Room Settings,Config. da Sala,translated
+GlobalUI_strChangeSetting,Settings,Configurações,translated
+GlobalUI_strChangeWeapon,Change,Trocar,translated
 GlobalUI_strChannel,Channel %1!d,Canal %1!d,translated
-GlobalUI_strChat,Chat,,pending
-GlobalUI_strChoice,Select,,pending
-GlobalUI_strCircle,Circle,,pending
+GlobalUI_strChat,Chat,Chat,translated
+GlobalUI_strChoice,Select,Selecionar,translated
+GlobalUI_strCircle,Circle,Círculo,translated
 GlobalUI_strClan,Clan,Clã,translated
 GlobalUI_strClanClass,Clan Class,Classe do Clã,translated
 GlobalUI_strClanDissolution,Disband Clan,Dissolver Clã,translated
 GlobalUI_strClanIntro,Clan Introduction,Apresentação do Clã,translated
 GlobalUI_strClanList,Clan List,Lista de Clãs,translated
-GlobalUI_strClanMark,Change ,,pending
-GlobalUI_strClanMember,Members,,pending
+GlobalUI_strClanMark,Change ,Alterar ,translated
+GlobalUI_strClanMember,Members,Membros,translated
 GlobalUI_strClanRank,Clan Rank,Ranking de Clãs,translated
-GlobalUI_strClanRecord,Records,,pending
+GlobalUI_strClanRecord,Records,Histórico,translated
 GlobalUI_strClanSearch,Find Clan,Buscar Clã,translated
 GlobalUI_strClanWithdrawal,Leave Clan,Sair do Clã,translated
-GlobalUI_strClass,Class,,pending
-GlobalUI_strClickLeft,Left-Click,,pending
-GlobalUI_strClickRight,Right-Click,,pending
-GlobalUI_strClose,Close,,pending
-GlobalUI_strCommandClear,/c,,pending
-GlobalUI_strCommandHelp,/?,,pending
-GlobalUI_strCommunity,Chat,,pending
-GlobalUI_strConfigure,Configure,,pending
-GlobalUI_strConnect,Connect,,pending
-GlobalUI_strCreate,Create,,pending
+GlobalUI_strClass,Class,Classe,translated
+GlobalUI_strClickLeft,Left-Click,Botão Esq.,translated
+GlobalUI_strClickRight,Right-Click,Botão Dir.,translated
+GlobalUI_strClose,Close,Fechar,translated
+GlobalUI_strCommandClear,/c,/c,translated
+GlobalUI_strCommandHelp,/?,/?,translated
+GlobalUI_strCommunity,Chat,Chat,translated
+GlobalUI_strConfigure,Configure,Configurar,translated
+GlobalUI_strConnect,Connect,Conectar,translated
+GlobalUI_strCreate,Create,Criar,translated
 GlobalUI_strCreateClan,Create Clan,Criar Clã,translated
-GlobalUI_strCrouch,Crouch,,pending
-GlobalUI_strDamage,Dmg,,pending
-GlobalUI_strDateSent,Date,,pending
-GlobalUI_strDay,%1!d!,,pending
-GlobalUI_strDeath,Death,,pending
-GlobalUI_strDeath2,Death,,pending
-GlobalUI_strDeathMatch,TDM,,pending
-GlobalUI_strDeaths,Death,,pending
-GlobalUI_strDelete,Delete,,pending
-GlobalUI_strDemolition,Bomb,,pending
-GlobalUI_strDisable,Deactivate,,pending
-GlobalUI_strDivisionType,Share,,pending
-GlobalUI_strDropWeapon,Drop,,pending
-GlobalUI_strDuration,Sales Type,,pending
-GlobalUI_strEA, Item,,pending
-GlobalUI_strEdit,Edit,,pending
-GlobalUI_strEquip,Equip,,pending
-GlobalUI_strExit,Exit,,pending
-GlobalUI_strEXP,XP,,pending
-GlobalUI_strFindFriend,Find Friend,,pending
-GlobalUI_strForward,Forward,,pending
-GlobalUI_strFriendList,Friend List,,pending
-GlobalUI_strFriends,Friends,,pending
-GlobalUI_strGameLobby,Game Lobby,,pending
-GlobalUI_strGameMenu,Game Menu,,pending
-GlobalUI_strGameMode,Mode,,pending
-GlobalUI_strGamePlayer,Players,,pending
-GlobalUI_strGameType,Type,,pending
-GlobalUI_strGaming,Playing,,pending
-GlobalUI_strGangsters,Gangsters,,pending
-GlobalUI_strGeneralRecord,Records,,pending
-GlobalUI_strGoingBack,Back,,pending
-GlobalUI_strGoingBackward,Backward,,pending
-GlobalUI_strGold,Gold,,pending
-GlobalUI_strGoldCost,Total Cost,,pending
-GlobalUI_strGunModification,Modify Gun,,pending
-GlobalUI_strHaveItem,Item On Hand,,pending
-GlobalUI_strHelp,Help,,pending
-GlobalUI_strHexagon,Hexagon,,pending
-GlobalUI_strHour,%1!d!,,pending
-GlobalUI_strInform,Notice,,pending
-GlobalUI_StringInvited,Invite,,pending
-GlobalUI_strInsect,Insects,,pending
-GlobalUI_strIntrusion,Intrusion,,pending
-GlobalUI_strInven,Inventory,,pending
-GlobalUI_strInvite,Invite,,pending
-GlobalUI_strItemInvenroty,Inventory,,pending
-GlobalUI_strItemSelect,Item Select,,pending
-GlobalUI_strItemShop,Item Shop,,pending
-GlobalUI_strJump,Jump,,pending
-GlobalUI_strKeyBackSpace,B.Space,,pending
-GlobalUI_strKeyboard,Keyboard,,pending
-GlobalUI_strKeyCtrl,Ctrl,,pending
-GlobalUI_strKeyCtrlEnter,Ctrl + Enter,,pending
-GlobalUI_strKeyEnter,Enter,,pending
-GlobalUI_strKeyF8,F8,,pending
-GlobalUI_strKeyShift,Shift,,pending
-GlobalUI_strKeySpace,Space,,pending
-GlobalUI_strKeyTab,Tab,,pending
-GlobalUI_strKill2,Kill,,pending
-GlobalUI_strKillDeath,K / D,,pending
-GlobalUI_strKills,Kills,,pending
-GlobalUI_strLastWeapon,Last Weapon,,pending
-GlobalUI_strList,List,,pending
-GlobalUI_strMacroSettings,Set Macros,,pending
-GlobalUI_strMainNotice,Notice,,pending
-GlobalUI_strMainWeapon,Main,,pending
-GlobalUI_strMaxPlayer,Players,,pending
-GlobalUI_strMeleeWeapon,Melee,,pending
-GlobalUI_strMessage,Message,,pending
-GlobalUI_strMin,%1!d!,,pending
-GlobalUI_strMissionBomb,Task Bomb,,pending
-GlobalUI_strMissions,Task,,pending
-GlobalUI_strMissionWeapon,Mission Explosive,,pending
-GlobalUI_strMonth,%1!d!,,pending
-GlobalUI_strMouse,Mouse,,pending
-GlobalUI_strMouseSetting,Mouse Settings,,pending
-GlobalUI_strMyClan,My Clan,,pending
-GlobalUI_strMyInfo,My Info,,pending
-GlobalUI_strNickname,Name,,pending
-GlobalUI_strNicknameAfter,New Nickname,,pending
-GlobalUI_strNicknameBefore,Original Nickname,,pending
-GlobalUI_strNO,No.,,pending
-GlobalUI_strNone,None,,pending
-GlobalUI_strNote,Note,,pending
-GlobalUI_strNotes,Notes,,pending
-GlobalUI_strNotice,Notice,,pending
-GlobalUI_strNotReady,Not ready.,,pending
-GlobalUI_strNowGold,Gold amount,,pending
-GlobalUI_strNowLocation,Location,,pending
-GlobalUI_strOctagon,Octagon,,pending
-GlobalUI_strOK,OK,,pending
-GlobalUI_strOption,Options,,pending
-GlobalUI_strOther,Other,,pending
-GlobalUI_strPassword,Password,,pending
-GlobalUI_strPattern,Patterns,,pending
-GlobalUI_strPING,Ping,,pending
-GlobalUI_strPlayer,Players,,pending
-GlobalUI_strPlayerNum,Players,,pending
-GlobalUI_strPlayerRanking,Ranking,,pending
-GlobalUI_strPlayNum,%1!d! Match,,pending
-GlobalUI_strPlaytime,Playtime,,pending
-GlobalUI_strPM,PM,,pending
-GlobalUI_strPoint,%1!d! Point(s),,pending
-GlobalUI_strPost,Mail,,pending
-GlobalUI_strPostBox,Mailbox,,pending
-GlobalUI_strPostDeliverd,New Message,,pending
-GlobalUI_strPostReply,Reply,,pending
-GlobalUI_strPostSending,Send Message,,pending
-GlobalUI_strPresent,Gift,,pending
-GlobalUI_strPresentTaking,Receive Gift,,pending
-GlobalUI_strPrivateRoom,Private,,pending
-GlobalUI_strPromote,Promote,,pending
-GlobalUI_strPromotion,Congratulations!,,pending
-GlobalUI_strPromotionReward,Promotion Reward,,pending
-GlobalUI_strQuickJoin,Quick Join,,pending
-GlobalUI_strRange,Range,,pending
-GlobalUI_strRank,Lvl,,pending
-GlobalUI_strRanking,Ranking,,pending
-GlobalUI_strRankingDivision,Rank share,,pending
-GlobalUI_strRateOfFire,Auto,,pending
-GlobalUI_strRead,Read,,pending
-GlobalUI_strReady,Ready,,pending
-GlobalUI_strReceivedGifts,Received Gift,,pending
-GlobalUI_strRecipient,Recipient,,pending
-GlobalUI_strRecipient2,Recipient,,pending
-GlobalUI_strRecoil,Recoil,,pending
-GlobalUI_strRecord,Record,,pending
-GlobalUI_strRegion,Region,,pending
-GlobalUI_strReport,Report,,pending
-GlobalUI_strReportCategory,Report Category,,pending
-GlobalUI_strReportDetails,Details,,pending
-GlobalUI_strReportTarget,Target,,pending
-GlobalUI_strRequestMsg,Request Message,,pending
-GlobalUI_strReset,Reset,,pending
-GlobalUI_strRoomInfo,Room Info,,pending
-GlobalUI_strRoomLeader,Host,,pending
-GlobalUI_strRoomName,Name,,pending
-GlobalUI_strRoomNum,Room No.%1!d!,,pending
-GlobalUI_strRoundMatch,Round ,,pending
-GlobalUI_strScramble,Scramble,,pending
-GlobalUI_strScreenshot,Screenshot,,pending
-GlobalUI_strSearch,Search,,pending
-GlobalUI_strSender,Sender,,pending
-GlobalUI_strSender2,Sender,,pending
-GlobalUI_strSender3,Sender,,pending
-GlobalUI_strSendGift,Send Gift,,pending
-GlobalUI_strSerration,Serrate,,pending
-GlobalUI_strServerSelect,Server Selection,,pending
-GlobalUI_strSetting,Settings,,pending
-GlobalUI_strSettings,Settings,,pending
-GlobalUI_strShift,Shift,,pending
-GlobalUI_strShop,Shop,,pending
-GlobalUI_strShopInven,Shop/Inventory,,pending
-GlobalUI_strSign,Sings,,pending
-GlobalUI_strSir,Mr.,,pending
-GlobalUI_strStart,Start,,pending
-GlobalUI_strStatus,Status,,pending
-GlobalUI_strStrafeLeft,Strafe Left,,pending
-GlobalUI_strStrafeRight,Strafe Right,,pending
-GlobalUI_strSubWeapon,Sidearm,,pending
-GlobalUI_strSuicide,Oops,,pending
-GlobalUI_strSwapWeapon,Change Weapon,,pending
-GlobalUI_strSWAT,S.W.A.T.,,pending
-GlobalUI_strTeam,Team,,pending
-GlobalUI_strTeamBalance,Balance,,pending
-GlobalUI_strTeamChat,Team Chat,,pending
-GlobalUI_strThrownWeapon,Thrown,,pending
-GlobalUI_strTurnAround,Turn Around,,pending
-GlobalUI_strType,Type,,pending
-GlobalUI_strUnlimited,Unlimited,,pending
-GlobalUI_strUse,Use,,pending
-GlobalUI_strUseFlashlight,Flashlight,,pending
-GlobalUI_strUseItem,Use Items,,pending
-GlobalUI_strUserNum,%1!d!Player(s),,pending
-GlobalUI_strUseWheel,Change Wheel,,pending
-GlobalUI_strUsing,In Use,,pending
-GlobalUI_strVictoryConditions,Mission,,pending
-GlobalUI_strViewDetails,View Details,,pending
-GlobalUI_strViewLeaderboard,Leaderboard,,pending
-GlobalUI_strVoiceChat,V-Chat,,pending
-GlobalUI_strWalk,Walk,,pending
-GlobalUI_strWattingRoom,Waiting Room,,pending
-GlobalUI_strWeapons,Weapons,,pending
-GlobalUI_strWhisper,PM,,pending
-GlobalUI_strWinningSideDivision,Team Share,,pending
-GlobalUI_strWorldChat,World Chat,,pending
-GlobalUI_strWriter,Writer,,pending
-GlobalUI_strYear,%1!d!,,pending
-GlobalUI_strYourCash,Cash,,pending
-GlobalUI_strYourGold,Gold,,pending
-GlobalUI_Surround,Surround Sound,,pending
-GlobalUI_TestServer,Test Server,,pending
-GlobalUI_TestServerX,Test Zone Server %1!d!,,pending
-GlobalUI_TestXServer,Test Server %1!d!,,pending
-GlobalUI_Ticket,%1!d! Ticket,,pending
-GlobalUI_TIME_120,2 min,,pending
-GlobalUI_TIME_1200,20 min,,pending
-GlobalUI_TIME_1500,25 min,,pending
-GlobalUI_TIME_180,3 min,,pending
-GlobalUI_TIME_1800,30 min,,pending
-GlobalUI_TIME_2100,35 min,,pending
-GlobalUI_TIME_2400,40 min,,pending
-GlobalUI_TIME_300,5 min,,pending
-GlobalUI_TIME_600,10 min,,pending
-GlobalUI_TIME_900,15 min,,pending
-GlobalUI_Unranked,No Rank,,pending
-GlobalUI_Use,Use,,pending
-GlobalUI_User_Record_Score,%1!d! W / %2!d! L / %3!d! D,,pending
-GlobalUI_verylow,Very Low,,pending
-GlobalUI_Waiting,Queued,,pending
-GlobalUI_WeaponChange,Change Weapon,,pending
-GlobalUI_Whisper,PM,,pending
-GlobalUI_Win,%1!d! W,,pending
-GlobalUI_XChannel,Channel %1!d!,,pending
+GlobalUI_strCrouch,Crouch,Agachar,translated
+GlobalUI_strDamage,Dmg,Dano,translated
+GlobalUI_strDateSent,Date,Data,translated
+GlobalUI_strDay,%1!d!,%1!d!,translated
+GlobalUI_strDeath,Death,Morte,translated
+GlobalUI_strDeath2,Death,Morte,translated
+GlobalUI_strDeathMatch,TDM,MME,translated
+GlobalUI_strDeaths,Death,Mortes,translated
+GlobalUI_strDelete,Delete,Excluir,translated
+GlobalUI_strDemolition,Bomb,Demolição,translated
+GlobalUI_strDisable,Deactivate,Desativar,translated
+GlobalUI_strDivisionType,Share,Divisão,translated
+GlobalUI_strDropWeapon,Drop,Soltar,translated
+GlobalUI_strDuration,Sales Type,Tipo de Venda,translated
+GlobalUI_strEA, Item, Item,translated
+GlobalUI_strEdit,Edit,Editar,translated
+GlobalUI_strEquip,Equip,Equipar,translated
+GlobalUI_strExit,Exit,Sair,translated
+GlobalUI_strEXP,XP,XP,translated
+GlobalUI_strFindFriend,Find Friend,Buscar Amigo,translated
+GlobalUI_strForward,Forward,Avançar,translated
+GlobalUI_strFriendList,Friend List,Lista de Amigos,translated
+GlobalUI_strFriends,Friends,Amigos,translated
+GlobalUI_strGameLobby,Game Lobby,Lobby,translated
+GlobalUI_strGameMenu,Game Menu,Menu do Jogo,translated
+GlobalUI_strGameMode,Mode,Modo,translated
+GlobalUI_strGamePlayer,Players,Jogadores,translated
+GlobalUI_strGameType,Type,Tipo,translated
+GlobalUI_strGaming,Playing,Jogando,translated
+GlobalUI_strGangsters,Gangsters,Gangsters,translated
+GlobalUI_strGeneralRecord,Records,Histórico,translated
+GlobalUI_strGoingBack,Back,Voltar,translated
+GlobalUI_strGoingBackward,Backward,Recuar,translated
+GlobalUI_strGold,Gold,Ouro,translated
+GlobalUI_strGoldCost,Total Cost,Custo Total,translated
+GlobalUI_strGunModification,Modify Gun,Modificar Arma,translated
+GlobalUI_strHaveItem,Item On Hand,Item em Posse,translated
+GlobalUI_strHelp,Help,Ajuda,translated
+GlobalUI_strHexagon,Hexagon,Hexágono,translated
+GlobalUI_strHour,%1!d!,%1!d!,translated
+GlobalUI_strInform,Notice,Aviso,translated
+GlobalUI_StringInvited,Invite,Convidar,translated
+GlobalUI_strInsect,Insects,Insetos,translated
+GlobalUI_strIntrusion,Intrusion,Entrar em Andamento,translated
+GlobalUI_strInven,Inventory,Inventário,translated
+GlobalUI_strInvite,Invite,Convidar,translated
+GlobalUI_strItemInvenroty,Inventory,Inventário,translated
+GlobalUI_strItemSelect,Item Select,Selecionar Item,translated
+GlobalUI_strItemShop,Item Shop,Loja de Itens,translated
+GlobalUI_strJump,Jump,Pular,translated
+GlobalUI_strKeyBackSpace,B.Space,B.Space,translated
+GlobalUI_strKeyboard,Keyboard,Teclado,translated
+GlobalUI_strKeyCtrl,Ctrl,Ctrl,translated
+GlobalUI_strKeyCtrlEnter,Ctrl + Enter,Ctrl + Enter,translated
+GlobalUI_strKeyEnter,Enter,Enter,translated
+GlobalUI_strKeyF8,F8,F8,translated
+GlobalUI_strKeyShift,Shift,Shift,translated
+GlobalUI_strKeySpace,Space,Espaço,translated
+GlobalUI_strKeyTab,Tab,Tab,translated
+GlobalUI_strKill2,Kill,Abate,translated
+GlobalUI_strKillDeath,K / D,A / M,translated
+GlobalUI_strKills,Kills,Abates,translated
+GlobalUI_strLastWeapon,Last Weapon,Última Arma,translated
+GlobalUI_strList,List,Lista,translated
+GlobalUI_strMacroSettings,Set Macros,Config. Macros,translated
+GlobalUI_strMainNotice,Notice,Aviso,translated
+GlobalUI_strMainWeapon,Main,Primária,translated
+GlobalUI_strMaxPlayer,Players,Jogadores,translated
+GlobalUI_strMeleeWeapon,Melee,Corpo a Corpo,translated
+GlobalUI_strMessage,Message,Mensagem,translated
+GlobalUI_strMin,%1!d!,%1!d!,translated
+GlobalUI_strMissionBomb,Task Bomb,Bomba da Missão,translated
+GlobalUI_strMissions,Task,Missão,translated
+GlobalUI_strMissionWeapon,Mission Explosive,Explosivo de Missão,translated
+GlobalUI_strMonth,%1!d!,%1!d!,translated
+GlobalUI_strMouse,Mouse,Mouse,translated
+GlobalUI_strMouseSetting,Mouse Settings,Config. do Mouse,translated
+GlobalUI_strMyClan,My Clan,Meu Clã,translated
+GlobalUI_strMyInfo,My Info,Meu Perfil,translated
+GlobalUI_strNickname,Name,Apelido,translated
+GlobalUI_strNicknameAfter,New Nickname,Novo Apelido,translated
+GlobalUI_strNicknameBefore,Original Nickname,Apelido Atual,translated
+GlobalUI_strNO,No.,Nº,translated
+GlobalUI_strNone,None,Nenhum,translated
+GlobalUI_strNote,Note,Nota,translated
+GlobalUI_strNotes,Notes,Notas,translated
+GlobalUI_strNotice,Notice,Aviso,translated
+GlobalUI_strNotReady,Not ready.,Não pronto.,translated
+GlobalUI_strNowGold,Gold amount,Ouro atual,translated
+GlobalUI_strNowLocation,Location,Localização,translated
+GlobalUI_strOctagon,Octagon,Octógono,translated
+GlobalUI_strOK,OK,OK,translated
+GlobalUI_strOption,Options,Opções,translated
+GlobalUI_strOther,Other,Outros,translated
+GlobalUI_strPassword,Password,Senha,translated
+GlobalUI_strPattern,Patterns,Padrões,translated
+GlobalUI_strPING,Ping,Ping,translated
+GlobalUI_strPlayer,Players,Jogadores,translated
+GlobalUI_strPlayerNum,Players,Jogadores,translated
+GlobalUI_strPlayerRanking,Ranking,Ranking,translated
+GlobalUI_strPlayNum,%1!d! Match,%1!d! Partidas,translated
+GlobalUI_strPlaytime,Playtime,Tempo de Jogo,translated
+GlobalUI_strPM,PM,PM,translated
+GlobalUI_strPoint,%1!d! Point(s),%1!d! Ponto(s),translated
+GlobalUI_strPost,Mail,Correio,translated
+GlobalUI_strPostBox,Mailbox,Caixa Postal,translated
+GlobalUI_strPostDeliverd,New Message,Nova Mensagem,translated
+GlobalUI_strPostReply,Reply,Responder,translated
+GlobalUI_strPostSending,Send Message,Enviar Mensagem,translated
+GlobalUI_strPresent,Gift,Presente,translated
+GlobalUI_strPresentTaking,Receive Gift,Receber Presente,translated
+GlobalUI_strPrivateRoom,Private,Privada,translated
+GlobalUI_strPromote,Promote,Promover,translated
+GlobalUI_strPromotion,Congratulations!,Parabéns!,translated
+GlobalUI_strPromotionReward,Promotion Reward,Recompensa de Promoção,translated
+GlobalUI_strQuickJoin,Quick Join,Entrada Rápida,translated
+GlobalUI_strRange,Range,Alcance,translated
+GlobalUI_strRank,Lvl,Nív.,translated
+GlobalUI_strRanking,Ranking,Ranking,translated
+GlobalUI_strRankingDivision,Rank share,Divisão por Rank,translated
+GlobalUI_strRateOfFire,Auto,Cadência,translated
+GlobalUI_strRead,Read,Lida,translated
+GlobalUI_strReady,Ready,Pronto,translated
+GlobalUI_strReceivedGifts,Received Gift,Presente Recebido,translated
+GlobalUI_strRecipient,Recipient,Destinatário,translated
+GlobalUI_strRecipient2,Recipient,Destinatário,translated
+GlobalUI_strRecoil,Recoil,Recuo,translated
+GlobalUI_strRecord,Record,Histórico,translated
+GlobalUI_strRegion,Region,Região,translated
+GlobalUI_strReport,Report,Denunciar,translated
+GlobalUI_strReportCategory,Report Category,Motivo da Denúncia,translated
+GlobalUI_strReportDetails,Details,Detalhes,translated
+GlobalUI_strReportTarget,Target,Alvo,translated
+GlobalUI_strRequestMsg,Request Message,Mensagem de Pedido,translated
+GlobalUI_strReset,Reset,Redefinir,translated
+GlobalUI_strRoomInfo,Room Info,Info da Sala,translated
+GlobalUI_strRoomLeader,Host,Líder,translated
+GlobalUI_strRoomName,Name,Nome,translated
+GlobalUI_strRoomNum,Room No.%1!d!,Sala Nº %1!d!,translated
+GlobalUI_strRoundMatch,Round ,Rodadas ,translated
+GlobalUI_strScramble,Scramble,Disputa,translated
+GlobalUI_strScreenshot,Screenshot,Captura de Tela,translated
+GlobalUI_strSearch,Search,Buscar,translated
+GlobalUI_strSender,Sender,Remetente,translated
+GlobalUI_strSender2,Sender,Remetente,translated
+GlobalUI_strSender3,Sender,Remetente,translated
+GlobalUI_strSendGift,Send Gift,Enviar Presente,translated
+GlobalUI_strSerration,Serrate,Serrilhado,translated
+GlobalUI_strServerSelect,Server Selection,Seleção de Servidor,translated
+GlobalUI_strSetting,Settings,Configurações,translated
+GlobalUI_strSettings,Settings,Configurações,translated
+GlobalUI_strShift,Shift,Shift,translated
+GlobalUI_strShop,Shop,Loja,translated
+GlobalUI_strShopInven,Shop/Inventory,Loja/Inventário,translated
+GlobalUI_strSign,Sings,Símbolos,translated
+GlobalUI_strSir,Mr.,Sr.,translated
+GlobalUI_strStart,Start,Iniciar,translated
+GlobalUI_strStatus,Status,Status,translated
+GlobalUI_strStrafeLeft,Strafe Left,Esquerda,translated
+GlobalUI_strStrafeRight,Strafe Right,Direita,translated
+GlobalUI_strSubWeapon,Sidearm,Secundária,translated
+GlobalUI_strSuicide,Oops,Ops,translated
+GlobalUI_strSwapWeapon,Change Weapon,Trocar Arma,translated
+GlobalUI_strSWAT,S.W.A.T.,S.W.A.T.,translated
+GlobalUI_strTeam,Team,Equipe,translated
+GlobalUI_strTeamBalance,Balance,Balancear,translated
+GlobalUI_strTeamChat,Team Chat,Chat da Equipe,translated
+GlobalUI_strThrownWeapon,Thrown,Granadas,translated
+GlobalUI_strTurnAround,Turn Around,Meia-Volta,translated
+GlobalUI_strType,Type,Tipo,translated
+GlobalUI_strUnlimited,Unlimited,Ilimitado,translated
+GlobalUI_strUse,Use,Usar,translated
+GlobalUI_strUseFlashlight,Flashlight,Lanterna,translated
+GlobalUI_strUseItem,Use Items,Usar Itens,translated
+GlobalUI_strUserNum,%1!d!Player(s),%1!d! Jogador(es),translated
+GlobalUI_strUseWheel,Change Wheel,Trocar pela Roda,translated
+GlobalUI_strUsing,In Use,Em Uso,translated
+GlobalUI_strVictoryConditions,Mission,Missão,translated
+GlobalUI_strViewDetails,View Details,Ver Detalhes,translated
+GlobalUI_strViewLeaderboard,Leaderboard,Placar,translated
+GlobalUI_strVoiceChat,V-Chat,Chat de Voz,translated
+GlobalUI_strWalk,Walk,Andar,translated
+GlobalUI_strWattingRoom,Waiting Room,Sala de Espera,translated
+GlobalUI_strWeapons,Weapons,Armas,translated
+GlobalUI_strWhisper,PM,MP,translated
+GlobalUI_strWinningSideDivision,Team Share,Divisão da Equipe,translated
+GlobalUI_strWorldChat,World Chat,Chat Geral,translated
+GlobalUI_strWriter,Writer,Autor,translated
+GlobalUI_strYear,%1!d!,%1!d!,translated
+GlobalUI_strYourCash,Cash,Cash,translated
+GlobalUI_strYourGold,Gold,Ouro,translated
+GlobalUI_Surround,Surround Sound,Som Surround,translated
+GlobalUI_TestServer,Test Server,Servidor de Teste,translated
+GlobalUI_TestServerX,Test Zone Server %1!d!,Servidor de Teste Zona %1!d!,translated
+GlobalUI_TestXServer,Test Server %1!d!,Servidor de Teste %1!d!,translated
+GlobalUI_Ticket,%1!d! Ticket,%1!d! Ingresso,translated
+GlobalUI_TIME_120,2 min,2 min,translated
+GlobalUI_TIME_1200,20 min,20 min,translated
+GlobalUI_TIME_1500,25 min,25 min,translated
+GlobalUI_TIME_180,3 min,3 min,translated
+GlobalUI_TIME_1800,30 min,30 min,translated
+GlobalUI_TIME_2100,35 min,35 min,translated
+GlobalUI_TIME_2400,40 min,40 min,translated
+GlobalUI_TIME_300,5 min,5 min,translated
+GlobalUI_TIME_600,10 min,10 min,translated
+GlobalUI_TIME_900,15 min,15 min,translated
+GlobalUI_Unranked,No Rank,Sem Rank,translated
+GlobalUI_Use,Use,Usar,translated
+GlobalUI_User_Record_Score,%1!d! W / %2!d! L / %3!d! D,%1!d! V / %2!d! D / %3!d! E,translated
+GlobalUI_verylow,Very Low,Muito Baixo,translated
+GlobalUI_Waiting,Queued,Aguardando,translated
+GlobalUI_WeaponChange,Change Weapon,Trocar Arma,translated
+GlobalUI_Whisper,PM,MP,translated
+GlobalUI_Win,%1!d! W,%1!d! V,translated
+GlobalUI_XChannel,Channel %1!d!,Canal %1!d!,translated
+HUD_EVENT_ItemTakeFail,<font color='#FFCC00'>%1!s!</font> has reached the limit and cannot retrieve the event item.,<font color='#FFCC00'>%1!s!</font> atingiu o limite e não pode receber o item de evento.,translated
+HUD_EVENT_MissionDone,You completed the mission event and received <font color='#FFCC00'>%1!s!</font>.,Você concluiu a missão do evento e recebeu <font color='#FFCC00'>%1!s!</font>.,translated
+HUD_EVENT_strcompletion,Completed,Concluído,translated
+HUD_EVENT_strHeadshot,Headshots: ,Headshots: ,translated
+HUD_EVENT_strKill,Kills: ,Abates: ,translated
+HUD_EVENT_strMission,Missions: ,Missões: ,translated
+HUD_EVENT_strPlayingMission,Mission in Progress,Missão em Andamento,translated
+IDS_WEAPONPARTS_DESCRIP_3110001,"A small open dot sight. Practical, but has a narrow view. ","Mira Red Dot aberta pequena. Prática, mas com campo de visão estreito.",translated
+IDS_WEAPONPARTS_DESCRIP_3110002,"An open dot sight with a wider view, but no zoom.","Mira Red Dot aberta com campo de visão amplo, sem zoom.",translated
+IDS_WEAPONPARTS_DESCRIP_3110003,"An open dot sight with a wider view, but no zoom.","Mira Red Dot aberta com campo de visão amplo, sem zoom.",translated
+IDS_WEAPONPARTS_DESCRIP_3110004,A closed dot sight with a narrow view and x2 zoom.,Mira Red Dot fechada com campo de visão estreito e zoom 2x.,translated
+IDS_WEAPONPARTS_DESCRIP_3110005,A closed dot sight with a narrow view and x2 zoom.,Mira Red Dot fechada com campo de visão estreito e zoom 2x.,translated
+IDS_WEAPONPARTS_DESCRIP_3110006,A closed dot sight with a narrow view and x1.5 zoom.,"Mira Red Dot fechada com campo de visão estreito e zoom 1,5x.",translated
+IDS_WEAPONPARTS_DESCRIP_3210001,A small flashlight that offers good mobility and a short duration.,Lanterna pequena que oferece boa mobilidade e curta duração.,translated
+IDS_WEAPONPARTS_DESCRIP_3210002,A mid-sized flashlight that offers moderate mobility and duration.,Lanterna média com mobilidade e duração equilibradas.,translated
+IDS_WEAPONPARTS_DESCRIP_3210003,"A large flashlight with low mobility, long duration and a wider cone of light.","Lanterna grande com baixa mobilidade, longa duração e feixe de luz amplo.",translated
+IDS_WEAPONPARTS_DESCRIP_3210004,"A large flashlight with low mobility, very long duration and a wider cone of light.","Lanterna grande com baixa mobilidade, duração muito longa e feixe amplo.",translated
+IDS_WEAPONPARTS_DESCRIP_3310001,A small silencer. Lightweight but not very effective. [Damage -1],"Silenciador pequeno. Leve, mas pouco eficaz. [Dano -1]",translated
+IDS_WEAPONPARTS_DESCRIP_3310002,A mid-sized silencer. Moderate in both weight and effect. [Damage -1.5],Silenciador médio. Equilibrado em peso e eficácia. [Dano -1.5],translated
+IDS_WEAPONPARTS_DESCRIP_3310003,A large silencer. Heavy but very effective. [Damage -2],"Silenciador grande. Pesado, mas muito eficaz. [Dano -2]",translated
+IDS_WEAPONPARTS_DESCRIP_3310004,A Duck silencer. This muffles your fire into a quacking sound. [Damage -1],Silenciador Pato. Transforma seus disparos em grasnidos. [Dano -1],translated
+IDS_WEAPONPARTS_DESCRIP_3410001,"Invoking the Goddess of Victory, this decal might bring you luck.","Invocando a Deusa da Vitória, este adesivo pode trazer sorte.",translated
+IDS_WEAPONPARTS_DESCRIP_3410002,A creepy decal which might give your opponents nightmares.,Um adesivo sinistro que pode dar pesadelos aos inimigos.,translated
+IDS_WEAPONPARTS_DESCRIP_3410003,Harness the energy of the wolf.,Canalize a energia do lobo.,translated
+IDS_WEAPONPARTS_DESCRIP_3410004,A quick and keen-eyed hunter to help guide your aim.,Um caçador ágil de olhos atentos para guiar sua mira.,translated
+IDS_WEAPONPARTS_DESCRIP_3410005,For that fuzzy feeling in the middle of a warzone.,Um toque divertido no meio da zona de guerra.,translated
+IDS_WEAPONPARTS_DESCRIP_3410006,You can almost hear the bullets scream every time you shoot.,Você quase pode ouvir as balas gritando a cada disparo.,translated
+IDS_WEAPONPARTS_DESCRIP_3410007,Symbol of turkey construct in new moon and stars based in red color.,Símbolo da bandeira da Turquia com lua crescente e estrela em fundo vermelho.,translated
+IDS_WEAPONPARTS_DESCRIP_3410008,FAMAS X-mas Decal,Adesivo de Natal para FAMAS,translated
+IDS_WEAPONPARTS_DESCRIP_3410009,AK-47 X-mas Decal,Adesivo de Natal para AK-47,translated
+MSG_ERROR_0002001d,Clan Search Failed,Falha na busca de Clã,translated
+MSG_ERROR_00024a56,That Nickname is a duplicate.,Esse apelido já está em uso.,translated
+MSG_ERROR_00240101,You are already in the Shop.,Você já está na Loja.,translated
+MSG_ERROR_00240102,Open Shop Failed,Falha ao abrir a Loja,translated
+MSG_ERROR_00240106,You cannot enter the Shop while you are in a Quick Match.,Você não pode entrar na Loja durante uma Partida Rápida.,translated
+MSG_ERROR_00240111,You are not in the Shop.,Você não está na Loja.,translated
+MSG_ERROR_00240112,You are not in the Shop.,Você não está na Loja.,translated
+MSG_ERROR_00240131,Failed to find a slot.,Falha ao encontrar um slot.,translated
+MSG_ERROR_00240132,That item does not exist in the table.,Esse item não existe na tabela.,translated
+MSG_ERROR_00240135,The item does not exist in your inventory.,O item não existe no seu inventário.,translated
+MSG_ERROR_00240139,Item Equip Failed,Falha ao equipar o item,translated
+MSG_ERROR_00240151,You do not have that item.,Você não possui esse item.,translated
+MSG_ERROR_00240152,That is already <font color = '#ffcc00'>active</font>.,Esse item já está <font color = '#ffcc00'>ativo</font>.,translated
+MSG_ERROR_00240153,That item does not have Expiration Date.,Esse item não possui data de expiração.,translated
+MSG_ERROR_00240155,Activation Failed,Falha na ativação,translated
+SystemMsg_AcceptedClanVolunteer,Accepted a new Player's Clan Application.,Solicitação de entrada no Clã aceita.,translated
+SystemMsg_ChatRestrain,"Due to inappropriate language 
+your chat will be restricted until %1!d! / %2!d! / %3!d!
+","Devido a linguagem inadequada 
+seu chat ficará restrito até %1!d! / %2!d! / %3!d!
+",translated
+SystemMsg_Chatting_ChangeAllChatting,Switched to World Chat Mode.,Alterado para o Modo Chat Geral.,translated
+SystemMsg_Chatting_ChangeClanChatting,Switched to Clan Chat Mode.,Alterado para o Modo Chat do Clã.,translated
+SystemMsg_Chatting_ChangeRoomSettings,Changed Room Settings.,Configurações da sala alteradas.,translated
+SystemMsg_Chatting_ChangeTeamChatting,Switched to team chat mode.,Alterado para o modo chat da equipe.,translated
+SystemMsg_Chatting_NotNicName,That Nickname does not exist.,Esse apelido não existe.,translated
+SystemMsg_Chatting_NotResponse,This Player does not exist.,Este jogador não existe.,translated
+SystemMsg_Chatting_NotSendMessage,This Player does not exist.,Este jogador não existe.,translated
+SystemMsg_Chatting_NotUser,That User does not exist.,Esse usuário não existe.,translated
+SystemMsg_ChooseItem,Please select an item.,Selecione um item.,translated
+SystemMsg_ClanExist,That Player is already in a Clan.,Esse jogador já pertence a um Clã.,translated
+SystemMsg_InviteAuthority,Only the Room Master can send invitations.,Apenas o Líder da Sala pode enviar convites.,translated
+SystemMsg_ItemEndDelete,"Your %1!s! has expired.
+Would you like to purchase a new item?","Seu item %1!s! expirou.
+Deseja comprar um novo item?",translated
+SystemMsg_NoData,Failed to read the data.,Falha ao ler os dados.,translated
+SystemMsg_NoReadGift,You have %1!d! unclaimed Gifts.,Você tem %1!d! Presentes não resgatados.,translated
+SystemMsg_NoReadPost,You have %1!d! unread Messages.,Você tem %1!d! Mensagens não lidas.,translated
+SystemMsg_PresentSended,Sent a Gift.,Presente enviado.,translated
+SystemMsg_Shutdown_1000,"You are under 16 and subject to the Shutdown Policy. You are not allowed access to the game between 00:00 AM to 06:00 AM.
+You may access the game after 06:00 AM.","Menores de 16 anos estão sujeitos à Política de Horário. O acesso ao jogo não é permitido entre 00:00 e 06:00.
+Você poderá acessar o jogo após as 06:00.",translated
+SystemMsg_Shutdown_1001,"You are under 16 and subject to the Shutdown Policy. You are not allowed access to the game between 00:00 AM to 06:00 AM.
+You may access the game after 06:00 AM.","Menores de 16 anos estão sujeitos à Política de Horário. O acesso ao jogo não é permitido entre 00:00 e 06:00.
+Você poderá acessar o jogo após as 06:00.",translated
+UI_Function_strColorNameChange,Change Nickname Color,Alterar Cor do Apelido,translated
+UI_Function_strColorNameNotice,"Color change excludes team color, chat and mail.","A cor não se aplica à cor de equipe, chat ou correio.",translated
+UI_Function_strColorType,Color Type,Tipo de Cor,translated
+UI_INFO_strAchievement,Achievement,Conquista,translated
+UI_INFO_strAchievementLevel1,Lv.1,Nv.1,translated
+UI_INFO_strAchievementLevel2,Lv.2,Nv.2,translated
+UI_INFO_strAchievementLevel3,Lv.3,Nv.3,translated
+UI_INFO_strAchievementLevel4,Lv.4,Nv.4,translated
+UI_INFO_strAchievementLevel5,Lv.5,Nv.5,translated
+UI_INFO_strAchievementLevel6,Lv.6,Nv.6,translated
+UI_INFO_strAdditionalInfo,Additional Info.,Info Adicional,translated
+UI_INFO_strAR,AR,Fuzil,translated
+UI_INFO_strAutoPistol,A-Pistol,Pist. Auto,translated
+UI_INFO_strAxe,Axe,Machado,translated
+UI_INFO_strBow,Bow,Arco,translated
+UI_INFO_strClan,Clan,Clã,translated
+UI_INFO_strClub,Club,Bastão,translated
+UI_INFO_strContribution,Contribute,Contribuição,translated
+UI_INFO_strGloves,Gloves,Luvas,translated
+UI_INFO_strHeadShot,Headshot,Headshot,translated
+UI_INFO_strKnife,Knife,Faca,translated
+UI_INFO_strMAR,MAR,Mini Fuzil,translated
+UI_INFO_strMG,MG,Metralhadora,translated
+UI_INFO_strMissionsDone,Missions,Missões,translated
+UI_INFO_strMods,Modes,Modos,translated
+UI_INFO_strOverDeaths,Over Dead,Mortes Seguidas,translated
+UI_INFO_strOverKills,Over Kill,Abates Múltiplos,translated
+UI_INFO_strPesonalInfo,Personal Info,Info Pessoal,translated
+UI_INFO_strPistol,Pistol,Pistola,translated
+UI_INFO_strPlayer,Player,Jogador,translated
+UI_INFO_strRanking,Ranking,Ranking,translated
+UI_INFO_strRoundsLost,Lost R.,Rod. Perd.,translated
+UI_INFO_strRoundsWon,Won R.,Rod. Venc.,translated
+UI_INFO_strSet,Set,Conjunto,translated
+UI_INFO_strShotgun,SG,Escopeta,translated
+UI_INFO_strSMG,SMG,SMG,translated
+UI_INFO_strSniperRifle,SR,Sniper,translated
+UI_INFO_strSuicides,Suicides,Suicídios,translated
+UI_INFO_strThrown,Thrown,Granadas,translated
+UI_INFO_strTotalRecord,Record,Histórico,translated
+UI_INFO_strWeaponInfo,Weapon Info,Info da Arma,translated
+UI_INFO_strWeapons,Weapons,Armas,translated
+UI_LOBBY_FindFriendDescript,Enter the Nickname of your Friend.,Digite o apelido do seu amigo.,translated
+UI_LOBBY_PlayingMission,Mission in Progress,Missão em Andamento,translated
+UI_LOBBY_RoomName01,No Holds Barred!,Vale Tudo nas Ruas!,translated
+UI_LOBBY_RoomName02,Choose Your Side!,Escolha o Seu Lado!,translated
+UI_LOBBY_RoomName03,Rule the Streets!,Domine as Ruas!,translated
+UI_LOBBY_RoomName04,Gangnam Style!,Estilo Gangnam!,translated
+UI_LOBBY_RoomName05,Headshot or Bust!,Headshot ou Nada!,translated
+UI_LOBBY_RoomName06,S.W.A.T. Never Lose!,S.W.A.T. Nunca Perde!,translated
+UI_LOBBY_RoomName07,Join The War!,Entre na Guerra!,translated
+UI_LOBBY_RoomName08,Gangstas Got No Rules!,Gangsters Sem Regras!,translated
+UI_LOBBY_RoomName09,Revenge Shall Be Ours!,A Vingança Será Nossa!,translated
+UI_LOBBY_RoomName10,Ready To Rock!,Prontos para o Combate!,translated
+UI_LOBBY_RoomName11,Time For A Little Killing!,Hora da Ação!,translated
+UI_LOBBY_RoomName12,Taste My Knife!,Só na Faca!,translated
+UI_LOBBY_RoomName13,Crime and Punishment!,Crime e Castigo!,translated
+UI_LOBBY_RoomName14,CAT FIGHT!,Duelo Mortal!,translated
+UI_LOBBY_RoomName15,Private Room,Sala Privada,translated
+UI_LOBBY_strCheckRating,Check Rating,Ver Classificação,translated
+UI_LOBBY_strClanMatch,Clan Match,Partida de Clã,translated
+UI_LOBBY_strClanMatching,Clan Matching,Busca de Clã,translated
+UI_LOBBY_strCreateRoom,Create Room,Criar Sala,translated
+UI_LOBBY_strGambleRoom,VIP Room,Sala VIP,translated
+UI_LOBBY_strGeneralRoom,Main Room,Sala Padrão,translated
+UI_LOBBY_strIntrusion,Intrusion,Entrar em Andamento,translated
+UI_LOBBY_strMercs,Mercs,Mercenários,translated
+UI_LOBBY_strMercsDescript,(Each team can have up to 2 Mercenaries),(Cada equipe pode ter até 2 Mercenários),translated
+UI_LOBBY_strMode,Mod,Modo,translated
+UI_LOBBY_strMoney,Winnings,Prêmios,translated
+UI_LOBBY_strOpenRoom,Confirm,Confirmar,translated
+UI_LOBBY_strPing,Ping,Ping,translated
+UI_LOBBY_strPlayers,Players,Jogadores,translated
+UI_LOBBY_strPracticeGame,Practice,Treino,translated
+UI_LOBBY_strRoomList,Room Name,Nome da Sala,translated
+UI_LOBBY_strRoomStatus,Status,Status,translated
+UI_LOBBY_strRoomType,VIP Room,Sala VIP,translated
+UI_LOBBY_strTicketSetting,Set amount,Definir valor,translated
+UI_LOBBY_strUsers,Players,Jogadores,translated
+UI_LOBBY_strWaiting,Queued,Aguardando,translated
+UI_LOGIN_QueueMsg,%1!s! [Queue : %2!d!],%1!s! [Fila : %2!d!],translated
+UI_LOGIN_strID,ID,ID,translated
+UI_LOGIN_strlogin,Log-in,Entrar,translated
+UI_LOGIN_strSaveID,Save ID,Salvar ID,translated
+UI_MainMenu_strAchievement,My Achievement,Minhas Conquistas,translated
+UI_MainMenu_strClanMatching,Clan Matching,Busca de Clã,translated
+UI_MainMenu_strClanSearch,Clan Search,Buscar Clã,translated
+UI_MainMenu_strCreateClan,Create Clan,Criar Clã,translated
+UI_MainMenu_strLuckyShop,Arcade,Arcade,translated
+UI_MainMenu_strMarbleLand,Marbleland,Marbleland,translated
+UI_MainMenu_strModifyGun,Gun modification,Modificação de Arma,translated
+UI_MainMenu_strMyClan,My Clan,Meu Clã,translated
+UI_MainMenu_strRoomSetting,Room Settings,Config. da Sala,translated
+UI_MainMenu_strSettings,Settings,Configurações,translated
+UI_MainMenu_strShopInven,Shop/Inventory,Loja/Inventário,translated
+UI_MODIFY_Alert_01,"- the same mod cannot be installed more than once, and mods cannot be recovered once used.",- o mesmo acessório não pode ser instalado duas vezes e não pode ser recuperado após o uso.,translated
+UI_MODIFY_Alert_02,- mod durations begin counting down once installed.,- a duração do acessório começa a contar assim que instalado.,translated
+UI_MODIFY_ChooseWeapon,Choose a Weapon to Modify.,Escolha uma arma para modificar.,translated
+UI_MODIFY_GunMods,Gun Mods,Acessórios,translated
+UI_MODIFY_GunModsSale,Gun Mod Bill of Sale,Recibo de Acessórios,translated
+UI_MODIFY_strDiscard,Discard,Descartar,translated
+UI_MODIFY_strFlashlights,Flash,Lanterna,translated
+UI_MODIFY_strModify,Apply,Aplicar,translated
+UI_MODIFY_strRemove,Remove ,Remover ,translated
+UI_MODIFY_strSights,Dot Sight,Mira Red Dot,translated
+UI_MODIFY_strSilencers,Silencer,Silenciador,translated
+UI_MODIFY_strSkins,Decal,Adesivo,translated
+UI_MODIFY_strYourMods,Your Mods,Seus Acessórios,translated
+UI_POP_CLAN_DELETINFO,"A Clan cannot be Disbanded if it has even one Member.
+Remove all Members before Disbanding a Clan.","Um Clã não pode ser dissolvido enquanto houver membros.
+Remova todos os membros antes de dissolver o Clã.",translated
+UI_Pop_ColorTypeNotChoice,Choose a Color.,Escolha uma cor.,translated
+UI_Pop_ColorTypeReconfirm,This will change your Nickname's color. Would you like to proceed?,Isso alterará a cor do seu apelido. Deseja continuar?,translated
+UI_POP_LOBBY_ROOMNAME,Please write the name of the Room.,Digite o nome da sala.,translated
+UI_POP_SHOP_GIFTDAY,%1!d! day,%1!d! dias,translated
+UI_POP_SHOP_NOSELF,You cannot send a Gift to yourself.,Você não pode enviar um presente para si mesmo.,translated
+UI_POP_SHOP_NOTARGET,You have no recipient for the Gift.,Nenhum destinatário selecionado para o presente.,translated
+UI_POST_Alert,"Mailbox stores Gifts for 3 months, Messages for 1 month.",A caixa postal guarda presentes por 3 meses e mensagens por 1 mês.,translated
+UI_POST_strContents,Content,Conteúdo,translated
+UI_POST_strDataReceived,Date,Data,translated
+UI_POST_strDelete,Delete,Excluir,translated
+UI_POST_strGiftBox,Gift Box,Presentes,translated
+UI_POST_strInBox,Inbox,Entrada,translated
+UI_POST_strNewMail,You have new mail.,Você tem novas mensagens.,translated
+UI_POST_strNoNewMail,No new mail.,Nenhuma nova mensagem.,translated
+UI_POST_strRead,Read,Ler,translated
+UI_POST_strReceive,Receive Gift,Receber Presente,translated
+UI_POST_strReceivedMsg,Received Message,Mensagem Recebida,translated
+UI_POST_strReply,Reply,Responder,translated
+UI_POST_strSendGift,Sent Gift,Presente Enviado,translated
+UI_POST_strSentMsg,Sent Message,Mensagem Enviada,translated
+UI_POST_strWritePost,Compose,Escrever,translated
+UI_SERVER_strConnectedPlayers,Players,Jogadores,translated
+UI_SERVER_strServerList,Server List,Lista de Servidores,translated
+UI_SERVER_strServerSelect,[Server Select],[Seleção de Servidor],translated
+UI_SETTING_Blood,Gore,Sangue,translated
+UI_SETTING_BloodDescript,Show blood decals in game.,Exibe marcas de sangue durante a partida.,translated
+UI_SETTING_Crosshair,Crosshair,Mira,translated
+UI_SETTING_CrosshairColor,Crosshair Color,Cor da Mira,translated
+UI_SETTING_CrosshairDescript,Customize your Crosshair.,Personalize sua mira.,translated
+UI_SETTING_CrosshairStyle,Crosshair Style,Estilo da Mira,translated
+UI_SETTING_EtcControlSetting,Other Control Settings,Outras Configurações de Controle,translated
+UI_SETTING_Handedness,Hand,Mão,translated
+UI_SETTING_HandednessDescript,Select hand,Selecionar mão da arma,translated
+UI_SETTING_LeftHand,Left,Esquerda,translated
+UI_SETTING_RadioLanguage,Radio Language,Idioma do Rádio,translated
+UI_SETTING_RadioLanguageDescript,Pick character language.,Escolha o idioma do personagem.,translated
+UI_SETTING_RightHand,Right,Direita,translated
+UI_SETTING_strActive,Activate,Ativar,translated
+UI_SETTING_strAdvancedDescript,Custom Graphic Settings,Configurações Gráficas Personalizadas,translated
+UI_SETTING_strAdvancedGraphics,Advanced Graphics Settings,Configurações Gráficas Avançadas,translated
+UI_SETTING_strAim,Aim,Mirar,translated
+UI_SETTING_strAudio,Audio,Áudio,translated
+UI_SETTING_strAudioSettings,Audio Settings,Configurações de Áudio,translated
+UI_SETTING_strBrightness,Gamma,Gama,translated
+UI_SETTING_strBrightnessDescript,Set the brightness of the Game Screen.,Ajuste o brilho da tela do jogo.,translated
+UI_SETTING_strChange,Set,Definir,translated
+UI_SETTING_strChangeHUD,Change HUD,Alterar HUD,translated
+UI_SETTING_strChatDescript,Choose whether to allow chat.,Escolha se deseja permitir chat.,translated
+UI_SETTING_strChatMacros,Chat Macros,Macros de Chat,translated
+UI_SETTING_strChatOptions,Chat,Chat,translated
+UI_SETTING_strChatSetting,Chat Settings,Configurações de Chat,translated
+UI_SETTING_strClanDescript,Choose whether to allow joining clan.,Escolha se deseja permitir convites de clã.,translated
+UI_SETTING_strColorCurve,Color Curve,Curva de Cor,translated
+UI_SETTING_strCommunityDescript,Community key settings.,Configurações de teclas sociais.,translated
+UI_SETTING_strCommunityKey,Community Settings,Teclas de Comunidade,translated
+UI_SETTING_strDecal,Decal,Decalques,translated
+UI_SETTING_strDynamicLight,Dynamic Light,Luz Dinâmica,translated
+UI_SETTING_strEffectDetail,Effect Detail,Detalhe de Efeitos,translated
+UI_SETTING_strEnterChat,Enter Chat,Abrir Chat,translated
+UI_SETTING_strFOG,FOG,Névoa,translated
+UI_SETTING_strFriendDescript,Enable Friend Request.,Permitir pedidos de amizade.,translated
+UI_SETTING_strGamePlay,Gameplay,Jogabilidade,translated
+UI_SETTING_strGraphiceQualily,Choose the overall graphics quality.,Escolha a qualidade gráfica geral.,translated
+UI_SETTING_strGraphics,Graphics,Gráficos,translated
+UI_SETTING_strGraphicsQualily,Graphics,Gráficos,translated
+UI_SETTING_strGraphicsSetup,General Graphics Settings,Configurações Gráficas Gerais,translated
+UI_SETTING_strInactive,Deactivate,Desativar,translated
+UI_SETTING_strInput,Input,Microfone,translated
+UI_SETTING_strInputDescript,Set microphone volume,Ajustar volume do microfone,translated
+UI_SETTING_strInvertDescript,Invert the vertical mouse axis.,Inverte o eixo vertical do mouse.,translated
+UI_SETTING_strInvite,Invite,Convite,translated
+UI_SETTING_strInviteDescript,Choose whether to allow invitations.,Escolha se deseja permitir convites.,translated
+UI_SETTING_strJoinClan,Join Clan,Entrar no Clã,translated
+UI_SETTING_strKeyboardSetting,Keyboard Settings,Configurações de Teclado,translated
+UI_SETTING_strLeaderboard,Leaderboard,Placar,translated
+UI_SETTING_strMacro,Macro,Macro,translated
+UI_SETTING_strMacro_Z,Chat Macros [Z],Macros de Chat [Z],translated
+UI_SETTING_strMacroDescript,Setup or change Chat Macros.,Configure ou altere os Macros de Chat.,translated
+UI_SETTING_strMacroDescript_01,- Macros can used while playing in a match.,- Macros podem ser usados durante a partida.,translated
+UI_SETTING_strMacroDescript_02,- Macros do not support voice chat.,- Macros não suportam chat de voz.,translated
+UI_SETTING_strMacroDescript_03,- Foul or obscene language is prohibited.,- Linguagem ofensiva ou obscena é proibida.,translated
+UI_SETTING_strMacroDescript_04,"- Please input the Macro subject
+ - less than 20 letters","- Digite o texto do Macro
+ - menos de 20 caracteres",translated
+UI_SETTING_strMacroInput,Input Macro,Inserir Macro,translated
+UI_SETTING_strModelLODDetail,Model LOD Detail,Detalhe de Modelos,translated
+UI_SETTING_strMouseInvert,Invert Mouse,Inverter Mouse,translated
+UI_SETTING_strMouseSensitivity,Sensitivity,Sensibilidade,translated
+UI_SETTING_strMovement,Move,Mover,translated
+UI_SETTING_strMovementDescript,Change the key settings for movement.,Altere as teclas de movimentação.,translated
+UI_SETTING_strMovementKey,Movement Key Settings,Teclas de Movimentação,translated
+UI_SETTING_strMusic,Music,Música,translated
+UI_SETTING_strMusicDescript,Set BGM volume,Ajustar volume da música,translated
+UI_SETTING_strNotChange,[Cannot Change],[Não Editável],translated
+UI_SETTING_strOFF,OFF,NÃO,translated
+UI_SETTING_strON,ON,SIM,translated
+UI_SETTING_strOtherConterols,Other,Outros,translated
+UI_SETTING_strOtherDescript,Change other control key settings.,Altere outras teclas de controle.,translated
+UI_SETTING_strOutput,Output,Saída,translated
+UI_SETTING_strOutputDescript,Set other players' volume,Ajustar volume de outros jogadores,translated
+UI_SETTING_strPostDescript,Choose whether to allow messages.,Escolha se deseja permitir mensagens.,translated
+UI_SETTING_strRadioCommand,Radio Command,Comando de Rádio,translated
+UI_SETTING_strRadioConversation,Radio Conversation,Conversa de Rádio,translated
+UI_SETTING_strRadioMacro,Chat Macros ,Macros de Chat ,translated
+UI_SETTING_strRegisterFriend,Add Friend,Adicionar Amigo,translated
+UI_SETTING_strReload,Reload,Recarregar,translated
+UI_SETTING_strResolution,Display,Tela,translated
+UI_SETTING_strResolutionDescript,Select resolution,Selecionar resolução,translated
+UI_SETTING_strSelGlow,Sel Glow,Brilho,translated
+UI_SETTING_strSensitivityDescript,Set the sensitivity of mouse.,Ajuste a sensibilidade do mouse.,translated
+UI_SETTING_strSensitivityDown,Decrease Sensitivity,Diminuir Sensibilidade,translated
+UI_SETTING_strSensitivityUP,Increase Sensitivity,Aumentar Sensibilidade,translated
+UI_SETTING_strSFX,SFX,Efeitos,translated
+UI_SETTING_strSFXDescript,Set sound effects volume,Ajustar volume dos efeitos sonoros,translated
+UI_SETTING_strShadowDetail,Shadow Detail,Detalhe de Sombras,translated
+UI_SETTING_strShellCasting,Shell Casting,Cápsulas,translated
+UI_SETTING_strShoot,Fire/Attack,Atirar/Atacar,translated
+UI_SETTING_strSpeaker,Sound,Som,translated
+UI_SETTING_strSpeakerDescript,Select Stereo or 5.1 Surround Sound,Selecione Som Estéreo ou Surround 5.1,translated
+UI_SETTING_strSpotLight,Spot Light,Holofote,translated
+UI_SETTING_strTextureDetail,Texture Detail,Detalhe de Texturas,translated
+UI_SETTING_strUIOff,UI Off,Ocultar HUD,translated
+UI_SETTING_strUIOffDescript,Turn UI Off In Game,Desativa a interface durante a partida,translated
+UI_SETTING_strUse,Use,Usar,translated
+UI_SETTING_strVerticalSync,V. Sync,V-Sync,translated
+UI_SETTING_strVerticalSyncDescript,Stable frame smooth gameplay,Estabiliza quadros para jogabilidade suave,translated
+UI_SETTING_strVoice,Voice,Voz,translated
+UI_SETTING_strVoiceChatDescript,Enable or disable voice chat.,Ativa ou desativa o chat de voz.,translated
+UI_SETTING_strVoiceChatSet,Voice Chat Settings,Configurações de Chat de Voz,translated
+UI_SETTING_strVoiceDescript,Set Voice Chat volume,Ajustar volume do Chat de Voz,translated
+UI_SETTING_strWeaponControl,Weapon,Arma,translated
+UI_SETTING_strWeaponDescript,Weapon control preferences,Preferências de controle de arma,translated
+UI_SETTING_strWeaponKey,Weapon Control Settings,Teclas de Controle de Arma,translated
+UI_SETTING_strWhisperDescript,Choose whether to allow PMs.,Escolha se deseja permitir MPs.,translated
+UI_SHOP_BuyAlert,The Item either exceeded the Refundable Period of 7 Days or is originally a non-refundable Item.(Article 6:Refund of Cash Policy),Este item excedeu o prazo de reembolso de 7 dias ou não é reembolsável. (Artigo 6: Política de Reembolso),translated
+UI_SHOP_NeedSelectItem,Please select an item.,Selecione um item.,translated
+UI_SHOP_NewGift,You have a new gift.,Você tem um novo presente.,translated
+UI_SHOP_PeriodText,%1!s! : %3!d!-%4!d!-%2!d!    %5!s! %6!d! : %7!d!,%1!s! : %3!d!-%4!d!-%2!d!    %5!s! %6!d! : %7!d!,translated
+UI_SHOP_ShutdownAlert,"Due to the implementation of the Shutdown System, game access for users under 16 years of age is restricted from 00:00 to 06:00. Please keep this in mind when purchasing items.","Devido ao Sistema de Horário, o acesso para menores de 16 anos é restrito das 00:00 às 06:00. Leve isso em consideração ao comprar itens.",translated
+UI_SHOP_strAccessories,Accessory,Acessório,translated
+UI_SHOP_strBalanceCash,Balance,Saldo,translated
+UI_SHOP_strBalanceGold,Balance,Saldo,translated
+UI_SHOP_strBillofSale,Bill of Sale,Recibo de Compra,translated
+UI_SHOP_strBuyPurchase,Purchase,Comprar,translated
+UI_SHOP_strCashCost,Cash Cost,Custo em Cash,translated
+UI_SHOP_strCashItems,Other Items,Outros Itens,translated
+UI_SHOP_strCharacters,Characters,Personagens,translated
+UI_SHOP_strCharge,Charge,Recarregar,translated
+UI_SHOP_strChargeCash,Charge Cash,Recarregar Cash,translated
+UI_SHOP_strClause,Regulation guideline.,Diretrizes de uso.,translated
+UI_SHOP_strCostumes,Costumes,Trajes,translated
+UI_SHOP_strExpUp,XP Up,Bônus de XP,translated
+UI_SHOP_strFlashlight,[Flash],[Lanterna],translated
+UI_SHOP_strFunctional,Functional,Funcional,translated
+UI_SHOP_strGoldCost,Gold Cost,Custo em Ouro,translated
+UI_SHOP_strGoldUp,Gold Up,Bônus de Ouro,translated
+UI_SHOP_strHead,Head,Cabeça,translated
+UI_SHOP_strItemInfo,Item Info,Info do Item,translated
+UI_SHOP_strModComplete,Modification Complete,Modificação Concluída,translated
+UI_SHOP_strModdable,Moddable,Modificável,translated
+UI_SHOP_strNoSlot,No Slot,Sem Slot,translated
+UI_SHOP_strPackages,Other,Outros,translated
+UI_SHOP_strPants,Pants,Calças,translated
+UI_SHOP_strSets,Sets,Conjuntos,translated
+UI_SHOP_strSight,[Dot Sight],[Mira Red Dot],translated
+UI_SHOP_strSilencer,[Silencer],[Silenciador],translated
+UI_SHOP_strSkin,[Decal],[Adesivo],translated
+UI_SHOP_strTops,Tops,Torso,translated
+UI_SHOP_strYourCash,Cash,Cash,translated
+UI_Stats_strBreathTimeUP,%1!d!seconds longer underwater breath.,%1!d! segundos a mais de fôlego submerso.,translated
+UI_Stats_strEnemyHPScan_1,Enemy HP Scan,Scanner de HP Inimigo,translated
+UI_Stats_strGrenadeIndicator_1,Grenade Indicator,Indicador de Granada,translated
+UI_Stats_strPoisongasDamageDown,%2!d! less poison dmg(%1!d!sec),%2!d! menos dano de gás tóxico (%1!d!seg),translated
+UI_Stats_strSwimSpeedUP,Swim speed increased by  %1!d!%%,Velocidade de nado aumentada em %1!d!%%,translated
+UI_SYS_BlockUser,"The selected Account is banned until
+<font color = '#ffcc00'>%3!d!/%4!d!/%2!d! at %5!d!:%6!d!</font>
+for the following reason: <font color = '#ffcc00'>%1!s!</font>.","Esta conta está banida até
+<font color = '#ffcc00'>%3!d!/%4!d!/%2!d! às %5!d!:%6!d!</font>
+pelo seguinte motivo: <font color = '#ffcc00'>%1!s!</font>.",translated
+UI_SYS_CANTJOINCLANSERVER,You must be in a Clan to enter the Clan Server.,Você precisa estar em um Clã para entrar no Servidor de Clã.,translated
+UI_SYS_CantPostMe,You cannot send a Message to yourself.,Você não pode enviar uma mensagem para si mesmo.,translated
+UI_SYS_CantPostNone,You have no Recipient for the Message.,Nenhum destinatário selecionado para a mensagem.,translated
+UI_SYS_CantPresentMe,You cannot receive your own Gift.,Você não pode receber seu próprio presente.,translated
+UI_SYS_CantReplyMe,You cannot send a reply to yourself.,Você não pode responder a si mesmo.,translated
+UI_SYS_CantWhisperMe,You cannot send a PM to yourself.,Você não pode enviar uma MP para si mesmo.,translated
+UI_SYS_CantWhisperNone,You have no Recipient for the PM.,Nenhum destinatário selecionado para a MP.,translated
+UI_SYS_CHAT_Help_Clanchat,[Clan Chat] /c,[Chat do Clã] /c,translated
+UI_SYS_CHAT_Help_Clear,[Clear Chat Window] /c,[Limpar Chat] /c,translated
+UI_SYS_CHAT_Help_Go,[Enter Room] /go Room#,[Entrar na Sala] /go NºSala,translated
+UI_SYS_CHAT_Help_Reply,[Reply] /r,[Responder] /r,translated
+UI_SYS_CHAT_Help_Whisper,[PM] /w Nickname Message,[MP] /w Apelido Mensagem,translated
+UI_SYS_CHAT_NotClanMember,You are not in a Clan.,Você não pertence a um Clã.,translated
+UI_SYS_CHAT_Off,The Chat Window is now inactive.,A janela de chat foi desativada.,translated
+UI_SYS_CHAT_On,The Chat Window is now active.,A janela de chat foi ativada.,translated
+UI_SYS_CHAT_SAVE_ScreenShot,Saved screenshot: %1!s!.,Captura de tela salva: %1!s!.,translated
+UI_SYS_CHAT_Unable,The Chat Window is currently inactive.,A janela de chat está desativada no momento.,translated
+UI_SYS_CHOICEWEAPON,Select a Weapon.,Selecione uma arma.,translated
+UI_TopMenu_strExit,Exit,Sair,translated
+UI_TopMenu_strFindFriend,Find Friend,Buscar Amigo,translated
+UI_TopMenu_strGoingBack,Back,Voltar,translated
+UI_TopMenu_strHelp,Help,Ajuda,translated
+UI_TopMenu_strInventory,Inventory,Inventário,translated
+UI_TopMenu_strInvite,Invite,Convidar,translated
+UI_TopMenu_strModify,Modify,Modificar,translated
+UI_TopMenu_strMyInfo,My Info,Meu Perfil,translated
+UI_TopMenu_strNotice,Notice,Aviso,translated
+UI_TopMenu_strPost,Mail,Correio,translated
+UI_TopMenu_strReport,Report,Denunciar,translated
+UI_TopMenu_strSetting,Settings,Configurações,translated
+UI_TopMenu_strShop,Shop,Loja,translated
+UI_TopMenu_strTournamentNotice,Tournament Rules,Regras do Torneio,translated
