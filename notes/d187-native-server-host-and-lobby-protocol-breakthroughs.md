@@ -144,7 +144,7 @@ Ao validar a primeira conexão UDP real (`Active UDP Clients: 0 -> 1 -> 0` em 2 
 0x10034BA1: cmp  eax, 0
 0x10034BA3: jne  0x10034be1              ; se encontrar, extrai o diretório raiz e continua!
 ```
-Portanto, o executável host compilado **DEVE se chamar `TheRawServer.exe`** (não `D187_ServerHost.exe`).
+Portanto, o executável host compilado **DEVE se chamar `TheRawServer.exe`** **E** residir dentro de **`targets/district-187/client-rebirth/TheRawServer.exe`** — pois logo em seguida (`0x10034C13..0x10034CB2`), `GameServer.dll` concatena `\Game\GameClient.dll` ao diretório do executável e compara o CRC32 (`crcLog - client: %d, server: %d`) com o enviado pelo cliente; se `TheRawServer.exe` estiver em outro diretório (sem `\Game\GameClient.dll`), o servidor rejeita o cliente com **`The file is corrupted. ErrorCode : 02`**.
 
 ### 5.3 Como Compilar (MSVC 2019 x86)
 Execute [`targets/district-187/server_host/build_server_host.bat`](../targets/district-187/server_host/build_server_host.bat) para gerar `targets/district-187/server_host/TheRawServer.exe`:

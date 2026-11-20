@@ -10,7 +10,8 @@ echo [*] Compilando TheRawServer.exe (x86 — nome exigido por GameServer.dll @ 
 cl /nologo /EHsc /O2 /Fe:TheRawServer.exe d187_server_host.cpp /Fo:d187_server_host.obj
 if errorlevel 1 goto :build_fail
 del /q d187_server_host.obj 2>nul
-echo [+] TheRawServer.exe compilado com sucesso!
+copy /Y TheRawServer.exe ..\client-rebirth\TheRawServer.exe >nul
+echo [+] TheRawServer.exe compilado e copiado para client-rebirth\TheRawServer.exe!
 exit /b 0
 
 :no_vc

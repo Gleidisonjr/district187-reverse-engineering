@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <cwchar>
 #include <cstdarg>
+#include <intrin.h>
 #pragma comment(lib, "ws2_32.lib")
 
 // LithTech Jupiter EX ABI structures (verified empirically against Engine_Server.dll)
@@ -101,10 +102,139 @@ static void LogLine(const char* fmt, ...) {
     }
 }
 
-// ServerAppHandler callback interface (LithTech Jupiter EX)
+typedef LTRESULT (__cdecl* KickClientFn)(void* hClient);
+static HMODULE g_hGameServer = nullptr;
+static KickClientFn g_OrigKickClient = nullptr;
+
+// GameServer.dll RVA 0x5FA20 signature (verified at 0x100960AF..0x100960C5):
+// void __cdecl GameServerLog(void* pLogger, const char* fmt, ...)
+static void __cdecl HookedGameServerLog(void* pLogger, const char* fmt, ...) {
+    (void)pLogger;
+    if (!fmt || !fmt[0]) return;
+    char buf[1024];
+    va_list ap;
+    va_start(ap, fmt);
+    vsnprintf(buf, sizeof(buf), fmt, ap);
+    va_end(ap);
+
+    void** pRet = (void**)_AddressOfReturnAddress();
+    uintptr_t rva = (g_hGameServer && pRet) ? ((uintptr_t)pRet[0] - (uintptr_t)g_hGameServer) : 0;
+    if (rva == 0x960C0 && pRet) {
+        // Called from 0x10096060 (eClientConnectionState_Error): pRet[9] is caller retAddr, pRet[12] is reason string
+        uintptr_t callerRva = (uintptr_t)pRet[9] - (uintptr_t)g_hGameServer;
+        const char* reason = (const char*)pRet[12];
+        LogLine("[GameServer] %s (caller RVA=0x%X, reason='%s')\n",
+                buf, (unsigned)callerRva, (reason && !IsBadStringPtrA(reason, 256)) ? reason : "");
+    } else {
+        LogLine("[GameServer][RVA=0x%X] %s\n", (unsigned)rva, buf);
+    }
+}
+
+static LTRESULT __cdecl HookedKickClient(void* hClient) {
+    void* retAddr = _ReturnAddress();
+    uintptr_t rva = g_hGameServer ? ((uintptr_t)retAddr - (uintptr_t)g_hGameServer) : 0;
+    LogLine("[HOOK] ILTServer::KickClient(hClient=%p) called from abs=%p (GameServer RVA=0x%X)\n",
+            hClient, retAddr, (unsigned)rva);
+    return g_OrigKickClient ? g_OrigKickClient(hClient) : 0;
+}
+
+// Engine_Server.dll RVA 0x5DD7D: void __cdecl sm_WriteModelFiles(LTObject* pObj, CPacket_Write* pPacket)
+// Prologue is 9 bytes: 55 8B EC 81 EC 0C 01 00 00 (push ebp; mov ebp, esp; sub esp, 0x10c)
+typedef void (__cdecl* WriteModelFilesFn)(void* pObj, void* pPacket);
+static WriteModelFilesFn g_OrigWriteModelFiles = nullptr;
+static void* g_LastValidModel = nullptr;
+static uint8_t* g_WriteModelTrampoline = nullptr;
+
+static void __cdecl HookedWriteModelFiles(void* pObj, void* pPacket) {
+    if (pObj) {
+        uint16_t objId = *(uint16_t*)((uint8_t*)pObj + 0x66);
+        void** ppModel = (void**)((uint8_t*)pObj + 0x110);
+        if (*ppModel) {
+            const char* fname = *(const char**)(*ppModel);
+            g_LastValidModel = *ppModel;
+            LogLine("[ModelSync] objId=%u model='%s'\n", (unsigned)objId,
+                    (fname && !IsBadStringPtrA(fname, 256)) ? fname : "<bad>");
+        } else {
+            LogLine("[ModelSync][WARN] objId=%u has NULL m_pModel! fallback=%p\n",
+                    (unsigned)objId, g_LastValidModel);
+            if (g_LastValidModel) {
+                *ppModel = g_LastValidModel;
+                g_OrigWriteModelFiles(pObj, pPacket);
+                *ppModel = nullptr;
+                return;
+            }
+        }
+    }
+    g_OrigWriteModelFiles(pObj, pPacket);
+}
+
+static void InstallEngineHooks(HMODULE hEngine) {
+    if (!hEngine) return;
+    uint8_t* fn = (uint8_t*)hEngine + 0x5DD7D;
+    // Verify expected 9-byte prologue
+    static const uint8_t expected[9] = { 0x55, 0x8B, 0xEC, 0x81, 0xEC, 0x0C, 0x01, 0x00, 0x00 };
+    if (memcmp(fn, expected, 9) != 0) {
+        LogLine("[-] sm_WriteModelFiles prologue mismatch at %p\n", (void*)fn);
+        return;
+    }
+    g_WriteModelTrampoline = (uint8_t*)VirtualAlloc(nullptr, 32, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+    if (!g_WriteModelTrampoline) return;
+    memcpy(g_WriteModelTrampoline, fn, 9);
+    g_WriteModelTrampoline[9] = 0xE9;
+    int32_t backRel = (int32_t)((fn + 9) - (g_WriteModelTrampoline + 14));
+    memcpy(g_WriteModelTrampoline + 10, &backRel, 4);
+    g_OrigWriteModelFiles = (WriteModelFilesFn)g_WriteModelTrampoline;
+
+    DWORD oldProt = 0;
+    if (VirtualProtect(fn, 9, PAGE_EXECUTE_READWRITE, &oldProt)) {
+        fn[0] = 0xE9;
+        int32_t rel = (int32_t)((uint8_t*)&HookedWriteModelFiles - (fn + 5));
+        memcpy(fn + 1, &rel, 4);
+        memset(fn + 5, 0x90, 4);
+        VirtualProtect(fn, 9, oldProt, &oldProt);
+        FlushInstructionCache(GetCurrentProcess(), fn, 9);
+        LogLine("[+] Installed sm_WriteModelFiles hook at %p (RVA 0x5DD7D)\n", (void*)fn);
+    }
+}
+
+static void InstallGameServerLogHook(HMODULE hGS) {
+    if (!hGS) return;
+    g_hGameServer = hGS;
+    // GameServer.dll RVA 0x5FA20 is a stripped Release-build 1-byte `ret` with 15 bytes of 0xCC padding
+    uint8_t* fn = (uint8_t*)hGS + 0x5FA20;
+    if (fn[0] == 0xC3 && fn[1] == 0xCC) {
+        DWORD oldProt = 0;
+        if (VirtualProtect(fn, 5, PAGE_EXECUTE_READWRITE, &oldProt)) {
+            int32_t rel = (int32_t)((uint8_t*)&HookedGameServerLog - (fn + 5));
+            fn[0] = 0xE9;
+            memcpy(fn + 1, &rel, 4);
+            VirtualProtect(fn, 5, oldProt, &oldProt);
+            FlushInstructionCache(GetCurrentProcess(), fn, 5);
+            LogLine("[+] Installed GameServer.dll log hook at %p (RVA 0x5FA20)\n", (void*)fn);
+        }
+    }
+    // Hook g_pLTServer->KickClient (+0x54) via GameServer.dll's g_pLTServer global (RVA 0x1E5AA8)
+    uint8_t* pLTServer = *(uint8_t**)((uint8_t*)hGS + 0x1E5AA8);
+    if (pLTServer) {
+        KickClientFn* pSlot = (KickClientFn*)(pLTServer + 0x54);
+        g_OrigKickClient = *pSlot;
+        DWORD oldProt = 0;
+        if (VirtualProtect(pSlot, sizeof(void*), PAGE_READWRITE, &oldProt)) {
+            *pSlot = &HookedKickClient;
+            VirtualProtect(pSlot, sizeof(void*), oldProt, &oldProt);
+            LogLine("[+] Installed KickClient hook at %p (orig=%p)\n", (void*)pSlot, (void*)g_OrigKickClient);
+        }
+    }
+}
+
+// ServerAppHandler callback interface (LithTech Jupiter EX - no virtual destructor in slot 0!)
+// Verified against Engine_Server.dll dsi_ConsolePrint (0x10087502: call [vt+4]):
+//   [0] (+0x00) ShellMessageFn(void* pMsg)
+//   [1] (+0x04) ConsoleOutputFn(const char* pMsg)
+//   [2] (+0x08) OutOfMemory()
+//   [3] (+0x0C) ProcessPacket(void* pMsg, uint8_t senderAddr[4], uint16_t senderPort)
 class ServerAppHandler {
 public:
-    virtual ~ServerAppHandler() {}
     virtual LTRESULT ShellMessageFn(void* pMsg) {
         (void)pMsg;
         return 0;
@@ -227,25 +357,39 @@ int main(int argc, char** argv) {
     printf("[+] SetAppHandler -> %u\n", res);
     fflush(stdout);
 
-    // 1. Parse minimal command line (leave default +serverdll = GameServer.dll inside Game\)
-    const char* engineArgs[] = {
-        "D187_ServerHost.exe",
-        "-arch", "game"
-    };
-    bool okCmd = pServer->ParseCommandLine(3, engineArgs);
-    printf("[+] ParseCommandLine -> %s\n", okCmd ? "OK" : "FAIL");
-    fflush(stdout);
+    // Enable Engine_Server.dll NetDebugOut (+0x17EDF4 / +0x17EDF0) and CUDPDriver::Disconnect log (+0x17EDC8)
+    *(int32_t*)((uint8_t*)hEngine + 0x17EDF4) = 5;
+    *(int32_t*)((uint8_t*)hEngine + 0x17EDF0) = 1;
+    *(int32_t*)((uint8_t*)hEngine + 0x17EDC8) = 1;
+    InstallEngineHooks(hEngine);
 
-    // 2. Add resource paths
+    // 1. Parse minimal command line (leave default +serverdll = GameServer.dll inside Game\)
+    // Enable DebugLevel 6 so Engine_Server.dll logs sm_WriteModelFiles and world events to ConsoleOutputFn
+    const char* engineArgs[] = {
+        "TheRawServer.exe",
+        "-arch", "game",
+        "-archcfg", "Default.archcfg",
+        "+DebugLevel", "6"
+    };
+    bool okCmd = pServer->ParseCommandLine(7, engineArgs);
+    LogLine("[+] ParseCommandLine -> %s\n", okCmd ? "OK" : "FAIL");
+
+    // 2. Add resource paths (match Default.archcfg 1:1 with TheRaw.exe!)
     const char* resources[] = {
         "Game",
         "Game\\Game.Res00",
         "Game\\Update_1.Res00",
-        "Game\\Update_2.Res00"
+        "Game\\Update_2.Res00",
+        "Game\\HD1.Res00",
+        "Game\\HD2.Res00",
+        "Game\\HD3.Res00",
+        "Game\\HD4.Res00",
+        "Game\\HD5.Res00",
+        "Game\\HD6.Res00",
+        "Game\\CustomMod_PTBR.Res00"
     };
-    bool okRes = pServer->AddResources(resources, 4);
-    printf("[+] AddResources -> %s\n", okRes ? "OK" : "FAIL");
-    fflush(stdout);
+    bool okRes = pServer->AddResources(resources, 11);
+    LogLine("[+] AddResources (11 archives) -> %s\n", okRes ? "OK" : "FAIL");
 
     // 3. Init Networking (UDP) & HostGame BEFORE LoadBinaries!
     // (CGameServerShell::OnServerInitialized checks GetTcpIpAddress and internet driver m_Socket)
@@ -298,12 +442,13 @@ int main(int argc, char** argv) {
 
     // 6. Load GameServer.dll
     bool okBin = pServer->LoadBinaries();
-    printf("[+] LoadBinaries (GameServer.dll) -> %s (hMod=%p, status=0x%X)\n",
-           okBin ? "OK" : "FAIL", (void*)GetModuleHandleA("GameServer.dll"), g_GameOpts.status);
-    fflush(stdout);
+    HMODULE hGS = GetModuleHandleA("GameServer.dll");
+    LogLine("[+] LoadBinaries (GameServer.dll) -> %s (hMod=%p, status=0x%X)\n",
+           okBin ? "OK" : "FAIL", (void*)hGS, g_GameOpts.status);
+    InstallGameServerLogHook(hGS);
 
     if (!okBin) {
-        printf("[-] Skipping StartWorld because GameServer.dll did not load.\n");
+        LogLine("[-] Skipping StartWorld because GameServer.dll did not load.\n");
         pDeleteServer();
         FreeLibrary(hEngine);
         return 4;
@@ -314,9 +459,13 @@ int main(int argc, char** argv) {
     memset(&req, 0, sizeof(req));
     req.m_Type = 3; // STARTGAME_HOST
     strncpy(req.m_WorldName, worldName, sizeof(req.m_WorldName) - 1);
+    // Engine_Server.dll CLTServerInterface::StartWorld @ 0x10062259 calls
+    // CServerMgr::SetGameInfo(req->m_pGameInfo, req->m_GameInfoLen) (0x100689CF),
+    // which frees and clears the previous m_pGameInfo if these fields are NULL/0.
+    req.m_pGameInfo = &pOpts;
+    req.m_GameInfoLen = sizeof(pOpts);
     bool okWorld = pServer->StartWorld(&req);
-    printf("[+] StartWorld('%s') -> %s\n", worldName, okWorld ? "OK" : "FAIL");
-    fflush(stdout);
+    LogLine("[+] StartWorld('%s') -> %s\n", worldName, okWorld ? "OK" : "FAIL");
 
     // 7. Main server update loop
     LogLine("[*] Entering server tick loop (timeout=%ds)...\n", maxSeconds);

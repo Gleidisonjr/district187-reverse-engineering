@@ -60,3 +60,8 @@ sessions/agent-agy.md
 
 # craft-anything (clone externo, não versionar no repo principal)
 craft-anything/
+
+# Generated Mod Bundle Binaries (derived from proprietary game databases)
+targets/*/extracted/*.Gamdb00p
+targets/*/extracted/*.Strdb00p
+targets/*/extracted/mod_bundle_*/

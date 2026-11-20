@@ -113,6 +113,7 @@ PACKET_SN_CHANGE_LEADER = 0x220319    # CDispatch_NMatchup_NRoom_SN_ChangeLeader
 PACKET_SN_USER_STATE = 0x220401       # CDispatch_NMatchup_NUser_SN_State      -> 0x10138D50
 PACKET_CN_PLAY_READY_BUTTON = 0x222101 # ReadyBtnClick (non-leader) @ 0x1013B6E0
 PACKET_CN_PLAY_START_BUTTON = 0x222103 # ReadyBtnClick (leader F5 Basla) @ 0x1013B779
+PACKET_SN_BASE_ROOM_INFO = 0x222111   # CDispatch_NMatchup_NPlay_SN_BaseRoomInfo -> 0x10138BA0 -> ParseBaseRoomInfo@0x10070240
 PACKET_SN_BASE_USER_LIST = 0x222112   # CDispatch_NMatchup_NPlay_SN_BaseUserList -> 0x100CB7B0
 
 # Team indices written to SN_Info +0x6A/+0x6C/+0x6E (ParseRoomInfo 0x10072640 -> TeamMgr+0x30/+0x31/+0x32).
@@ -655,6 +656,24 @@ def build_equip_open_hermit(session_id: int, gold: int = 9999999, cash: int = 99
     payload = struct.pack("<HIIII", 0, 0, gold & 0xFFFFFFFF, cash & 0xFFFFFFFF, target_mode)
     return build_hermit_packet(PACKET_SA_EQUIP_OPEN, session_id, payload, key_byte)
 
+def build_base_room_info_hermit(session_id: int, room_id: int = 1, key_byte: int = 0x0F) -> bytes:
+    """
+    SN_BaseRoomInfo (0x222111, NPlay): handler 0x10138BA0 -> ParseBaseRoomInfo@0x10070240.
+    Must be sent AFTER SN_HostConnect so CMissionMgr ([0x10522218][+4]) is initialized.
+    Layout (27 bytes, all LE):
+      +0x00 uint32 room_id
+      +0x04 uint16 team_A_type (0) -> stored to CMissionInfo[0x30]
+      +0x06 uint16 team_B_type (1) -> stored to CMissionInfo[0x31]
+      +0x08 uint16 team_obs_type(2) -> stored to CMissionInfo[0x32]
+      +0x0a..+0x1a: remaining fields (zero = safe defaults)
+    """
+    payload = bytearray(27)
+    struct.pack_into("<I", payload, 0x00, room_id)
+    struct.pack_into("<H", payload, 0x04, 0)  # team A = 0
+    struct.pack_into("<H", payload, 0x06, 1)  # team B = 1
+    struct.pack_into("<H", payload, 0x08, 2)  # observer = 2
+    return build_hermit_packet(PACKET_SN_BASE_ROOM_INFO, session_id, bytes(payload), key_byte)
+
 def build_base_user_list_hermit(session_id: int, users: list, key_byte: int = 0x0F) -> bytes:
     """
     SN_BaseUserList (0x222112, NPlay — battle start, NOT the wait-room list): 0x100CB7B0.
@@ -964,10 +983,7 @@ class HermitClientSession:
             self.send_pkt(build_room_user_list_hermit(self.session_id, self.room_users, key_byte=self.key_byte))
             self.send_pkt(build_change_leader_hermit(self.session_id, 1, leader_state=1, key_byte=self.key_byte))
             print(f"[+] Dispatched SN_UserList (0x220233, '{nick}' Rank {rank} slot 0) + SN_ChangeLeader (0x220319, user 1)!")
-            # Auto-dispatch SN_HostConnect (0x420303) to connect directly to our native LithTech Dedicated Server (UDP 27888)!
-            hconn = build_host_connect_hermit(self.session_id, ip="127.0.0.1", port=27888, key_byte=self.key_byte)
-            self.send_pkt(hconn)
-            print(f"[+] Dispatched SA_CreateRoom (0x220202) + SN_Info (0x220203) + SN_HostConnect (0x420303 -> 127.0.0.1:27888)!")
+            print(f"[+] Wait room ready — aguardando F5 (CN_PlayStartButton 0x222103) do lider para iniciar batalha!")
 
         # 7b. CQ_EnterRoom (0x220231) -> SA_EnterRoom (0x220232) + SN_Info + SN_UserList + SN_ChangeLeader
         elif pkt_id == PACKET_CQ_ENTER_ROOM:
@@ -1059,13 +1075,19 @@ class HermitClientSession:
             print(f"[+] CN_PlayReadyButton (0x222101) -> Dispatched SN_UserState (0x220401, user=1 state={new_state})!")
 
         # 8. CN_PlayStartButton (0x222103, F5 Basla @ 0x1013B779) / CN_StartButton (0x220301) / CQ_StartGame (0x220314)
+        # Verified in GameClient.dll assembly:
+        #   - SN_BaseRoomInfo (0x222111 @ 0x10138BA0 -> 0x10070240) populates TeamMgr[+0x30/+0x31/+0x32] via RoomMgr.
+        #   - SN_BaseUserList (0x222112 @ 0x100CB7B0) populates BattleUserMgr ([0x10515708+0x84]) used in OnEnterWorld.
+        #   - SN_HostConnect  (0x420303 @ 0x10138EE0) reads TeamMgr[+0x30] at 0x10138FA1 and calls StartGameAsClient.
+        #   - SN_BattleStart  (0x420310 @ 0x10138B60) is a NO-OP (ret 4), kept for protocol completeness.
         elif pkt_id in (PACKET_CN_PLAY_START_BUTTON, PACKET_CN_START_BUTTON, PACKET_CQ_START_GAME):
-            print(f"[+] Start Game (0x{pkt_id:X}) received! Launching 3D Battle on {self.active_map} (127.0.0.1:27888)...")
-            hconn = build_host_connect_hermit(self.session_id, ip="127.0.0.1", port=27888, key_byte=self.key_byte)
-            self.send_pkt(hconn)
-            resp = build_battle_start_hermit(self.session_id, map_name=self.active_map, key_byte=self.key_byte)
-            self.send_pkt(resp)
-            print(f"[+] Dispatched SN_HostConnect (0x420303 -> 127.0.0.1:27888) + SN_BattleStart (0x420310)!")
+            print(f"[+] F5/StartButton (0x{pkt_id:X}) — disparando sequencia de batalha...")
+            users = self.room_users or []
+            self.send_pkt(build_base_room_info_hermit(self.session_id, room_id=1, key_byte=self.key_byte))
+            self.send_pkt(build_base_user_list_hermit(self.session_id, users, key_byte=self.key_byte))
+            self.send_pkt(build_host_connect_hermit(self.session_id, ip="127.0.0.1", port=27888, key_byte=self.key_byte))
+            self.send_pkt(build_battle_start_hermit(self.session_id, map_name=self.active_map, key_byte=self.key_byte))
+            print(f"[+] SN_BaseRoomInfo (0x222111) + SN_BaseUserList (0x222112, {len(users)}) + SN_HostConnect (0x420303) + SN_BattleStart (0x420310)!")
 
         # 8b. CQ_EquipOpen (0x240101, Inventory/Shop/LuckyShop @ 0x1011D610) -> SA_EquipOpen (0x240102 @ 0x10031770)
         elif pkt_id == PACKET_CQ_EQUIP_OPEN:

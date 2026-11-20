@@ -12,9 +12,9 @@
 - **Contexto:** `SN_HostConnect (0x420303)` está implementado e chama `CMissionMgr::StartGameAsClient("127.0.0.1:27888")`. Com o `LTGUID` oficial (`{DF560590-D918-4A51-9CB1-38EBBE3879AD}`), `TheRaw.exe` **já conectou via UDP real** (`server_host.log`: `Active UDP Clients: 0 -> 1` no tick 941), mas foi chutado no tick 943 com `not found file, TheRawServer_xxx.exe` porque `GameServer.dll @ 0x10034B92` faz `strstr(GetModuleFileNameA(NULL), "TheRawServer.exe")`. Recompilado como `TheRawServer.exe` (`a0be45c`). Aguardando validação em tela real do próximo passo pós-conexão UDP!
 - **Passos:**
   1. [x] Subir host nativo (UDP 27888) + mock server (TCP 12000) com `LTGUID` real
-  2. [x] Confirmar conexão UDP real (`Active UDP Clients: 1`) e resolver kick `TheRawServer.exe` (`0x10034B92`)
-  3. [ ] Validar teste ao vivo com `TheRawServer.exe` — verificar `server_host.log` e se entra na tela de loading / mapa 3D `Worlds\Arrival.World00p`
-  4. [ ] Se houver próximo check em `CGameServerShell::OnClientEnterWorld` / `CPlayerObj`, fazer RE em `GameServer.dll` / `TheRaw.exe` e documentar em `notes/`
+  2. [x] Confirmar conexão UDP real (`Active UDP Clients: 1`) e resolver kick `TheRawServer.exe` (`0x10034B92`) + CRC32 (`client-rebirth\TheRawServer.exe`)
+  3. [x] RE completo do fluxo pós-`SN_HostConnect` (`notes/d187-3d-world-entry-and-onenterworld-analysis.md`): corrigido bug `req.m_pGameInfo = &pOpts` em `StartWorld` (`d187_server_host.cpp`), recompilado `TheRawServer.exe` e ordenada sequência `SN_BaseRoomInfo` → `SN_BaseUserList` → `SN_HostConnect` em `CN_PlayStartButton`
+  4. [ ] Validar teste ao vivo com `TheRawServer.exe` recompilado — verificar `server_host.log` e entrada no mapa 3D `Worlds\Arrival.World00p`
 - **Arquivos relevantes:** `targets/district-187/server_host/d187_server_host.cpp`, `notes/d187-native-server-host-and-lobby-protocol-breakthroughs.md`
 - **REA necessário:** `GameServer.dll` / `TheRaw.exe` (somente se desconectar após `TheRawServer.exe`)
 

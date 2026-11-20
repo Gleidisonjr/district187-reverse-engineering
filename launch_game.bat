@@ -17,7 +17,7 @@ set __COMPAT_LAYER=RunAsInvoker
 
 :: 2. Check / Start Local Hermit Server (TCP 12000)
 echo [*] Verificando Servidor Hermit local na porta 12000...
-netstat -ano | findstr ":12000" >nul
+netstat -ano | findstr ":12000" | findstr "LISTENING" >nul
 if %errorlevel% neq 0 (
     echo [*] Subindo Servidor Hermit em segundo plano...
     start "D187 Hermit Server" /min python -u "%~dp0scripts\d187-mock-server.py"
@@ -27,9 +27,9 @@ if %errorlevel% neq 0 (
 )
 
 :: 2.5 Check / Start Native LithTech Dedicated Server Host (UDP 27888)
-:: Note: executable MUST be named TheRawServer.exe (GameServer.dll @ 0x10034B92 checks strstr(GetModuleFileNameA, "TheRawServer.exe"))
-set "SERVER_HOST_EXE=%~dp0targets\district-187\server_host\TheRawServer.exe"
+:: Note: executable MUST be named TheRawServer.exe AND live inside client-rebirth\ (GameServer.dll @ 0x10034B92..0x10034C2C hashes <exeDir>\Game\GameClient.dll)
 set "CLIENT_DIR=%~dp0targets\district-187\client-rebirth"
+set "SERVER_HOST_EXE=%CLIENT_DIR%\TheRawServer.exe"
 tasklist /FI "IMAGENAME eq TheRawServer.exe" /NH | findstr /I "TheRawServer.exe" >nul
 if %errorlevel% neq 0 (
     if exist "%SERVER_HOST_EXE%" (

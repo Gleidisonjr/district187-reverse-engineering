@@ -180,13 +180,13 @@ def run_smoke_test(host="127.0.0.1", port=12000):
     assert 0x220112 in ch_ops, f"Expected SA_EnterUser 0x220112 in {ch_ops}"
     print(f"  [<-] Received SA_EnterUser (0x220112) & SN_RoomList (0x220204) -> ChangeScene(2) into CLobbyScene!")
 
-    # 5. Create Room -> SA_Create + SN_Info + SN_UserList + SN_ChangeLeader + SN_HostConnect
+    # 5. Create Room -> SA_Create + SN_Info + SN_UserList + SN_ChangeLeader (wait room ready for F5)
     create_room = build_pkt(0x220201, session_id, b"Arrival 8v8\x00".ljust(32, b"\x00"))
     sock.sendall(create_room)
     print("  [->] Sent CQ_CreateRoom (0x220201)")
-    room_pkts = dict(recv_packets(sock, min_count=5, timeout=3.0))
+    room_pkts = dict(recv_packets(sock, min_count=4, timeout=3.0))
     for op, name in [(0x220202, "SA_Create"), (0x220203, "SN_Info"), (0x220233, "SN_UserList"),
-                     (0x220319, "SN_ChangeLeader"), (0x420303, "SN_HostConnect")]:
+                     (0x220319, "SN_ChangeLeader")]:
         assert op in room_pkts, f"Missing {name} (0x{op:X}) in {[hex(o) for o in room_pkts]}"
         print(f"  [<-] Received {name} (0x{op:X})")
 
@@ -233,14 +233,18 @@ def run_smoke_test(host="127.0.0.1", port=12000):
     assert 0x240104 in recv_opcodes(sock, min_count=1), "Missing SA_EquipClose (0x240104)"
     print(f"  [OK] CQ_EquipOpen/Close (0x240101..0x240104) verified -> mode={eq_mode} (Shop), gold={eq_gold}, cash={eq_cash}!")
 
-    # 6. Start Match via authentic Leader F5 Basla opcode (CN_PlayStartButton 0x222103 @ 0x1013B779) -> SN_HostConnect + SN_BattleStart
+    # 6. Start Match via authentic Leader F5 Basla opcode (CN_PlayStartButton 0x222103 @ 0x1013B779)
+    #    -> SN_BaseRoomInfo (0x222111) + SN_BaseUserList (0x222112) + SN_HostConnect (0x420303) + SN_BattleStart (0x420310)
     start_btn = build_pkt(0x222103, session_id, struct.pack("<IB", 1, 0))
     sock.sendall(start_btn)
     print("  [->] Sent CN_PlayStartButton (0x222103, authentic Leader F5 Basla @ 0x1013B779)")
-    battle_ops = recv_opcodes(sock, min_count=2)
-    assert 0x420303 in battle_ops, f"Expected SN_HostConnect 0x420303 in {battle_ops}"
-    assert 0x420310 in battle_ops, f"Expected SN_BattleStart 0x420310 in {battle_ops}"
-    print(f"  [<-] Received SN_HostConnect (0x420303) + SN_BattleStart (0x420310) -> UDP 127.0.0.1:27888!")
+    battle_ops = recv_opcodes(sock, min_count=4)
+    for op, name in [(0x222111, "SN_BaseRoomInfo"), (0x222112, "SN_BaseUserList"),
+                     (0x420303, "SN_HostConnect"), (0x420310, "SN_BattleStart")]:
+        assert op in battle_ops, f"Expected {name} 0x{op:X} in {[hex(o) for o in battle_ops]}"
+    assert battle_ops.index(0x222111) < battle_ops.index(0x420303), "SN_BaseRoomInfo must precede SN_HostConnect"
+    assert battle_ops.index(0x222112) < battle_ops.index(0x420303), "SN_BaseUserList must precede SN_HostConnect"
+    print(f"  [<-] Received SN_BaseRoomInfo (0x222111) + SN_BaseUserList (0x222112) + SN_HostConnect (0x420303) + SN_BattleStart (0x420310) -> UDP 127.0.0.1:27888!")
 
     # 6b. Exit Room (CQ_LeaveRoom 0x220234 @ 0x1013B670) -> SA_LeaveUser (0x220235) + SN_LeaveUser (0x220236) + SN_RoomList (0x220204)
     sock.sendall(build_pkt(0x220234, session_id, b""))
