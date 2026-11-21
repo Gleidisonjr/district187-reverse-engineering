@@ -683,9 +683,12 @@ def build_base_user_list_hermit(session_id: int, users: list, key_byte: int = 0x
     """
     payload = bytearray(2)
     payload[1] = len(users) & 0xFF
-    for u in users:
+    for idx, u in enumerate(users):
         entry = bytearray(270)
-        struct.pack_into("<HH", entry, 0, u["user_id"], u.get("team", ROOM_TEAM_A))
+        # Local player (idx 0) MUST have user_id=0 to match [HUD::CUserInfo+0xC]=0 and Engine_Server ClientID 0
+        # so HUD::CUserInfo::GetMyInfo() (0x1018E180) returns non-NULL and unlocks CGameClientShell::Render()!
+        base_uid = 0 if idx == 0 else idx
+        struct.pack_into("<HH", entry, 0, base_uid, u.get("team", ROOM_TEAM_A))
         nick = u["nickname"].encode("ascii", "ignore")[:24]
         entry[4:4 + len(nick)] = nick
         payload += entry

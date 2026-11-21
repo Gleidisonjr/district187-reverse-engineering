@@ -454,7 +454,32 @@ int main(int argc, char** argv) {
         return 4;
     }
 
-    // 6. StartWorld
+    // 6a. Configure GameServer.dll standalone mode + m_sCurLevel (without .World00p extension,
+    //     matching GameClient.dll @ 0x10406070 _splitpath comparison -> fixes "Missing LoadingImage String")
+    if (hGS) {
+        typedef void* (__cdecl* GetNetMgrFn)();
+        GetNetMgrFn pGetNetMgr = (GetNetMgrFn)((uint8_t*)hGS + 0x334D0);
+        uint8_t* pNetMgr = (uint8_t*)pGetNetMgr();
+        if (pNetMgr) {
+            pNetMgr[0x6C] = 1; // GameServerNetMgr::m_bStandalone = 1 (allows CPlayerObj::Respawn without RoomServer)
+            LogLine("[+] GameServerNetMgr::m_bStandalone = 1 (pNetMgr=%p)\n", (void*)pNetMgr);
+        }
+
+        char curLevelNoExt[128] = {0};
+        strncpy(curLevelNoExt, worldName, sizeof(curLevelNoExt) - 1);
+        char* dot = strrchr(curLevelNoExt, '.');
+        if (dot && _stricmp(dot, ".World00p") == 0) *dot = '\0';
+
+        void* pGSShell = *(void**)((uint8_t*)hGS + 0x1E57AC);
+        if (pGSShell) {
+            typedef void (__thiscall* SetCurLevelFn)(void*, const char*);
+            SetCurLevelFn pSetCurLevel = (SetCurLevelFn)((uint8_t*)hGS + 0x55D80);
+            pSetCurLevel(pGSShell, curLevelNoExt);
+            LogLine("[+] CGameServerShell::SetCurLevel('%s') -> OK\n", curLevelNoExt);
+        }
+    }
+
+    // 6b. StartWorld
     StartGameRequest req;
     memset(&req, 0, sizeof(req));
     req.m_Type = 3; // STARTGAME_HOST
@@ -465,7 +490,18 @@ int main(int argc, char** argv) {
     req.m_pGameInfo = &pOpts;
     req.m_GameInfoLen = sizeof(pOpts);
     bool okWorld = pServer->StartWorld(&req);
-    LogLine("[+] StartWorld('%s') -> %s\n", worldName, okWorld ? "OK" : "FAIL");
+    LogLine("[+] StartWorld('%s') -> OK? %s\n", worldName, okWorld ? "OK" : "FAIL");
+
+    // 6c. Advance CServerMissionMgr state to 1 (Playing) so CPlayerObj::Respawn triggers on MID 0x69
+    if (okWorld && hGS) {
+        void* pMissionMgr = *(void**)((uint8_t*)hGS + 0x1F1D80);
+        if (pMissionMgr) {
+            typedef void (__thiscall* SetMissionStateFn)(void*, uint32_t, uint8_t);
+            SetMissionStateFn pSetMissionState = (SetMissionStateFn)((uint8_t*)hGS + 0xDEAA0);
+            pSetMissionState(pMissionMgr, 1, 1);
+            LogLine("[+] CServerMissionMgr::SetMissionState(1, true) -> OK (pMissionMgr=%p)\n", pMissionMgr);
+        }
+    }
 
     // 7. Main server update loop
     LogLine("[*] Entering server tick loop (timeout=%ds)...\n", maxSeconds);
