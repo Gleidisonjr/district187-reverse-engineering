@@ -618,25 +618,32 @@ int main(int argc, char** argv) {
                     void* pModelsDB = *(void**)((uint8_t*)hGS + 0x1F2A18);
                     void* pWeaponDB = *(void**)((uint8_t*)hGS + 0x1F2E78);
 
-                    // 1. Ensure valid m_hModel (+0x100) -> fixes HP=0 (ResetHealth / MID 0x66) & standing camera/dims
+                    // 1. Ensure valid operator m_hModel (+0x100) (skip 'default.Model00p' at idx=0!)
+                    //    -> fixes HP=100, real character skeleton, standing camera height & PlayerDims!
                     if (pModelsDB && *(void**)(pPlr + 0x100) == nullptr) {
-                        typedef uint32_t (__thiscall* GetNumModelsFn)(void*);
-                        typedef void*    (__thiscall* GetModelFn)(void*, uint32_t);
-                        typedef float    (__thiscall* GetModelHPFn)(void*, void*);
-                        typedef void     (__thiscall* SetModelFn)(void*, void*);
+                        typedef uint32_t    (__thiscall* GetNumModelsFn)(void*);
+                        typedef void*       (__thiscall* GetModelFn)(void*, uint32_t);
+                        typedef float       (__thiscall* GetModelHPFn)(void*, void*);
+                        typedef const char* (__thiscall* GetModelFileFn)(void*, void*);
+                        typedef void        (__thiscall* SetModelFn)(void*, void*);
 
                         auto pGetNumModels = (GetNumModelsFn)((uint8_t*)hGS + 0x10B9D0);
                         auto pGetModel     = (GetModelFn)((uint8_t*)hGS + 0x10B9F0);
                         auto pGetModelHP   = (GetModelHPFn)((uint8_t*)hGS + 0x10BF70);
+                        auto pGetModelFile = (GetModelFileFn)((uint8_t*)hGS + 0x10C1E0);
                         auto pSetModel     = (SetModelFn)((uint8_t*)hGS + 0x176B0);
 
                         uint32_t nModels = pGetNumModels(pModelsDB);
                         for (uint32_t i = 0; i < nModels; ++i) {
                             void* hMdl = pGetModel(pModelsDB, i);
-                            if (hMdl && pGetModelHP(pModelsDB, hMdl) >= 50.0f) {
+                            if (!hMdl) continue;
+                            float hp = pGetModelHP(pModelsDB, hMdl);
+                            const char* mfile = pGetModelFile(pModelsDB, hMdl);
+                            if (hp >= 50.0f && mfile && mfile[0] &&
+                                strstr(mfile, "default") == nullptr && strstr(mfile, "Default") == nullptr) {
                                 pSetModel(pPlr, hMdl);
-                                LogLine("[+] Assigned fallback m_hModel=%p (idx=%u, HP=%.1f)\n",
-                                        hMdl, i, pGetModelHP(pModelsDB, hMdl));
+                                LogLine("[+] Assigned operator m_hModel=%p (idx=%u, HP=%.1f, file='%s')\n",
+                                        hMdl, i, hp, mfile);
                                 break;
                             }
                         }
