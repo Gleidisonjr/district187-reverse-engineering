@@ -522,14 +522,15 @@ int main(int argc, char** argv) {
     bool okWorld = pServer->StartWorld(&req);
     LogLine("[+] StartWorld('%s') -> OK? %s\n", worldName, okWorld ? "OK" : "FAIL");
 
-    // 6c. Advance CServerMissionMgr state to 3 (PLAYING / Active Match — 1=Waiting, 2=PreRound, 3=Playing)
+    // 6c. Start in CServerMissionMgr state 1 (Waiting) so 0-client boot is stable;
+    //     we advance to state 3 (PLAYING) once the first player enters & respawns.
     if (okWorld && hGS) {
         void* pMissionMgr = *(void**)((uint8_t*)hGS + 0x1F1D80);
         if (pMissionMgr) {
             typedef void (__thiscall* SetMissionStateFn)(void*, uint32_t, uint8_t);
             SetMissionStateFn pSetMissionState = (SetMissionStateFn)((uint8_t*)hGS + 0xDEAA0);
-            pSetMissionState(pMissionMgr, 3, 1);
-            LogLine("[+] CServerMissionMgr::SetMissionState(3 [PLAYING], true) -> OK (pMissionMgr=%p)\n", pMissionMgr);
+            pSetMissionState(pMissionMgr, 1, 1);
+            LogLine("[+] CServerMissionMgr::SetMissionState(1 [WAITING], true) -> OK (pMissionMgr=%p)\n", pMissionMgr);
         }
     }
 
