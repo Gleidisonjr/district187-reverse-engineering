@@ -106,6 +106,24 @@ typedef LTRESULT (__cdecl* KickClientFn)(void* hClient);
 static HMODULE g_hGameServer = nullptr;
 static KickClientFn g_OrigKickClient = nullptr;
 
+// Hook CGameServerShell::OnClientEnterWorld (vtable slot 5, RVA 0x53490) to capture CPlayerObj*
+// and set m_bClientLoaded (+0x934) = 1 & m_bReadyToRespawn (+0x935) = 1 so CPlayerObj::Update
+// natively invokes CPlayerObj::Respawn() (Teleport + HP=100 + AddDefaultWeapons + MID 0x67 PS_ALIVE).
+typedef void* (__thiscall* OnClientEnterWorldFn)(void* pShell, void* hClient);
+static OnClientEnterWorldFn g_OrigOnClientEnterWorld = nullptr;
+static void* g_LastPlayerObj = nullptr;
+static int g_RespawnDelayTicks = -1;
+
+static void* __fastcall HookedOnClientEnterWorld(void* pShell, void* /*edx*/, void* hClient) {
+    void* pPlayer = g_OrigOnClientEnterWorld ? g_OrigOnClientEnterWorld(pShell, hClient) : nullptr;
+    LogLine("[HOOK] OnClientEnterWorld(hClient=%p) -> CPlayerObj=%p\n", hClient, pPlayer);
+    if (pPlayer) {
+        g_LastPlayerObj = pPlayer;
+        g_RespawnDelayTicks = 90; // ~1.5s after world entry so client finishes InWorld handshake
+    }
+    return pPlayer;
+}
+
 // GameServer.dll RVA 0x5FA20 signature (verified at 0x100960AF..0x100960C5):
 // void __cdecl GameServerLog(void* pLogger, const char* fmt, ...)
 static void __cdecl HookedGameServerLog(void* pLogger, const char* fmt, ...) {
@@ -476,6 +494,18 @@ int main(int argc, char** argv) {
             SetCurLevelFn pSetCurLevel = (SetCurLevelFn)((uint8_t*)hGS + 0x55D80);
             pSetCurLevel(pGSShell, curLevelNoExt);
             LogLine("[+] CGameServerShell::SetCurLevel('%s') -> OK\n", curLevelNoExt);
+
+            // Hook CGameServerShell::OnClientEnterWorld (vtable slot 5) to trigger native CPlayerObj::Respawn()
+            void** vtbl = *(void***)pGSShell;
+            if (vtbl) {
+                DWORD oldProt = 0;
+                if (VirtualProtect(&vtbl[5], sizeof(void*), PAGE_READWRITE, &oldProt)) {
+                    g_OrigOnClientEnterWorld = (OnClientEnterWorldFn)vtbl[5];
+                    vtbl[5] = (void*)&HookedOnClientEnterWorld;
+                    VirtualProtect(&vtbl[5], sizeof(void*), oldProt, &oldProt);
+                    LogLine("[+] Installed OnClientEnterWorld hook (slot 5, orig=%p)\n", (void*)g_OrigOnClientEnterWorld);
+                }
+            }
         }
     }
 
@@ -513,7 +543,20 @@ int main(int argc, char** argv) {
         int curClients = pServer->GetNumClients();
         if (curClients != lastClients) {
             LogLine("[*] Active UDP Clients: %d (tick=%d)\n", curClients, ticks);
+            if (curClients == 0) {
+                g_LastPlayerObj = nullptr;
+                g_RespawnDelayTicks = -1;
+            }
             lastClients = curClients;
+        }
+        if (g_LastPlayerObj && g_RespawnDelayTicks > 0) {
+            g_RespawnDelayTicks--;
+            if (g_RespawnDelayTicks == 0) {
+                uint8_t* pPlr = (uint8_t*)g_LastPlayerObj;
+                pPlr[0x934] = 1; // m_bClientLoaded = true
+                pPlr[0x935] = 1; // m_bReadyToRespawn = true -> triggers CPlayerObj::Respawn() in Update()!
+                LogLine("[+] Triggered native CPlayerObj::Respawn() on %p (+0x934=1, +0x935=1)\n", g_LastPlayerObj);
+            }
         }
         ticks++;
         Sleep(16); // ~60Hz
