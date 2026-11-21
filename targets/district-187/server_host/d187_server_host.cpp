@@ -16,6 +16,10 @@
 // LithTech Jupiter EX ABI structures (verified empirically against Engine_Server.dll)
 #define SI_VERSION 2
 
+// Game mode enum (verified from SN_Info 0x220203 jump table at 0x101394D8 in GameClient.dll)
+// Payload[6] (+0x16): 2=TDM, 3=Demolition(Bomb), 6=Practice(Elimination)
+enum GameMode { MODE_TDM = 2, MODE_BOMB = 3, MODE_ELIMINATION = 6 };
+
 struct LTGUID {
     uint32_t a;
     uint16_t b;
@@ -320,17 +324,68 @@ static BOOL WINAPI ConsoleCtrlHandler(DWORD ctrlType) {
 }
 
 int main(int argc, char** argv) {
-    const char* worldName = "Worlds\\Arrival.World00p";
-    uint16_t port = 27888;
-    int maxSeconds = 0; // 0 = run until Ctrl+C
+    // --- CLI argument defaults ---
+    const char* mapName    = "Arrival";      // --map <mapname>  (stem only, no path/ext)
+    uint16_t    port       = 27888;          // --port <port>
+    uint32_t    maxPlayers = 16;             // --maxplayers <N>
+    GameMode    gameMode   = MODE_TDM;       // --mode tdm|bomb|elimination
+    int         maxSeconds = 0;             // --timeout <s> (0 = run until Ctrl+C)
+    // Legacy --world <full path> still accepted for backward compatibility
+    const char* worldOverride = nullptr;
 
     for (int i = 1; i < argc; ++i) {
-        if (strcmp(argv[i], "--world") == 0 && i + 1 < argc) {
-            worldName = argv[++i];
+        if (strcmp(argv[i], "--map") == 0 && i + 1 < argc) {
+            mapName = argv[++i];
+        } else if (strcmp(argv[i], "--world") == 0 && i + 1 < argc) {
+            worldOverride = argv[++i]; // backward-compat: full path override
         } else if (strcmp(argv[i], "--port") == 0 && i + 1 < argc) {
             port = (uint16_t)atoi(argv[++i]);
+        } else if (strcmp(argv[i], "--maxplayers") == 0 && i + 1 < argc) {
+            uint32_t n = (uint32_t)atoi(argv[++i]);
+            if (n >= 2 && n <= 32) maxPlayers = n;
+        } else if (strcmp(argv[i], "--mode") == 0 && i + 1 < argc) {
+            const char* m = argv[++i];
+            if (_stricmp(m, "bomb") == 0 || _stricmp(m, "demolition") == 0)
+                gameMode = MODE_BOMB;
+            else if (_stricmp(m, "elimination") == 0 || _stricmp(m, "practice") == 0)
+                gameMode = MODE_ELIMINATION;
+            else
+                gameMode = MODE_TDM; // default for unrecognised values
         } else if (strcmp(argv[i], "--timeout") == 0 && i + 1 < argc) {
             maxSeconds = atoi(argv[++i]);
+        }
+    }
+
+    // Build the world path: Worlds\<mapName>.World00p
+    char worldBuf[256];
+    if (worldOverride) {
+        strncpy(worldBuf, worldOverride, sizeof(worldBuf) - 1);
+        worldBuf[sizeof(worldBuf) - 1] = '\0';
+    } else {
+        snprintf(worldBuf, sizeof(worldBuf), "Worlds\\%s.World00p", mapName);
+    }
+    const char* worldName = worldBuf;
+
+    // --- Map file existence check (relative to executable directory) ---
+    {
+        // Resolve exe dir so the check works regardless of cwd
+        char exePath[MAX_PATH] = {0};
+        GetModuleFileNameA(nullptr, exePath, MAX_PATH);
+        char* lastSlash = strrchr(exePath, '\\');
+        if (lastSlash) *(lastSlash + 1) = '\0'; else exePath[0] = '\0';
+
+        char fullWorldPath[MAX_PATH];
+        char gameWorldPath[MAX_PATH];
+        snprintf(fullWorldPath, sizeof(fullWorldPath), "%s%s", exePath, worldName);
+        snprintf(gameWorldPath, sizeof(gameWorldPath), "%sGame\\%s", exePath, worldName);
+
+        DWORD attr = GetFileAttributesA(fullWorldPath);
+        DWORD attrGame = GetFileAttributesA(gameWorldPath);
+        if (attr == INVALID_FILE_ATTRIBUTES && attrGame == INVALID_FILE_ATTRIBUTES) {
+            fprintf(stderr, "[-] Map file not found: %s (or %s)\n", fullWorldPath, gameWorldPath);
+            fprintf(stderr, "    Available maps live in <client-rebirth>\\Game\\Worlds\\\n");
+            fprintf(stderr, "    Pass --map <stem> e.g. --map twoway\n");
+            return 10;
         }
     }
 
@@ -339,7 +394,8 @@ int main(int argc, char** argv) {
 
     LogLine("=====================================================================\n");
     LogLine("  District 187: Sin Streets - Native LithTech Dedicated Server Host\n");
-    LogLine("  Target World: %s | UDP Port: %u\n", worldName, (unsigned)port);
+    LogLine("  World: %s | Port: %u | MaxPlayers: %u | Mode: %d\n",
+            worldName, (unsigned)port, (unsigned)maxPlayers, (int)gameMode);
     LogLine("=====================================================================\n");
 
     HMODULE hEngine = LoadLibraryA("Engine_Server.dll");
@@ -436,7 +492,7 @@ int main(int argc, char** argv) {
     memset(&hostInfo, 0, sizeof(hostInfo));
     hostInfo.m_Port = port;
     wcsncpy(hostInfo.m_sBindAddr, L"0.0.0.0", 0x21);
-    hostInfo.m_dwMaxConnections = 16;
+    hostInfo.m_dwMaxConnections = maxPlayers;
     wcsncpy(hostInfo.m_sName, L"District 187 Local Dedicated", 0xFFF);
     bool okHost = pServer->HostGame(&hostInfo);
     printf("[+] HostGame(port=%u) -> %s (WSAGetLastError=%d)\n",
@@ -453,6 +509,9 @@ int main(int argc, char** argv) {
     static ServerGameOptions g_GameOpts;
     memset(&g_GameOpts, 0, sizeof(g_GameOpts));
     for (int i = 0; i < 6; ++i) g_GameOpts.s[i].res = 15;
+    // Store game mode in fieldA8 (+0xA8): matches SN_Info payload[6] mode byte
+    // (2=TDM, 3=Demolition/Bomb, 6=Practice/Elimination)
+    g_GameOpts.fieldA8 = (uint32_t)gameMode;
     ServerGameOptions* pOpts = &g_GameOpts;
     bool okInfo = pServer->SetGameInfo(&pOpts, sizeof(pOpts));
     printf("[+] SetGameInfo(&pOpts) -> %s\n", okInfo ? "OK" : "FAIL");
@@ -553,18 +612,87 @@ int main(int argc, char** argv) {
         if (g_LastPlayerObj && g_RespawnDelayTicks > 0) {
             g_RespawnDelayTicks--;
             if (g_RespawnDelayTicks == 0) {
+                uint8_t* pPlr = (uint8_t*)g_LastPlayerObj;
                 if (hGS) {
+                    void* pLTDB     = *(void**)((uint8_t*)hGS + 0x1F2A00);
+                    void* pModelsDB = *(void**)((uint8_t*)hGS + 0x1F2A18);
+                    void* pWeaponDB = *(void**)((uint8_t*)hGS + 0x1F2E78);
+
+                    // 1. Ensure valid m_hModel (+0x100) -> fixes HP=0 (ResetHealth / MID 0x66) & standing camera/dims
+                    if (pModelsDB && *(void**)(pPlr + 0x100) == nullptr) {
+                        typedef uint32_t (__thiscall* GetNumModelsFn)(void*);
+                        typedef void*    (__thiscall* GetModelFn)(void*, uint32_t);
+                        typedef float    (__thiscall* GetModelHPFn)(void*, void*);
+                        typedef void     (__thiscall* SetModelFn)(void*, void*);
+
+                        auto pGetNumModels = (GetNumModelsFn)((uint8_t*)hGS + 0x10B9D0);
+                        auto pGetModel     = (GetModelFn)((uint8_t*)hGS + 0x10B9F0);
+                        auto pGetModelHP   = (GetModelHPFn)((uint8_t*)hGS + 0x10BF70);
+                        auto pSetModel     = (SetModelFn)((uint8_t*)hGS + 0x176B0);
+
+                        uint32_t nModels = pGetNumModels(pModelsDB);
+                        for (uint32_t i = 0; i < nModels; ++i) {
+                            void* hMdl = pGetModel(pModelsDB, i);
+                            if (hMdl && pGetModelHP(pModelsDB, hMdl) >= 50.0f) {
+                                pSetModel(pPlr, hMdl);
+                                LogLine("[+] Assigned fallback m_hModel=%p (idx=%u, HP=%.1f)\n",
+                                        hMdl, i, pGetModelHP(pModelsDB, hMdl));
+                                break;
+                            }
+                        }
+                    }
+
+                    // 2. Populate pClientData + 0x80..0x8C (slots 0..3) -> equips Primary/Secondary/Melee/Grenade in AddDefaultWeapons
+                    void* hClient = *(void**)(pPlr + 0x7D8);
+                    if (hClient && pLTDB && pWeaponDB) {
+                        typedef void* (__cdecl* GetClientDataMgrFn)();
+                        typedef void* (__thiscall* GetClientDataFn)(void*, void*);
+                        auto pCDM = ((GetClientDataMgrFn)((uint8_t*)hGS + 0x33470))();
+                        uint8_t* pCD = pCDM ? (uint8_t*)((GetClientDataFn)((uint8_t*)hGS + 0x95D90))(pCDM, hClient) : nullptr;
+                        if (pCD) {
+                            void** pSlots = (void**)(pCD + 0x80);
+                            if (!pSlots[0] && !pSlots[1] && !pSlots[2]) {
+                                void* hWeaponsCat = *(void**)((uint8_t*)pWeaponDB + 0x24);
+                                void** dbVtbl = *(void***)pLTDB;
+                                typedef uint32_t (__thiscall* GetNumRecsFn)(void*, void*);
+                                typedef void*    (__thiscall* GetRecByIdxFn)(void*, void*, uint32_t);
+                                typedef uint32_t (__thiscall* GetWpnSlotFn)(void*, void*);
+                                typedef void*    (__thiscall* GetWpnDataFn)(void*, void*, uint8_t);
+
+                                auto pGetNumRecs = (GetNumRecsFn)dbVtbl[0x3C / 4];
+                                auto pGetRecIdx  = (GetRecByIdxFn)dbVtbl[0x40 / 4];
+                                auto pGetWpnSlot = (GetWpnSlotFn)((uint8_t*)hGS + 0x11F020);
+                                auto pGetWpnData = (GetWpnDataFn)((uint8_t*)hGS + 0x118BA0);
+
+                                uint32_t nWpns = pGetNumRecs(pLTDB, hWeaponsCat);
+                                for (uint32_t i = 0; i < nWpns; ++i) {
+                                    void* hWpn = pGetRecIdx(pLTDB, hWeaponsCat, i);
+                                    if (!hWpn || !pGetWpnData(pWeaponDB, hWpn, 0)) continue;
+                                    uint32_t slot = pGetWpnSlot(pWeaponDB, hWpn);
+                                    if (slot < 4 && pSlots[slot] == nullptr) {
+                                        pSlots[slot] = hWpn;
+                                    }
+                                    if (pSlots[0] && pSlots[1] && pSlots[2] && pSlots[3]) break;
+                                }
+                                LogLine("[+] Populated fallback loadout slots: [0]=%p [1]=%p [2]=%p [3]=%p\n",
+                                        pSlots[0], pSlots[1], pSlots[2], pSlots[3]);
+                            }
+                        }
+                    }
+
+                    // 3. Advance mission to state 4 (IN_PLAY) -> hides "Connected. Starting game." and unlocks WASD/fire!
                     void* pMissionMgr = *(void**)((uint8_t*)hGS + 0x1F1D80);
                     if (pMissionMgr) {
                         typedef void (__thiscall* SetMissionStateFn)(void*, uint32_t, uint8_t);
-                        SetMissionStateFn pSetMissionState = (SetMissionStateFn)((uint8_t*)hGS + 0xDEAA0);
-                        pSetMissionState(pMissionMgr, 3, 1);
+                        auto pSetMissionState = (SetMissionStateFn)((uint8_t*)hGS + 0xDEAA0);
+                        pSetMissionState(pMissionMgr, 4, 1);
                     }
                 }
-                uint8_t* pPlr = (uint8_t*)g_LastPlayerObj;
+
+                // 4. Trigger native CPlayerObj::Respawn() (ResetHealth + AddDefaultWeapons + MID 0x67 + Teleport)
                 pPlr[0x934] = 1; // m_bClientLoaded = true
-                pPlr[0x935] = 1; // m_bReadyToRespawn = true -> triggers CPlayerObj::Respawn() in Update()!
-                LogLine("[+] Triggered SetMissionState(3) + native CPlayerObj::Respawn() on %p (+0x934=1, +0x935=1)\n", g_LastPlayerObj);
+                pPlr[0x935] = 1; // m_bReadyToRespawn = true
+                LogLine("[+] Triggered SetMissionState(4 [IN_PLAY]) + native CPlayerObj::Respawn() on %p\n", g_LastPlayerObj);
             }
         }
         ticks++;
