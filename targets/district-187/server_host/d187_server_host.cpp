@@ -522,14 +522,14 @@ int main(int argc, char** argv) {
     bool okWorld = pServer->StartWorld(&req);
     LogLine("[+] StartWorld('%s') -> OK? %s\n", worldName, okWorld ? "OK" : "FAIL");
 
-    // 6c. Advance CServerMissionMgr state to 1 (Playing) so CPlayerObj::Respawn triggers on MID 0x69
+    // 6c. Advance CServerMissionMgr state to 3 (PLAYING / Active Match — 1=Waiting, 2=PreRound, 3=Playing)
     if (okWorld && hGS) {
         void* pMissionMgr = *(void**)((uint8_t*)hGS + 0x1F1D80);
         if (pMissionMgr) {
             typedef void (__thiscall* SetMissionStateFn)(void*, uint32_t, uint8_t);
             SetMissionStateFn pSetMissionState = (SetMissionStateFn)((uint8_t*)hGS + 0xDEAA0);
-            pSetMissionState(pMissionMgr, 1, 1);
-            LogLine("[+] CServerMissionMgr::SetMissionState(1, true) -> OK (pMissionMgr=%p)\n", pMissionMgr);
+            pSetMissionState(pMissionMgr, 3, 1);
+            LogLine("[+] CServerMissionMgr::SetMissionState(3 [PLAYING], true) -> OK (pMissionMgr=%p)\n", pMissionMgr);
         }
     }
 
@@ -552,10 +552,18 @@ int main(int argc, char** argv) {
         if (g_LastPlayerObj && g_RespawnDelayTicks > 0) {
             g_RespawnDelayTicks--;
             if (g_RespawnDelayTicks == 0) {
+                if (hGS) {
+                    void* pMissionMgr = *(void**)((uint8_t*)hGS + 0x1F1D80);
+                    if (pMissionMgr) {
+                        typedef void (__thiscall* SetMissionStateFn)(void*, uint32_t, uint8_t);
+                        SetMissionStateFn pSetMissionState = (SetMissionStateFn)((uint8_t*)hGS + 0xDEAA0);
+                        pSetMissionState(pMissionMgr, 3, 1);
+                    }
+                }
                 uint8_t* pPlr = (uint8_t*)g_LastPlayerObj;
                 pPlr[0x934] = 1; // m_bClientLoaded = true
                 pPlr[0x935] = 1; // m_bReadyToRespawn = true -> triggers CPlayerObj::Respawn() in Update()!
-                LogLine("[+] Triggered native CPlayerObj::Respawn() on %p (+0x934=1, +0x935=1)\n", g_LastPlayerObj);
+                LogLine("[+] Triggered SetMissionState(3) + native CPlayerObj::Respawn() on %p (+0x934=1, +0x935=1)\n", g_LastPlayerObj);
             }
         }
         ticks++;
