@@ -499,7 +499,7 @@ int main(int argc, char** argv) {
             void** vtbl = *(void***)pGSShell;
             if (vtbl) {
                 DWORD oldProt = 0;
-                if (VirtualProtect(&vtbl[5], sizeof(void*), PAGE_READWRITE, &oldProt)) {
+                if (VirtualProtect(&vtbl[5], sizeof(void*), PAGE_EXECUTE_READWRITE, &oldProt)) {
                     g_OrigOnClientEnterWorld = (OnClientEnterWorldFn)vtbl[5];
                     vtbl[5] = (void*)&HookedOnClientEnterWorld;
                     VirtualProtect(&vtbl[5], sizeof(void*), oldProt, &oldProt);
