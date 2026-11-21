@@ -7,6 +7,7 @@ District 187: Sin Streets — Lobby Extensions:
 """
 
 import os
+import json
 import sqlite3
 import struct
 import sys
@@ -15,6 +16,19 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(BASE_DIR, "targets", "district-187", "data", "s2rebirth.db")
+
+# IPC file read by d187_dedicated_gateway.py to pick up /bots N changes in-session.
+# Writing this file is atomic enough for a single-machine local dev environment.
+BOTS_IPC_PATH = os.path.join(BASE_DIR, "targets", "district-187", "data", "bots_ipc.json")
+
+
+def _write_bots_ipc(bot_count: int, map_name: str = "twoway", difficulty: str = "adaptive"):
+    """Writes bots_ipc.json so the running UDP gateway picks up the new bot count."""
+    try:
+        with open(BOTS_IPC_PATH, "w", encoding="utf-8") as f:
+            json.dump({"bot_count": bot_count, "map_name": map_name, "difficulty": difficulty}, f)
+    except Exception as e:
+        print(f"[IPC] Failed to write {BOTS_IPC_PATH}: {e}")
 
 AVAILABLE_MAPS = {
     "arrival": "Arrival.World00p",
@@ -142,6 +156,9 @@ class LobbyExtensionService:
             key = args[0].lower() if args else "twoway"
             resolved = AVAILABLE_MAPS.get(key, f"Worlds\\{key}.World00p")
             self.active_map = resolved
+            # Propagate map change to the UDP gateway via IPC
+            map_key = key  # e.g. "twoway", "arrival"
+            _write_bots_ipc(self.bot_count, map_key, self.bot_difficulty)
             return {
                 "is_command": True,
                 "sender": "[SISTEMA D187]",
@@ -154,6 +171,12 @@ class LobbyExtensionService:
             diff = args[1].lower() if len(args) > 1 else "adaptive"
             self.bot_count = max(1, min(16, cnt))
             self.bot_difficulty = diff
+            # Propagate bot count + difficulty to the UDP gateway via IPC file
+            map_key = next(
+                (k for k, v in AVAILABLE_MAPS.items() if v == self.active_map),
+                "twoway",
+            )
+            _write_bots_ipc(self.bot_count, map_key, self.bot_difficulty)
             return {
                 "is_command": True,
                 "sender": "[SISTEMA D187]",

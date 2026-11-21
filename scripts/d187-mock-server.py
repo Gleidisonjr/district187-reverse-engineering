@@ -138,6 +138,17 @@ PACKET_SA_BUY_ITEM = 0x240202         # CDispatch_TCP_SA_BuyItem               -
 PACKET_CQ_BUY_CASH_ITEM = 0x240203
 PACKET_SA_BUY_CASH_ITEM = 0x240204    # CDispatch_TCP_SA_BuyCashItem           -> 0x10149290
 
+# NBattle/NGame Family
+PACKET_SN_KILL = 0x230124           # CDispatch_NBattle_NGame_SN_Kill @ 0x100CA700
+PACKET_SN_REVIVE = 0x230104         # CDispatch_NBattle_NGame_SN_Revive @ 0x100CB960
+
+# NMatchup/NResult Family
+PACKET_SN_USER_SCORE = 0x222214     # CDispatch_NMatchup_NResult_SN_UserScore @ 0x100CABA0
+PACKET_SN_GAME_FINAL_RESULT = 0x222221  # CDispatch_NMatchup_NResult_SN_GameFinalResult @ 0x100314B0
+
+# NMatchup/NUser progression
+PACKET_SN_USER_LEVEL_UP = 0x220411  # CDispatch_TCP_Result_SN_UserLevelUp @ 0x1011AE80
+
 # NHosting / NBattle Family
 PACKET_SN_HOST_CONNECT = 0x420303
 PACKET_SN_BATTLE_START = 0x420310
@@ -280,6 +291,356 @@ def build_hermit_packet(packet_id: int, session_id: int, payload: bytes, key_byt
     header = struct.pack('>HHII', flags & 0xFFFF, total_len, session_id, packet_id)
     plain = b'\x00\x00\x00\x00' + header + payload
     return encrypt_hermit_packet(plain, key_byte)
+
+def ensure_users_table_and_seed(db_path: str):
+    """
+    Creates the `users` table in s2rebirth.db if it doesn't exist
+    (build_s2rebirth_dataset.py only creates weapons/items/ranks/maps/shop_items).
+    Seeds a default admin user if the table is empty.
+    Also creates `user_inventory` and `match_results` tables for progression.
+    """
+    import sqlite3
+    if not os.path.exists(db_path):
+        return
+    try:
+        conn = sqlite3.connect(db_path)
+        c = conn.cursor()
+        c.execute("""
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT UNIQUE NOT NULL,
+                password_hash TEXT DEFAULT '',
+                nickname TEXT DEFAULT 'Player',
+                rank_level INTEGER DEFAULT 1,
+                exp INTEGER DEFAULT 0,
+                gold INTEGER DEFAULT 100000,
+                cash INTEGER DEFAULT 50000,
+                kills INTEGER DEFAULT 0,
+                deaths INTEGER DEFAULT 0,
+                headshots INTEGER DEFAULT 0,
+                wins INTEGER DEFAULT 0,
+                losses INTEGER DEFAULT 0
+            )
+        """)
+        c.execute("""
+            CREATE TABLE IF NOT EXISTS user_inventory (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                item_group_id INTEGER NOT NULL,
+                slot_index INTEGER DEFAULT -1,
+                acquired_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (user_id) REFERENCES users(id)
+            )
+        """)
+        c.execute("""
+            CREATE TABLE IF NOT EXISTS match_results (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                match_id INTEGER DEFAULT 0,
+                kills INTEGER DEFAULT 0,
+                deaths INTEGER DEFAULT 0,
+                headshots INTEGER DEFAULT 0,
+                xp_gained INTEGER DEFAULT 0,
+                gold_gained INTEGER DEFAULT 0,
+                result TEXT DEFAULT 'loss',
+                map_name TEXT DEFAULT '',
+                played_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (user_id) REFERENCES users(id)
+            )
+        """)
+        # Seed default user if empty
+        c.execute("SELECT COUNT(1) FROM users")
+        if c.fetchone()[0] == 0:
+            c.execute("""
+                INSERT INTO users (username, nickname, rank_level, exp, gold, cash, kills, deaths, headshots, wins, losses)
+                VALUES ('gleidison', 'Gleidison', 58, 50000000, 9999999, 9999999, 2450, 180, 1620, 310, 15)
+            """)
+            # Seed user_id=1 with default weapons (top 8 by damage)
+            c.execute("SELECT group_id FROM weapons ORDER BY damage DESC LIMIT 8")
+            weapon_ids = [row[0] for row in c.fetchall()]
+            for idx, gid in enumerate(weapon_ids):
+                c.execute("INSERT INTO user_inventory (user_id, item_group_id, slot_index) VALUES (1, ?, ?)", (gid, idx))
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print(f"[!] DB Init Error (ensure_users_table_and_seed): {e}")
+
+
+def get_rank_for_exp(db_path: str, exp: int) -> int:
+    """
+    Returns the rank level for a given XP value by consulting the `ranks` table.
+    Falls back to level 1 if no data found.
+    """
+    import sqlite3
+    try:
+        conn = sqlite3.connect(db_path)
+        c = conn.cursor()
+        c.execute("SELECT level FROM ranks WHERE min_xp <= ? ORDER BY min_xp DESC LIMIT 1", (exp,))
+        row = c.fetchone()
+        conn.close()
+        if row:
+            return int(row[0])
+    except Exception:
+        pass
+    return 1
+
+
+def update_user_stats_after_kill(db_path: str, user_id: int, is_headshot: bool = False, weapon_damage: int = 30) -> dict:
+    """
+    After an in-game kill: adds +1 kill (and +1 headshot if applicable), awards XP,
+    recalculates rank from the `ranks` table, and updates the `users` row.
+    Returns updated user dict with 'rank_changed' flag.
+    """
+    import sqlite3
+    xp_per_kill = max(10, weapon_damage // 2)
+    if is_headshot:
+        xp_per_kill = int(xp_per_kill * 1.5)
+    try:
+        conn = sqlite3.connect(db_path)
+        c = conn.cursor()
+        headshot_inc = 1 if is_headshot else 0
+        c.execute("""
+            UPDATE users SET
+                kills = kills + 1,
+                headshots = headshots + ?,
+                exp = exp + ?
+            WHERE id = ?
+        """, (headshot_inc, xp_per_kill, user_id))
+        conn.commit()
+        c.execute("SELECT rank_level, exp FROM users WHERE id = ?", (user_id,))
+        row = c.fetchone()
+        old_rank = row[0]
+        new_exp = row[1]
+        new_rank = get_rank_for_exp(db_path, new_exp)
+        rank_changed = new_rank != old_rank
+        if rank_changed:
+            c.execute("UPDATE users SET rank_level = ? WHERE id = ?", (new_rank, user_id))
+            conn.commit()
+        conn.close()
+        return {"rank_level": new_rank, "exp": new_exp, "rank_changed": rank_changed, "xp_gained": xp_per_kill}
+    except Exception as e:
+        print(f"[!] update_user_stats_after_kill error: {e}")
+        return {"rank_level": 1, "exp": 0, "rank_changed": False, "xp_gained": xp_per_kill}
+
+
+def update_user_stats_after_death(db_path: str, user_id: int) -> None:
+    """Increments death counter for a user."""
+    import sqlite3
+    try:
+        conn = sqlite3.connect(db_path)
+        c = conn.cursor()
+        c.execute("UPDATE users SET deaths = deaths + 1 WHERE id = ?", (user_id,))
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print(f"[!] update_user_stats_after_death error: {e}")
+
+
+def update_user_match_result(db_path: str, user_id: int, won: bool, kills: int, deaths: int, headshots: int, map_name: str = "") -> dict:
+    """
+    Records match result, updates wins/losses, awards XP/gold bonus for win.
+    Returns the XP and gold gained.
+    """
+    import sqlite3
+    xp_bonus = 500 if won else 100
+    gold_bonus = 2500 if won else 500
+    result_str = "win" if won else "loss"
+    try:
+        conn = sqlite3.connect(db_path)
+        c = conn.cursor()
+        if won:
+            c.execute("UPDATE users SET wins = wins + 1, exp = exp + ?, gold = gold + ? WHERE id = ?",
+                      (xp_bonus, gold_bonus, user_id))
+        else:
+            c.execute("UPDATE users SET losses = losses + 1, exp = exp + ?, gold = gold + ? WHERE id = ?",
+                      (xp_bonus, gold_bonus, user_id))
+        c.execute("""
+            INSERT INTO match_results (user_id, kills, deaths, headshots, xp_gained, gold_gained, result, map_name)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """, (user_id, kills, deaths, headshots, xp_bonus, gold_bonus, result_str, map_name))
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print(f"[!] update_user_match_result error: {e}")
+    return {"xp_gained": xp_bonus, "gold_gained": gold_bonus}
+
+
+def process_buy_item(db_path: str, user_id: int, item_group_id: int, use_cash: bool = False) -> dict:
+    """
+    Handles item purchase:
+    - Looks up item price in shop_items table.
+    - Deducts gold or cash from user.
+    - Adds item to user_inventory.
+    Returns dict with success, remaining_gold, remaining_cash, error_code.
+    """
+    import sqlite3
+    try:
+        conn = sqlite3.connect(db_path)
+        c = conn.cursor()
+        # Get item price
+        if use_cash:
+            c.execute("SELECT price FROM shop_items WHERE group_id = ? AND is_cash = 1 LIMIT 1", (item_group_id,))
+        else:
+            c.execute("SELECT price FROM shop_items WHERE group_id = ? LIMIT 1", (item_group_id,))
+        price_row = c.fetchone()
+        price = price_row[0] if price_row else 0
+        # Get user balance
+        c.execute("SELECT gold, cash FROM users WHERE id = ?", (user_id,))
+        bal = c.fetchone()
+        if not bal:
+            conn.close()
+            return {"success": False, "error_code": 1, "remaining_gold": 0, "remaining_cash": 0}
+        gold, cash = bal
+        if use_cash:
+            if cash < price:
+                conn.close()
+                return {"success": False, "error_code": 2, "remaining_gold": gold, "remaining_cash": cash}
+            c.execute("UPDATE users SET cash = cash - ? WHERE id = ?", (price, user_id))
+        else:
+            if gold < price:
+                conn.close()
+                return {"success": False, "error_code": 3, "remaining_gold": gold, "remaining_cash": cash}
+            c.execute("UPDATE users SET gold = gold - ? WHERE id = ?", (price, user_id))
+        # Add to inventory (avoid duplicates)
+        c.execute("INSERT OR IGNORE INTO user_inventory (user_id, item_group_id) VALUES (?, ?)", (user_id, item_group_id))
+        conn.commit()
+        c.execute("SELECT gold, cash FROM users WHERE id = ?", (user_id,))
+        new_bal = c.fetchone()
+        conn.close()
+        return {"success": True, "error_code": 0, "remaining_gold": new_bal[0], "remaining_cash": new_bal[1]}
+    except Exception as e:
+        print(f"[!] process_buy_item error: {e}")
+        return {"success": False, "error_code": 99, "remaining_gold": 0, "remaining_cash": 0}
+
+
+def build_shop_item_list_hermit(session_id: int, user_id: int = 1, key_byte: int = 0x0F) -> bytes:
+    """
+    Extended SN_ItemList (0x210111) for shop mode — returns ALL items in user_inventory.
+    Same wire format as build_item_list_hermit() but pulls from user_inventory table.
+    Capped at 8 items per packet (TheRaw.exe recv buffer limit: 0x400 bytes).
+    """
+    import sqlite3
+    gids = []
+    if os.path.exists(DB_PATH):
+        try:
+            conn = sqlite3.connect(DB_PATH)
+            c = conn.cursor()
+            c.execute("""
+                SELECT ui.item_group_id, ui.slot_index
+                FROM user_inventory ui
+                WHERE ui.user_id = ?
+                ORDER BY ui.slot_index ASC, ui.id ASC
+                LIMIT 8
+            """, (user_id,))
+            gids = [(int(row[0]), int(row[1])) for row in c.fetchall()]
+            conn.close()
+        except Exception:
+            pass
+
+    if not gids:
+        # Fallback: load top 8 weapons by damage
+        if os.path.exists(DB_PATH):
+            try:
+                conn = sqlite3.connect(DB_PATH)
+                c = conn.cursor()
+                c.execute("SELECT group_id FROM weapons ORDER BY damage DESC LIMIT 8")
+                gids = [(int(row[0]), -1) for row in c.fetchall()]
+                conn.close()
+            except Exception:
+                pass
+    if not gids:
+        gids = [(1110001, -1), (1120001, -1), (1130001, 0), (1140001, 1)]
+
+    count = min(len(gids), 8)
+    payload = bytearray(struct.pack("<BB", 0, count))
+    for idx, (gid, slot) in enumerate(gids[:count], start=1):
+        payload += struct.pack("<QBIIIHI", idx, 1, 100, 0, 0, 1, gid)
+    return build_hermit_packet(PACKET_SN_ITEM_LIST, session_id, bytes(payload), key_byte)
+
+
+def build_user_score_hermit(session_id: int, user_data: dict, key_byte: int = 0x0F) -> bytes:
+    """
+    SN_UserScore (0x222214): Handler at 0x100CABA0 (CDispatch_NMatchup_NResult_SN_UserScore).
+    Sent after each round/match to update the in-game scoreboard.
+    Layout (inferred from handler VA 0x100CABA0 and SN_Record similarities):
+      +0x00 (4B): uint32 user_id
+      +0x04 (4B): uint32 kills
+      +0x08 (4B): uint32 deaths
+      +0x0C (4B): uint32 headshots
+      +0x10 (4B): uint32 xp_gained (this round)
+      +0x14 (4B): uint32 total_exp
+      +0x18 (4B): uint32 rank_level
+      +0x1C (4B): uint32 gold_gained
+      +0x20 (4B): uint32 total_gold
+      +0x24 (4B): uint32 assists (0)
+      +0x28 (28B pad): zeros
+    Total payload: 56 bytes
+    """
+    kills = user_data.get("kills", 0)
+    deaths = user_data.get("deaths", 0)
+    headshots = user_data.get("headshots", 0)
+    xp_gained = user_data.get("xp_gained", 100)
+    total_exp = user_data.get("exp", 0)
+    rank_level = user_data.get("rank", 1)
+    gold_gained = user_data.get("gold_gained", 500)
+    total_gold = user_data.get("gold", 100000)
+    user_id = user_data.get("id", 1)
+    payload = bytearray(56)
+    struct.pack_into("<IIIIIIIIII", payload, 0,
+                     user_id, kills, deaths, headshots,
+                     xp_gained, total_exp, rank_level,
+                     gold_gained, total_gold, 0)
+    return build_hermit_packet(0x222214, session_id, bytes(payload), key_byte)
+
+
+def build_user_level_up_hermit(session_id: int, user_data: dict, key_byte: int = 0x0F) -> bytes:
+    """
+    SN_UserLevelUp (0x220411): Handler at 0x1011AE80 (CDispatch_TCP_Result_SN_UserLevelUp).
+    Triggers the rank-up animation/notification in the game UI.
+    Layout (inferred from handler VA):
+      +0x00 (4B): uint32 user_id
+      +0x04 (4B): uint32 new_rank_level
+      +0x08 (4B): uint32 total_exp
+      +0x0C (8B pad): zeros
+    Total payload: 20 bytes
+    """
+    user_id = user_data.get("id", 1)
+    new_rank = user_data.get("rank", 1)
+    total_exp = user_data.get("exp", 0)
+    payload = bytearray(20)
+    struct.pack_into("<III", payload, 0, user_id, new_rank, total_exp)
+    return build_hermit_packet(0x220411, session_id, bytes(payload), key_byte)
+
+
+def build_game_final_result_hermit(session_id: int, user_data: dict, winner_team: int = 0, key_byte: int = 0x0F) -> bytes:
+    """
+    SN_GameFinalResult (0x222221): Handler at 0x100314B0 (CDispatch_NMatchup_NResult_SN_GameFinalResult).
+    Triggers end-of-match results screen.
+    Layout (inferred from handler at 0x100314B0):
+      +0x00 (4B): uint32 winner_team (0=SWAT/CT, 1=Gang/T)
+      +0x04 (4B): uint32 swat_score (rounds won)
+      +0x08 (4B): uint32 gang_score
+      +0x0C (4B): uint32 total_rounds
+      +0x10 (4B): uint32 xp_gained
+      +0x14 (4B): uint32 gold_gained
+      +0x18 (4B): uint32 rank_level (new rank after match)
+      +0x1C (4B): uint32 total_exp
+      +0x20 (4B): uint32 total_gold
+      +0x24 (28B pad): zeros
+    Total payload: 64 bytes
+    """
+    xp_gained = user_data.get("xp_gained", 500)
+    gold_gained = user_data.get("gold_gained", 2500)
+    rank_level = user_data.get("rank", 1)
+    total_exp = user_data.get("exp", 0)
+    total_gold = user_data.get("gold", 100000)
+    payload = bytearray(64)
+    struct.pack_into("<IIIIIIIII", payload, 0,
+                     winner_team, 3, 1, 4,
+                     xp_gained, gold_gained, rank_level,
+                     total_exp, total_gold)
+    return build_hermit_packet(0x222221, session_id, bytes(payload), key_byte)
+
 
 def get_user_data_from_db(username_hint: str = "gleidison") -> dict:
     """Queries user profile and stats from SQLite database."""
@@ -730,6 +1091,11 @@ class HermitClientSession:
         self.server_port = server_port
         self.send_seq = 0
         self.room_users = []
+        # Per-match kill/death/headshot counters for progression
+        self.match_kills = 0
+        self.match_deaths = 0
+        self.match_headshots = 0
+        self.match_map = active_map
         self.user_data = get_user_data_from_db("gleidison")
         self.lobby_ext = None
         try:
@@ -1020,6 +1386,30 @@ class HermitClientSession:
         # 7d. CQ_LeaveRoom (0x220234, Exit Room button @ 0x1013B670) -> SA_LeaveUser (0x220235 -> ChangeScene(2)) + SN_RoomList
         elif pkt_id == PACKET_CQ_LEAVE_ROOM:
             print(f"[+] CQ_LeaveRoom (0x220234) received! Returning player to Lobby (Scene[2])...")
+            # If the player had a match in progress, record final result before leaving
+            if self.match_kills > 0 or self.match_deaths > 0:
+                user_id = int(self.user_data.get("id", 1)) if self.user_data else 1
+                won = self.match_kills >= self.match_deaths
+                match_bonus = update_user_match_result(
+                    DB_PATH, user_id, won=won,
+                    kills=self.match_kills, deaths=self.match_deaths,
+                    headshots=self.match_headshots, map_name=self.match_map
+                )
+                if self.user_data:
+                    self.user_data["gold"] = self.user_data.get("gold", 0) + match_bonus["gold_gained"]
+                    self.user_data["exp"] = self.user_data.get("exp", 0) + match_bonus["xp_gained"]
+                    new_rank = get_rank_for_exp(DB_PATH, self.user_data["exp"])
+                    self.user_data["rank"] = new_rank
+                score_data = {**self.user_data, "xp_gained": match_bonus["xp_gained"],
+                              "gold_gained": match_bonus["gold_gained"]}
+                self.send_pkt(build_user_score_hermit(self.session_id, score_data, key_byte=self.key_byte))
+                self.send_pkt(build_game_final_result_hermit(self.session_id, score_data,
+                                                              winner_team=(0 if won else 1), key_byte=self.key_byte))
+                print(f"[+] Match ended: K={self.match_kills} D={self.match_deaths} HS={self.match_headshots} "
+                      f"result={'WIN' if won else 'LOSS'} xp+{match_bonus['xp_gained']} gold+{match_bonus['gold_gained']}")
+                self.match_kills = 0
+                self.match_deaths = 0
+                self.match_headshots = 0
             self.send_pkt(build_hermit_packet(PACKET_SA_LEAVE_ROOM, self.session_id, struct.pack("<HI", 0, 0), self.key_byte))
             self.send_pkt(build_hermit_packet(PACKET_SN_LEAVE_ROOM, self.session_id, struct.pack("<H", 1), self.key_byte))
             self.send_pkt(build_room_list_hermit(self.session_id, key_byte=self.key_byte))
@@ -1081,25 +1471,48 @@ class HermitClientSession:
         # Verified in GameClient.dll assembly:
         #   - SN_BaseRoomInfo (0x222111 @ 0x10138BA0 -> 0x10070240) populates TeamMgr[+0x30/+0x31/+0x32] via RoomMgr.
         #   - SN_BaseUserList (0x222112 @ 0x100CB7B0) populates BattleUserMgr ([0x10515708+0x84]) used in OnEnterWorld.
+        #     CRITICAL: local player entry MUST have uid=0 (matches m_nLocalUserID) and nickname MUST match SN_UserInfo
+        #     exactly, so HUD::CUserInfo::GetMyInfo() (0x1018E180) returns non-NULL and unlocks Render/InGameLoad.
         #   - SN_HostConnect  (0x420303 @ 0x10138EE0) reads TeamMgr[+0x30] at 0x10138FA1 and calls StartGameAsClient.
         #   - SN_BattleStart  (0x420310 @ 0x10138B60) is a NO-OP (ret 4), kept for protocol completeness.
         elif pkt_id in (PACKET_CN_PLAY_START_BUTTON, PACKET_CN_START_BUTTON, PACKET_CQ_START_GAME):
             print(f"[+] F5/StartButton (0x{pkt_id:X}) — disparando sequencia de batalha...")
-            users = self.room_users or []
+            # Reset per-match progression counters for kills/deaths/headshots tracking
+            self.match_kills = 0
+            self.match_deaths = 0
+            self.match_headshots = 0
+            self.match_map = self.active_map
+            # Guarantee local player entry is always present in SN_BaseUserList even if room was not explicitly created.
+            # Nickname MUST match the authenticated SN_UserInfo nickname to satisfy HUD::CUserInfo::GetMyInfo() (0x1018E180).
+            nick = self.user_data.get("nickname", "Gleidison") if self.user_data else "Gleidison"
+            rank = int(self.user_data.get("rank", 58)) if self.user_data else 58
+            if not self.room_users:
+                self.room_users = [{"user_id": 1, "nickname": nick, "rank": rank, "team": ROOM_TEAM_A, "state": 1}]
+            # Ensure slot 0 always carries the authenticated nickname (guard against stale bot nickname in slot 0)
+            self.room_users[0]["nickname"] = nick
+            users = self.room_users
             self.send_pkt(build_base_room_info_hermit(self.session_id, room_id=1, key_byte=self.key_byte))
             self.send_pkt(build_base_user_list_hermit(self.session_id, users, key_byte=self.key_byte))
             self.send_pkt(build_host_connect_hermit(self.session_id, ip="127.0.0.1", port=27888, key_byte=self.key_byte))
             self.send_pkt(build_battle_start_hermit(self.session_id, map_name=self.active_map, key_byte=self.key_byte))
-            print(f"[+] SN_BaseRoomInfo (0x222111) + SN_BaseUserList (0x222112, {len(users)}) + SN_HostConnect (0x420303) + SN_BattleStart (0x420310)!")
+            print(f"[+] SN_BaseRoomInfo (0x222111) + SN_BaseUserList (0x222112, {len(users)} users, local='{nick}' uid=0) + SN_HostConnect (0x420303) + SN_BattleStart (0x420310)!")
 
         # 8b. CQ_EquipOpen (0x240101, Inventory/Shop/LuckyShop @ 0x1011D610) -> SA_EquipOpen (0x240102 @ 0x10031770)
         elif pkt_id == PACKET_CQ_EQUIP_OPEN:
             req_mode = struct.unpack_from("<I", plain_packet, 16)[0] if len(plain_packet) >= 20 else 1
+            # Reload user data from DB to get fresh gold/cash
+            if self.user_data:
+                self.user_data = get_user_data_from_db(self.user_data.get("username", "gleidison"))
             gold = int(self.user_data.get("gold", 9999999)) if self.user_data else 9999999
             cash = int(self.user_data.get("cash", 999999)) if self.user_data else 999999
             resp = build_equip_open_hermit(self.session_id, gold=gold, cash=cash, target_mode=req_mode, key_byte=self.key_byte)
             self.send_pkt(resp)
             print(f"[+] CQ_EquipOpen (0x240101, mode={req_mode}) -> Dispatched SA_EquipOpen (0x240102, gold={gold}, cash={cash})!")
+            # After SA_EquipOpen, re-send the user's item list so the shop/inventory UI populates
+            user_id = int(self.user_data.get("id", 1)) if self.user_data else 1
+            ilist = build_shop_item_list_hermit(self.session_id, user_id=user_id, key_byte=self.key_byte)
+            self.send_pkt(ilist)
+            print(f"[+] -> Also dispatched SN_ItemList (0x210111) for shop/inventory mode={req_mode} (user_id={user_id})!")
 
         # 8c. CQ_EquipClose (0x240103) -> SA_EquipClose (0x240104 @ 0x10031890 -> ChangeScene(3) or ChangeScene(2))
         elif pkt_id == PACKET_CQ_EQUIP_CLOSE:
@@ -1123,12 +1536,32 @@ class HermitClientSession:
 
         # 8f. CQ_BuyItem (0x240201) / CQ_BuyCashItem (0x240203) -> SA_BuyItem (0x240202) / SA_BuyCashItem (0x240204)
         elif pkt_id in (PACKET_CQ_BUY_ITEM, PACKET_CQ_BUY_CASH_ITEM):
-            gold = int(self.user_data.get("gold", 9999999)) if self.user_data else 9999999
-            cash = int(self.user_data.get("cash", 999999)) if self.user_data else 999999
+            use_cash = (pkt_id == PACKET_CQ_BUY_CASH_ITEM)
             resp_op = PACKET_SA_BUY_ITEM if pkt_id == PACKET_CQ_BUY_ITEM else PACKET_SA_BUY_CASH_ITEM
-            payload = struct.pack("<HIIIIB", 0, 0, gold, cash, 0, 0)
+            # Extract item_group_id from payload (offset 16, uint32 LE)
+            item_group_id = struct.unpack_from("<I", plain_packet, 16)[0] if len(plain_packet) >= 20 else 0
+            user_id = int(self.user_data.get("id", 1)) if self.user_data else 1
+            # Process the purchase in the DB
+            purchase_result = process_buy_item(DB_PATH, user_id, item_group_id, use_cash=use_cash)
+            gold = purchase_result["remaining_gold"]
+            cash = purchase_result["remaining_cash"]
+            error_code = purchase_result["error_code"]
+            # Update cached user data
+            if self.user_data:
+                self.user_data["gold"] = gold
+                self.user_data["cash"] = cash
+            # SA_Buy / SA_CashBuy layout (from CDispatch_TCP_SA_BuyItem @ 0x10148DF0):
+            # +0x00 uint16 origin, +0x02 uint32 error_code, +0x06 uint32 gold, +0x0A uint32 cash,
+            # +0x0E uint32 item_uid (UID of purchased item), +0x12 uint8 pad
+            payload = struct.pack("<HIIIIB", 0, error_code, gold, cash, item_group_id, 0)
             self.send_pkt(build_hermit_packet(resp_op, self.session_id, payload, self.key_byte))
-            print(f"[+] Buy Item (0x{pkt_id:X}) -> Dispatched 0x{resp_op:X} (gold={gold}, cash={cash})!")
+            print(f"[+] Buy Item (0x{pkt_id:X}, group_id={item_group_id}) -> 0x{resp_op:X} "
+                  f"(err={error_code}, gold={gold}, cash={cash})!")
+            if purchase_result["success"]:
+                # Re-send updated item list so inventory UI reflects the new purchase
+                ilist = build_shop_item_list_hermit(self.session_id, user_id=user_id, key_byte=self.key_byte)
+                self.send_pkt(ilist)
+                print(f"[+] -> Purchase OK (item {item_group_id} added to inventory). Re-sent SN_ItemList!")
 
         # 9. CQ_Chat (0x210151) -> Slash Command Processor (/map, /bots, /give, /mmr, /loadout, /clan) + SN_Chat (0x210152)
         elif pkt_id == PACKET_CQ_CHAT:
@@ -1170,6 +1603,71 @@ class HermitClientSession:
             resp = build_hermit_packet(PACKET_SN_CHAT, self.session_id, chat_payload, self.key_byte)
             self.send_pkt(resp)
             print(f"[+] Processed CQ_Chat ('{raw_msg}') -> Dispatched SN_Chat (0x210152)!")
+
+        # 9b. NBattle_NGame_SN_Kill (0x230124) — in-game kill notification from battle server / UDP gateway
+        # Handler: CDispatch_NBattle_NGame_SN_Kill @ 0x100CA700
+        # Layout (inferred): +0x00 uint16 killer_user_id, +0x02 uint16 victim_user_id,
+        #                    +0x04 uint32 weapon_group_id, +0x08 uint8 is_headshot
+        elif pkt_id == 0x230124:
+            killer_uid = struct.unpack_from("<H", plain_packet, 16)[0] if len(plain_packet) >= 18 else 1
+            victim_uid = struct.unpack_from("<H", plain_packet, 18)[0] if len(plain_packet) >= 20 else 0
+            weapon_gid = struct.unpack_from("<I", plain_packet, 20)[0] if len(plain_packet) >= 24 else 0
+            is_headshot = bool(plain_packet[24]) if len(plain_packet) >= 25 else False
+            user_id = int(self.user_data.get("id", 1)) if self.user_data else 1
+            local_user_id = 1  # Local player is always slot 1 in single-player sessions
+            if killer_uid == local_user_id:
+                # Local player got a kill — update stats
+                self.match_kills += 1
+                if is_headshot:
+                    self.match_headshots += 1
+                # Lookup weapon damage for XP calculation
+                weapon_dmg = 30
+                try:
+                    import sqlite3
+                    conn = sqlite3.connect(DB_PATH)
+                    c = conn.cursor()
+                    c.execute("SELECT damage FROM weapons WHERE group_id = ?", (weapon_gid,))
+                    row = c.fetchone()
+                    if row and row[0]:
+                        weapon_dmg = int(row[0])
+                    conn.close()
+                except Exception:
+                    pass
+                result = update_user_stats_after_kill(DB_PATH, user_id, is_headshot=is_headshot, weapon_damage=weapon_dmg)
+                if self.user_data:
+                    self.user_data["exp"] = result["exp"]
+                    self.user_data["rank"] = result["rank_level"]
+                print(f"[+] Kill Event (0x230124): killer={killer_uid} victim={victim_uid} hs={is_headshot} "
+                      f"xp+{result['xp_gained']} rank={result['rank_level']}")
+                if result["rank_changed"]:
+                    # Rank-up! Send SN_UserLevelUp (animation), SN_RankingInfo + SN_Record
+                    self.send_pkt(build_user_level_up_hermit(self.session_id, self.user_data, key_byte=self.key_byte))
+                    rinfo = build_ranking_info_hermit(self.session_id, self.user_data, key_byte=self.key_byte)
+                    self.send_pkt(rinfo)
+                    rec = build_record_hermit(self.session_id, self.user_data, key_byte=self.key_byte)
+                    self.send_pkt(rec)
+                    print(f"[+] RANK UP! New rank: {result['rank_level']} -> SN_UserLevelUp (0x220411) + SN_RankingInfo + SN_Record!")
+                # Send per-kill UserScore update
+                score_data = {**self.user_data, "xp_gained": result["xp_gained"], "gold_gained": 0}
+                self.send_pkt(build_user_score_hermit(self.session_id, score_data, key_byte=self.key_byte))
+            elif victim_uid == local_user_id:
+                # Local player died
+                self.match_deaths += 1
+                update_user_stats_after_death(DB_PATH, user_id)
+                if self.user_data:
+                    self.user_data["deaths"] = self.user_data.get("deaths", 0) + 1
+                print(f"[+] Death Event (0x230124): victim={victim_uid} killer={killer_uid}")
+            else:
+                print(f"[+] Kill Event (0x230124): bot kill killer={killer_uid} victim={victim_uid}")
+
+        # 9c. NMatchup_NResult triggers (0x222214 request / end-of-match results)
+        # CQ_NMatchup_NResult_* — client requests results after round end
+        elif pkt_id == 0x222213:
+            # Round end request — send SN_UserScore for the local player
+            if self.user_data:
+                score_data = {**self.user_data, "xp_gained": self.match_kills * 50, "gold_gained": self.match_kills * 100}
+                self.send_pkt(build_user_score_hermit(self.session_id, score_data, key_byte=self.key_byte))
+            print(f"[+] Results Request (0x222213) -> Dispatched SN_UserScore (0x222214)!")
 
         # 10. CQ_EquipSlot (0x210114) -> Persistent Loadout Slot Update + SN_SlotInfo (0x210113)
         elif pkt_id == PACKET_CQ_EQUIP_SLOT:
@@ -1239,6 +1737,10 @@ def main():
     parser.add_argument("--port", type=int, default=12000, help="Server port (default: 12000)")
     parser.add_argument("--map", default="Arrival.World00p", help="Active battle map (default: Arrival.World00p)")
     args = parser.parse_args()
+
+    # Ensure users, user_inventory, and match_results tables exist in s2rebirth.db
+    ensure_users_table_and_seed(DB_PATH)
+    print(f"[+] DB schema verified (users / user_inventory / match_results): {DB_PATH}")
 
     active_map = args.map if args.map.endswith(".World00p") else f"{args.map}.World00p"
     udp_thread = threading.Thread(target=start_udp_listener, args=(args.port,), daemon=True)
